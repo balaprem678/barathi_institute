@@ -1,0 +1,142 @@
+function create_product()
+{
+   $labels = array(
+    'name'               => _x( 'Product', 'post type general name', 'stacy' ),
+    'singular_name'      => _x( 'product', 'post type singular name', 'stacy' ),
+    'menu_name'          => _x( 'Products', 'admin menu', 'stacy' ),
+    'name_admin_bar'     => _x( 'Product', 'add new on admin bar', 'stacy' ),
+    'add_new'            => _x( 'Add New', 'product', 'stacy' ),
+    'add_new_item'       => __( 'Add New Product', 'stacy' ),
+    'new_item'           => __( 'New Product', 'stacy' ),
+    'edit_item'          => __( 'Edit Product', 'stacy' ),
+    'view_item'          => __( 'View Product', 'stacy' ),
+    'all_items'          => __( 'All Product', 'stacy' ),
+    'search_items'       => __( 'Search Product', 'stacy' ),
+    'not_found'          => __( 'No Product found.', 'stacy' ),
+    'not_found_in_trash' => __( 'No Product found in Trash.', 'stacy' )
+);
+   $args = array(
+    'labels'             => $labels,
+    'description'        => __( 'Description.', 'Add New Product on stacy' ),
+    'public'             => true,
+    'publicly_queryable' => true,
+    'show_ui'            => true,
+    'show_in_menu'       => true,
+    'query_var'          => true,
+    'rewrite'            => array( 'slug' => 'product' ),
+    'has_archive'        => true,
+    'hierarchical'       => false,
+    'menu_position'      => 100,
+            'menu_icon'          =>'dashicons-cart',
+    'supports'           => array( 'title', 'editor', 'author', 'thumbnail','comments','capabilities' ),
+            'taxonomies'         => array('product_category','product_tag')
+);
+    register_post_type( 'product', $args );
+ }
+ add_action( 'init', 'create_product' );
+ 
+ 
+ Create Custom Metabox and Display meta value on edit post
+
+  function add_product_details_meta_box()
+  {
+   global $wpdb;
+   global $post;
+   $custom = get_post_custom( $post->ID );
+   <p>
+    <label>Short Description:</label><br />
+    <textarea rows="5" name="short_description" class="width99"><?= @$custom["short_description"][0] ?></textarea>
+   </p> 
+   <p>
+    <label>Price:</label><br />
+            <input type="text" name="price" value="<?= @$custom["price"][0] ?>" class="width99" />
+   </p>
+
+    <p>
+    <label>Dimensions (in):</label><br />
+            <input type="text" name="length" value="<?= @$custom["length"][0] ?>" class="s" placeholder="Length"/>
+    </p>
+    <p>
+    <label>Shipping Lead Days:</label><br />
+            <input type="text" name="ship_lead_days" value="<?= @$custom["product_ship_lead_days"][0] ?>" class="s" placeholder="Shipping Lead Days"/>
+    </p>
+    <p>
+    <label>Commision:</label><br />
+            <input type="text" name="commision_broker" value="<?= @$custom["commision_broker"][0] ?>" class="s" placeholder="Enter Your Commision Here"/>
+    </p>
+   }
+  add_action( 'admin_init', 'add_product_meta_boxes' );
+  
+  function save_product_custom_fields(){
+ global $post;
+
+ if ( $post )
+ {
+   update_post_meta($post->ID, "short_description", @$_POST["short_description"]);
+  update_post_meta($post->ID, "price", @$_POST["price"]);
+  update_post_meta($post->ID, "length", @$_POST["length"]);
+       update_post_meta($post->ID,'product_ship_lead_days',@$_POST['ship_lead_days']);
+ update_post_meta($post->ID,'commision_broker',@$_POST['commision_broker']);
+  }
+}
+add_action( 'save_post', 'save_product_custom_fields' );
+
+Custom Taxonomy Code
+
+add_action( 'init', 'product_category', 0 );
+function product_category() {
+$labels = array(
+    'name'              => _x( 'Categories', 'taxonomy general name' ),
+    'singular_name'     => _x( 'category', 'taxonomy singular name' ),
+    'search_items'      => __( 'Search Categories' ),
+    'all_items'         => __( 'All Categories' ),
+    'parent_item'       => __( 'Parent Categories' ),
+    'parent_item_colon' => __( 'Parent Categories:' ),
+    'edit_item'         => __( 'Edit Categories' ),
+    'update_item'       => __( 'Update Categories' ),
+    'add_new_item'      => __( 'Add New Category' ),
+    'new_item_name'     => __( 'New Category Name' ),
+    'menu_name'         => __( 'Categories' ),
+  );
+
+   $args = array(
+    'hierarchical'      => true,
+    'labels'            => $labels,
+    'show_ui'           => true,
+    'show_admin_column' => true,
+    'query_var'         => true,
+    'rewrite'           => array( 'slug' => 'product_category' ),
+);
+register_taxonomy( 'product_category', array( 'product' ), $args );
+
+$labels = array(
+    'name'                       => _x( 'Tag', 'taxonomy general name' ),
+    'singular_name'              => _x( 'tag', 'taxonomy singular name' ),
+    'search_items'               => __( 'Search tag' ),
+    'popular_items'              => __( 'Popular tag' ),
+    'all_items'                  => __( 'All tag' ),
+    'parent_item'                => null,
+    'parent_item_colon'          => null,
+    'edit_item'                  => __( 'Edit tag' ),
+    'update_item'                => __( 'Update tag' ),
+    'add_new_item'               => __( 'Add New tag' ),
+    'new_item_name'              => __( 'New tag Name' ),
+    'separate_items_with_commas' => __( 'Separate tag with commas' ),
+    'add_or_remove_items'        => __( 'Add or remove tags' ),
+    'choose_from_most_used'      => __( 'Choose from the most used tags' ),
+    'not_found'                  => __( 'No tag found.' ),
+    'menu_name'                  => __( 'Tags' ),
+);
+
+$args = array(
+    'hierarchical'          => FALSE,
+    'labels'                => $labels,
+    'show_ui'               => true,
+    'show_admin_column'     => true,
+    'update_count_callback' => '_update_post_term_count',
+    'query_var'             => true,
+    'rewrite'               => array( 'slug' => 'product_tag' ),
+);
+
+register_taxonomy( 'product_tag', 'product', $args );
+}

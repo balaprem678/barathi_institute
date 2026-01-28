@@ -1,0 +1,100 @@
+'use client';
+import Link from 'next/link';
+import PageBreadcrumb from '../../components/PageBreadcrumb';
+
+export default function CoursesPage() {
+    return (
+        <>
+            <style jsx>{`
+                .courses_p {
+                    padding: 10px;
+                }
+                .courses_details {
+                    border-radius: 10px;
+                    margin: 30px;
+                    text-align: center;
+                }
+                .courses_img {
+                    height: 300px;
+                    width: 80%;
+                    overflow: hidden;
+                    border-radius: 10px;
+                    margin: auto;
+                }
+                .courses_img img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+                .course_h2 {
+                    font-size: 20px;
+                    font-weight: 600;
+                    margin: 20px auto;
+                    text-align: center;
+                }
+                .btn_courses {
+                    background-color: #e72b2d;
+                    border-color: #e72b2d;
+                    color: #FFF;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    display: inline-block;
+                }
+                .btn_courses:hover {
+                    background-color: #333;
+                    border-color: #333;
+                    color: #fff;
+                }
+            `}</style>
+
+            {/* Replaced PageBreadcrumb with manual section to match PHP distinct banner if needed, or keep PageBreadcrumb if it matches. 
+                PHP uses 'images/courses/course_banner.jpg'. PageBreadcrumb uses 'bgImage' prop.
+            */}
+            <PageBreadcrumb
+                bgImage="/images/courses/course_banner.jpg"
+                breadcrumbs={[
+                    { label: 'Home', url: '/' },
+                    { label: 'Courses' }
+                ]}
+            />
+
+            <section className="courses_sec sec-padd2">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div className="course_head">
+                                <div className="section-title">
+                                    <h3>OUR Courses</h3>
+                                </div>
+                                <p className="courses_p">This course offers comprehensive training in hotel and hospitality operations, combining classroom learning with practical exposure. Students gain hands-on experience in food production, service, front office, and housekeeping, enabling them to meet the demands of the hospitality industry confidently.</p>
+                                <p className="courses_p">The program emphasizes professionalism, communication skills, and industry readiness through practical sessions, internships, and expert guidance.</p>
+                            </div>
+                        </div>
+                        <div className="col-md-6">
+                            <div className="courses_details">
+                                <div className="courses_img">
+                                    <img src="/images/courses/Degree.webp" alt="Degree Courses" />
+                                </div>
+
+                                <h2 className="course_h2">Degree Courses ( 3 Year )</h2>
+
+                                <Link href="/courses/degree" className="btn btn_courses">View Course</Link>
+                            </div>
+                        </div>
+                        <div className="col-md-6">
+                            <div className="courses_details">
+                                <div className="courses_img">
+                                    <img src="/images/courses/Diploma Courses.webp" alt="Diploma Courses" />
+                                </div>
+
+                                <h2 className="course_h2">Diploma Courses ( 1 & 2 Year )</h2>
+
+                                <Link href="/courses/diploma" className="btn btn_courses">View Course</Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </>
+    );
+}
