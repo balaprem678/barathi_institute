@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> ecb035b314b1b579089a6a21e3541deb24cb7fd9
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,300,400,600,700');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i');
 
@@ -74,15 +68,9 @@ h5 {
 }
 
 
-<<<<<<< HEAD
 .jcc{
   justify-content: center;
 }
-=======
-p {font-family: 'Open Sans', sans-serif;font-size: 15px;line-height: 28px; font-weight: 400;}
-a {text-decoration: none;display: inline-block;outline: none;}
-a:hover,a:focus,a:visited {text-decoration: none; outline: none;}
->>>>>>> ecb035b314b1b579089a6a21e3541deb24cb7fd9
 
 .aic{
   align-items: center;
@@ -362,7 +350,6 @@ textarea {
   background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 80%);
 }
 
-<<<<<<< HEAD
 .preloader {
   position: fixed;
   left: 0px;
@@ -375,11 +362,6 @@ textarea {
   background-repeat: no-repeat;
   background-image: url(../images/icons/loader.jpg);
 }
-=======
-.preloader{ position:fixed; left:0px; top:0px; width:100%; height:100%;
- z-index:999999; background-color:#ffffff; background-position:center center;
-  background-repeat:no-repeat; background-image:url(../images/loader.jpg);}
->>>>>>> ecb035b314b1b579089a6a21e3541deb24cb7fd9
 
 /*============ social icon ===================*/
 
@@ -483,7 +465,6 @@ textarea {
 
 /*============= accordion ===============*/
 
-.accordion-box {}
 
 .accordion {
   margin-bottom: 20px;
@@ -532,7 +513,6 @@ textarea {
   font-size: 15px;
 }
 
-.accordion .acc-btn.active p {}
 
 .accordion .acc-btn.pr {
   position: relative;
@@ -2204,11 +2184,7 @@ textarea {
 
 .border {
   height: 3px;
-<<<<<<< HEAD
   background-image: url("../images/icons/border.jpg");
-=======
-  background-image: url(../images/border.jpg);
->>>>>>> ecb035b314b1b579089a6a21e3541deb24cb7fd9
 }
 
 
@@ -2523,16 +2499,11 @@ textarea {
   overflow: hidden;
 }
 
-<<<<<<< HEAD
-.all-cause .single-item .inner-box .image-box {
-  position: relative;
-=======
 .all-cause .single-item .inner-box .image-box{
   position:relative;
   border: 2px solid #ccc;
   border-radius: 10px;
   margin-bottom: 5px;
->>>>>>> ecb035b314b1b579089a6a21e3541deb24cb7fd9
 }
 
 .all-cause .single-item .inner-box .image-box img {
@@ -3019,7 +2990,6 @@ textarea {
   margin-bottom: 5px;
 }
 
-.news-details p {}
 
 .news-details p span {
   font-size: 30px;
@@ -3363,14 +3333,12 @@ textarea {
   margin-top: 2px;
 }
 
-.job-list .inner-box .meta-info {}
 
 .job-list .inner-box .meta-info p {
   color: #203364;
   font-size: 15px;
 }
 
-.job-list .inner-box .meta-info ul li {}
 
 .job-list .inner-box .meta-info ul li a {
   color: #203364;
@@ -3589,7 +3557,6 @@ marquee b {
 
 .about_img {
   border-radius: 10px;
-<<<<<<< HEAD
   overflow: hidden;
 }
 
@@ -3597,7 +3564,6 @@ marquee b {
 .why-chosse-carousel {
     display: flex;
     gap: 30px;
-=======
     overflow: hidden;
 }
 
@@ -3930,20 +3896,17 @@ marquee b {
 .about-breadcrumb h1{
     font-size:30px;
     max-width:70%;
->>>>>>> ecb035b314b1b579089a6a21e3541deb24cb7fd9
 }
 
 
 
 
 
-<<<<<<< HEAD
 .fact-counter{
   background-image: url("../../public/assets/new_images/1.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
-=======
-
+}
 
 .mainmenu-area .contact-details{
     display:flex;
@@ -4192,9 +4155,6 @@ marquee b {
     margin-top:20px;
     padding-bottom:15px;
 }
-.new_about_page_contents b{
-    
-}
 .new_about_page_contents ul li{
     font-size:15px;
 }
@@ -4282,5 +4242,4 @@ marquee b {
     display:flex;
     flex-wrap:wrap;
     justify-content:center;
->>>>>>> ecb035b314b1b579089a6a21e3541deb24cb7fd9
 }

@@ -6,17 +6,20 @@ import Placements from './placements/page';
 import GalleryPage from './gallery/page';
 import ContactPage from './contact/page';
 import FacilitiesPage from './facilities/page';
+import StudentTestimonials from './student-testimonials/page';
 
 export default function App() {
     return (
         <>
-           {/* <Home/> */}
+           <Home/>
            {/* <AboutPage/> */}
            {/* <Courses/> */}
            {/* <Placements/> */}
            {/* <GalleryPage /> */}
            {/* <ContactPage /> */}
-           <FacilitiesPage />
+           {/* <FacilitiesPage /> */}
+           {/* <StudentTestimonials /> */}
+
 
 
 

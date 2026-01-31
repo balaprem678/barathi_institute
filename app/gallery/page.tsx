@@ -158,39 +158,10 @@ export default function GalleryPage() {
         <div className="container">
           <div className="banner-content">
             <h1>Photo Gallery</h1>
-            <div className="breadcrumb">
-              <nav aria-label="breadcrumb">
-                <ol className="breadcrumb">
-                  <li className="breadcrumb-item">
-                    <Link href="/">Home</Link>
-                  </li>
-                  <li className="breadcrumb-item active" aria-current="page">
-                    Gallery
-                  </li>
-                </ol>
-              </nav>
-            </div>
+           
           </div>
         </div>
       </div>
-
-      {/* Page Title Section */}
-      <section className="default-section gallery-title-section">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12 col-sm-12">
-              <div className="section-title">
-                <h2>Photo Gallery</h2>
-                <span className="decor"></span>
-                <p className="gallery-intro">
-                  Explore the vibrant life at Bharathi Institute through our photo collection showcasing
-                  campus events, celebrations, competitions, and student activities.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Gallery Content */}
       <section className="gallery-content">
