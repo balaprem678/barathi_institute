@@ -18,10 +18,8 @@ const WhyChooseUs = () => {
                                     <div className="image-box">
                                         <img alt="Bharathi Institute of Catering &amp; Hotel Management" src="/images/resource/1.jpg" />
                                         <div className="caption">100% Placement</div>
-
                                         <div className="overlay-box">
                                             <h4>100% Placement</h4>
-
                                             <div className="text">
                                                 <p>We plan the service of business<br />
                                                     right way development</p>
@@ -44,7 +42,63 @@ const WhyChooseUs = () => {
                                     </div>
                                 </div>
                             </div>
-                            {/* Add more items if needed */}
+                            <div className="single-item">
+                                <div className="inner-box">
+                                    <div className="image-box">
+                                        <img alt="Bharathi Institute of Catering &amp; Hotel Management" src="/images/resource/3.jpg" />
+                                        <div className="caption">Spoken English</div>
+                                        <div className="overlay-box">
+                                            <h4>Spoken English</h4>
+                                            <div className="text">
+                                                <p>We plan the service of business<br />
+                                                    right way development</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="single-item">
+                                <div className="inner-box">
+                                    <div className="image-box"><img alt="Bharathi Institute of Catering &amp; Hotel Management" src="/images/resource/ventilation-fan.jpg" />
+                                        <div className="caption">Ventilation Classrooms</div>
+                                        <div className="overlay-box">
+                                            <h4>Ventilation Classrooms</h4>
+                                            <div className="text">
+                                                <p>We plan the service of business<br />
+                                                    right way development</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="single-item">
+                                <div className="inner-box">
+                                    <div className="image-box"><img alt="Bharathi Institute of Catering &amp; Hotel Management" src="/images/resource/infra.jpg" />
+                                        <div className="caption">Excellent Infra</div>
+                                        <div className="overlay-box">
+                                            <h4>Excellent Infra</h4>
+                                            <div className="text">
+                                                <p>We plan the service of business<br />
+                                                    right way development</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="single-item">
+                                <div className="inner-box">
+                                    <div className="image-box"><img alt="Bharathi Institute of Catering &amp; Hotel Management" src="/images/resource/6.jpg" />
+                                        <div className="caption">Industrial Visits</div>
+                                        <div className="overlay-box">
+                                            <h4>Industrial Visits</h4>
+                                            <div className="text">
+                                                <p>We plan the service of business<br />
+                                                    right way development</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

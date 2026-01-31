@@ -10,21 +10,21 @@ const LatestEvents = () => {
                 <div className="row">
                     <div className="col-lg-4">
                         <div className="image">
-                            <img alt="Capping day celebration picture" src="/images/resource/1.jpg" />
+                            <img alt="Capping day celebration picture" src="/images/resource/event1.jpg" />
                         </div>
                         <br />
                         <h4 style={{ color: 'white', fontWeight: 600, fontSize: '23px', textAlign: 'center' }}>Capping day celebration</h4>
                     </div>
                     <div className="col-lg-4">
                         <div className="image">
-                            <img alt="Capping day celebration picture" src="/images/resource/2.jpg" />
+                            <img alt="Capping day celebration picture" src="/images/resource/event2.jpg" />
                         </div>
                         <br />
                         <h4 style={{ color: 'white', fontWeight: 600, fontSize: '23px', textAlign: 'center' }}>Capping day celebration</h4>
                     </div>
                     <div className="col-lg-4">
                         <div className="image">
-                            <img alt="Capping day celebration picture" src="/images/resource/3.jpg" />
+                            <img alt="Capping day celebration picture" src="/images/resource/event3.jpg" />
                         </div>
                         <br />
                         <h4 style={{ color: 'white', fontWeight: 600, fontSize: '23px', textAlign: 'center' }}>Capping day celebration</h4>

@@ -17,6 +17,7 @@ import TextTestimonials from '@/components/TextTestimonials';
 import FactCounter from '@/components/FactCounter';
 import CallOut from '@/components/CallOut';
 import WhyChooseUs from '@/components/WhyChooseUs';
+import PlacementsLogos from '@/components/PlacementsLogos';
 
 export default function Home() {
     return (
@@ -35,10 +36,11 @@ export default function Home() {
             <GalleryPreview />
             <EnquiryForm />
             <Locations />
-            <FactCounter />
-            <FAQ />
             <CallOut />
             <WhyChooseUs />
+            <PlacementsLogos />
+            <FactCounter />
+            <FAQ />
             <PopupModal />
         </>
     );
