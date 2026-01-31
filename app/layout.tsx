@@ -7,6 +7,8 @@ import "../public/css/new_style.scss";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import Preloader from '@/components/Preloader';
+import ScriptReinitializer from '@/components/ScriptReinitializer';
 
 const nextConfig: NextConfig = {
   sassOptions: {
@@ -183,6 +185,8 @@ export default function RootLayout({
       </head>
       <body>
         <div className="boxed_wrapper">
+          <ScriptReinitializer />
+          <Preloader />
           <Header />
           {children}
           <Footer />
