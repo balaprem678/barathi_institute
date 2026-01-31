@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import './gallery.scss';
 import { Images } from '../utilis/Images';
@@ -10,7 +10,7 @@ interface GalleryItem {
   id: number;
   title: string;
   category: string;
-  image: string;
+  image: StaticImageData; // Changed from string to StaticImageData
   alt: string;
 }
 
@@ -225,6 +225,7 @@ export default function GalleryPage() {
                           width={400}
                           height={300}
                           className="gallery-image"
+                          placeholder="blur"
                         />
                         <div className="image-overlay">
                           <div className="overlay-content">
@@ -311,6 +312,7 @@ export default function GalleryPage() {
                   width={1200}
                   height={800}
                   className="lightbox-image"
+                  placeholder="blur"
                 />
               </div>
               <div className="lightbox-caption">
@@ -341,6 +343,7 @@ export default function GalleryPage() {
                     width={80}
                     height={60}
                     className="thumbnail-image"
+                    placeholder="blur"
                   />
                 </div>
               ))}
