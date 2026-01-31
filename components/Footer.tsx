@@ -1,19 +1,21 @@
 import Link from 'next/link';
+import "./footer.scss";
+import { Images } from '@/app/utilis/Images';
 
 const Footer = () => {
     return (
         <>
-            <section className="our-address bg-style1 sec-padd3 footer_new" style={{ backgroundImage: 'url(/images/background/2.jpg)' }}>
+            <section className="our-address bg-style1 sec-padd3 footer_new">
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col-md-3 col-sm-12">
                             <div className="practice-list">
-                                <h3 style={{ color: '#FFFFFF' }}>About Us </h3><br />
-                                <p style={{ color: '#FFFFFF', textAlign: 'justify' }}> In 2005, Bharathi Educational Institution began operations in Chennai&apos;s Tambaram district; Districts of Vellore, Ranipet, Ambur, and Karaikudi in the Sivagangai district are which are industrial centres.</p>
+                                <img src={Images.logo.src} alt="logo" />
+                                <p style={{ color: '#FFFFFF' }}> In 2005, Bharathi Educational Institution began operations in Chennai&apos;s Tambaram district; Districts of Vellore, Ranipet, Ambur, and Karaikudi in the Sivagangai district are which are industrial centres.</p>
                             </div>
                         </div>
 
-                        <div className="col-md-3 col-sm-12">
+                        <div className="col-md-3 col-sm-12 d-flex justify-center">
                             <div className="practice-list">
                                 <h3 style={{ color: '#FFFFFF' }}>Quick Links </h3><br />
                                 <ul>
@@ -73,6 +75,37 @@ const Footer = () => {
                     </div>
                 </div>
             </footer>
+
+
+
+
+
+             {/* WhatsApp Button */}
+      <a
+        href="https://api.whatsapp.com/send?phone=+919444120052"
+        className="whatsapp-float"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          position: 'fixed',
+          width: '60px',
+          height: '60px',
+          bottom: '40px',
+          right: '40px',
+          backgroundColor: '#25d366',
+          color: '#FFF',
+          borderRadius: '50px',
+          textAlign: 'center',
+          fontSize: '30px',
+          boxShadow: '2px 2px 3px #999',
+          zIndex: 100,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+      >
+        <i className="fab fa-whatsapp"></i>
+      </a>
         </>
     );
 };

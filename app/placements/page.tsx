@@ -1,5 +1,6 @@
 import PageBreadcrumb from '@/components/PageBreadcrumb';
 import Link from 'next/link';
+import Partners from '@/components/partners';
 
 export default function Placements() {
     const testimonials = [
@@ -58,44 +59,8 @@ export default function Placements() {
                         <p style={{ fontSize: '16px', lineHeight: '26px' }}>At Bharathi Institutes, we take pride in our 100% placement assistance, ensuring our students secure rewarding careers in top-tier organizations. Our strong industry connections and dedicated placement cell open doors to prestigious hotels, hospitals, and corporate establishments across India.</p>
                     </div>
 
-                    <div className="logo-section">
-                        <h3 style={{ color: 'black', fontWeight: 600, textAlign: 'center', textDecoration: 'underline', marginBottom: '30px' }}>Hotel Industry</h3>
-                        <div className="row">
-                            {['logo1.svg', 'logo2.png', 'logo3.png', 'logo4.png', 'logo5.png'].map((logo, i) => (
-                                <div className="col-lg-2 col-md-4 col-sm-4 col-xs-6" key={i} style={{ marginBottom: '20px' }}>
-                                    <div className="image" style={{ textAlign: 'center' }}>
-                                        <img alt="recruiter logo" src={`/images/resource/${logo}`} style={{ maxWidth: '100%', height: 'auto' }} />
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+                  <Partners />
 
-                    <div className="logo-section" style={{ marginTop: '30px' }}>
-                        <h3 style={{ color: 'black', fontWeight: 600, textAlign: 'center', textDecoration: 'underline', marginBottom: '30px' }}>Healthcare Industry</h3>
-                        <div className="row">
-                            {['logo6.png', 'logo7.png', 'logo8.jpg', 'logo9.png', 'logo10.png'].map((logo, i) => (
-                                <div className="col-lg-2 col-md-4 col-sm-4 col-xs-6" key={i} style={{ marginBottom: '20px' }}>
-                                    <div className="image" style={{ textAlign: 'center' }}>
-                                        <img alt="recruiter logo" src={`/images/resource/${logo}`} style={{ maxWidth: '100%', height: 'auto' }} />
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    <div className="logo-section" style={{ marginTop: '30px' }}>
-                        <h3 style={{ color: 'black', fontWeight: 600, textAlign: 'center', textDecoration: 'underline', marginBottom: '30px' }}>Corporate & Other Sectors</h3>
-                        <div className="row">
-                            {['logo12.png', 'logo13.png', 'logo11.png', 'logo14.png', 'logo15.png'].map((logo, i) => (
-                                <div className="col-lg-2 col-md-4 col-sm-4 col-xs-6" key={i} style={{ marginBottom: '20px' }}>
-                                    <div className="image" style={{ textAlign: 'center' }}>
-                                        <img alt="recruiter logo" src={`/images/resource/${logo}`} style={{ maxWidth: '100%', height: 'auto' }} />
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
                 </div>
             </section>
 

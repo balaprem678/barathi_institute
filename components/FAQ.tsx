@@ -1,3 +1,4 @@
+import { Images } from "@/app/utilis/Images";
 
 const FAQ = () => {
     return (
@@ -5,7 +6,7 @@ const FAQ = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-lg-5 col-sm-12">
-                        <img alt="" src="/images/resource/faq-image.png" />
+                        <img alt="" src={Images.faq_image.src} />
                     </div>
                     <div className="col-lg-7 col-sm-12">
                         <div className="faq-box">

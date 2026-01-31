@@ -1,10 +1,18 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import type { NextConfig } from 'next'
 import "./globals.css";
+import "../public/css/new_style.scss";
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+
+const nextConfig: NextConfig = {
+  sassOptions: {
+    additionalData: `$var: red;`,
+  },
+}
 
 export const metadata: Metadata = {
   title: "Bharathi Institutes Of Hotel Management & Paramedical",
@@ -46,7 +54,7 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/images/logo/logo12.png" type="image/png" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/v4-shims.min.css" rel="stylesheet" />
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossOrigin="anonymous"></link>
         <link href="/css/style.css" rel="stylesheet" />
         <link href="/css/responsive.css" rel="stylesheet" />
         <link href="/css/owl.carousel.css" rel="stylesheet" />
@@ -57,7 +65,7 @@ export default function RootLayout({
         <link href="/images/fav-icon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
         <link href="/images/fav-icon/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
         <link href="/images/fav-icon/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
-
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossOrigin="anonymous"></script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -187,23 +195,23 @@ export default function RootLayout({
 
         {/* Scripts - Loaded lazily to avoid blocking */}
         <Script src="/js/jquery.js" strategy="beforeInteractive" />
-        <Script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" strategy="afterInteractive" />
+        {/* <Script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" strategy="afterInteractive" /> */}
         <Script src="/js/menu.js" strategy="afterInteractive" />
         <Script src="/js/owl.carousel.min.js" strategy="afterInteractive" />
-        <Script src="/js/jquery.mixitup.min.js" strategy="afterInteractive" />
-        <Script src="/js/jquery.fancybox.pack.js" strategy="afterInteractive" />
-        <Script src="/js/imagezoom.js" strategy="afterInteractive" />
-        <Script src="/js/jquery.polyglot.language.switcher.js" strategy="afterInteractive" />
-        <Script src="/js/SmoothScroll.js" strategy="afterInteractive" />
-        <Script src="/js/jquery.appear.js" strategy="afterInteractive" />
+        {/* <Script src="/js/jquery.mixitup.min.js" strategy="afterInteractive" /> */}
+        {/* <Script src="/js/jquery.fancybox.pack.js" strategy="afterInteractive" /> */}
+        {/* <Script src="/js/imagezoom.js" strategy="afterInteractive" /> */}
+        {/* <Script src="/js/jquery.polyglot.language.switcher.js" strategy="afterInteractive" /> */}
+        {/* <Script src="/js/SmoothScroll.js" strategy="afterInteractive" /> */}
+        {/* <Script src="/js/jquery.appear.js" strategy="afterInteractive" />
         <Script src="/js/jquery.countTo.js" strategy="afterInteractive" />
         <Script src="/js/validation.js" strategy="afterInteractive" />
         <Script src="/js/wow.js" strategy="afterInteractive" />
         <Script src="/js/jquery.fitvids.js" strategy="afterInteractive" />
-        <Script src="/js/nouislider.js" strategy="afterInteractive" />
+        <Script src="/js/nouislider.js" strategy="afterInteractive" /> */}
 
         {/* Revolution Slider */}
-        <Script src="/js/rev-slider/jquery.themepunch.tools.min.js" strategy="afterInteractive" />
+        {/* <Script src="/js/rev-slider/jquery.themepunch.tools.min.js" strategy="afterInteractive" />
         <Script src="/js/rev-slider/jquery.themepunch.revolution.min.js" strategy="afterInteractive" />
         <Script src="/js/rev-slider/revolution.extension.actions.min.js" strategy="afterInteractive" />
         <Script src="/js/rev-slider/revolution.extension.carousel.min.js" strategy="afterInteractive" />
@@ -214,7 +222,7 @@ export default function RootLayout({
         <Script src="/js/rev-slider/revolution.extension.parallax.min.js" strategy="afterInteractive" />
         <Script src="/js/rev-slider/revolution.extension.slideanims.min.js" strategy="afterInteractive" />
         <Script src="/js/rev-slider/revolution.extension.video.min.js" strategy="afterInteractive" />
-        <Script src="/js/custom.js" strategy="afterInteractive" />
+        <Script src="/js/custom.js" strategy="afterInteractive" /> */}
 
         <Script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" strategy="afterInteractive" />
         <Script id="google-translate-init" strategy="afterInteractive">

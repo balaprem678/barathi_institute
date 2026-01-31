@@ -1,0 +1,40 @@
+.footer_new {
+    background-image: url("../public/assets/new_images/footer_bg.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding: 40px 0;
+}
+.practice-list h3 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.practice-list {
+    li {
+        a {
+            position: relative;
+            color: #fff;
+            font-size: 14px;
+            padding-bottom: 18px;
+            padding-left: 15px;
+
+            &:before {
+                content: "\f0dd";
+                position: absolute;
+                font-size: 16px;
+                font-family: FontAwesome;
+                left: -5px;
+                top: -1px;
+                color: #d4f905;
+                transform: rotate(-90deg);
+                transition: 0.5s ease-in-out;
+            }
+        }
+
+        &:last-child {
+            a {
+                padding-bottom: 0;
+            }
+        }
+    }
+}
