@@ -11,7 +11,7 @@ const CourseOverview = () => {
                     <div className="col-lg-6">
                         <div className="item">
                             <div className="image">
-                                <img alt="hotel management course" src="/images/resource/1.jpg" />
+                                <img alt="hotel management course" src="/images/resource/hotem-managerment-ser.jpg" />
                             </div>
                             <div className="content">
                                 <h4 style={{ color: 'black', fontWeight: 600, fontSize: '23px' }}>Hotel Management Courses <br />(Diploma, Certification)</h4>
@@ -22,7 +22,7 @@ const CourseOverview = () => {
                     <div className="col-lg-6">
                         <div className="item">
                             <div className="image">
-                                <img alt="Paramedical course" src="/images/resource/2.jpg" />
+                                <img alt="Paramedical course" src="/images/resource/para-ser.webp" />
                             </div>
                             <div className="content">
                                 <h4 style={{ color: 'black', fontWeight: 600, fontSize: '23px' }}>Paramedical Courses <br />(Diploma, Certification)</h4>
