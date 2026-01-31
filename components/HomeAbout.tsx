@@ -15,37 +15,37 @@ const HomeAbout = () => {
                             <div className="row">
                                 <div className="col-lg-4">
                                     <div className="box">
-                                        <img alt="lab" src="/images/resource/home-about-1.png" />
+                                        <img alt="lab" src="/images/home-about-1.png" />
                                         <h4 style={{ color: 'black' }}>State-of-the-Art Labs & Modern Facilities</h4>
                                     </div>
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="box">
-                                        <img alt="experienced faculty" src="/images/resource/home-about-2.png" />
+                                        <img alt="experienced faculty" src="/images/home-about-2.png" />
                                         <h4 style={{ color: 'black' }}>Experienced Faculty with Real-World Expertise</h4>
                                     </div>
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="box">
-                                        <img alt="certificate" src="/images/resource/home-about-3.png" />
+                                        <img alt="certificate" src="/images/home-about-3.png" />
                                         <h4 style={{ color: 'black' }}>Government-Approved Courses & Certifications</h4>
                                     </div>
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="box">
-                                        <img alt="Career Guidance" src="/images/resource/home-about-4.png" />
+                                        <img alt="Career Guidance" src="/images/home-about-4.png" />
                                         <h4 style={{ color: 'black' }}>Personalized Training & Career Guidance</h4>
                                     </div>
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="box">
-                                        <img alt="Practical training" src="/images/resource/home-about-5.png" />
+                                        <img alt="Practical training" src="/images/home-about-5.png" />
                                         <h4 style={{ color: 'black' }}>Hands-on Practical Training with Industry Experts</h4>
                                     </div>
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="box">
-                                        <img alt="network" src="/images/resource/home-about-6.png" />
+                                        <img alt="network" src="/images/home-about-6.png" />
                                         <h4 style={{ color: 'black' }}>Strong Alumni Network for Career Support</h4>
                                     </div>
                                 </div>

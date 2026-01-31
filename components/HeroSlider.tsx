@@ -79,18 +79,31 @@ const HeroSlider = () => {
                     <div className="tp-dottedoverlay yes"></div>
 
                     {/* Content Overlay */}
-                    <div className="container" style={{ position: 'relative', height: '100%' }}>
+                    <div
+                        className="container"
+                        style={{
+                            position: 'absolute',
+                            top: '50%',
+                            left: '50%',
+                            transform: 'translate(-50%, -50%)',
+                            width: '100%',
+                            height: '100%',
+                            zIndex: 100,
+                            pointerEvents: 'none' // Let clicks pass through to arrows if needed, but text needs pointer-events auto
+                        }}
+                    >
                         <div
                             style={{
                                 position: 'absolute',
-                                top: '25%',
-                                left: '55px',
+                                top: '50%',
+                                left: '15px',
                                 right: '15px',
+                                transform: 'translateY(-50%)',
                                 maxWidth: '1170px',
-                                margin: '0 0',
-                                animation: currentSlide === index ? 'fadeInUp 1s ease-out 0.5s forwards' : 'none',
-                                opacity: 0, // Controlled by animation
-                                transform: 'translateY(20px)', // Initial state
+                                padding: '0 15px',
+                                textAlign: 'left',
+                                pointerEvents: 'auto',
+                                backgroundColor: 'rgba(255, 255, 255, 0)',
                             }}
                         >
                             <h1 style={{
@@ -101,7 +114,11 @@ const HeroSlider = () => {
                                 marginBottom: '20px',
                                 whiteSpace: 'pre-line',
                                 fontFamily: "'Montserrat', sans-serif",
-                                textTransform: 'capitalize'
+                                textTransform: 'capitalize',
+                                opacity: currentSlide === index ? 1 : 0,
+                                transform: currentSlide === index ? 'translateX(0)' : 'translateX(50px)', // Moves from right to left
+                                transition: 'all 0.8s ease-out 0.3s',
+                                letterSpacing: '-0.5px'
                             }}>
                                 {slide.title}
                             </h1>
@@ -110,12 +127,30 @@ const HeroSlider = () => {
                                 fontSize: '18px',
                                 marginBottom: '30px',
                                 fontWeight: 400,
-                                fontFamily: "'Open Sans', sans-serif"
+                                fontFamily: "'Open Sans', sans-serif",
+                                opacity: currentSlide === index ? 1 : 0,
+                                transform: currentSlide === index ? 'translateX(0)' : 'translateX(50px)',
+                                transition: 'all 0.8s ease-out 0.6s'
                             }}>
                                 {slide.subtitle}
                             </p>
-                            <div className="banner-btns">
-                                <Link href={slide.btnLink} className="thm-btn" style={{ padding: '15px 30px' }}>
+                            <div className="banner-btns" style={{
+                                opacity: currentSlide === index ? 1 : 0,
+                                transform: currentSlide === index ? 'translateX(0)' : 'translateX(50px)',
+                                transition: 'all 0.8s ease-out 0.9s'
+                            }}>
+                                <Link href={slide.btnLink} className="thm-btn" style={{
+                                    padding: '15px 30px',
+                                    backgroundColor: '#0495f5', // Blue
+                                    color: '#fff',
+                                    borderRadius: '5px',
+                                    textTransform: 'uppercase',
+                                    fontWeight: '700',
+                                    letterSpacing: '1px'
+                                }}>
+                                    {/* Note: If the CSS class 'thm-btn' has !important, these inline styles might need !important too,
+                                        but React inline styles usually handle it. If issues persist, we might need a style tag.
+                                    */}
                                     {slide.btnText}
                                 </Link>
                             </div>
@@ -171,12 +206,6 @@ const HeroSlider = () => {
             </div>
 
             <style jsx>{`
-                @keyframes fadeInUp {
-                    to {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
-                }
                 @media (max-width: 768px) {
                     h1 {
                         font-size: 28px !important;

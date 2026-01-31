@@ -55,6 +55,7 @@ const Header = () => {
                         </div>
                     </div>
                 </div>
+
                 <div className="container-fluid common_no_pad">
                     <div className="col-md-12 menu-column">
                         <nav className="main-menu">
