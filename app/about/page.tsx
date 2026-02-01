@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import PageBreadcrumb from '../../components/PageBreadcrumb';
 import Image from 'next/image';
+import { Images } from '../utilis/Images';
 
 const AccordionItem = ({ title, isOpen, onClick, children }: { title: string, isOpen: boolean, onClick: () => void, children: React.ReactNode }) => {
     return (
@@ -36,7 +37,7 @@ export default function About() {
     return (
         <>
             <PageBreadcrumb
-                bgImage="/images/aboutusbanner.jpg" // Check if this image exists, otherwise adjust
+                bgImage={Images.aboutusbanner.src} // Updated to use imported image
                 breadcrumbs={[
                     { label: 'Home', url: '/' },
                     { label: 'About Us' }
@@ -54,7 +55,7 @@ export default function About() {
                             <div className="single-item">
                                 <div className="inner-box">
                                     <div className="image-box">
-                                        <img alt="diploma of hotel management & Paramedicals" src="/images/aboutus.jpg" className="img-responsive" />
+                                        <img alt="diploma of hotel management & Paramedicals" src={Images.aboutImage.src} className="img-responsive" />
                                     </div>
                                 </div>
                             </div>
@@ -97,7 +98,7 @@ export default function About() {
                         <div className="col-md-6">
                             <div className="why_con">
                                 <div className="our_vis" style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '15px' }}>
-                                    <img alt="our vision" src="/images/fav-icon/vision.png" />
+                                    <img alt="our vision" src={Images.visionIcon.src} />
                                 </div>
                                 <h4 style={{ display: 'inline-block', verticalAlign: 'middle' }}><strong>Our Vision</strong></h4>
                                 <p>To be the leading institution in Tamil Nadu for hotel management and paramedical education, empowering students with world-class skills, industry exposure, and career opportunities to shape a successful future.</p>
@@ -106,7 +107,7 @@ export default function About() {
                         <div className="col-md-6">
                             <div className="why_con">
                                 <div className="our_vis" style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '15px' }}>
-                                    <img alt="our mission" src="/images/fav-icon/value.png" />
+                                    <img alt="our mission" src={Images.valueIcon.src} />
                                 </div>
                                 <h4 style={{ display: 'inline-block', verticalAlign: 'middle' }}><strong>Mission</strong></h4>
                                 <ul style={{ listStyle: 'disc', paddingLeft: '20px' }}>
@@ -139,22 +140,22 @@ export default function About() {
                     <div className="row">
                         <div className="unique-selling-content">
                             <div className="col-md-3 col-sm-6 item">
-                                <img alt="Career Oriented Training" src="/images/resource/about-future-1.jpg" className="img-responsive" />
+                                <img alt="Career Oriented Training" src={Images.aboutFuture1.src} className="img-responsive" />
                                 <h4 style={{ color: 'black', marginBottom: '-5px', marginTop: '10px' }}>Career-Oriented Training</h4>
                                 <p>Our courses are designed to align with industry standards, making students job-ready from day one.</p>
                             </div>
                             <div className="col-md-3 col-sm-6 item">
-                                <img alt="Exclusive Internship programs" src="/images/resource/about-future-2.webp" className="img-responsive" />
+                                <img alt="Exclusive Internship programs" src={Images.aboutFuture2.src} className="img-responsive" />
                                 <h4 style={{ color: 'black', marginBottom: '-5px', marginTop: '10px' }}>Exclusive Internship Programs</h4>
                                 <p>Gain hands-on experience in reputed organizations before stepping into full-time roles.</p>
                             </div>
                             <div className="col-md-3 col-sm-6 item">
-                                <img alt="Global Placement Assistance" src="/images/resource/about-future-3.jpg" className="img-responsive" />
+                                <img alt="Global Placement Assistance" src={Images.aboutFuture3.src} className="img-responsive" />
                                 <h4 style={{ color: 'black', marginBottom: '-5px', marginTop: '10px' }}>Global Placement Assistance</h4>
                                 <p>Opportunities extend beyond India, with career openings in the Middle East, Europe, and Asia.</p>
                             </div>
                             <div className="col-md-3 col-sm-6 item">
-                                <img alt="Industry tailored workshops" src="/images/resource/about-future-4.jpg" className="img-responsive" />
+                                <img alt="Industry tailored workshops" src={Images.aboutFuture4.src} className="img-responsive" />
                                 <h4 style={{ color: 'black', marginBottom: '-5px', marginTop: '10px' }}>Industry-Tailored Workshops</h4>
                                 <p>Regular interactions with industry experts, masterclasses, and skill-building sessions.</p>
                             </div>
@@ -242,7 +243,7 @@ export default function About() {
                     <div className="row">
                         <div className="col-lg-6 col-md-6">
                             <div className="image">
-                                <img alt="bharathi institute students pictutre" src="/images/resource/about-why-us-img.jpg" className="img-responsive" />
+                                <img alt="bharathi institute students pictutre" src={Images.aboutWhyUsImg.src} className="img-responsive" />
                             </div>
                         </div>
                         <div className="col-lg-6 col-md-6">

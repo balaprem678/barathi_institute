@@ -58,6 +58,7 @@ import aboutFuture4 from '../../public/assets/new_images/aboutus/about-future-4.
 import aboutWhyUsImg from '../../public/assets/new_images/aboutus/about-why-us-img.jpg'
 import visionIcon from '../../public/assets/new_images/aboutus/vision.png'
 import valueIcon from '../../public/assets/new_images/aboutus/value.png'
+import aboutusbanner from '../../public/assets/new_images/aboutus/aboutusbanner.jpg'
 
 // Courses Page Images Import Here
 import degree from '../../public/assets/new_images/courses/Degree.webp'
@@ -195,6 +196,7 @@ export const Images = {
     aboutWhyUsImg,
     visionIcon,
     valueIcon,
+    aboutusbanner,
 
     // Courses Page Images Import Here
     degree,

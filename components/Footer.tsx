@@ -80,32 +80,8 @@ const Footer = () => {
 
 
 
-             {/* WhatsApp Button */}
-      <a
-        href="https://api.whatsapp.com/send?phone=+919444120052"
-        className="whatsapp-float"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{
-          position: 'fixed',
-          width: '60px',
-          height: '60px',
-          bottom: '40px',
-          right: '40px',
-          backgroundColor: '#25d366',
-          color: '#FFF',
-          borderRadius: '50px',
-          textAlign: 'center',
-          fontSize: '30px',
-          boxShadow: '2px 2px 3px #999',
-          zIndex: 100,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-      >
-        <i className="fab fa-whatsapp"></i>
-      </a>
+            {/* WhatsApp Button */}
+
         </>
     );
 };

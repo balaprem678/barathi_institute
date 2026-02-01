@@ -1,3 +1,4 @@
+'use client';
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { Images } from '@/app/utilis/Images';
@@ -76,8 +77,8 @@ export default function HomeBanner() {
   const handleMouseLeave = () => setIsAutoPlaying(true);
 
   return (
-    <div 
-      className="home-slider-container" 
+    <div
+      className="home-slider-container"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -86,9 +87,8 @@ export default function HomeBanner() {
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`slide ${index === currentSlide ? 'active' : ''} ${
-              index < currentSlide ? 'prev' : index > currentSlide ? 'next' : ''
-            }`}
+            className={`slide ${index === currentSlide ? 'active' : ''} ${index < currentSlide ? 'prev' : index > currentSlide ? 'next' : ''
+              }`}
           >
             {/* Background Image using Next.js Image component - Option 1 */}
             <div className="slide-background">
@@ -101,8 +101,8 @@ export default function HomeBanner() {
                 style={{ objectFit: 'cover' }}
               />
             </div>
-            
-            
+
+
             <div className="slide-overlay" />
             <div className="slide-content">
               <h1 className="slide-title">
@@ -112,7 +112,7 @@ export default function HomeBanner() {
               <p className="slide-description">
                 {slide.description}
               </p>
-              <Link 
+              <Link
                 href={slide.buttonLink}
                 className="slide-button"
               >
@@ -131,7 +131,7 @@ export default function HomeBanner() {
       >
         ‹
       </button>
-      
+
       <button
         className="slider-arrow next-arrow"
         onClick={nextSlide}
@@ -154,7 +154,7 @@ export default function HomeBanner() {
 
       {/* Progress Bar */}
       <div className="progress-bar-container">
-        <div 
+        <div
           className="progress-bar-fill"
           style={{
             width: `${((currentSlide + 1) / slides.length) * 100}%`,
