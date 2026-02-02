@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
@@ -10,10 +10,9 @@ interface Student {
     phone: string;
     course: string;
     createdAt: string;
-    markSheetPath?: string;
 }
 
-export default function AdminDashboard() {
+export default function Dashboard() {
     const router = useRouter();
     const [students, setStudents] = useState<Student[]>([]);
     const [loading, setLoading] = useState(true);
@@ -28,20 +27,21 @@ export default function AdminDashboard() {
         const fetchStudents = async () => {
             try {
                 const res = await fetch('/api/students', {
-                    headers: { 'Authorization': `Bearer ${token}` }
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
                 });
                 if (res.ok) {
                     const data = await res.json();
                     setStudents(data);
                 } else {
-                    // If unauthorized, redirect
                     if (res.status === 401 || res.status === 403) {
                         localStorage.removeItem('token');
                         router.push('/admin/login');
                     }
                 }
             } catch (error) {
-                console.error(error);
+                console.error('Failed to fetch students', error);
             } finally {
                 setLoading(false);
             }
@@ -58,56 +58,54 @@ export default function AdminDashboard() {
     if (loading) return <div className="text-center mt-5">Loading...</div>;
 
     return (
-        <div className="container mt-5 mb-5">
+        <div className="container" style={{ marginTop: '50px', marginBottom: '100px', minHeight: '600px' }}>
             <div className="row">
                 <div className="col-md-12">
-                    <div className="d-flex justify-content-between align-items-center mb-4">
-                        <h2>Admin Dashboard</h2>
-                        <button onClick={handleLogout} className="btn btn-danger">Logout</button>
+                    <div className="section-title text-center">
+                        <h3 style={{ marginBottom: '20px' }}>Admin Dashboard</h3>
+                        <div className="text-right mb-3" style={{ marginBottom: '20px' }}>
+                            <button onClick={handleLogout} className="btn btn-danger">Logout</button>
+                        </div>
                     </div>
 
-                    <div className="table-responsive">
-                        <table className="table table-bordered table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Phone</th>
-                                    <th>Course</th>
-                                    <th>Date</th>
-                                    <th>Mark Sheet</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {students.map(student => (
-                                    <tr key={student._id}>
-                                        <td>{student.name}</td>
-                                        <td>{student.email}</td>
-                                        <td>{student.phone}</td>
-                                        <td>{student.course}</td>
-                                        <td>{new Date(student.createdAt).toLocaleDateString()}</td>
-                                        <td>
-                                            {student.markSheetPath ? (
-                                                <a href={student.markSheetPath} target="_blank" rel="noopener noreferrer">View Mark Sheet</a>
-                                            ) : (
-                                                <span className="text-muted">Not Uploaded</span>
-                                            )}
-                                        </td>
-                                        <td>
-                                            <Link href={`/admin/upload/${student._id}`} className="btn btn-sm btn-primary">
-                                                Upload Mark Sheet
-                                            </Link>
-                                        </td>
-                                    </tr>
-                                ))}
-                                {students.length === 0 && (
-                                    <tr>
-                                        <td colSpan={7} className="text-center">No registrations found.</td>
-                                    </tr>
-                                )}
-                            </tbody>
-                        </table>
+                    <div className="panel panel-default">
+                        <div className="panel-heading">
+                            <h4>Admission Enquiries</h4>
+                        </div>
+                        <div className="panel-body">
+                            <div className="table-responsive">
+                                <table className="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Course</th>
+                                            <th>Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {students.length > 0 ? (
+                                            students.map((student, index) => (
+                                                <tr key={student._id}>
+                                                    <td>{index + 1}</td>
+                                                    <td>{student.name}</td>
+                                                    <td>{student.email}</td>
+                                                    <td>{student.phone}</td>
+                                                    <td>{student.course}</td>
+                                                    <td>{new Date(student.createdAt).toLocaleDateString()}</td>
+                                                </tr>
+                                            ))
+                                        ) : (
+                                            <tr>
+                                                <td colSpan={6} className="text-center">No students found</td>
+                                            </tr>
+                                        )}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

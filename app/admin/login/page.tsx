@@ -43,14 +43,23 @@ export default function AdminLogin() {
                     <form className="contact-form" onSubmit={handleSubmit}>
                         <div className="form-group">
                             <label>Username</label>
-                            <input type="text" name="username" className="form-control" onChange={handleChange} required />
+                            <input type="text" name="username" className="form-control login-input" onChange={handleChange} required />
                         </div>
                         <div className="form-group">
                             <label>Password</label>
-                            <input type="password" name="password" className="form-control" onChange={handleChange} required />
+                            <input type="password" name="password" className="form-control login-input" onChange={handleChange} required />
                         </div>
                         <button type="submit" className="thm-btn btn-block">Login</button>
                     </form>
+                    <style jsx global>{`
+                        .login-input {
+                            color: #333 !important;
+                            background: #fff !important;
+                        }
+                        .login-input::placeholder {
+                            color: #999 !important;
+                        }
+                    `}</style>
                 </div>
             </div>
         </div>
