@@ -11,17 +11,13 @@ import StudentTestimonials from './student-testimonials/page';
 export default function App() {
     return (
         <>
-           <Home/>
+           {/* <Home/> */}
            {/* <AboutPage/> */}
-           {/* <Courses/> */}
            {/* <Placements/> */}
            {/* <GalleryPage /> */}
            {/* <ContactPage /> */}
-           {/* <FacilitiesPage /> */}
+           <FacilitiesPage />
            {/* <StudentTestimonials /> */}
-
-
-
 
         </>
     );

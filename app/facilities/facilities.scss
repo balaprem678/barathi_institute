@@ -1,0 +1,509 @@
+// Variables
+$primary-color: #1a365d;
+$secondary-color: #2d3748;
+$accent-color: #3182ce;
+$highlight-color: #ed8936;
+$light-color: #f7fafc;
+$dark-color: #2d3748;
+$border-radius: 12px;
+$transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+$shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+
+// Reset and Base
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+// Hero Section
+.facilities-hero {
+  background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 10%) 100%);
+  color: white;
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+
+    .highlight {
+      color: $highlight-color;
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 5px;
+        left: 0;
+        width: 100%;
+        height: 8px;
+        background: rgba($highlight-color, 0.2);
+        z-index: -1;
+        border-radius: 4px;
+      }
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+  }
+
+  &__stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &__number {
+        font-size: 3rem;
+        font-weight: 800;
+        color: $highlight-color;
+        line-height: 1;
+        margin-bottom: 0.5rem;
+      }
+
+      &__label {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+// Facilities Intro
+.facilities-intro {
+  text-align: center;
+  padding: 4rem 0;
+  max-width: 800px;
+  margin: 0 auto;
+
+  &__title {
+    font-size: 2.5rem;
+    color: $primary-color;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+  }
+
+  &__description {
+    font-size: 1.125rem;
+    color: $secondary-color;
+    line-height: 1.7;
+    opacity: 0.9;
+  }
+}
+
+// Zigzag Container
+.zigzag-container {
+  padding: 2rem 0;
+}
+
+// Zigzag Card
+.zigzag-card {
+  margin-bottom: 6rem;
+  position: relative;
+
+  &:last-child {
+    margin-bottom: 4rem;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, $accent-color, transparent);
+    top: -50px;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+  }
+
+  &__image-wrapper {
+    position: relative;
+  }
+
+  &__image-container {
+    position: relative;
+    height: 400px;
+    border-radius: $border-radius;
+    overflow: hidden;
+    box-shadow: $shadow;
+  }
+
+  &__image {
+    object-fit: cover;
+    transition: $transition;
+  }
+
+  &__number {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 60px;
+    height: 60px;
+    background: $highlight-color;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    z-index: 2;
+    box-shadow: 0 4px 20px rgba($highlight-color, 0.3);
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba($primary-color, 0.9) 0%, transparent 100%);
+    opacity: 0;
+    transition: $transition;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .zigzag-card__icon {
+      color: white;
+      transform: scale(0.8);
+      transition: $transition;
+    }
+  }
+
+  &__content {
+    padding: 2rem;
+  }
+
+  &__content-inner {
+    max-width: 500px;
+  }
+
+  &__category {
+    display: inline-block;
+    background: rgba($accent-color, 0.1);
+    color: $accent-color;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+  }
+
+  &__title {
+    font-size: 2rem;
+    color: $primary-color;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+  }
+
+  &__description {
+    color: $secondary-color;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    font-size: 1.0625rem;
+  }
+
+  &__features {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: $accent-color;
+      font-weight: 500;
+      font-size: 0.9375rem;
+
+      svg {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  // Hover Effects
+  &:hover {
+    .zigzag-card__overlay {
+      opacity: 1;
+
+      .zigzag-card__icon {
+        transform: scale(1);
+      }
+    }
+
+    .zigzag-card__image {
+      transform: scale(1.05);
+    }
+
+    .zigzag-card__title {
+      color: $accent-color;
+    }
+  }
+
+  // Alternate sides for zigzag effect
+  &--left {
+    .zigzag-card__container {
+      direction: ltr;
+    }
+  }
+
+  &--right {
+    .zigzag-card__container {
+      direction: rtl;
+      
+      .zigzag-card__content-inner {
+        direction: ltr;
+        margin-left: auto;
+      }
+    }
+  }
+}
+
+// CTA Section
+.facilities-cta {
+  background: linear-gradient(135deg, $light-color 0%, darken($light-color, 5%) 100%);
+  border-radius: $border-radius;
+  padding: 4rem;
+  margin: 6rem 0;
+  text-align: center;
+  box-shadow: $shadow;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, $highlight-color, $accent-color);
+  }
+
+  &__content {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__title {
+    font-size: 2rem;
+    color: $primary-color;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  &__description {
+    color: $secondary-color;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-size: 1.125rem;
+  }
+}
+
+// Button Styles
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
+  background: $highlight-color;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: $transition;
+  box-shadow: 0 4px 15px rgba($highlight-color, 0.3);
+
+  svg {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    background: darken($highlight-color, 10%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba($highlight-color, 0.4);
+
+    svg {
+      transform: translateX(4px);
+    }
+  }
+
+  &--primary {
+    background: $highlight-color;
+  }
+}
+
+// Responsive Design
+@media (max-width: 992px) {
+  .facilities-hero {
+    padding: 3rem 0;
+
+    &__title {
+      font-size: 2.5rem;
+    }
+
+    &__stats {
+      gap: 2rem;
+
+      .stat__number {
+        font-size: 2.5rem;
+      }
+    }
+  }
+
+  .facilities-intro {
+    padding: 2rem 0;
+
+    &__title {
+      font-size: 2rem;
+    }
+  }
+
+  .zigzag-card {
+    margin-bottom: 4rem;
+
+    &__container {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    &__image-container {
+      height: 300px;
+    }
+
+    &--left,
+    &--right {
+      .zigzag-card__container {
+        direction: ltr;
+      }
+
+      .zigzag-card__content-inner {
+        margin: 0;
+      }
+    }
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .facilities-cta {
+    padding: 3rem 1.5rem;
+    margin: 4rem 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .facilities-hero {
+    &__title {
+      font-size: 2rem;
+    }
+
+    &__subtitle {
+      font-size: 1rem;
+    }
+
+    &__stats {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  }
+
+  .zigzag-card {
+    &__title {
+      font-size: 1.5rem;
+    }
+
+    &__image-container {
+      height: 250px;
+    }
+
+    &__number {
+      width: 50px;
+      height: 50px;
+      font-size: 1.25rem;
+    }
+  }
+
+  .facilities-cta {
+    &__title {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+// Animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.zigzag-card {
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+
+  @for $i from 1 through 14 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i * 0.1}s;
+    }
+  }
+}   
