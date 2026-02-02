@@ -16,9 +16,8 @@ export default function App() {
            {/* <Placements/> */}
            {/* <GalleryPage /> */}
            {/* <ContactPage /> */}
-           <FacilitiesPage />
-           {/* <StudentTestimonials /> */}
-
+           {/* <FacilitiesPage /> */}
+           <StudentTestimonials />
         </>
     );
 }
