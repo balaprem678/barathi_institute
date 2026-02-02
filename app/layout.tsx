@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import type { NextConfig } from 'next'
-import "./globals.css";
+import "./globals.scss";
+import "./styles/style.scss";
+import "./styles/responsive.scss";
 import "../public/css/new_style.scss";
 
 import Header from '@/components/Header';
@@ -57,8 +59,9 @@ export default function RootLayout({
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/v4-shims.min.css" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossOrigin="anonymous"></link>
-        <link href="/css/style.css" rel="stylesheet" />
-        <link href="/css/responsive.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossOrigin="anonymous"></link>
+        {/* <link href="/css/style.css" rel="stylesheet" /> */}
+        {/* <link href="/css/responsive.css" rel="stylesheet" /> */}
         <link href="/css/owl.carousel.css" rel="stylesheet" />
         <link href="/css/settings.css" rel="stylesheet" />
         <link href="/css/layers.css" rel="stylesheet" />
@@ -192,6 +195,7 @@ export default function RootLayout({
           <Footer />
         </div>
         <WhatsAppButton />
+
 
         {/* External Libs */}
         <Script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js" strategy="afterInteractive" />
