@@ -148,7 +148,7 @@ textarea {
 }
 
 .sec-padd3 {
-  padding: 70px 0 70px;
+  padding: 3cqi;
 }
 
 .sec-padd4 {
@@ -3999,12 +3999,7 @@ marquee b {
     margin-top:0px;
 }
 .recuiters-section .image{
-    height:120px;
-    width:100%;
-    background:#fff;
-    border-radius:10px;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    padding:20px;
+    width:65%;
 }
 .recuiters-section .image img{
     height:100%;

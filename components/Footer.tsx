@@ -50,14 +50,15 @@ const Footer = () => {
                         <div className="col-md-3 col-sm-12">
                             <div className="practice-list">
                                 <h3 style={{ color: '#FFFFFF' }}>Locations</h3><br />
-                                <iframe
+                                {/* <iframe
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31109.36370092467!2d80.09614723955077!3d12.928889100000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525f71f90e545f%3A0x65457b33c4262b19!2sBharathi%20Institute%20of%20Catering%20%26%20Hotel%20Management!5e0!3m2!1sen!2sin!4v1579590059545!5m2!1sen!2sin"
                                     width="100%"
                                     height="150"
                                     frameBorder="0"
                                     style={{ border: 0 }}
                                     allowFullScreen={true}
-                                ></iframe>
+                                ></iframe> */}
+                                <img src={Images.overallmap.src} alt="Overall Map" />
                             </div>
                         </div>
                     </div>

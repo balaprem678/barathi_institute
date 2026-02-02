@@ -18,7 +18,7 @@ export default function Admission() {
                     <div className="row">
                         <div className="col-md-9 col-sm-12">
                             <div className="section-title">
-                                <h1 style={{ color: '#000' }}>Admission Process – Best Institute for Hotel Management and Paramedical Courses</h1> // Fixed style typo
+                                <h1 style={{ color: '#000' }}>Admission Process – Best Institute for Hotel Management and Paramedical Courses</h1> 
                                 <span className="decor"></span>
                             </div>
                             &nbsp;
@@ -71,7 +71,7 @@ export default function Admission() {
                                 </div>
                                 &nbsp;
 
-                                <ul className="contact-info">
+                                <ul className="contact-info d-block">
                                     <li><i className="fa fa-certificate"></i><Link href="/courses/diploma"> Diploma in Hotel Management</Link> </li>
                                     <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Food and Beverage Production</Link> </li>
                                     <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Food and Beverage Service</Link> </li>
