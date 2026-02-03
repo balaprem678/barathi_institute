@@ -1,6 +1,7 @@
 import PageBreadcrumb from '@/components/PageBreadcrumb';
 import Link from 'next/link';
 import React from 'react';
+import './student_testimonials.scss';
 
 export default function StudentTestimonials() {
     const testimonials = [
@@ -44,14 +45,11 @@ export default function StudentTestimonials() {
 
     return (
         <>
-            <PageBreadcrumb
-                title="Student Testimonials"
-                bgImage="/images/gallerybanner.jpg"
-                breadcrumbs={[
-                    { label: 'Home', url: '/' },
-                    { label: 'Student Testimonials' }
-                ]}
-            />
+            <section className='students_testimonial'>
+                <div className="container">
+                    <h3 className='page_title'>Student Testimonials </h3>
+                </div>
+            </section>
 
             <section className="video-testi" style={{ padding: '60px 0' }}>
                 <div className="container">
