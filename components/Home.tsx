@@ -7,6 +7,7 @@ import HomeBanner from './HomeBanner'
 import Locations from './Locations'
 import PopupModal from '@/components/PopupModal';
 import Partners from './partners'
+import EnquiryForm from './EnquiryForm';
 
 
 interface Slide {
@@ -530,126 +531,9 @@ export default function Home() {
       </section>
 
       {/* Enquiry Form */}
-      <section className="home-enquiryform home_page_enquiry_form" style={{ padding: '60px 0', background: '#0495f5' }}>
-        <div className="container">
-          <div className="section-title text-center" style={{ marginBottom: '40px' }}>
-            <h3 style={{ color: 'white', fontSize: '32px', fontWeight: '700' }}>Enquiry Form</h3>
-          </div>
-          <div className="row">
-            <form className="form" style={{ maxWidth: '800px', margin: '0 auto' }}>
-              <div className="row" style={{ marginBottom: '20px' }}>
-                <div className="col-lg-6" style={{ marginBottom: '20px' }}>
-                  <label htmlFor="name" style={{ display: 'block', color: 'white', marginBottom: '5px' }}>Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Your name.."
-                    style={{
-                      width: '100%',
-                      padding: '10px',
-                      border: '1px solid lightgrey',
-                      borderRadius: '5px'
-                    }}
-                  />
-                </div>
-                <div className="col-lg-6" style={{ marginBottom: '20px' }}>
-                  <label htmlFor="phone" style={{ display: 'block', color: 'white', marginBottom: '5px' }}>Phone Number</label>
-                  <input
-                    type="text"
-                    id="phone"
-                    name="phone"
-                    placeholder="Your Phone Number.."
-                    style={{
-                      width: '100%',
-                      padding: '10px',
-                      border: '1px solid lightgrey',
-                      borderRadius: '5px'
-                    }}
-                  />
-                </div>
-              </div>
+ 
 
-              <div className="row" style={{ marginBottom: '20px' }}>
-                <div className="col-lg-6" style={{ marginBottom: '20px' }}>
-                  <label htmlFor="email" style={{ display: 'block', color: 'white', marginBottom: '5px' }}>Email Address</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Your Mail ID.."
-                    style={{
-                      width: '100%',
-                      padding: '10px',
-                      border: '1px solid lightgrey',
-                      borderRadius: '5px'
-                    }}
-                  />
-                </div>
-                <div className="col-lg-6" style={{ marginBottom: '20px' }}>
-                  <label htmlFor="select" style={{ display: 'block', color: 'white', marginBottom: '5px' }}>Select Courses</label>
-                  <select
-                    id="select"
-                    name="select"
-                    style={{
-                      width: '100%',
-                      padding: '10px',
-                      fontSize: '14px',
-                      color: '#ffffff',
-                      border: '1px solid lightgrey',
-                      borderRadius: '5px'
-                    }}
-                  >
-                    <option value="Diploma in Hotel Management">Diploma in Hotel Management</option>
-                    <option value="Food & Beverage Production">Food & Beverage Production</option>
-                    <option value="Food & Beverage Service">Food & Beverage Service</option>
-                    <option value="Bakery & Confectionary">Bakery & Confectionary</option>
-                    <option value="Special Courses for Girls">Special Courses for Girls</option>
-                    <option value="House Keeping Management">House Keeping Management</option>
-                    <option value="Front Office & Hotel Management">Front Office & Hotel Management</option>
-                    <option value="Diploma Health Assistant">Diploma Health Assistant</option>
-                    <option value="Medical Lab Technology">Medical Lab Technology</option>
-                    <option value="Health Assistant">Health Assistant</option>
-                  </select>
-                </div>
-              </div>
-
-              <div style={{ marginBottom: '20px' }}>
-                <label htmlFor="message" style={{ display: 'block', color: 'white', marginBottom: '5px' }}>Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  placeholder="Write something.."
-                  style={{
-                    width: '100%',
-                    height: '150px',
-                    padding: '10px',
-                    border: '1px solid lightgrey',
-                    borderRadius: '5px'
-                  }}
-                />
-              </div>
-
-              <button
-                type="submit"
-                style={{
-                  background: '#b4d903',
-                  color: '#333',
-                  padding: '15px 40px',
-                  border: 'none',
-                  borderRadius: '5px',
-                  fontSize: '18px',
-                  fontWeight: '600',
-                  cursor: 'pointer',
-                  width: '100%'
-                }}
-              >
-                Send Message
-              </button>
-            </form>
-          </div>
-        </div>
-      </section>
+      <EnquiryForm/>
 
       {/* Locations Section */}
       <Locations />

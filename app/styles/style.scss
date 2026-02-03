@@ -74,6 +74,18 @@ ul {
   list-style-type: none;
 }
 
+.goog-te-combo{
+  color: #000000 !important;
+    background-color: #fff !important;
+    padding: 3px 6px;
+    border-radius: 5px;
+    position: relative;
+    top: 10px;
+}
+
+.skiptranslate.goog-te-gadget span{
+  display: none !important;
+}
 p {
   font-family: "Open Sans", sans-serif;
   font-size: 15px;
@@ -3630,74 +3642,6 @@ span.num {
   text-align: center;
 }
 
-.home-enquiryform {
-  background-image: url("/images/enquiry-bg.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  width: 100%;
-}
-
-.home-enquiryform .row {
-  display: flex;
-  justify-content: center;
-}
-
-.home-enquiryform .form {
-  background: #ed1c24;
-  border-radius: 30px;
-  padding: 50px;
-  width: 900px;
-}
-
-.home-enquiryform input {
-  margin-bottom: 20px;
-  border-radius: 20px;
-  background: #f3f3f3;
-  width: 100%;
-  border: none;
-  padding: 10px 10px;
-}
-
-.home-enquiryform textarea {
-  margin-bottom: 10px;
-  border-radius: 20px;
-  background: #f3f3f3;
-  width: 100%;
-  border: none;
-  padding: 10px 10px;
-}
-
-.home-enquiryform .selectform {
-  font-size: 16px;
-  color: #7e7e7e;
-  line-height: 28px;
-  display: flex;
-  margin-bottom: 20px;
-  border-radius: 20px;
-  background: #f3f3f3;
-  width: 100%;
-  border: none;
-  padding: 10px 10px;
-}
-
-.home-enquiryform label {
-  margin-bottom: 10px;
-  color: #fff;
-}
-
-.home-enquiryform .enquiry-btn {
-  display: flex;
-  text-align: center;
-  background: red;
-  margin: auto;
-  color: #fff;
-  margin-top: 30px;
-  border-radius: 10px;
-  padding: 10px 15px;
-  justify-content: center;
-}
 
 .faq .card-header {
   background: transparent;
@@ -3907,10 +3851,11 @@ span.num {
 
 .unique-selling-section .section-title p {
   margin-top: 0px;
+  color: #fff;
 }
 
 .unique-selling-section .section-title h3 {
-  color: #000;
+  color: #ffffff;
 }
 
 .unique-selling-section h4 {
@@ -3959,14 +3904,10 @@ span.num {
 }
 
 .recuiters-section .image {
-  height: 120px;
-  width: 100%;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow:
-    rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
-    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-  padding: 20px;
+    width: 60%;
+    display: flex;
+    height: 120px;
+    align-items: center;
 }
 
 .recuiters-section .image img {
