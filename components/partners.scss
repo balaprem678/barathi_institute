@@ -277,3 +277,15 @@ $border-radius: 8px;
     background-position: 200% 0;
   }
 }
+
+
+@media screen and (max-width:768px){
+  .partner-logo {
+    object-fit: contain;
+    width: 50%;
+    display: inline-flex;
+     height: unset; 
+     max-height: unset;
+    transition: all .3s;
+}
+}
