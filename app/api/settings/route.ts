@@ -13,7 +13,10 @@ export async function GET(req: Request) {
             return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
         }
 
-        const settings = await Settings.getSettings();
+        let settings = await Settings.findOne();
+        if (!settings) {
+            settings = await Settings.create({});
+        }
         return NextResponse.json(settings);
     } catch (error) {
         return NextResponse.json({ message: 'Error fetching settings' }, { status: 500 });
