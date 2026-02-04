@@ -29,14 +29,46 @@ export default function Register() {
         }
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
         if (parseInt(formData.captcha) !== random1 + random2) {
             alert('Incorrect Security Code');
             return;
         }
-        // Handle form submission logic here (e.g., API call)
-        alert('Form submitted successfully!');
+
+        const submitData = new FormData();
+        submitData.append('name', formData.name);
+        submitData.append('email', formData.email);
+        submitData.append('phone', formData.phone);
+        // Map 'subject' to 'course' as per Schema/API expectation
+        submitData.append('course', formData.subject);
+        submitData.append('message', formData.message);
+
+        if (formData.file) {
+            submitData.append('file', formData.file);
+        }
+
+        try {
+            const res = await fetch('/api/students', {
+                method: 'POST',
+                body: submitData,
+                // Note: Content-Type header is not set manually for FormData, browser does it with boundary
+            });
+
+            if (res.ok) {
+                alert('Form submitted successfully!');
+                // Reset form or redirect
+                setFormData({
+                    name: '', email: '', phone: '', subject: '0', message: '', captcha: '', file: null
+                });
+            } else {
+                alert('Failed to submit form. Please try again.');
+            }
+        } catch (error) {
+            console.error('Submission error:', error);
+            alert('An error occurred. Please try again.');
+        }
     };
 
     return (
