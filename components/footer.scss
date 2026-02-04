@@ -38,3 +38,12 @@
         }
     }
 }
+
+
+.social_media_link{
+    a{
+        &::before{
+            display: none;
+        }
+    }
+}

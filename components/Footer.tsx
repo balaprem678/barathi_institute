@@ -38,11 +38,23 @@ const Footer = () => {
                                     <li><a href="#"> Email ID : info@bharathiinstitutes.com</a></li>
                                 </ul>
                                 <h3 style={{ color: '#FFFFFF', marginTop: '20px' }}>Follow on :</h3><br />
-                                <ul style={{ display: 'flex', gap: '10px' }}>
-                                    <li><i className="fa fa-facebook-square" style={{ fontSize: '18px', color: '#fff' }}></i></li>
-                                    <li><i className="fa fa-instagram" style={{ fontSize: '18px', color: '#fff' }}></i></li>
-                                    <li><i className="fa fa-linkedin" style={{ fontSize: '18px', color: '#fff' }}></i></li>
-                                    <li><i className="fa fa-youtube" style={{ fontSize: '18px', color: '#fff' }}></i></li>
+                                <ul style={{ display: 'flex', gap: '10px' }} className='p-0 social_media_link'>
+                                    <li>
+                                        <a href="https://www.facebook.com/bharathieducationalinstitutions">
+                                            <i className="fa fa-facebook-square" style={{ fontSize: '24px', color: '#fff' }}></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.instagram.com/bharathi_institute_official/">
+                                            <i className="fa fa-instagram" style={{ fontSize: '24px', color: '#fff' }}></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.youtube.com/@BharathiInstitutes">
+                                            <i className="fa fa-youtube" style={{ fontSize: '24px', color: '#fff' }}></i>
+                                        </a>
+                                    </li>
+                                    <li><i className="fa fa-linkedin" style={{ fontSize: '24px', color: '#fff' }}></i></li>
                                 </ul>
                             </div>
                         </div>
