@@ -45,13 +45,13 @@ export default function Home() {
       image: Images.course_1,
       title: 'Hotel Management Courses',
       subtitle: '(Diploma, Certification)',
-      link: '/hotel-management-course-in-chennai.php'
+      link: '/courses/hotel-management'
     },
     {
       image: Images.course_2,
       title: 'Paramedical Courses',
       subtitle: '(Diploma, Certification)',
-      link: '/paramedical-course-in-chennai.php'
+      link: '/courses/paramedical'
     }
   ]
 
@@ -531,9 +531,9 @@ export default function Home() {
       </section>
 
       {/* Enquiry Form */}
- 
 
-      <EnquiryForm/>
+
+      <EnquiryForm />
 
       {/* Locations Section */}
       <Locations />

@@ -56,10 +56,11 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" />
         <link rel="shortcut icon" href="/images/logo/logo12.png" type="image/png" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/v4-shims.min.css" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossOrigin="anonymous"></link>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossOrigin="anonymous"></link>
         {/* <link href="/css/style.css" rel="stylesheet" /> */}
         {/* <link href="/css/responsive.css" rel="stylesheet" /> */}
@@ -79,7 +80,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "CollegeOrUniversity",
               "name": "Bharathi Institute Of Hotel Management & Paramedical",
-              "url": "https://bharathiinstitutes.com/index.php",
+              "url": "https://bharathiinstitutes.com/",
               "logo": "https://bharathiinstitutes.com/images/logo/logo-large.png",
               "description": "Discover excellence in Hotel Management and Paramedical Science at Bharathi Institute, Chennai. Build a rewarding career in hospitality and healthcare.",
               "contactPoint": {
@@ -159,7 +160,7 @@ export default function RootLayout({
         `}</style>
 
         {/* Microsoft Clarity */}
-        <Script id="clarity-script" strategy="afterInteractive">
+        <Script id="clarity-script" strategy="lazyOnload">
           {`(function(c,l,a,r,i,t,y){
               c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
               t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
@@ -179,7 +180,7 @@ export default function RootLayout({
         </Script>
 
         {/* Google Tag Manager */}
-        <Script id="google-tag-manager" strategy="afterInteractive">
+        <Script id="google-tag-manager" strategy="lazyOnload">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
           j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -198,8 +199,7 @@ export default function RootLayout({
 
 
         {/* External Libs */}
-        <Script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js" strategy="afterInteractive" />
-        <Script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" strategy="beforeInteractive" />
+        <Script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js" strategy="lazyOnload" />
 
         {/* Scripts - Loaded lazily to avoid blocking */}
         <Script src="/js/jquery.js" strategy="beforeInteractive" />
@@ -232,8 +232,8 @@ export default function RootLayout({
         <Script src="/js/rev-slider/revolution.extension.video.min.js" strategy="afterInteractive" />
         <Script src="/js/custom.js" strategy="afterInteractive" /> */}
 
-        <Script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" strategy="afterInteractive" />
-        <Script id="google-translate-init" strategy="afterInteractive">
+        <Script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" strategy="lazyOnload" />
+        <Script id="google-translate-init" strategy="lazyOnload">
           {`
             function googleTranslateElementInit() {
               new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,ta'}, 'google_translate_element');

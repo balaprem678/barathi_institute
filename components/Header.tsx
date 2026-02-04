@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import Link from 'next/link';
+import NextImage from 'next/image';
 import { Images } from '@/app/utilis/Images';
 import './header.scss';
 
@@ -32,24 +33,24 @@ const Header = () => {
                 <div className="container-fluid">
                     <div className="top-bar__content">
                         <div className="social-links">
-                            <a 
-                                href="https://www.facebook.com/Bharathiinstitute2005/" 
-                                target="_blank" 
+                            <a
+                                href="https://www.facebook.com/Bharathiinstitute2005/"
+                                target="_blank"
                                 rel="noreferrer"
                                 aria-label="Facebook"
                             >
                                 <i className="fab fa-facebook-f"></i>
                             </a>
-                            <a 
-                                href="https://api.whatsapp.com/send?phone=919444120052" 
+                            <a
+                                href="https://api.whatsapp.com/send?phone=919444120052"
                                 target="_blank"
                                 aria-label="WhatsApp"
                                 rel="noreferrer"
                             >
                                 <i className="fab fa-whatsapp"></i>
                             </a>
-                            <a 
-                                href="mailto:info@bharathiinstitutes.com" 
+                            <a
+                                href="mailto:info@bharathiinstitutes.com"
                                 aria-label="Email"
                             >
                                 <i className="far fa-envelope"></i>
@@ -63,7 +64,7 @@ const Header = () => {
             </div>
 
 
-         
+
 
             {/* Main Navigation */}
             <div className="main-nav" ref={menuRef}>
@@ -71,10 +72,13 @@ const Header = () => {
                     <div className="nav__wrapper">
                         {/* Logo */}
                         <Link href="/" className="logo" onClick={closeMenu}>
-                            <img 
-                                src="/images/logo/logo12.png" 
-                                alt="Institute of Hotel Management and paramedical" 
+                            <NextImage
+                                src="/images/logo/logo12.png"
+                                alt="Institute of Hotel Management and paramedical"
                                 className="logo__image"
+                                width={300}
+                                height={80}
+                                priority
                             />
                         </Link>
 
@@ -101,8 +105,8 @@ const Header = () => {
                         </div>
 
                         {/* CTA Button */}
-                        <Link 
-                            href="/register" 
+                        <Link
+                            href="/register"
                             className="cta-button"
                             onClick={closeMenu}
                         >
@@ -153,7 +157,7 @@ const Header = () => {
                                     Admission
                                     <i className={`dropdown__arrow ${dropdownOpen ? "rotate" : ""}`}>
                                         <svg width="16" height="16" viewBox="0 0 16 16">
-                                            <path d="M4 6l4 4 4-4" stroke="currentColor" fill="none"/>
+                                            <path d="M4 6l4 4 4-4" stroke="currentColor" fill="none" />
                                         </svg>
                                     </i>
                                 </button>
@@ -216,10 +220,10 @@ const Header = () => {
                                 <i className="fas fa-phone"></i>
                                 Call Now
                             </a>
-                            <a href="https://api.whatsapp.com/send?phone=919444120052" 
-                               target="_blank" 
-                               rel="noreferrer"
-                               className="mobile-contact__item whatsapp">
+                            <a href="https://api.whatsapp.com/send?phone=919444120052"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="mobile-contact__item whatsapp">
                                 <i className="fab fa-whatsapp"></i>
                                 WhatsApp
                             </a>
