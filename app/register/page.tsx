@@ -3,6 +3,7 @@
 import PageBreadcrumb from '@/components/PageBreadcrumb';
 import Link from 'next/link';
 import { useState } from 'react';
+import './register.scss';
 
 export default function Register() {
     const [formData, setFormData] = useState({
@@ -144,7 +145,7 @@ export default function Register() {
                                     <h3> Hotel Management </h3>
                                     <span className="decor"></span>
                                 </div><br />
-                                <ul className="contact-info">
+                                <ul className="contact-info reg">
                                     <li><i className="fa fa-certificate"></i><Link href="/courses/diploma"> Diploma in Hotel Management</Link> </li>
                                     <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Food and Beverage Production</Link> </li>
                                     <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Food and Beverage Service</Link> </li>
@@ -157,7 +158,7 @@ export default function Register() {
                                     <h3> Paramedical Course</h3>
                                     <span className="decor"></span>
                                 </div><br />
-                                <ul className="contact-info">
+                                <ul className="contact-info reg">
                                     <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Diploma in Nursing Assistant</Link> </li>
                                     <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Medical Lab Technician</Link> </li>
                                     <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Health Assistant</Link> </li>

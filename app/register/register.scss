@@ -1,0 +1,13 @@
+textarea,
+input{
+    color: #000 !important;
+    border: 1px solid #232323;
+    &::placeholder{
+        color: #000 !important;
+    }
+}
+
+.contact-info.reg{
+    padding: 0;
+    display: block;
+}

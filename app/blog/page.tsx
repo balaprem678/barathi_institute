@@ -50,14 +50,11 @@ export default function Blogs() {
 
   return (
     <>
-      <PageBreadcrumb
-        title="Student Success Stories"
-        bgImage="/images/gallerybanner.jpg"
-        breadcrumbs={[
-          { label: 'Home', url: '/' },
-          { label: 'Success Stories' }
-        ]}
-      />
+      <div className="placementsbanner">
+        <div className="container">
+          <h3 className='page_title'>Students Success Story</h3>
+        </div>
+      </div>
 
       <section className="blog-section">
         <div className="container">
@@ -86,7 +83,7 @@ export default function Blogs() {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="card-content">
                   <div className="student-info">
                     <h3 className="student-name">{post.studentName}</h3>
@@ -95,18 +92,18 @@ export default function Blogs() {
                       <span className="duration">{post.duration}</span>
                     </div>
                   </div>
-                  
+
                   <h4 className="blog-title">{post.title}</h4>
-                  
+
                   <div className="content-preview">
                     <p>{post.content.substring(0, 200)}...</p>
                   </div>
-                  
+
                   <div className="card-footer">
                     <Link href={`/stories/${post.id}`} className="read-more-btn">
                       Read Full Story
                       <svg className="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path d="M5 12h14M12 5l7 7-7 7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M5 12h14M12 5l7 7-7 7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </Link>
                     <Link href="/contact" className="contact-btn">
