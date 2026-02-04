@@ -87,7 +87,8 @@ export async function POST(req: Request) {
 
         // --- EMAIL NOTIFICATION LOGIC ---
         try {
-            const settings = await Settings.getSettings();
+            let settings = await Settings.findOne();
+            if (!settings) settings = {}; // fallback if empty
 
             if (settings.smtpHost && settings.recipientEmails) {
                 const transporter = nodemailer.createTransport({
