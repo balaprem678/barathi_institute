@@ -1,6 +1,5 @@
 import PageBreadcrumb from '@/components/PageBreadcrumb';
 import Link from 'next/link';
-import './admission.scss';
 
 export default function Admission() {
     return (
