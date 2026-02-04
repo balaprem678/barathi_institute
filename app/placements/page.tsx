@@ -1,6 +1,7 @@
 import PageBreadcrumb from '@/components/PageBreadcrumb';
 import Link from 'next/link';
 import Partners from '@/components/partners';
+import './placements.scss';
 
 export default function Placements() {
     const testimonials = [
@@ -44,14 +45,12 @@ export default function Placements() {
 
     return (
         <>
-            <PageBreadcrumb
-                title="Placements"
-                bgImage="/images/gallerybanner.jpg"
-                breadcrumbs={[
-                    { label: 'Home', url: '/' },
-                    { label: 'Placements' }
-                ]}
-            />
+           
+            <div className="placementsbanner">
+                <div className="container">
+                    <h3 className='page_title'>Placements</h3>
+                </div>
+            </div>
             <section className="recuiters-section" style={{ padding: '50px 0' }}>
                 <div className="container">
                     <div className="section-title text-center" style={{ marginBottom: '30px' }}>
@@ -59,7 +58,7 @@ export default function Placements() {
                         <p style={{ fontSize: '16px', lineHeight: '26px' }}>At Bharathi Institutes, we take pride in our 100% placement assistance, ensuring our students secure rewarding careers in top-tier organizations. Our strong industry connections and dedicated placement cell open doors to prestigious hotels, hospitals, and corporate establishments across India.</p>
                     </div>
 
-                  <Partners />
+                    <Partners />
 
                 </div>
             </section>

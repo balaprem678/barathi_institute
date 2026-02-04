@@ -56,14 +56,14 @@ const Header = () => {
                             </a>
                         </div>
                         <div className="top-bar__info">
-                            <a href="tel:+919444120052">
-                                <i className="fas fa-phone-alt"></i>
-                                +91 94441 20052
-                            </a>
+                            <div id="google_translate_element" className="goo_lan"></div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
+         
 
             {/* Main Navigation */}
             <div className="main-nav" ref={menuRef}>
@@ -232,3 +232,5 @@ const Header = () => {
 };
 
 export default Header;
+
+

@@ -31,6 +31,15 @@ $transition: all 0.3s ease;
   }
 }
 
+.placementsbanner {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("../../public/assets/new_images/student_testimonial/gallerybanner.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 120px 0;
+}
+
 .section-header {
   text-align: center;
   margin-bottom: 60px;
@@ -262,7 +271,7 @@ $transition: all 0.3s ease;
   overflow: hidden;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     right: 0;

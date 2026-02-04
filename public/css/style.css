@@ -3718,74 +3718,6 @@ span.num {
   text-align: center;
 }
 
-.home-enquiryform {
-  background-image: url("../images/enquiry-bg.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  width: 100%;
-}
-
-.home-enquiryform .row {
-  display: flex;
-  justify-content: center;
-}
-
-.home-enquiryform .form {
-  background: #ed1c24;
-  border-radius: 30px;
-  padding: 50px;
-  width: 900px;
-}
-
-.home-enquiryform input {
-  margin-bottom: 20px;
-  border-radius: 20px;
-  background: #f3f3f3;
-  width: 100%;
-  border: none;
-  padding: 10px 10px;
-}
-
-.home-enquiryform textarea {
-  margin-bottom: 10px;
-  border-radius: 20px;
-  background: #f3f3f3;
-  width: 100%;
-  border: none;
-  padding: 10px 10px;
-}
-
-.home-enquiryform .selectform {
-  font-size: 16px;
-  color: #7e7e7e;
-  line-height: 28px;
-  display: flex;
-  margin-bottom: 20px;
-  border-radius: 20px;
-  background: #f3f3f3;
-  width: 100%;
-  border: none;
-  padding: 10px 10px;
-}
-
-.home-enquiryform label {
-  margin-bottom: 10px;
-  color: #fff;
-}
-
-.home-enquiryform .enquiry-btn {
-  display: flex;
-  text-align: center;
-  background: red;
-  margin: auto;
-  color: #fff;
-  margin-top: 30px;
-  border-radius: 10px;
-  padding: 10px 15px;
-  justify-content: center;
-}
 
 .faq .card-header {
   background: transparent;
@@ -3997,13 +3929,7 @@ span.num {
   align-items: center;
 }
 
-.unique-selling-section .section-title p {
-  margin-top: 0px;
-}
 
-.unique-selling-section .section-title h3 {
-  color: #000;
-}
 
 .unique-selling-section h4 {
   font-size: 20px;
