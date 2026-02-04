@@ -1,112 +1,120 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { Users, Calendar, TrendingUp } from 'lucide-react';
 
-interface Student {
-    _id: string;
-    name: string;
-    email: string;
-    phone: string;
-    course: string;
-    createdAt: string;
-}
-
-export default function Dashboard() {
-    const router = useRouter();
-    const [students, setStudents] = useState<Student[]>([]);
+export default function AdminDashboard() {
+    const [stats, setStats] = useState({
+        dailyCount: 0,
+        monthlyCount: 0,
+        yearlyCount: 0,
+        chartData: []
+    });
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (!token) {
-            router.push('/admin/login');
-            return;
-        }
+        const fetchStats = async () => {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = '/admin/login';
+                return;
+            }
 
-        const fetchStudents = async () => {
             try {
-                const res = await fetch('/api/students', {
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
+                const res = await fetch('/api/admin/stats', {
+                    headers: { 'Authorization': `Bearer ${token}` }
                 });
                 if (res.ok) {
                     const data = await res.json();
-                    setStudents(data);
-                } else {
-                    if (res.status === 401 || res.status === 403) {
-                        localStorage.removeItem('token');
-                        router.push('/admin/login');
-                    }
+                    setStats(data);
                 }
             } catch (error) {
-                console.error('Failed to fetch students', error);
+                console.error('Error fetching stats:', error);
             } finally {
                 setLoading(false);
             }
         };
+        fetchStats();
+    }, []);
 
-        fetchStudents();
-    }, [router]);
+    if (loading) return <div className="p-8 text-center text-gray-500">Loading dashboard...</div>;
 
-    const handleLogout = () => {
-        localStorage.removeItem('token');
-        router.push('/admin/login');
-    };
-
-    if (loading) return <div className="text-center mt-5">Loading...</div>;
+    const Card = ({ title, value, icon: Icon, colorClass }: any) => (
+        <div className="rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-default">
+            <div className={`flex h-11.5 w-11.5 items-center justify-center rounded-full bg-opacity-10 ${colorClass} mb-4`}>
+                <Icon size={24} className={colorClass.replace('bg-', 'text-').replace('bg-opacity-10', '')} />
+            </div>
+            <div className="flex items-end justify-between">
+                <div>
+                    <h4 className="text-2xl font-bold text-black">
+                        {value}
+                    </h4>
+                    <span className="text-sm font-medium text-gray-500">{title}</span>
+                </div>
+            </div>
+        </div>
+    );
 
     return (
-        <div className="container" style={{ marginTop: '50px', marginBottom: '100px', minHeight: '600px' }}>
-            <div className="row">
-                <div className="col-md-12">
-                    <div className="section-title text-center">
-                        <h3 style={{ marginBottom: '20px' }}>Admin Dashboard</h3>
-                        <div className="text-right mb-3" style={{ marginBottom: '20px' }}>
-                            <button onClick={handleLogout} className="btn btn-danger">Logout</button>
-                        </div>
-                    </div>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:gap-7.5">
+            <Card
+                title="Daily Registrations"
+                value={stats.dailyCount}
+                icon={Users}
+                colorClass="bg-blue-500 text-blue-500"
+            />
+            <Card
+                title="Monthly Registrations"
+                value={stats.monthlyCount}
+                icon={Calendar}
+                colorClass="bg-green-500 text-green-500"
+            />
+            <Card
+                title="Yearly Registrations"
+                value={stats.yearlyCount}
+                icon={TrendingUp}
+                colorClass="bg-purple-500 text-purple-500"
+            />
 
-                    <div className="panel panel-default">
-                        <div className="panel-heading">
-                            <h4>Admission Enquiries</h4>
-                        </div>
-                        <div className="panel-body">
-                            <div className="table-responsive">
-                                <table className="table table-striped table-bordered table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Phone</th>
-                                            <th>Course</th>
-                                            <th>Date</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {students.length > 0 ? (
-                                            students.map((student, index) => (
-                                                <tr key={student._id}>
-                                                    <td>{index + 1}</td>
-                                                    <td>{student.name}</td>
-                                                    <td>{student.email}</td>
-                                                    <td>{student.phone}</td>
-                                                    <td>{student.course}</td>
-                                                    <td>{new Date(student.createdAt).toLocaleDateString()}</td>
-                                                </tr>
-                                            ))
-                                        ) : (
-                                            <tr>
-                                                <td colSpan={6} className="text-center">No students found</td>
-                                            </tr>
-                                        )}
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+            <div className="col-span-12 rounded-sm border border-stroke bg-white px-5 pt-7.5 pb-5 shadow-default sm:px-7.5 lg:col-span-12 mt-4">
+                <div className="mb-4 justify-between gap-4 sm:flex">
+                    <div>
+                        <h4 className="text-xl font-bold text-black">
+                            Registration Analytics
+                        </h4>
                     </div>
+                </div>
+
+                <div className="h-80 w-full">
+                    <ResponsiveContainer width="100%" height="100%">
+                        <BarChart
+                            data={stats.chartData}
+                            margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+                        >
+                            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E2E8F0" />
+                            <XAxis
+                                dataKey="day"
+                                axisLine={false}
+                                tickLine={false}
+                                tick={{ fill: '#64748B' }}
+                            />
+                            <YAxis
+                                axisLine={false}
+                                tickLine={false}
+                                tick={{ fill: '#64748B' }}
+                            />
+                            <Tooltip
+                                cursor={{ fill: '#F1F5F9' }}
+                                contentStyle={{ borderRadius: '4px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
+                            />
+                            <Bar
+                                dataKey="count"
+                                fill="#3C50E0"
+                                radius={[4, 4, 0, 0]}
+                                barSize={20}
+                            />
+                        </BarChart>
+                    </ResponsiveContainer>
                 </div>
             </div>
         </div>
