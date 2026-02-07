@@ -1,102 +1,94 @@
 import React from 'react'
 import { Images } from '@/app/utilis/Images'
 import Image from 'next/image'
+import './partners.scss'
 
-
-export default function partners() {
-     // Placement Partners
+export default function Partners() {
+  // Placement Partners
   const hotelPartners = [
-    { logo: Images.logo_1, alt: 'mariott international logo' },
-    { logo: Images.logo_2, alt: 'taj logo' },
-    { logo: Images.logo_3, alt: 'hyatt regency logo' },
-    { logo: Images.logo_4, alt: 'ITC Hotel logo' },
-    { logo: Images.logo_5, alt: 'The Leela Logo' }
+    { logo: Images.logo_1, alt: 'Marriott International logo' },
+    { logo: Images.logo_2, alt: 'Taj Hotels logo' },
+    { logo: Images.logo_3, alt: 'Hyatt Regency logo' },
+    { logo: Images.logo_4, alt: 'ITC Hotels logo' },
+    { logo: Images.logo_5, alt: 'The Leela Palaces logo' }
   ]
 
   const healthcarePartners = [
-    { logo: Images.logo_6, alt: 'apollo logo' },
-    { logo: Images.logo_7, alt: 'fortis logo' },
-    { logo: Images.logo_8, alt: 'miot hospital logo' },
-    { logo: Images.logo_9, alt: 'RPS Global hospital logo' },
-    { logo: Images.logo_10, alt: 'Kauvery hospital logo' }
+    { logo: Images.logo_6, alt: 'Apollo Hospitals logo' },
+    { logo: Images.logo_7, alt: 'Fortis Healthcare logo' },
+    { logo: Images.logo_8, alt: 'MIOT Hospital logo' },
+    { logo: Images.logo_9, alt: 'RPS Global Hospital logo' },
+    { logo: Images.logo_10, alt: 'Kauvery Hospital logo' }
   ]
 
   const corporatePartners = [
-    { logo: Images.logo_11, alt: 'sodexo logo' },
-    { logo: Images.logo_12, alt: 'the oberoi group logo' },
-    { logo: Images.logo_13, alt: 'emirates flight catering logo' },
-    { logo: Images.logo_14, alt: 'Radison blue logo' },
-    { logo: Images.logo_15, alt: 'Park hyatt logo' }
+    { logo: Images.logo_11, alt: 'Sodexo logo' },
+    { logo: Images.logo_12, alt: 'The Oberoi Group logo' },
+    { logo: Images.logo_13, alt: 'Emirates Flight Catering logo' },
+    { logo: Images.logo_14, alt: 'Radisson Blu logo' },
+    { logo: Images.logo_15, alt: 'Park Hyatt logo' }
   ]
+
+  // Reusable Partner Section Component
+  const PartnerSection = ({ 
+    title, 
+    partners, 
+    className = '' 
+  }: { 
+    title: string; 
+    partners: any[];
+    className?: string;
+  }) => (
+    <div className={`partner-section ${className}`}>
+      <h3 className="section-title">{title}</h3>
+      <div className="partners-grid">
+        {partners.map((partner, index) => (
+          <div className="partner-card" key={index}>
+            <div className="image-wrapper">
+              <Image
+                src={partner.logo}
+                alt={partner.alt}
+                width={150}
+                height={100}
+                className="partner-logo"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+
   return (
-    <div>
+    <div className="partners-container">
+      <div className="container">
+        <div className="partners-header">
+          <h2 className="main-title">Our Placement Partners</h2>
+          <p className="subtitle">
+            Trusted by industry leaders across various sectors
+          </p>
+        </div>
 
-
-          {/* Hotel Partners */}
-                  <div className="logo-section" style={{ marginBottom: '40px' }}>
-                    <h3 style={{ color: 'black', fontWeight: '600', textAlign: 'center', textDecoration: 'underline', marginBottom: '30px' }}>
-                      Hotel Industry
-                    </h3>
-                    <div className="row aic jcc">
-                      {hotelPartners.map((partner, index) => (
-                        <div className="col-lg-2 col-md-4 col-sm-6" key={index} style={{ marginBottom: '20px' }}>
-                          <div className="image" style={{ textAlign: 'center' }}>
-                            <Image
-                              src={partner.logo}
-                              alt={partner.alt}
-                              width={120}
-                              height={80}
-                              style={{ maxWidth: '100%', height: 'auto' }}
-                            />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-        
-                  {/* Healthcare Partners */}
-                  <div className="logo-section" style={{ marginBottom: '40px' }}>
-                    <h3 style={{ color: 'black', fontWeight: '600', textAlign: 'center', textDecoration: 'underline', marginBottom: '30px' }}>
-                      Healthcare Industry
-                    </h3>
-                    <div className="row aic jcc">
-                      {healthcarePartners.map((partner, index) => (
-                        <div className="col-lg-2 col-md-4 col-sm-6" key={index} style={{ marginBottom: '20px' }}>
-                          <div className="image" style={{ textAlign: 'center' }}>
-                            <Image
-                              src={partner.logo}
-                              alt={partner.alt}
-                              width={120}
-                              height={80}
-                              style={{ maxWidth: '100%', height: 'auto' }}
-                            />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-        
-                  {/* Corporate Partners */}
-                  <div className="logo-section">
-                    <h3 style={{ color: 'black', fontWeight: '600', textAlign: 'center', textDecoration: 'underline', marginBottom: '30px' }}>
-                      Corporate & Other Sectors
-                    </h3>
-                    <div className="row aic jcc">
-                      {corporatePartners.map((partner, index) => (
-                        <div className="col-lg-2 col-md-4 col-sm-6" key={index} style={{ marginBottom: '20px' }}>
-                          <div className="image" style={{ textAlign: 'center' }}>
-                            <Image
-                              src={partner.logo}
-                              alt={partner.alt}
-                              width={120}
-                              height={80}
-                              style={{ maxWidth: '100%', height: 'auto' }}
-                            />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+        <div className="partners-content">
+          <PartnerSection 
+            title="Hotel Industry" 
+            partners={hotelPartners}
+            className="hotel-partners"
+          />
+          
+          <PartnerSection 
+            title="Healthcare Industry" 
+            partners={healthcarePartners}
+            className="healthcare-partners"
+          />
+          
+          <PartnerSection 
+            title="Corporate & Other Sectors" 
+            partners={corporatePartners}
+            className="corporate-partners"
+          />
+        </div>
+      </div>
     </div>
   )
 }

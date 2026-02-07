@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FaMapMarkerAlt, FaPhone, FaMobileAlt, FaGlobe, FaDirections } from 'react-icons/fa';
 import './contact.scss';
+import { Images } from '@/app/utilis/Images';
 
 interface Branch {
     id: number;
@@ -34,6 +35,15 @@ const branches: Branch[] = [
         mobile: "+91 - 9444120052",
         mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15543.068011753096!2d80.14229176977537!3d13.113941599999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5263ae527db2bb%3A0x612586a15945e596!2sBharathi%20Institute%20of%20Hotel%20Management%20%26%20paramedical!5e0!3m2!1sen!2sin!4v1579590094646!5m2!1sen!2sin",
         name: "Ambattur Branch"
+    },
+    {
+        id: 2,
+        img: "/images/branch/2.jpg",
+        address: "NO.108, THAMBUCHETTT STREET, KALIKAMBAL KOVIL OPPOSITE, BROADWAY, CHENNAI - 600 001",
+        phone: "044 - 22264484",
+        mobile: "+91 - 9444120052",
+        mapSrc: "https://maps.app.goo.gl/H9h6te5PTyphXaARA",
+        name: "Broadway Branch"
     },
     {
         id: 3,
@@ -94,7 +104,7 @@ const branches: Branch[] = [
         img: "/assets/new_images/contactus/location_9.jpg",
         address: "No.25, S.N.Chavadi Road, K.V.Tex Near, SRG Tours, Cuddalore.",
         mobile: "+91 - 9787898991",
-        mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1953.1672299524143!2d79.758665064352!3d11.741471456874997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a549927ddbc9ef7%3A0xf6aabab4a38ac699!2sBHARATHI%20INSTITUTE%20OF%20HOTEL%20MANAGEMENT%20%26%20PARAMEDICAL%20COLLEGE!5e0!3m2!1sen!2sin!4v1579590293143!5m2!1sen!2sin",
+        mapSrc: "https://maps.app.goo.gl/rSewiS9Cxv19PLWm6",
         name: "Cuddalore Branch"
     },
     {
@@ -102,7 +112,7 @@ const branches: Branch[] = [
         img: "/assets/new_images/contactus/location_10.jpg",
         address: "No.171, Hindu Nadar Sangam Complex, S N High Road, Tirunelveli Junction, Tirunelveli - 627 001",
         mobile: "+91 - 9443917155",
-        mapSrc: "",
+        mapSrc: "https://maps.app.goo.gl/AXZEyqA2nSsDcsTN6",
         name: "Tirunelveli Branch"
     },
     {
@@ -110,7 +120,7 @@ const branches: Branch[] = [
         img: "/assets/new_images/contactus/location_11.jpg",
         address: "No. 36/12, Vellalar Street, Ragavan Complex, TMB Bank 2nd Floor, Ariyalur - 621704",
         mobile: "+91 - 9787898991",
-        mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3914.683307177547!2d79.07082501450532!3d11.136947192077526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baadf109e6964b9%3A0x50e72363657db67e!2sBharathi%20catering%20and%20paramedical%20institute!5e0!3m2!1sen!2sin!4v1579591481076!5m2!1sen!2sin",
+        mapSrc: "",
         name: "Ariyalur Branch"
     },
     {
@@ -127,8 +137,8 @@ const branches: Branch[] = [
         address: "No.15/5, Pollur Main Road, Near Axis Bank, Thiruvannamalai – 606 601",
         phone: "+91 - 9444320052",
         mobile: "+91 - 9444320052",
-        mapSrc: "",
-        name: "Thiruvannamalai Branch"
+        mapSrc: "https://www.google.com/maps/search/BHARATHI+INSITUTE+HOTEL+MANAGEMENT+%2F+HEALTH+SCIENCE,+o.15%2F5,Pollur+Main+Road+Near+Axis+Bank,+Thiruvannamalai+%E2%80%93+606+601/@12.2413688,79.0700516,17z/data=!3m1!4b1?hl=en&entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D",
+        name: "Tiruvannamalai Branch"
     },
     {
         id: 14,
@@ -162,6 +172,24 @@ const branches: Branch[] = [
         mobile: "+91 - 9442100056",
         mapSrc: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3924.7508072254673!2d77.98024317503604!3d10.361799089762888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDIxJzQyLjUiTiA3N8KwNTgnNTguMiJF!5e0!3m2!1sen!2sin!4v1714571876238!5m2!1sen!2sin",
         name: "Salem Branch"
+    },
+    {
+        id: 16,
+        img: "/images/branch/16.jpg",
+        address: "25, NANDHI KOIL STREET, TEPPAKULAM, TRICHY - 620 002",
+        phone: "044 - 22264484",
+        mobile: "+91 - 9442100056",
+        mapSrc: "https://maps.app.goo.gl/hw1E2dzhBuYVSMLYA",
+        name: "Trichy Branch"
+    },
+    {
+        id: 17,
+        img: "/images/branch/17.jpg",
+        address: "NO 59, 3RD FLOOR, GOPURAM TOWERS, DHURUGAM ROAD, KALLAKURUCHI - 606 202",
+        phone: "044 - 22264484",
+        mobile: "+91 - 9655363236",
+        mapSrc: "https://maps.app.goo.gl/xrRqJ2uwrs4zhPbJA",
+        name: "Kallakuruchi Branch"
     },
     {
         id: 18,
