@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import './gallery.scss';
-import { Images } from '../utilis/Images';
+import { Images } from '@/app/utilis/Images';
 
 interface GalleryItem {
   id: number;
@@ -158,7 +158,7 @@ export default function GalleryPage() {
         <div className="container">
           <div className="banner-content">
             <h1>Photo Gallery</h1>
-           
+
           </div>
         </div>
       </div>

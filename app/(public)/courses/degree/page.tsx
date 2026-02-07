@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import PageBreadcrumb from '../../../components/PageBreadcrumb';
+import PageBreadcrumb from '@/components/PageBreadcrumb';
 
 export default function DegreeCoursesPage() {
     return (

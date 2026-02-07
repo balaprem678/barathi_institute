@@ -1,5 +1,5 @@
-import PageBreadcrumb from '../../../components/PageBreadcrumb';
-import { AccordionItem } from '../../../components/AccordionItem';
+import PageBreadcrumb from '@/components/PageBreadcrumb';
+import { AccordionItem } from '@/components/AccordionItem';
 import Link from 'next/link';
 import React from 'react';
 
