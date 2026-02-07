@@ -84,7 +84,7 @@ $hover-color: #f8fafc;
 }
 
 // Image Styles
-.image-wrapper {
+.image-wrappers {
   border-radius: 16px;
   overflow: hidden;
   @include box-shadow(dark);
@@ -162,7 +162,6 @@ $hover-color: #f8fafc;
 .faq-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
 }
 
 .faq-item {
@@ -177,11 +176,6 @@ $hover-color: #f8fafc;
     @include box-shadow(medium);
   }
 
-  &.active {
-    border-color: $primary-color;
-    @include box-shadow(medium);
-  }
-
   @include responsive(mobile) {
     border-radius: 10px;
   }
@@ -190,7 +184,7 @@ $hover-color: #f8fafc;
 .faq-question {
   width: 100%;
   text-align: left;
-  padding: 24px;
+  padding: 13px 0;
   @include flex-center();
   justify-content: space-between;
   background-color: transparent;
@@ -248,7 +242,7 @@ $hover-color: #f8fafc;
 
 .question-text {
   color: $secondary-color;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   line-height: 1.4;
   margin: 0;
@@ -272,11 +266,6 @@ $hover-color: #f8fafc;
   flex-shrink: 0;
   @include transition();
 
-  .faq-item.active & {
-    background-color: $primary-light;
-    transform: rotate(180deg);
-  }
-
   svg {
     color: $text-color;
 
@@ -298,7 +287,7 @@ $hover-color: #f8fafc;
 }
 
 .answer-content {
-  padding: 0 24px 24px 72px;
+  padding: 8px 0;
   color: $text-color;
   line-height: 1.7;
   font-size: 16px;

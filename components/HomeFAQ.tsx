@@ -45,7 +45,7 @@ const HomeFAQ = () => {
                 <div className="faq-row">
                     {/* Left Side - Image */}
                     <div className="faq-image-col">
-                        <div className="image-wrapper">
+                        <div className="image-wrappers">
                             <Image
                                 src={Images.faq_image.src}
                                 alt="FAQ Image"
@@ -61,7 +61,6 @@ const HomeFAQ = () => {
                     <div className="faq-content-col">
                         <div className="faq-content">
                             <div className="section-title">
-                                <span className="section-subtitle">FAQ</span>
                                 <h2 className="section-heading">Frequently Asked Questions</h2>
                                 <p className="section-description">
                                     Find answers to common questions about our programs and facilities

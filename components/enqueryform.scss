@@ -44,7 +44,7 @@ $shadow-medium: rgba(100, 116, 139, 0.15);
 
 // Main Section Styles
 .home-enquiryform {
-  padding: 100px 0;
+  padding: 38px 0;
   background: linear-gradient(135deg, #f0f9ff 0%, #e6f7ff 50%, #d6edff 100%);
   position: relative;
   overflow: hidden;
@@ -83,17 +83,6 @@ $shadow-medium: rgba(100, 116, 139, 0.15);
     position: relative;
     display: inline-block;
 
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
-      @include gradient-blue;
-      border-radius: 2px;
-    }
   }
 
   p {
@@ -115,7 +104,7 @@ $shadow-medium: rgba(100, 116, 139, 0.15);
 .enquiry-card {
   background: $white;
   border-radius: 24px;
-  padding: 50px;
+  padding: 28px;
   box-shadow: 0 20px 60px rgba(4, 149, 245, 0.12);
   position: relative;
   overflow: hidden;
@@ -454,9 +443,7 @@ textarea.form-input {
 
 // Responsive Design
 @media (max-width: 992px) {
-  .home-enquiryform {
-    padding: 80px 0;
-  }
+
 
   .enquiry-card {
     padding: 40px;
