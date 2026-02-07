@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import type { NextConfig } from 'next'
-import "./globals.scss";
+import "../globals.scss";
 import "./styles/style.scss";
 import "./styles/responsive.scss";
-import "../public/css/new_style.scss";
+import "../../public/css/new_style.scss";
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -19,33 +19,54 @@ const nextConfig: NextConfig = {
   },
 }
 
-export const metadata: Metadata = {
-  title: "Bharathi Institutes Of Hotel Management & Paramedical",
-  description: "Discover excellence in Hotel Management and Paramedical Science at Bharathi Institute, Chennai. Build a rewarding career in hospitality and healthcare.",
-  keywords: "Institute of hotel management and paramedical in chennai , Hotel Management Courses in Chennai , Hospitality Management Chennai , Hospital Management Courses in Chennai ",
-  openGraph: {
-    title: "Top Institute for Hotel Management & Paramedical in Chennai",
-    description: "Discover excellence in Hotel Management and Paramedical Science at Bharathi Institute, Chennai. Build a rewarding career in hospitality and healthcare.",
-    type: "website",
-    url: "https://bharathiinstitutes.com/",
-    images: [
-      {
-        url: "https://bharathiinstitutes.com/images/fav-icon/apple-touch-icon.png",
-        width: 1200,
-        height: 630,
-      }
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Top Institute for Hotel Management & Paramedical in Chennai",
-    description: "Discover excellence in Hotel Management and Paramedical Science at Bharathi Institute, Chennai. Build a rewarding career in hospitality and healthcare.",
-    images: ["https://bharathiinstitutes.com/images/fav-icon/apple-touch-icon.png"],
-  },
-  other: {
-    "google-site-verification": "bP2auhYiMuDJqzDVAyONCxyYZ1uGjC-tBuXOr1hoV1A"
-  }
-};
+import dbConnect from '@/lib/db';
+import Settings from '@/models/Settings';
+
+export async function generateMetadata() {
+  await dbConnect();
+  const settings = await Settings.findOne();
+
+  const seo = settings?.seo || {};
+  const siteName = settings?.general?.siteName || "Bharathi Institute";
+
+  const title = seo.title || "Bharathi Institutes Of Hotel Management & Paramedical";
+  const description = seo.description || "Discover excellence in Hotel Management and Paramedical Science at Bharathi Institute, Chennai. Build a rewarding career in hospitality and healthcare.";
+  const keywords = seo.keywords || "Institute of hotel management and paramedical in chennai , Hotel Management Courses in Chennai , Hospitality Management Chennai , Hospital Management Courses in Chennai ";
+  const ogTitle = seo.ogTitle || "Top Institute for Hotel Management & Paramedical in Chennai";
+  const ogDescription = seo.ogDescription || description;
+
+  return {
+    title: {
+      default: title,
+      template: `%s | ${siteName}`,
+    },
+    description: description,
+    keywords: keywords,
+    openGraph: {
+      title: ogTitle,
+      description: ogDescription,
+      type: "website",
+      url: "https://bharathiinstitutes.com/",
+      siteName: siteName,
+      images: [
+        {
+          url: "https://bharathiinstitutes.com/images/fav-icon/apple-touch-icon.png",
+          width: 1200,
+          height: 630,
+        }
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: ogTitle,
+      description: ogDescription,
+      images: ["https://bharathiinstitutes.com/images/fav-icon/apple-touch-icon.png"],
+    },
+    other: {
+      "google-site-verification": "bP2auhYiMuDJqzDVAyONCxyYZ1uGjC-tBuXOr1hoV1A"
+    }
+  };
+}
 
 export default function RootLayout({
   children,

@@ -42,6 +42,17 @@ export async function POST(req: Request) {
             settings.smtpUser = body.smtpUser;
             settings.smtpPass = body.smtpPass;
             settings.recipientEmails = body.recipientEmails;
+
+            // Update SEO settings
+            if (body.seo) {
+                settings.seo = { ...settings.seo, ...body.seo };
+            }
+
+            // Update General settings
+            if (body.general) {
+                settings.general = { ...settings.general, ...body.general };
+            }
+
             await settings.save();
         } else {
             await Settings.create(body);

@@ -5,7 +5,17 @@ const settingsSchema = new mongoose.Schema({
     smtpPort: { type: String, default: '587' },
     smtpUser: { type: String, default: '' },
     smtpPass: { type: String, default: '' }, // In production, this should be encrypted
-    recipientEmails: { type: String, default: '' } // Comma separated emails
+    recipientEmails: { type: String, default: '' }, // Comma separated emails
+    seo: {
+        title: { type: String, default: '' },
+        description: { type: String, default: '' },
+        keywords: { type: String, default: '' },
+        ogTitle: { type: String, default: '' },
+        ogDescription: { type: String, default: '' },
+    },
+    general: {
+        siteName: { type: String, default: 'Bharathi Institute' },
+    }
 }, { timestamps: true });
 
 // Ensure only one settings document exists

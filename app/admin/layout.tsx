@@ -1,21 +1,82 @@
 'use client';
-import Sidebar from '@/components/admin/Sidebar';
-import { usePathname } from 'next/navigation';
+import "../globals.scss";
+import "./admin.scss";
+import AdminSidebar from "@/components/admin/AdminSidebar";
+import AdminHeader from "@/components/admin/AdminHeader";
+import { usePathname, useRouter } from 'next/navigation';
+import { useEffect, useState } from "react";
+import { AuthService } from "@/services/authService";
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
+export default function AdminLayout({
+    children,
+}: {
+    children: React.ReactNode;
+}) {
     const pathname = usePathname();
+    const router = useRouter();
     const isLoginPage = pathname === '/admin/login';
+    const [authorized, setAuthorized] = useState(false);
+    const [sidebarOpen, setSidebarOpen] = useState(false);
 
-    if (isLoginPage) {
-        return <>{children}</>;
+    useEffect(() => {
+        const checkAuth = () => {
+            const isAuth = AuthService.isAuthenticated();
+
+            if (isLoginPage) {
+                if (isAuth) {
+                    router.replace('/admin/dashboard');
+                } else {
+                    setAuthorized(true);
+                }
+            } else {
+                if (!isAuth) {
+                    router.replace('/admin/login');
+                } else {
+                    setAuthorized(true);
+                }
+            }
+        };
+
+        checkAuth();
+    }, [pathname, isLoginPage, router]);
+
+    // Prevent flash of unauthorized content
+    if (!authorized) {
+        return (
+            <html lang="en">
+                <body className="bg-gray-50 flex items-center justify-center h-screen">
+                    {/* Optional: Add a loading spinner here */}
+                    <div className="text-gray-500">Loading...</div>
+                </body>
+            </html>
+        );
     }
 
     return (
-        <div className="flex h-screen bg-gray-100 font-sans">
-            <Sidebar />
-            <div className="flex-1 overflow-y-auto p-4 md:p-8">
-                {children}
-            </div>
-        </div>
+        <html lang="en">
+            <body className="bg-gray-50 text-gray-900 font-sans antialiased">
+                {isLoginPage ? (
+                    <div className="flex bg-gray-100 min-h-screen items-center justify-center">
+                        {children}
+                    </div>
+                ) : (
+                    <div className="flex h-screen overflow-hidden">
+                        {/* Sidebar */}
+                        <AdminSidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
+
+                        <div className="flex flex-col flex-1 overflow-hidden">
+                            {/* Header */}
+                            <AdminHeader onMenuClick={() => setSidebarOpen(true)} />
+
+                            {/* Main Content */}
+                            <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50 p-6">
+                                {children}
+                            </main>
+                        </div>
+                    </div>
+                )}
+            </body>
+        </html>
     );
 }
+
