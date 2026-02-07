@@ -20,16 +20,25 @@ interface Branch {
 const branches: Branch[] = [
     {
         id: 1,
-        img: Images.location_2.src,
-        address: "NO. 29, GNG COLONY, VARATHARAJAPURAM, AMBATTUR. CHENNAI - 600 053",
-        phone: "044 - 22264484",
-        mobile: "+91 - 9444320052",
-        mapSrc: "https://maps.app.goo.gl/9y7Mf4da6P7qjyE46",
-        name: "Ambattur Branch"
+        img: "/assets/new_images/contactus/location_1.jpg",
+        address: "No.95, Rajaji Road, Near Vasan Eye Care Hospital, Tambaram, Chennai – 600 0045",
+        phone: "044 – 22264484",
+        mobile: "+91 - 9444120052",
+        mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31109.36370092467!2d80.09614723955077!3d12.928889100000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525f71f90e545f%3A0x65457b33c4262b19!2sBharathi%20Institute%20of%20Catering%20%26%20Hotel%20Management!5e0!3m2!1sen!2sin!4v1579590059545!5m2!1sen!2sin",
+        name: "Tambaram Branch"
     },
     {
         id: 2,
-        img: "/images/branch/2.jpg",
+        img: "/assets/new_images/contactus/location_2.jpg",
+        address: "No.29, GNG Colony, Varatharajapuram, Ambattur, Chennai – 600 0053",
+        phone: "044 – 26251005",
+        mobile: "+91 - 9444120052",
+        mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15543.068011753096!2d80.14229176977537!3d13.113941599999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5263ae527db2bb%3A0x612586a15945e596!2sBharathi%20Institute%20of%20Hotel%20Management%20%26%20paramedical!5e0!3m2!1sen!2sin!4v1579590094646!5m2!1sen!2sin",
+        name: "Ambattur Branch"
+    },
+    {
+        id: 19,
+        img: "/assets/new_images/contactus/location_2.jpg",
         address: "NO.108, THAMBUCHETTT STREET, KALIKAMBAL KOVIL OPPOSITE, BROADWAY, CHENNAI - 600 001",
         phone: "044 - 22264484",
         mobile: "+91 - 9444120052",
@@ -38,124 +47,135 @@ const branches: Branch[] = [
     },
     {
         id: 3,
-        img: Images.location_1.src,
-        address: "95, RAJAJI ROAD, WEST TAMBARAM, TAMBARAM, CHENNAI - 600 045",
-        phone: "044 - 22264484",
-        mobile: "+91 - 9444120052",
-        mapSrc: "https://maps.app.goo.gl/27gUux2CgNckFwTcA",
-        name: "Tambaram Branch"
-    },
-    {
-        id: 4,
-        img: "/images/branch/4.jpg",
-        address: "NO.9, M.B.T ROAD, NAVALPUR, VIMAL SHOPPING COMPLEX, RANIPET - 632 402",
-        phone: "044 - 22264484",
+        img: "/assets/new_images/contactus/location_3.jpg",
+        address: "No.9, M.B.T. Road, Navalpur, Vimal Shopping Complex, Ranipet – 632 402",
+        phone: "04172-273393",
         mobile: "+91 - 9444320052",
-        mapSrc: "https://maps.app.goo.gl/mUPSdsyErig9sSru8",
+        mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.5949301138335!2d79.33171086452498!3d12.933736140880749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bad3575127a56c1%3A0x32595cfeaefe8f5e!2sBharathi%20Institute%20of%20Catering%20%26%20Paramedical!5e0!3m2!1sen!2sin!4v1579590216307!5m2!1sen!2sin",
         name: "Ranipet Branch"
     },
     {
-        id: 5,
-        img: Images.location_4.src,
-        address: "NO.104, S.K. ROAD, DR. NAGARAJ HOSPITAL (2ND FLOOR) KRISHNAPURAM, AMBUR - 635 802",
-        phone: "044 - 22264484",
+        id: 4,
+        img: "/assets/new_images/contactus/location_4.jpg",
+        address: "No.104, S.K. Road, Dr.Nagaraj Hospital (2ndFloor), Krishnapuram, Ambur -635 802",
+        phone: "0417 – 4222822",
         mobile: "+91 - 9442100056",
-        mapSrc: "https://maps.app.goo.gl/QjEFu3zxX6NN8G2o9",
+        mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.8964820112174!2d78.71407711452323!3d12.785230890978331!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bad08e48a4d5537%3A0xcc8ba71e9cca17f6!2sBharathi%20Institute%20of%20Catering%20%26%20Paramedical!5e0!3m2!1sen!2sin!4v1579591629610!5m2!1sen!2sin",
         name: "Ambur Branch"
     },
     {
-        id: 6,
-        img: "/images/branch/6.jpg",
-        address: "NO.793, NEHRUJI ROAD, INDIAN BANK UPSTAIRS, VILLUPURAM - 605 602",
-        phone: "044 - 22264484",
+        id: 5,
+        img: "/assets/new_images/contactus/location_5.jpg",
+        address: "No.793, Nerhuji Road, Indian Bank Upstairs, Villupuram-605 602",
+        phone: "04146 – 222822",
         mobile: "+91 - 9444120052",
-        mapSrc: "https://maps.app.goo.gl/tgQJa3C1AkiVnK7E8",
+        mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.497131032581!2d79.48712171451376!3d11.940043591538442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a535695b2116cbd%3A0xf98ca8dcf880334!2sBharathi%20Institute%20Of%20Hotel%20Management%20%26%20Nursing!5e0!3m2!1sen!2sin!4v1579589867054!5m2!1sen!2sin",
         name: "Villupuram Branch"
     },
     {
-        id: 7,
-        img: "/images/branch/7.jpg",
-        address: "NO.5, GOOD SHED STREET, NEAR SETHUPATHI SCHOOL, MADURAI - 625 001",
-        phone: "044 - 22264484",
-        mobile: "+91 - 9443917155",
-        mapSrc: "https://maps.app.goo.gl/XRSNesj3wkURfwax7",
+        id: 6,
+        img: "/assets/new_images/contactus/location_6.jpg",
+        address: "No.5, Good Shed Street, Near Sethupathi School, Madurai – 625 001",
+        phone: "0452 – 2344355",
+        mobile: "+91 - 94439 17155",
+        mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.12628082594!2d78.11162971449374!3d9.923439592903694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c5862b720c03%3A0xad7e3a656d40872d!2sBharathi%20Institute%20of%20Hotel%20Management%20%26%20Paramedical%20College!5e0!3m2!1sen!2sin!4v1579589977368!5m2!1sen!2sin",
         name: "Madurai Branch"
     },
     {
-        id: 8,
-        img: "/images/branch/8.jpg",
-        address: "NO.47, RAMAL RESIDENCE, MUDIYARASAN SALAI, KARAIKUDI - 630 002",
-        phone: "044 - 22264484",
-        mobile: "+91 - 9443917156",
-        mapSrc: "https://maps.app.goo.gl/2dmSj4Z2B91kba687",
+        id: 7,
+        img: "/assets/new_images/contactus/location_7.jpg",
+        address: "No.47, Ramal Residence, Mudiyarasan Salai, Karaikudi – 630 002",
+        phone: "04565 – 234848",
+        mobile: "+91 - 94439 17155",
+        mapSrc: "",
         name: "Karaikudi Branch"
     },
     {
+        id: 8,
+        img: "/assets/new_images/contactus/location_8.jpg",
+        address: "No.108, Thambuchetti Street, Kalikambal Kovil Opp. Broadway, Chennai - 600 001.",
+        phone: "",
+        mobile: "+91 - 9444120052",
+        mapSrc: "",
+        name: "Chennai Broadway Branch"
+    },
+    {
         id: 9,
-        img: "/images/branch/9.jpg",
-        address: "NO.25, S.N.CHAVADI ROAD, K.V. TEX NEAR, SRG TOURS, CUDDALORE",
-        phone: "044 - 22264484",
+        img: "/assets/new_images/contactus/location_9.jpg",
+        address: "No.25, S.N.Chavadi Road, K.V.Tex Near, SRG Tours, Cuddalore.",
         mobile: "+91 - 9787898991",
         mapSrc: "https://maps.app.goo.gl/rSewiS9Cxv19PLWm6",
         name: "Cuddalore Branch"
     },
     {
         id: 10,
-        img: Images.location_10.src,
-        address: "NO.171, HINDU NADAR SANGAM COMPLEX, S N HIGH ROAD, TIRUNELVELI JUNCTION, TIRUNELVELI - 627 001",
-        phone: "044 - 22264484",
+        img: "/assets/new_images/contactus/location_10.jpg",
+        address: "No.171, Hindu Nadar Sangam Complex, S N High Road, Tirunelveli Junction, Tirunelveli - 627 001",
         mobile: "+91 - 9443917155",
         mapSrc: "https://maps.app.goo.gl/AXZEyqA2nSsDcsTN6",
         name: "Tirunelveli Branch"
     },
     {
         id: 11,
-        img: Images.location_11.src,
-        address: "NO.36/12, VELLALAR STREET, RAGAVAN COMPLEX, TMB BANK 2ND FLOOR, ARIYALUR - 621 704",
-        phone: "044 - 22264484",
+        img: "/assets/new_images/contactus/location_11.jpg",
+        address: "No. 36/12, Vellalar Street, Ragavan Complex, TMB Bank 2nd Floor, Ariyalur - 621704",
         mobile: "+91 - 9787898991",
         mapSrc: "https://maps.app.goo.gl/ykkiQ9U56ExFGQeA7",
         name: "Ariyalur Branch"
     },
     {
         id: 12,
-        img: "/images/branch/12.jpg",
-        address: "NO.26-B IDA SCUDDAR ROAD, 3RD FLOOR, JAMBUBALA COMPLEX, VELLORE - 632 004",
-        phone: "044 - 22264484",
-        mobile: "+91 - 9787898991",
-        mapSrc: "https://maps.app.goo.gl/s6gXY3vfTUBNC57D7",
+        img: "/assets/new_images/contactus/location_13.jpg",
+        address: "No. 29-B, IDA SCUDDAR Road, 3rd Floor, Jambubala Complex, Vellore - 632004",
+        mobile: "+91 - 9787898991, +91 - 9444120052",
+        mapSrc: "",
         name: "Vellore Branch"
     },
     {
         id: 13,
-        img: "/images/branch/13.jpg",
-        address: "NO.15/5 POLLUR MAIN ROAD, NEAR AXIS BANK, TIRUVANNAMALAI - 606 601",
-        phone: "044 - 22264484",
+        img: "/assets/new_images/contactus/location_6.jpg",
+        address: "No.15/5, Pollur Main Road, Near Axis Bank, Thiruvannamalai – 606 601",
+        phone: "+91 - 9444320052",
         mobile: "+91 - 9444320052",
         mapSrc: "https://maps.app.goo.gl/FvjBfMHPSNwNvRji9",
         name: "Tiruvannamalai Branch"
     },
     {
         id: 14,
-        img: "/images/branch/14.jpg",
-        address: "NO.17 A, ULAGALANDHAR MADA STREET, NEAR ARUNA MAHAL, BIG KANCHIPURAM, KANCHIPURAM - 631 502",
-        phone: "044 - 22264484",
-        mobile: "+91 - 9444120052",
-        mapSrc: "https://maps.app.goo.gl/bHHppsYfbB7Fb5w38",
+        img: "/assets/new_images/contactus/location_7.jpg",
+        address: "No.17 A, Ulagalandhar Mada Street, Near Aruna Mahal, Big Kanchipuram, Kanchipuram – 6631 502",
+        phone: "+91 - 9787438991",
+        mobile: "+91 - 9787438991",
+        mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.9991625910243!2d79.69913687483904!3d12.843330287460395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52c30061c6677f%3A0xd0753eff5a8685d4!2sBig%20Kanchipuram!5e0!3m2!1sen!2sin!4v1708514753624!5m2!1sen!2sin",
         name: "Kanchipuram Branch"
     },
     {
         id: 15,
-        img: "/images/branch/15.jpg",
-        address: "NO. 14/1, SMPDA CHAMBERS, LIC COLONY, NEW BUS STAND, SALEM - 636 004",
-        phone: "044 - 22264484",
-        mobile: "+91 - 9442100056",
-        mapSrc: "https://maps.app.goo.gl/8afAtEfi3nk81m8M6",
-        name: "Salem Branch"
+        img: "/assets/new_images/contactus/location_1.jpg",
+        address: "No.59, 3rd floor, Gopuram towers, Dhurugam Road, Kallakurichi - 606202",
+        mobile: "+91 - 9655363236",
+        mapSrc: "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d125004.58730047903!2d78.88422492209892!3d11.737314698177158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x3bab6700084e7a39%3A0x794a1213edb2d0fe!2s58%2C3rd%20floor%2C%20gopuram%20towers%2C%20Dhurugam%20road%2C%20Raja%20Nagar%2C%20Kallakurichi%2C%20Tamil%20Nadu%20606202!3m2!1d11.7373339!2d78.9666287!5e0!3m2!1sen!2sin!4v1716608027791!5m2!1sen!2sin",
+        name: "Kallakurichi Branch"
     },
     {
         id: 16,
-        img: "/images/branch/16.jpg",
+        img: "/assets/new_images/contactus/location_1.jpg",
+        address: "No 10, LGB compound, E.B colony, Near Anil semiya head office, Dindigul 624001",
+        mobile: "+91 - 9655363236",
+        mapSrc: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3924.7508072254673!2d77.98024317503604!3d10.361799089762888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDIxJzQyLjUiTiA3N8KwNTgnNTguMiJF!5e0!3m2!1sen!2sin!4v1714571876238!5m2!1sen!2sin",
+        name: "Dindigul Branch"
+    },
+    {
+        id: 17,
+        img: "/assets/new_images/contactus/location_1.jpg",
+        address: "No.14/1,SMPDA Chambers, LIC Colony,New Bus Stand ,Salem – 636 004",
+        mobile: "+91 - 9442100056",
+        mapSrc: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3924.7508072254673!2d77.98024317503604!3d10.361799089762888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDIxJzQyLjUiTiA3N8KwNTgnNTguMiJF!5e0!3m2!1sen!2sin!4v1714571876238!5m2!1sen!2sin",
+        name: "Salem Branch"
+    },
+    {
+        id: 20,
+        img: "/assets/new_images/contactus/location_16.jpg",
         address: "25, NANDHI KOIL STREET, TEPPAKULAM, TRICHY - 620 002",
         phone: "044 - 22264484",
         mobile: "+91 - 9442100056",
@@ -163,8 +183,8 @@ const branches: Branch[] = [
         name: "Trichy Branch"
     },
     {
-        id: 17,
-        img: "/images/branch/17.jpg",
+        id: 21,
+        img: "/assets/new_images/contactus/location_17.jpg",
         address: "NO 59, 3RD FLOOR, GOPURAM TOWERS, DHURUGAM ROAD, KALLAKURUCHI - 606 202",
         phone: "044 - 22264484",
         mobile: "+91 - 9655363236",
@@ -173,170 +193,13 @@ const branches: Branch[] = [
     },
     {
         id: 18,
-        img: "/images/branch/18.jpg",
-        address: "NO.10, LGB COMPUND, E.B COLONY, NEAR ANIL SEMIYA HEAD OFFICE, DINDIGUL - 624 001",
-        phone: "044 - 22264484",
-        mobile: "+91 - 9655363236",
-        mapSrc: "https://maps.app.goo.gl/BP8zXVGThNRUkGJm8",
-        name: "Dindigul Branch"
+        img: "/assets/new_images/contactus/location_1.jpg",
+        address: "25, Nandhi Koil St, Theppakulam, Tiruchirappalli, Tamil Nadu 620002",
+        mobile: "+91 - 0000000000", // Needs actual mobile number
+        mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.662114503729!2d78.69143207504038!3d10.81238518949798!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baaf5a5e8e6c2b1%3A0x5f5e5e5e5e5e5e5e!2s25%2C%20Nandhi%20Koil%20St%2C%20Theppakulam%2C%20Tiruchirappalli%2C%20Tamil%20Nadu%20620002!5e0!3m2!1sen!2sin!4v1714571876238!5m2!1sen!2sin",
+        name: "Tiruchirappalli Branch"
     }
 ];
-// const branches: Branch[] = [
-//     {
-//         id: 1,
-//         img: "/images/branch/1.jpg",
-//         address: "No.95, Rajaji Road, Near Vasan Eye Care Hospital, Tambaram, Chennai – 600 0045",
-//         phone: "044 – 22264484",
-//         mobile: "+91 - 9444320052",
-//         mapSrc: "https://maps.app.goo.gl/UJWygsyJcXDR2jk4A",
-//         name: "Tambaram Branch"
-//     },
-//     {
-//         id: 2,
-//         img: "/images/branch/2.jpg",
-//         address: "No.29, GNG Colony, Varatharajapuram, Ambattur, Chennai – 600 0053",
-//         phone: "044 – 26251005",
-//         mobile: "+91 - 9444120052",
-//         mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15543.068011753096!2d80.14229176977537!3d13.113941599999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5263ae527db2bb%3A0x612586a15945e596!2sBharathi%20Institute%20of%20Hotel%20Management%20%26%20paramedical!5e0!3m2!1sen!2sin!4v1579590094646!5m2!1sen!2sin",
-//         name: "Ambattur Branch"
-//     },
-//     {
-//         id: 3,
-//         img: "/images/branch/3.jpg",
-//         address: "No.9, M.B.T. Road, Navalpur, Vimal Shopping Complex, Ranipet – 632 402",
-//         phone: "04172-273393",
-//         mobile: "+91 - 9444320052",
-//         mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.5949301138335!2d79.33171086452498!3d12.933736140880749!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bad3575127a56c1%3A0x32595cfeaefe8f5e!2sBharathi%20Institute%20of%20Catering%20%26%20Paramedical!5e0!3m2!1sen!2sin!4v1579590216307!5m2!1sen!2sin",
-//         name: "Ranipet Branch"
-//     },
-//     {
-//         id: 4,
-//         img: "/images/branch/4.jpg",
-//         address: "No.104, S.K. Road, Dr.Nagaraj Hospital (2ndFloor), Krishnapuram, Ambur -635 802",
-//         phone: "0417 – 4222822",
-//         mobile: "+91 - 9442100056",
-//         mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.8964820112174!2d78.71407711452323!3d12.785230890978331!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bad08e48a4d5537%3A0xcc8ba71e9cca17f6!2sBharathi%20Institute%20of%20Catering%20%26%20Paramedical!5e0!3m2!1sen!2sin!4v1579591629610!5m2!1sen!2sin",
-//         name: "Ambur Branch"
-//     },
-//     {
-//         id: 5,
-//         img: "/images/branch/5.jpg",
-//         address: "No.793, Nerhuji Road, Indian Bank Upstairs, Villupuram-605 602",
-//         phone: "04146 – 222822",
-//         mobile: "+91 - 9444120052",
-//         mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.497131032581!2d79.48712171451376!3d11.940043591538442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a535695b2116cbd%3A0xf98ca8dcf880334!2sBharathi%20Institute%20Of%20Hotel%20Management%20%26%20Nursing!5e0!3m2!1sen!2sin!4v1579589867054!5m2!1sen!2sin",
-//         name: "Villupuram Branch"
-//     },
-//     {
-//         id: 6,
-//         img: "/images/branch/6.jpg",
-//         address: "No.5, Good Shed Street, Near Sethupathi School, Madurai – 625 001",
-//         phone: "0452 – 2344355",
-//         mobile: "+91 - 94439 17155",
-//         mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.12628082594!2d78.11162971449374!3d9.923439592903694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c5862b720c03%3A0xad7e3a656d40872d!2sBharathi%20Institute%20of%20Hotel%20Management%20%26%20Paramedical%20College!5e0!3m2!1sen!2sin!4v1579589977368!5m2!1sen!2sin",
-//         name: "Madurai Branch"
-//     },
-//     {
-//         id: 7,
-//         img: "/images/branch/7.jpg",
-//         address: "No.47, Ramal Residence, Mudiyarasan Salai, Karaikudi – 630 002",
-//         phone: "04565 – 234848",
-//         mobile: "+91 - 94439 17155",
-//         mapSrc: "",
-//         name: "Karaikudi Branch"
-//     },
-//     {
-//         id: 8,
-//         img: "/images/branch/8.jpg",
-//         address: "No.108, Thambuchetti Street, Kalikambal Kovil Opp. Broadway, Chennai - 600 001.",
-//         phone: "",
-//         mobile: "+91 - 9444120052",
-//         mapSrc: "",
-//         name: "Chennai Broadway Branch"
-//     },
-//     {
-//         id: 9,
-//         img: "/images/branch/9.jpg",
-//         address: "No.25, S.N.Chavadi Road, K.V.Tex Near, SRG Tours, Cuddalore.",
-//         mobile: "+91 - 9787898991",
-//         mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1953.1672299524143!2d79.758665064352!3d11.741471456874997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a549927ddbc9ef7%3A0xf6aabab4a38ac699!2sBHARATHI%20INSTITUTE%20OF%20HOTEL%20MANAGEMENT%20%26%20PARAMEDICAL%20COLLEGE!5e0!3m2!1sen!2sin!4v1579590293143!5m2!1sen!2sin",
-//         name: "Cuddalore Branch"
-//     },
-//     {
-//         id: 10,
-//         img: "/images/branch/10.jpg",
-//         address: "No.171, Hindu Nadar Sangam Complex, S N High Road, Tirunelveli Junction, Tirunelveli - 627 001",
-//         mobile: "+91 - 9443917155",
-//         mapSrc: "",
-//         name: "Tirunelveli Branch"
-//     },
-//     {
-//         id: 11,
-//         img: "/images/branch/11.jpg",
-//         address: "No. 36/12, Vellalar Street, Ragavan Complex, TMB Bank 2nd Floor, Ariyalur - 621704",
-//         mobile: "+91 - 9787898991",
-//         mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3914.683307177547!2d79.07082501450532!3d11.136947192077526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baadf109e6964b9%3A0x50e72363657db67e!2sBharathi%20catering%20and%20paramedical%20institute!5e0!3m2!1sen!2sin!4v1579591481076!5m2!1sen!2sin",
-//         name: "Ariyalur Branch"
-//     },
-//     {
-//         id: 12,
-//         img: "/images/branch/13.jpg",
-//         address: "No. 29-B, IDA SCUDDAR Road, 3rd Floor, Jambubala Complex, Vellore - 632004",
-//         mobile: "+91 - 9787898991, +91 - 9444120052",
-//         mapSrc: "",
-//         name: "Vellore Branch"
-//     },
-//     {
-//         id: 13,
-//         img: "/images/branch/6.jpg",
-//         address: "No.15/5, Pollur Main Road, Near Axis Bank, Thiruvannamalai – 606 601",
-//         phone: "+91 - 9444320052",
-//         mobile: "+91 - 9444320052",
-//         mapSrc: "",
-//         name: "Thiruvannamalai Branch"
-//     },
-//     {
-//         id: 14,
-//         img: "/images/branch/7.jpg",
-//         address: "No.17 A, Ulagalandhar Mada Street, Near Aruna Mahal, Big Kanchipuram, Kanchipuram – 6631 502",
-//         phone: "+91 - 9787438991",
-//         mobile: "+91 - 9787438991",
-//         mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.9991625910243!2d79.69913687483904!3d12.843330287460395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52c30061c6677f%3A0xd0753eff5a8685d4!2sBig%20Kanchipuram!5e0!3m2!1sen!2sin!4v1708514753624!5m2!1sen!2sin",
-//         name: "Kanchipuram Branch"
-//     },
-//     {
-//         id: 15,
-//         img: "/images/branch/1.jpg",
-//         address: "No.59, 3rd floor, Gopuram towers, Dhurugam Road, Kallakurichi - 606202",
-//         mobile: "+91 - 9655363236",
-//         mapSrc: "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d125004.58730047903!2d78.88422492209892!3d11.737314698177158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x3bab6700084e7a39%3A0x794a1213edb2d0fe!2s58%2C3rd%20floor%2C%20gopuram%20towers%2C%20Dhurugam%20road%2C%20Raja%20Nagar%2C%20Kallakurichi%2C%20Tamil%20Nadu%20606202!3m2!1d11.7373339!2d78.9666287!5e0!3m2!1sen!2sin!4v1716608027791!5m2!1sen!2sin",
-//         name: "Kallakurichi Branch"
-//     },
-//     {
-//         id: 16,
-//         img: "/images/branch/1.jpg",
-//         address: "No 10, LGB compound, E.B colony, Near Anil semiya head office, Dindigul 624001",
-//         mobile: "+91 - 9655363236",
-//         mapSrc: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3924.7508072254673!2d77.98024317503604!3d10.361799089762888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDIxJzQyLjUiTiA3N8KwNTgnNTguMiJF!5e0!3m2!1sen!2sin!4v1714571876238!5m2!1sen!2sin",
-//         name: "Dindigul Branch"
-//     },
-//     {
-//         id: 17,
-//         img: "/images/branch/1.jpg",
-//         address: "No.14/1,SMPDA Chambers, LIC Colony,New Bus Stand ,Salem – 636 004",
-//         mobile: "+91 - 9442100056",
-//         mapSrc: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3924.7508072254673!2d77.98024317503604!3d10.361799089762888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDIxJzQyLjUiTiA3N8KwNTgnNTguMiJF!5e0!3m2!1sen!2sin!4v1714571876238!5m2!1sen!2sin",
-//         name: "Salem Branch"
-//     },
-//     {
-//         id: 18,
-//         img: "/images/branch/1.jpg",
-//         address: "25, Nandhi Koil St, Theppakulam, Tiruchirappalli, Tamil Nadu 620002",
-//         mobile: "+91 - 0000000000", // Needs actual mobile number
-//         mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.662114503729!2d78.69143207504038!3d10.81238518949798!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baaf5a5e8e6c2b1%3A0x5f5e5e5e5e5e5e5e!2s25%2C%20Nandhi%20Koil%20St%2C%20Theppakulam%2C%20Tiruchirappalli%2C%20Tamil%20Nadu%20620002!5e0!3m2!1sen!2sin!4v1714571876238!5m2!1sen!2sin",
-//         name: "Tiruchirappalli Branch"
-//     }
-// ];
 
 export default function ContactPage() {
     const [activeCity, setActiveCity] = useState<string>('all');

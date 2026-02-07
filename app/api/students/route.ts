@@ -4,7 +4,7 @@ import Student from '@/models/Student';
 import Settings from '@/models/Settings'; // Import Settings model
 import { verifyToken } from '@/lib/auth';
 import nodemailer from 'nodemailer';
-import { writeFile } from 'fs/promises';
+import { writeFile, mkdir } from 'fs/promises';
 import path from 'path';
 import { Buffer } from 'buffer';
 
@@ -70,6 +70,7 @@ export async function POST(req: Request) {
                 // Note: Vercel specific limitations apply here as noted before
                 try {
                     const uploadDir = path.join(process.cwd(), 'public/uploads');
+                    await mkdir(uploadDir, { recursive: true });
                     await writeFile(path.join(uploadDir, fileName), buffer);
                     body.markSheetPath = `/uploads/${fileName}`;
                 } catch (fsError) {
@@ -93,7 +94,7 @@ export async function POST(req: Request) {
             if (settings.smtpHost && settings.recipientEmails) {
                 const transporter = nodemailer.createTransport({
                     host: settings.smtpHost,
-                    port: Number(settings.smtpPort),
+                    port: Number(settings.smtpPort) || 587,
                     secure: Number(settings.smtpPort) === 465, // true for 465, false for other ports
                     auth: {
                         user: settings.smtpUser,

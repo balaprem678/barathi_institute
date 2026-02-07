@@ -1,0 +1,14 @@
+/* Admin Specific Overrides */
+/* Note: Tailwind is provided by globals.scss imported in layout */
+
+body {
+    background-color: #f9fafb;
+    /* bg-gray-50 */
+    color: #111827;
+    /* text-gray-900 */
+    /* Ensure font matches the design system if different from globals */
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Add any other specific admin-only overrides here */
+/* .admin-card removed to avoid @apply errors without tailwind import */

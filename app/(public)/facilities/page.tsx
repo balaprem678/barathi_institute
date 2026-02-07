@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import PageBreadcrumb from '../../components/PageBreadcrumb';
+import PageBreadcrumb from '@/components/PageBreadcrumb';
 import './facilities.scss';
 import Image from 'next/image';
 
@@ -29,7 +29,7 @@ const facilities: Facility[] = [
 
 const ZigzagCard: React.FC<{ facility: Facility; index: number }> = ({ facility, index }) => {
   const isEven = index % 2 === 0;
-  
+
   return (
     <div className={`zigzag-card ${isEven ? 'zigzag-card--left' : 'zigzag-card--right'}`}>
       <div className="zigzag-card__container">
@@ -54,7 +54,7 @@ const ZigzagCard: React.FC<{ facility: Facility; index: number }> = ({ facility,
             </div>
           </div>
         </div>
-        
+
         <div className={`zigzag-card__content ${isEven ? 'order-2' : 'order-1'}`}>
           <div className="zigzag-card__content-inner">
             <span className="zigzag-card__category">Facility</span>
@@ -63,15 +63,15 @@ const ZigzagCard: React.FC<{ facility: Facility; index: number }> = ({ facility,
             <div className="zigzag-card__features">
               <div className="feature">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                 </svg>
                 <span>Modern Equipment</span>
               </div>
               <div className="feature">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-                  <circle cx="9" cy="7" r="4"/>
-                  <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+                  <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
                 </svg>
                 <span>Expert Training</span>
               </div>
@@ -86,7 +86,7 @@ const ZigzagCard: React.FC<{ facility: Facility; index: number }> = ({ facility,
 const FacilitiesPage: React.FC = () => {
   return (
     <>
-     
+
 
       <section className="facilities-hero">
         <div className="container">
@@ -122,7 +122,7 @@ const FacilitiesPage: React.FC = () => {
               World-Class Learning Environment
             </h2>
             <p className="facilities-intro__description">
-              Discover our cutting-edge facilities that provide hands-on experience 
+              Discover our cutting-edge facilities that provide hands-on experience
               and prepare students for real-world challenges in their respective fields.
             </p>
           </div>
@@ -137,13 +137,13 @@ const FacilitiesPage: React.FC = () => {
             <div className="facilities-cta__content">
               <h3 className="facilities-cta__title">Experience Excellence Firsthand</h3>
               <p className="facilities-cta__description">
-                Book a campus tour to explore our world-class facilities and 
+                Book a campus tour to explore our world-class facilities and
                 discover how BHARATHI can shape your future.
               </p>
               <Link href="/contact" className="btn btn--primary">
                 <span>Schedule a Visit</span>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                  <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </Link>
             </div>

@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
-import PageBreadcrumb from '../../../components/PageBreadcrumb';
+import PageBreadcrumb from '@/components/PageBreadcrumb';
 
 const AccordionItem = ({ title, isOpen, onClick, children }: { title: string, isOpen: boolean, onClick: () => void, children: React.ReactNode }) => {
     return (

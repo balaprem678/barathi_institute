@@ -14,7 +14,7 @@
 
   // Hero Banner
   .contact-hero-banner {
-    background: url("../../public/assets/new_images/contactus/contactbanner-new2.png") no-repeat;
+    background: url("/assets/new_images/contactus/contactbanner-new2.png") no-repeat;
     background-size: cover;
     background-position: center;
     padding: 100px 60px;
@@ -767,6 +767,7 @@
 
     .map-preview-section {
       .map-container {
+
         iframe,
         .map-placeholder {
           height: 300px !important;
