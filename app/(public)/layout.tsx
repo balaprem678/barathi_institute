@@ -23,8 +23,14 @@ import dbConnect from '@/lib/db';
 import Settings from '@/models/Settings';
 
 export async function generateMetadata() {
-  await dbConnect();
-  const settings = await Settings.findOne();
+  let settings;
+  try {
+    await dbConnect();
+    settings = await Settings.findOne();
+  } catch (error) {
+    console.warn("Failed to fetch settings for metadata, using defaults:", error);
+    settings = {};
+  }
 
   const seo = settings?.seo || {};
   const siteName = settings?.general?.siteName || "Bharathi Institute";
