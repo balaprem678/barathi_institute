@@ -38,7 +38,7 @@ const branches: Branch[] = [
     },
     {
         id: 2,
-        img: "/images/branch/2.jpg",
+        img: "/assets/new_images/contactus/location_2.jpg",
         address: "NO.108, THAMBUCHETTT STREET, KALIKAMBAL KOVIL OPPOSITE, BROADWAY, CHENNAI - 600 001",
         phone: "044 - 22264484",
         mobile: "+91 - 9444120052",
@@ -175,7 +175,7 @@ const branches: Branch[] = [
     },
     {
         id: 16,
-        img: "/images/branch/16.jpg",
+        img: "/assets/new_images/contactus/location_16.jpg",
         address: "25, NANDHI KOIL STREET, TEPPAKULAM, TRICHY - 620 002",
         phone: "044 - 22264484",
         mobile: "+91 - 9442100056",
@@ -184,7 +184,7 @@ const branches: Branch[] = [
     },
     {
         id: 17,
-        img: "/images/branch/17.jpg",
+        img: "/assets/new_images/contactus/location_17.jpg",
         address: "NO 59, 3RD FLOOR, GOPURAM TOWERS, DHURUGAM ROAD, KALLAKURUCHI - 606 202",
         phone: "044 - 22264484",
         mobile: "+91 - 9655363236",
