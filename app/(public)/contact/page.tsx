@@ -37,7 +37,7 @@ const branches: Branch[] = [
         name: "Ambattur Branch"
     },
     {
-        id: 2,
+        id: 19,
         img: "/assets/new_images/contactus/location_2.jpg",
         address: "NO.108, THAMBUCHETTT STREET, KALIKAMBAL KOVIL OPPOSITE, BROADWAY, CHENNAI - 600 001",
         phone: "044 - 22264484",
@@ -159,7 +159,7 @@ const branches: Branch[] = [
     },
     {
         id: 16,
-        img: "/images/branch/1.jpg",
+        img: "/assets/new_images/contactus/location_1.jpg",
         address: "No 10, LGB compound, E.B colony, Near Anil semiya head office, Dindigul 624001",
         mobile: "+91 - 9655363236",
         mapSrc: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3924.7508072254673!2d77.98024317503604!3d10.361799089762888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDIxJzQyLjUiTiA3N8KwNTgnNTguMiJF!5e0!3m2!1sen!2sin!4v1714571876238!5m2!1sen!2sin",
@@ -167,14 +167,14 @@ const branches: Branch[] = [
     },
     {
         id: 17,
-        img: "/images/branch/1.jpg",
+        img: "/assets/new_images/contactus/location_1.jpg",
         address: "No.14/1,SMPDA Chambers, LIC Colony,New Bus Stand ,Salem – 636 004",
         mobile: "+91 - 9442100056",
         mapSrc: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3924.7508072254673!2d77.98024317503604!3d10.361799089762888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDIxJzQyLjUiTiA3N8KwNTgnNTguMiJF!5e0!3m2!1sen!2sin!4v1714571876238!5m2!1sen!2sin",
         name: "Salem Branch"
     },
     {
-        id: 16,
+        id: 20,
         img: "/assets/new_images/contactus/location_16.jpg",
         address: "25, NANDHI KOIL STREET, TEPPAKULAM, TRICHY - 620 002",
         phone: "044 - 22264484",
@@ -183,7 +183,7 @@ const branches: Branch[] = [
         name: "Trichy Branch"
     },
     {
-        id: 17,
+        id: 21,
         img: "/assets/new_images/contactus/location_17.jpg",
         address: "NO 59, 3RD FLOOR, GOPURAM TOWERS, DHURUGAM ROAD, KALLAKURUCHI - 606 202",
         phone: "044 - 22264484",
