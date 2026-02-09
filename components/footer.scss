@@ -1,7 +1,8 @@
 .footer_new {
     background-image: url("../public/assets/new_images/footer_bg.png");
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
+    background-position: left;
     padding: 40px 0;
 }
 .practice-list h3 {
@@ -10,6 +11,9 @@
 }
 
 .practice-list {
+    ul{
+        padding: 0;
+    }
     li {
         a {
             position: relative;

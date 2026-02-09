@@ -8,6 +8,7 @@ import Locations from './Locations'
 import PopupModal from '@/components/PopupModal';
 import Partners from './partners'
 import EnquiryForm from './EnquiryForm';
+import "./home.scss" ;
 
 
 interface Slide {
@@ -515,7 +516,6 @@ export default function Home() {
       </section>
 
       {/* Enquiry Form */}
-
 
       <EnquiryForm />
 

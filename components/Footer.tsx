@@ -10,7 +10,7 @@ const Footer = () => {
                     <div className="row">
                         <div className="col-md-3 col-sm-12">
                             <div className="practice-list">
-                                <img src={Images.logo.src} alt="logo" />
+                                <img src={Images.logo.src} alt="logo" width="300px"/>
                                 <p style={{ color: '#FFFFFF' }}> In 2005, Bharathi Educational Institution began operations in Chennai&apos;s Tambaram district; Districts of Vellore, Ranipet, Ambur, and Karaikudi in the Sivagangai district are which are industrial centres.</p>
                             </div>
                         </div>
