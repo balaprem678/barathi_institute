@@ -29,8 +29,11 @@ export async function POST(req: Request) {
                     },
                 });
 
+
+
+                const sender = settings.fromEmail || settings.smtpUser;
                 const mailOptions = {
-                    from: `"Bharathi Institute" <${settings.smtpUser}>`,
+                    from: `"Bharathi Institute" <${sender}>`,
                     to: settings.recipientEmails,
                     subject: `New Enquiry: ${body.name} - ${body.course}`,
                     html: `

@@ -17,6 +17,7 @@ export default function SettingsPage() {
         smtpPort: '',
         smtpUser: '',
         smtpPass: '',
+        fromEmail: '',
         recipientEmails: '',
         seo: {
             title: '',
@@ -156,6 +157,9 @@ export default function SettingsPage() {
                             <InputGroup label="SMTP Port" name="smtpPort" value={formData.smtpPort} onChange={handleChange} />
                             <InputGroup label="SMTP User" name="smtpUser" value={formData.smtpUser} onChange={handleChange} />
                             <InputGroup label="SMTP Password" name="smtpPass" type="password" value={formData.smtpPass} onChange={handleChange} />
+                            <div className="col-span-1 md:col-span-2">
+                                <InputGroup label="From Email (Verified Sender)" name="fromEmail" value={formData.fromEmail} onChange={handleChange} placeholder="e.g. info@bharathiinstitutes.com" />
+                            </div>
                             <div className="col-span-1 md:col-span-2">
                                 <InputGroup label="Recipient Emails (comma separated)" name="recipientEmails" value={formData.recipientEmails} onChange={handleChange} />
                             </div>
