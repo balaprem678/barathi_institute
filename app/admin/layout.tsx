@@ -6,6 +6,7 @@ import AdminHeader from "@/components/admin/AdminHeader";
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from "react";
 import { AuthService } from "@/services/authService";
+import { NotificationProvider } from '@/context/NotificationContext';
 
 export default function AdminLayout({
     children,
@@ -61,18 +62,20 @@ export default function AdminLayout({
                     </div>
                 ) : (
                     <div className="flex h-screen overflow-hidden">
-                        {/* Sidebar */}
-                        <AdminSidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
+                        <NotificationProvider>
+                            {/* Sidebar */}
+                            <AdminSidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
 
-                        <div className="flex flex-col flex-1 overflow-hidden">
-                            {/* Header */}
-                            <AdminHeader onMenuClick={() => setSidebarOpen(true)} />
+                            <div className="flex flex-col flex-1 overflow-hidden">
+                                {/* Header */}
+                                <AdminHeader onMenuClick={() => setSidebarOpen(true)} />
 
-                            {/* Main Content */}
-                            <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50 p-6">
-                                {children}
-                            </main>
-                        </div>
+                                {/* Main Content */}
+                                <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50 p-6">
+                                    {children}
+                                </main>
+                            </div>
+                        </NotificationProvider>
                     </div>
                 )}
             </body>

@@ -3,8 +3,10 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { X, Mail, Phone, User, Send } from 'lucide-react';
 import './popupmodal.scss';
+import { useNotification } from '@/context/NotificationContext';
 
 const PopupModal = () => {
+    const { showNotification } = useNotification();
     const [isVisible, setIsVisible] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
@@ -53,7 +55,7 @@ const PopupModal = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!formData.agree) {
-            alert('Please agree to the terms and conditions');
+            showNotification('warning', 'Please agree to the terms and conditions');
             return;
         }
 
@@ -66,7 +68,7 @@ const PopupModal = () => {
             });
 
             if (response.ok) {
-                alert('Thank you! Your enquiry has been submitted successfully.');
+                showNotification('success', 'Thank you! Your enquiry has been submitted successfully.');
                 setFormData({
                     name: '',
                     email: '',
@@ -83,7 +85,7 @@ const PopupModal = () => {
                 handleClose();
             }
         } catch (error) {
-            alert('An error occurred. Please try again.');
+            showNotification('error', 'An error occurred. Please try again.');
         } finally {
             setIsSubmitting(false);
         }
@@ -228,16 +230,25 @@ const PopupModal = () => {
                                     <span className="required-star">*</span>
                                 </label>
                             </div>
-                            <input
-                                type="text"
+                            <select
                                 id="course"
                                 name="course"
                                 className="form-field"
-                                placeholder="Enter course name"
                                 value={formData.course}
-                                onChange={handleInputChange}
+                                onChange={handleInputChange as any}
                                 required
-                            />
+                            >
+                                <option value="">Select Course</option>
+                                <option value="Diploma in Hotel Management">Diploma in Hotel Management</option>
+                                <option value="Food and Beverage Production">Food and Beverage Production</option>
+                                <option value="Food and Beverage Service">Food and Beverage Service</option>
+                                <option value="House Keeping Management">House Keeping Management</option>
+                                <option value="Front Office Management">Front Office Management</option>
+                                <option value="Bakery and Confectionery">Bakery and Confectionery</option>
+                                <option value="Diploma in Nursing Assistant">Diploma in Nursing Assistant</option>
+                                <option value="Medical Lab Technician">Medical Lab Technician</option>
+                                <option value="Health Assistant">Health Assistant</option>
+                            </select>
                             <div className="field-bottom-space"></div>
                         </div>
 

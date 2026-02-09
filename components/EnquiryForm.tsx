@@ -29,7 +29,10 @@ type FormData = {
   message: string;
 };
 
+import { useNotification } from '@/context/NotificationContext';
+
 const EnquiryForm = () => {
+  const { showNotification } = useNotification();
   const [formData, setFormData] = useState<FormData>({
     name: '',
     phone: '',
@@ -64,13 +67,14 @@ const EnquiryForm = () => {
       }
     } catch (error) {
       console.error('Submission error:', error);
-      alert('Something went wrong. Please try again.');
+      showNotification('error', 'Something went wrong. Please try again.');
       setIsSubmitting(false);
       return;
     }
 
     setIsSubmitting(false);
     setIsSubmitted(true);
+    showNotification('success', 'Thank you! Your enquiry has been submitted successfully.');
 
     // Reset form after 5 seconds
     setTimeout(() => {
@@ -207,18 +211,27 @@ const EnquiryForm = () => {
 
                   <div className="form-group">
                     <label htmlFor="course">Course Interested In <span>*</span></label>
-                    <div className="input-wrapper">
+                    <div className="select-wrapper">
                       <FaBook className="input-icon" />
-                      <input
-                        type="text"
+                      <select
                         id="course"
                         name="course"
                         className="form-input"
-                        placeholder="Enter course name"
                         value={formData.course}
                         onChange={handleChange}
                         required
-                      />
+                      >
+                        <option value="">Select Course</option>
+                        <option value="Diploma in Hotel Management">Diploma in Hotel Management</option>
+                        <option value="Food and Beverage Production">Food and Beverage Production</option>
+                        <option value="Food and Beverage Service">Food and Beverage Service</option>
+                        <option value="House Keeping Management">House Keeping Management</option>
+                        <option value="Front Office Management">Front Office Management</option>
+                        <option value="Bakery and Confectionery">Bakery and Confectionery</option>
+                        <option value="Diploma in Nursing Assistant">Diploma in Nursing Assistant</option>
+                        <option value="Medical Lab Technician">Medical Lab Technician</option>
+                        <option value="Health Assistant">Health Assistant</option>
+                      </select>
                     </div>
                   </div>
                 </div>

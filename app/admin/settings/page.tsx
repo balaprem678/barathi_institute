@@ -2,8 +2,10 @@
 import { useState, useEffect } from 'react';
 import { Save, Globe, Mail, Search as SearchIcon, Loader2 } from 'lucide-react';
 import { AuthService } from '@/services/authService';
+import { useNotification } from '@/context/NotificationContext';
 
 export default function SettingsPage() {
+    const { showNotification } = useNotification();
     const [activeTab, setActiveTab] = useState('general');
     const [loading, setLoading] = useState(false);
     const [fetching, setFetching] = useState(true);
@@ -73,13 +75,13 @@ export default function SettingsPage() {
             });
 
             if (res.ok) {
-                alert('Settings saved successfully!');
+                showNotification('success', 'Settings saved successfully!');
             } else {
-                alert('Failed to save settings');
+                showNotification('error', 'Failed to save settings');
             }
         } catch (error) {
             console.error('Error saving settings:', error);
-            alert('Error saving settings');
+            showNotification('error', 'Error saving settings');
         } finally {
             setLoading(false);
         }

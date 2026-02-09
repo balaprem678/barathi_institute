@@ -4,12 +4,15 @@ import PageBreadcrumb from '@/components/PageBreadcrumb';
 import Link from 'next/link';
 import { useState } from 'react';
 import './register.scss';
+import { useNotification } from '@/context/NotificationContext';
 
 export default function Register() {
+    const { showNotification } = useNotification();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         phone: '',
+        qualification: '',
         subject: '0',
         message: '',
         captcha: '',
@@ -34,7 +37,7 @@ export default function Register() {
         e.preventDefault();
 
         if (parseInt(formData.captcha) !== random1 + random2) {
-            alert('Incorrect Security Code');
+            showNotification('error', 'Incorrect Security Code');
             return;
         }
 
@@ -42,6 +45,7 @@ export default function Register() {
         submitData.append('name', formData.name);
         submitData.append('email', formData.email);
         submitData.append('phone', formData.phone);
+        submitData.append('qualification', formData.qualification);
         // Map 'subject' to 'course' as per Schema/API expectation
         submitData.append('course', formData.subject);
         submitData.append('message', formData.message);
@@ -58,17 +62,17 @@ export default function Register() {
             });
 
             if (res.ok) {
-                alert('Form submitted successfully!');
+                showNotification('success', 'Form submitted successfully!');
                 // Reset form or redirect
                 setFormData({
-                    name: '', email: '', phone: '', subject: '0', message: '', captcha: '', file: null
+                    name: '', email: '', phone: '', qualification: '', subject: '0', message: '', captcha: '', file: null
                 });
             } else {
-                alert('Failed to submit form. Please try again.');
+                showNotification('error', 'Failed to submit form. Please try again.');
             }
         } catch (error) {
             console.error('Submission error:', error);
-            alert('An error occurred. Please try again.');
+            showNotification('error', 'An error occurred. Please try again.');
         }
     };
 
@@ -118,7 +122,12 @@ export default function Register() {
                                         </div>
                                         <div className="col-md-6 col-sm-6 col-xs-12">
                                             <div className="form-group">
-                                                <input type="text" name="phone" className="form-control" value={formData.phone} onChange={handleChange} placeholder="Mobile No*" />
+                                                <input type="text" name="phone" className="form-control" value={formData.phone} onChange={handleChange} placeholder="Mobile No*" required />
+                                            </div>
+                                        </div>
+                                        <div className="col-md-6 col-sm-6 col-xs-12">
+                                            <div className="form-group">
+                                                <input type="text" name="qualification" className="form-control" value={formData.qualification} onChange={handleChange} placeholder="Qualification *" required />
                                             </div>
                                         </div>
 

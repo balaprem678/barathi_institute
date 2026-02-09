@@ -4,8 +4,10 @@ import { Plus, Search, Edit2, Trash2, ExternalLink, RefreshCw } from 'lucide-rea
 import { AuthService } from '@/services/authService';
 import LandingPageModal, { LandingPageData } from '@/components/admin/LandingPageModal';
 import Link from 'next/link';
+import { useNotification } from '@/context/NotificationContext';
 
 export default function LandingPages() {
+    const { showNotification } = useNotification();
     const [pages, setPages] = useState<LandingPageData[]>([]);
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
@@ -40,11 +42,13 @@ export default function LandingPages() {
             });
             if (res.ok) {
                 fetchPages();
+                showNotification('success', 'Page deleted successfully');
             } else {
-                alert('Failed to delete page');
+                showNotification('error', 'Failed to delete page');
             }
         } catch (error) {
             console.error(error);
+            showNotification('error', 'An error occurred while deleting');
         }
     };
 
@@ -64,9 +68,10 @@ export default function LandingPages() {
             }
 
             fetchPages();
+            showNotification('success', 'Page saved successfully');
         } catch (error) {
             console.error(error);
-            alert('Error saving page');
+            showNotification('error', 'Error saving page');
             throw error; // Re-throw to handle in modal
         }
     };
@@ -142,8 +147,8 @@ export default function LandingPages() {
                                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{page.city}</td>
                                         <td className="px-6 py-4 whitespace-nowrap text-sm">
                                             <span className={`px-2 py-1 rounded-full text-xs font-medium ${page.courseType === 'hotel-management'
-                                                    ? 'bg-purple-100 text-purple-800'
-                                                    : 'bg-green-100 text-green-800'
+                                                ? 'bg-purple-100 text-purple-800'
+                                                : 'bg-green-100 text-green-800'
                                                 }`}>
                                                 {page.courseType === 'hotel-management' ? 'Hotel Mgmt' : 'Paramedical'}
                                             </span>
