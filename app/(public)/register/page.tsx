@@ -74,14 +74,11 @@ export default function Register() {
 
     return (
         <>
-            <PageBreadcrumb
-                title="Admission Now"
-                bgImage="/images/feedback.jpg"
-                breadcrumbs={[
-                    { label: 'Home', url: '/' },
-                    { label: 'Admission Now' }
-                ]}
-            />
+            <div className="admission_register">
+                <div className="container">
+                    <h3 className='page_title'>Student Testimonials </h3>
+                </div>
+            </div>
 
             <section className="default-section sec-padd">
                 <div className="container">
@@ -108,7 +105,7 @@ export default function Register() {
                                     <div className="row clearfix">
                                         <div className="col-md-6 col-sm-6 col-xs-12">
                                             <div className="form-group">
-                                                <input type="text" name="name" className="form-control" value={formData.name} onChange={handleChange} placeholder=" Name *" required />
+                                                <input type="text" name="name" className="form-control" value={formData.name} onChange={handleChange} placeholder=" Full Name *" required />
                                             </div>
                                         </div>
                                         <div className="col-md-6 col-sm-6 col-xs-12">
@@ -119,6 +116,21 @@ export default function Register() {
                                         <div className="col-md-6 col-sm-6 col-xs-12">
                                             <div className="form-group">
                                                 <input type="text" name="phone" className="form-control" value={formData.phone} onChange={handleChange} placeholder="Mobile No*" />
+                                            </div>
+                                        </div>
+                                        <div className="col-md-6 col-sm-6 col-xs-12">
+                                            <div className="form-group">
+                                                <input type="text" name="phone" className="form-control" value={formData.phone} onChange={handleChange} placeholder="Year Of Passing*" />
+                                            </div>
+                                        </div>
+                                        <div className="col-md-6 col-sm-6 col-xs-12">
+                                            <div className="form-group">
+                                                <input type="text" name="name" className="form-control" value={formData.phone} onChange={handleChange} placeholder=" Qualification*" required />
+                                            </div>
+                                        </div>
+                                        <div className="col-md-6 col-sm-6 col-xs-12">
+                                            <div className="form-group">
+                                                <input type="text" name="name" className="form-control" value={formData.phone} onChange={handleChange} placeholder=" Location*" required />
                                             </div>
                                         </div>
 

@@ -4330,3 +4330,12 @@ $border-radius: 20px;
   flex-wrap: wrap;
   justify-content: center;
 }
+
+
+
+
+@media (max-width: 500px) {
+  .section-title h1{
+    font-size: 18px;
+  }
+}

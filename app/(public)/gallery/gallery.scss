@@ -131,9 +131,10 @@
 
       .filters-container {
         display: flex;
-        flex-wrap: wrap;
         gap: 15px;
+        padding: 10px 0;
         justify-content: center;
+        flex-wrap: wrap;
 
         .filter-btn {
           padding: 12px 25px;
@@ -598,6 +599,7 @@
 
         .filters-container {
           gap: 10px;
+          flex-wrap: nowrap;
 
           .filter-btn {
             padding: 10px 15px;

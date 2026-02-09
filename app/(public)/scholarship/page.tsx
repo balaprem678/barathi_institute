@@ -48,7 +48,7 @@ export default function Scholarship() {
                                     <h3> Hotel Management  </h3>
                                     <span className="decor"></span>
                                 </div><br />
-                                <ul className="contact-info">
+                                <ul className="contact-info p-0 d-block">
                                     <li><i className="fa fa-certificate"></i><Link href="/courses/diploma"> Diploma in Hotel Management</Link> </li>
                                     <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Food and Beverage Production</Link> </li>
                                     <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Food and Beverage Service</Link> </li>
@@ -61,7 +61,7 @@ export default function Scholarship() {
                                     <h3> Paramedical Course</h3>
                                     <span className="decor"></span>
                                 </div><br />
-                                <ul className="contact-info">
+                                <ul className="contact-info p-0 d-block">
                                     <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Diploma in Nursing Assistant</Link> </li>
                                     <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Medical Lab Technician</Link> </li>
                                     <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Health Assistant</Link> </li>

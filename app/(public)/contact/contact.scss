@@ -16,7 +16,7 @@
   .contact-hero-banner {
     background: url("/assets/new_images/contactus/contactbanner-new2.png") no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: left center;
     padding: 100px 60px;
     color: white;
     text-align: center;
@@ -171,7 +171,9 @@
 
           .city-buttons {
             display: flex;
-            flex-wrap: wrap;
+            white-space: nowrap;
+            overflow-x: auto;
+            padding: 10px 0;
             gap: 12px;
 
             .city-btn {
@@ -543,10 +545,11 @@
     // Contact Information
     .contact-info-section {
       margin-top: 80px;
-      padding: 60px 0;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
       border-radius: 20px;
+        padding: 40px 20px;
+
 
       .info-grid {
         display: grid;
@@ -555,7 +558,6 @@
 
         .info-card {
           text-align: center;
-          padding: 30px;
 
           .info-icon {
             font-size: 2.5rem;
@@ -713,7 +715,8 @@
 
       .contact-info-section {
         margin-top: 40px;
-        padding: 40px 20px;
+        padding: 0;
+
 
         .info-grid {
           grid-template-columns: 1fr;
@@ -767,7 +770,6 @@
 
     .map-preview-section {
       .map-container {
-
         iframe,
         .map-placeholder {
           height: 300px !important;

@@ -203,8 +203,6 @@ $transition: all 0.3s ease;
 
   .content-preview {
     flex-grow: 1;
-    margin-bottom: 25px;
-
     p {
       color: $text-color;
       line-height: 1.6;
@@ -218,7 +216,7 @@ $transition: all 0.3s ease;
 
   .card-footer {
     display: flex;
-    gap: 15px;
+    gap: 5px;
     flex-wrap: wrap;
 
     .read-more-btn {
@@ -227,7 +225,7 @@ $transition: all 0.3s ease;
       gap: 8px;
       background: $primary-color;
       color: white;
-      padding: 12px 24px;
+      padding: 8px;
       border-radius: 6px;
       text-decoration: none;
       font-weight: 600;
@@ -244,7 +242,7 @@ $transition: all 0.3s ease;
     }
 
     .contact-btn {
-      padding: 12px 24px;
+      padding: 8px;
       border: 2px solid $primary-color;
       color: $primary-color;
       border-radius: 6px;
@@ -361,7 +359,7 @@ $transition: all 0.3s ease;
   }
 
   .card-content {
-    padding: 20px;
+    padding: 14px;
   }
 
   .cta-section {
@@ -376,5 +374,20 @@ $transition: all 0.3s ease;
       width: 100%;
       text-align: center;
     }
+  }
+}
+@media (max-width: 480px) {
+  .section-header .title {
+    font-size: 1.2rem;
+  }
+  .cta-section .cta-content p,
+  .card-content .content-preview p,
+  .card-content .blog-title,
+  .section-header .description {
+    font-size: 14px;
+  }
+
+  .cta-section .cta-content h2 {
+    font-size: 18px;
   }
 }

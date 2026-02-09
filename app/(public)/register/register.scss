@@ -1,13 +1,22 @@
+.admission_register {
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+        url("../../../public/assets/new_images/Register/register_banner.png");
+    background-size: cover;
+    background-position: 0 0;
+    padding: 80px 0;
+}
+
 textarea,
-input{
+input {
     color: #000 !important;
     border: 1px solid #232323;
-    &::placeholder{
+    &::placeholder {
         color: #000 !important;
     }
 }
 
-.contact-info.reg{
+.contact-info.reg {
     padding: 0;
     display: block;
 }

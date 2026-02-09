@@ -102,9 +102,7 @@ export default function Blogs() {
                   <div className="card-footer">
                     <Link href={`/stories/${post.id}`} className="read-more-btn">
                       Read Full Story
-                      <svg className="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path d="M5 12h14M12 5l7 7-7 7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
+                  
                     </Link>
                     <Link href="/contact" className="contact-btn">
                       Contact Student

@@ -25,7 +25,7 @@ $shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
   overflow: hidden;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -51,9 +51,9 @@ $shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
     .highlight {
       color: $highlight-color;
       position: relative;
-      
+
       &::after {
-        content: '';
+        content: "";
         position: absolute;
         bottom: 5px;
         left: 0;
@@ -140,7 +140,7 @@ $shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
   }
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     width: 2px;
     background: linear-gradient(to bottom, transparent, $accent-color, transparent);
@@ -298,7 +298,7 @@ $shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
   &--right {
     .zigzag-card__container {
       direction: rtl;
-      
+
       .zigzag-card__content-inner {
         direction: ltr;
         margin-left: auto;
@@ -319,7 +319,7 @@ $shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
   overflow: hidden;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -506,4 +506,23 @@ $shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
       animation-delay: #{$i * 0.1}s;
     }
   }
-}   
+}
+
+@media (max-width: 500px) {
+  .zigzag-card__title,
+  .facilities-intro__title {
+    font-size: 18px;
+  }
+  .zigzag-card__description ,
+  .facilities-intro__description {
+    font-size: 14px;
+  }
+  .facilities-intro {
+    padding-bottom: 0;
+  }
+  .zigzag-card__content {
+    padding: 0;
+  }
+
+  
+}
