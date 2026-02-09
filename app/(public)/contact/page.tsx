@@ -120,7 +120,7 @@ const branches: Branch[] = [
         img: "/assets/new_images/contactus/location_11.jpg",
         address: "No. 36/12, Vellalar Street, Ragavan Complex, TMB Bank 2nd Floor, Ariyalur - 621704",
         mobile: "+91 - 9787898991",
-        mapSrc: "",
+        mapSrc: "https://maps.app.goo.gl/ykkiQ9U56ExFGQeA7",
         name: "Ariyalur Branch"
     },
     {
@@ -137,7 +137,7 @@ const branches: Branch[] = [
         address: "No.15/5, Pollur Main Road, Near Axis Bank, Thiruvannamalai – 606 601",
         phone: "+91 - 9444320052",
         mobile: "+91 - 9444320052",
-        mapSrc: "https://www.google.com/maps/search/BHARATHI+INSITUTE+HOTEL+MANAGEMENT+%2F+HEALTH+SCIENCE,+o.15%2F5,Pollur+Main+Road+Near+Axis+Bank,+Thiruvannamalai+%E2%80%93+606+601/@12.2413688,79.0700516,17z/data=!3m1!4b1?hl=en&entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoKLDEwMDc5MjA3MUgBUAM%3D",
+        mapSrc: "https://maps.app.goo.gl/FvjBfMHPSNwNvRji9",
         name: "Tiruvannamalai Branch"
     },
     {

@@ -92,7 +92,7 @@ const PopupModal = () => {
     if (!isVisible) return null;
 
     return (
-        <div className="modal-overlay" onClick={handleClose}>
+        <div className="modal-overlay enquiry_form" onClick={handleClose}>
             <div className="modal-container" onClick={(e) => e.stopPropagation()}>
                 <div className="modal-content">
                     {/* Header */}

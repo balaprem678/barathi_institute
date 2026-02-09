@@ -8,6 +8,7 @@ import Locations from './Locations'
 import PopupModal from '@/components/PopupModal';
 import Partners from './partners'
 import EnquiryForm from './EnquiryForm';
+import "./home.scss" ;
 
 
 interface Slide {
@@ -171,12 +172,12 @@ export default function Home() {
       {/* Unique Selling Points */}
       <section className="unique-selling-section" style={{
         background: 'linear-gradient(135deg, #0495f5 0%, #0378cc 100%)',
-        padding: '60px 0',
+        padding: '28px 0',
         color: 'white'
       }}>
         <div className="container">
           <div className="section-title text-center" style={{ marginBottom: '30px' }}>
-            <h3 style={{ fontSize: '32px', marginBottom: '15px' }}>Your Future Starts Here: Quality Education, Guaranteed Careers!</h3>
+            <h3 style={{ fontSize: '32px' }}>Your Future Starts Here: Quality Education, Guaranteed Careers!</h3>
             <p style={{ fontSize: '18px' }}>Looking for the perfect place to kickstart your career? Here's why Bharathi Institute is your best choice!</p>
           </div>
           <div className="row">
@@ -324,20 +325,7 @@ export default function Home() {
       </section>
 
       {/* Placements Section */}
-      <section className="recuiters-section" style={{ padding: '60px 0' }}>
-        <div className="container">
-          <div className="section-title text-center" style={{ marginBottom: '40px' }}>
-            <h3 style={{ color: '#333', fontSize: '32px', fontWeight: '700', marginBottom: '15px' }}>
-              Our Placement Partners – Launch Your Career with the Best
-            </h3>
-            <p style={{ fontSize: '18px', color: '#666' }}>
-              At Bharathi Institute, we take pride in our 100% placement assistance, ensuring our students secure rewarding careers in top-tier organizations.
-            </p>
-          </div>
-
-          <Partners />
-        </div>
-      </section>
+      <Partners />
 
       {/* Testimonials Section */}
       <section className="video-testi" style={{ padding: '60px 0', background: '#f8f9fa' }}>
@@ -439,7 +427,7 @@ export default function Home() {
       </section>
 
       {/* Blog Testimonials */}
-      <section className="all-cause sec-padd2 home-blog-section" style={{ padding: '60px 0' }}>
+      <section className="all-cause sec-padd2 home-blog-section" style={{ padding: '28px 0' }}>
         <div className="container">
           <div className="section-title text-center" style={{ marginBottom: '40px' }}>
             <h3 style={{ color: '#333', fontSize: '32px', fontWeight: '700' }}>Student Success Stories</h3>
@@ -491,10 +479,7 @@ export default function Home() {
       </section>
 
       {/* Gallery Section */}
-      <section className="all-cause sec-padd2 home-event-section" style={{
-        padding: '60px 0',
-        background: '#f8f9fa'
-      }}>
+      <section className="all-cause sec-padd2 home-event-section pb-3">
         <div className="container">
           <div className="section-title text-center" style={{ marginBottom: '40px' }}>
             <h3 style={{ color: '#333', fontSize: '32px', fontWeight: '700' }}>Our Gallery</h3>
@@ -531,7 +516,6 @@ export default function Home() {
       </section>
 
       {/* Enquiry Form */}
-
 
       <EnquiryForm />
 

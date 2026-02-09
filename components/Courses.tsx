@@ -44,7 +44,7 @@ export default function CoursesPage() {
                 <div className="container">
                     {/* Section Title */}
                     <div className="section-header">
-                        <h2 className="section-title">OUR Courses</h2>
+                        <h2 className="section-title">Our Courses</h2>
                     </div>
 
                     {/* Course Description */}
