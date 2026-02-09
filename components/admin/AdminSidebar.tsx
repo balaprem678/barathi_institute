@@ -10,7 +10,8 @@ import {
     ChevronDown,
     ChevronRight,
     X,
-    Mail
+    Mail,
+    Globe
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -70,6 +71,18 @@ export default function AdminSidebar({ isOpen, setIsOpen }: SidebarProps) {
                     </Link>
 
                     <Link
+                        href="/admin/landing-pages"
+                        onClick={() => setIsOpen(false)}
+                        className={`flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-colors ${isActive('/admin/landing-pages')
+                            ? 'bg-blue-50 text-blue-600'
+                            : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                            }`}
+                    >
+                        <Globe className="w-5 h-5 mr-3" />
+                        SEO Pages
+                    </Link>
+
+                    <Link
                         href="/admin/students"
                         onClick={() => setIsOpen(false)}
                         className={`flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-colors ${isActive('/admin/students')
@@ -126,12 +139,7 @@ export default function AdminSidebar({ isOpen, setIsOpen }: SidebarProps) {
                     </div>
                 </nav>
 
-                <div className="p-4 border-t border-gray-100">
-                    <button className="flex items-center px-4 py-2 text-sm font-medium text-red-600 rounded-lg hover:bg-red-50 w-full transition-colors">
-                        <LogOut className="w-5 h-5 mr-3" />
-                        Sign Out
-                    </button>
-                </div>
+
             </aside>
         </>
     );

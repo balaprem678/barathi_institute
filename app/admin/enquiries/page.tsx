@@ -2,13 +2,20 @@
 
 import { useState, useEffect } from 'react';
 import { AuthService } from '@/services/authService';
-import { Search, Mail, Phone, Calendar } from 'lucide-react';
+import { Search, Mail, Phone, Calendar, Eye, MapPin, Briefcase, GraduationCap, X } from 'lucide-react';
 
 interface Enquiry {
     _id: string;
     name: string;
     email: string;
     phone: string;
+    alternatePhone?: string;
+    city?: string;
+    qualification?: string;
+    yearOfPassing?: string;
+    course?: string;
+    occupation?: string;
+    message?: string;
     createdAt: string;
 }
 
@@ -16,6 +23,7 @@ export default function EnquiriesPage() {
     const [enquiries, setEnquiries] = useState<Enquiry[]>([]);
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
+    const [selectedEnquiry, setSelectedEnquiry] = useState<Enquiry | null>(null);
 
     useEffect(() => {
         const fetchEnquiries = async () => {
@@ -25,7 +33,8 @@ export default function EnquiriesPage() {
                     const data = await res.json();
                     setEnquiries(data);
                 } else {
-                    console.error('Failed to fetch enquiries');
+                    const errorData = await res.json().catch(() => ({}));
+                    console.error('Failed to fetch enquiries:', res.status, res.statusText, errorData);
                 }
             } catch (error) {
                 console.error('Error fetching enquiries:', error);
@@ -73,10 +82,16 @@ export default function EnquiriesPage() {
                                     Date
                                 </th>
                                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Name
+                                    Name & Course
                                 </th>
                                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Contact Info
+                                    Contact
+                                </th>
+                                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    City
+                                </th>
+                                <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Actions
                                 </th>
                             </tr>
                         </thead>
@@ -90,8 +105,11 @@ export default function EnquiriesPage() {
                                                 {new Date(enquiry.createdAt).toLocaleDateString()}
                                             </div>
                                         </td>
-                                        <td className="px-6 py-4 whitespace-nowrap">
+                                        <td className="px-6 py-4">
                                             <div className="text-sm font-medium text-gray-900">{enquiry.name}</div>
+                                            <div className="text-xs text-blue-600 bg-blue-50 inline-block px-2 py-0.5 rounded mt-1">
+                                                {enquiry.course || 'N/A'}
+                                            </div>
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap">
                                             <div className="flex flex-col space-y-1">
@@ -104,6 +122,20 @@ export default function EnquiriesPage() {
                                                     {enquiry.phone}
                                                 </div>
                                             </div>
+                                        </td>
+                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            <div className="flex items-center">
+                                                <MapPin className="w-4 h-4 mr-2 text-gray-400" />
+                                                {enquiry.city || '-'}
+                                            </div>
+                                        </td>
+                                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <button
+                                                onClick={() => setSelectedEnquiry(enquiry)}
+                                                className="text-blue-600 hover:text-blue-900 flex items-center justify-end w-full"
+                                            >
+                                                <Eye className="w-4 h-4 mr-1" /> View
+                                            </button>
                                         </td>
                                     </tr>
                                 ))
@@ -118,6 +150,110 @@ export default function EnquiriesPage() {
                     </table>
                 </div>
             </div>
+
+            {/* Details Modal */}
+            {selectedEnquiry && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
+                    <div className="bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+                        <div className="flex items-center justify-between p-6 border-b border-gray-100">
+                            <h2 className="text-xl font-semibold text-gray-800">Enquiry Details</h2>
+                            <button
+                                onClick={() => setSelectedEnquiry(null)}
+                                className="text-gray-400 hover:text-gray-600"
+                            >
+                                <X className="w-6 h-6" />
+                            </button>
+                        </div>
+                        <div className="p-6 space-y-6">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label className="text-xs font-semibold text-gray-500 uppercase">Full Name</label>
+                                    <p className="text-gray-900 font-medium">{selectedEnquiry.name}</p>
+                                </div>
+                                <div>
+                                    <label className="text-xs font-semibold text-gray-500 uppercase">Course Interested In</label>
+                                    <p className="text-blue-700 bg-blue-50 inline-block px-2 py-1 rounded text-sm font-medium mt-1">
+                                        {selectedEnquiry.course || 'N/A'}
+                                    </p>
+                                </div>
+                                <div>
+                                    <label className="text-xs font-semibold text-gray-500 uppercase">Email Address</label>
+                                    <div className="flex items-center mt-1">
+                                        <Mail className="w-4 h-4 mr-2 text-gray-400" />
+                                        <a href={`mailto:${selectedEnquiry.email}`} className="text-blue-600 hover:underline">
+                                            {selectedEnquiry.email}
+                                        </a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label className="text-xs font-semibold text-gray-500 uppercase">Primary Phone</label>
+                                    <div className="flex items-center mt-1">
+                                        <Phone className="w-4 h-4 mr-2 text-gray-400" />
+                                        <a href={`tel:${selectedEnquiry.phone}`} className="text-blue-600 hover:underline">
+                                            {selectedEnquiry.phone}
+                                        </a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label className="text-xs font-semibold text-gray-500 uppercase">Alternate / WhatsApp Number</label>
+                                    <div className="flex items-center mt-1">
+                                        <Phone className="w-4 h-4 mr-2 text-gray-400" />
+                                        <p className="text-gray-900">{selectedEnquiry.alternatePhone || 'N/A'}</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label className="text-xs font-semibold text-gray-500 uppercase">Location / City</label>
+                                    <div className="flex items-center mt-1">
+                                        <MapPin className="w-4 h-4 mr-2 text-gray-400" />
+                                        <p className="text-gray-900">{selectedEnquiry.city || 'N/A'}</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label className="text-xs font-semibold text-gray-500 uppercase">Qualification</label>
+                                    <div className="flex items-center mt-1">
+                                        <GraduationCap className="w-4 h-4 mr-2 text-gray-400" />
+                                        <p className="text-gray-900">{selectedEnquiry.qualification || 'N/A'}</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label className="text-xs font-semibold text-gray-500 uppercase">Year of Passing</label>
+                                    <div className="flex items-center mt-1">
+                                        <Calendar className="w-4 h-4 mr-2 text-gray-400" />
+                                        <p className="text-gray-900">{selectedEnquiry.yearOfPassing || 'N/A'}</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label className="text-xs font-semibold text-gray-500 uppercase">Occupation</label>
+                                    <div className="flex items-center mt-1">
+                                        <Briefcase className="w-4 h-4 mr-2 text-gray-400" />
+                                        <p className="text-gray-900">{selectedEnquiry.occupation || 'N/A'}</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label className="text-xs font-semibold text-gray-500 uppercase">Date Submitted</label>
+                                    <p className="text-gray-900 mt-1">{new Date(selectedEnquiry.createdAt).toLocaleString()}</p>
+                                </div>
+                            </div>
+
+                            {selectedEnquiry.message && (
+                                <div className="mt-4 pt-4 border-t border-gray-100">
+                                    <label className="text-xs font-semibold text-gray-500 uppercase">Message</label>
+                                    <p className="text-gray-700 mt-2 bg-gray-50 p-3 rounded-lg text-sm">{selectedEnquiry.message}</p>
+                                </div>
+                            )}
+
+                            <div className="flex justify-end pt-4">
+                                <button
+                                    onClick={() => setSelectedEnquiry(null)}
+                                    className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 font-medium"
+                                >
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

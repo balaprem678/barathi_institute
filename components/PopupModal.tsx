@@ -10,6 +10,13 @@ const PopupModal = () => {
         name: '',
         email: '',
         phone: '',
+        alternatePhone: '',
+        city: '',
+        qualification: '',
+        yearOfPassing: '',
+        course: '',
+        occupation: '',
+        message: '',
         agree: false
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -60,7 +67,19 @@ const PopupModal = () => {
 
             if (response.ok) {
                 alert('Thank you! Your enquiry has been submitted successfully.');
-                setFormData({ name: '', email: '', phone: '', agree: false });
+                setFormData({
+                    name: '',
+                    email: '',
+                    phone: '',
+                    alternatePhone: '',
+                    city: '',
+                    qualification: '',
+                    yearOfPassing: '',
+                    course: '',
+                    occupation: '',
+                    message: '',
+                    agree: false
+                });
                 handleClose();
             }
         } catch (error) {
@@ -154,6 +173,150 @@ const PopupModal = () => {
                                 value={formData.phone}
                                 onChange={handleInputChange}
                                 required
+                            />
+                            <div className="field-bottom-space"></div>
+                        </div>
+
+                        {/* Alternate Phone */}
+                        <div className="form-field-group">
+                            <div className="field-label">
+                                <Phone size={18} className="field-icon" />
+                                <label htmlFor="alternatePhone" className="field-label-text">
+                                    Alternate / WhatsApp Number
+                                    <span className="required-star">*</span>
+                                </label>
+                            </div>
+                            <input
+                                type="tel"
+                                id="alternatePhone"
+                                name="alternatePhone"
+                                className="form-field"
+                                placeholder="Alternate Number"
+                                value={formData.alternatePhone}
+                                onChange={handleInputChange}
+                                required
+                            />
+                            <div className="field-bottom-space"></div>
+                        </div>
+
+                        {/* City */}
+                        <div className="form-field-group">
+                            <div className="field-label">
+                                <label htmlFor="city" className="field-label-text">
+                                    City / Location
+                                    <span className="required-star">*</span>
+                                </label>
+                            </div>
+                            <input
+                                type="text"
+                                id="city"
+                                name="city"
+                                className="form-field"
+                                placeholder="Your City"
+                                value={formData.city}
+                                onChange={handleInputChange}
+                                required
+                            />
+                            <div className="field-bottom-space"></div>
+                        </div>
+
+                        {/* Course Selection */}
+                        <div className="form-field-group">
+                            <div className="field-label">
+                                <label htmlFor="course" className="field-label-text">
+                                    Course Interested In
+                                    <span className="required-star">*</span>
+                                </label>
+                            </div>
+                            <input
+                                type="text"
+                                id="course"
+                                name="course"
+                                className="form-field"
+                                placeholder="Enter course name"
+                                value={formData.course}
+                                onChange={handleInputChange}
+                                required
+                            />
+                            <div className="field-bottom-space"></div>
+                        </div>
+
+                        {/* Qualification & Year of Passing */}
+                        <div className="flex gap-2">
+                            <div className="form-field-group flex-1">
+                                <div className="field-label">
+                                    <label htmlFor="qualification" className="field-label-text">
+                                        Qualification
+                                        <span className="required-star">*</span>
+                                    </label>
+                                </div>
+                                <input
+                                    type="text"
+                                    id="qualification"
+                                    name="qualification"
+                                    className="form-field"
+                                    placeholder="Qualification"
+                                    value={formData.qualification}
+                                    onChange={handleInputChange}
+                                    required
+                                />
+                                <div className="field-bottom-space"></div>
+                            </div>
+                            <div className="form-field-group flex-1">
+                                <div className="field-label">
+                                    <label htmlFor="yearOfPassing" className="field-label-text">
+                                        Year
+                                        <span className="required-star">*</span>
+                                    </label>
+                                </div>
+                                <input
+                                    type="text"
+                                    id="yearOfPassing"
+                                    name="yearOfPassing"
+                                    className="form-field"
+                                    placeholder="Year"
+                                    value={formData.yearOfPassing}
+                                    onChange={handleInputChange}
+                                    required
+                                />
+                                <div className="field-bottom-space"></div>
+                            </div>
+                        </div>
+
+                        {/* Occupation */}
+                        <div className="form-field-group">
+                            <div className="field-label">
+                                <label htmlFor="occupation" className="field-label-text">
+                                    Occupation (Optional)
+                                </label>
+                            </div>
+                            <input
+                                type="text"
+                                id="occupation"
+                                name="occupation"
+                                className="form-field"
+                                placeholder="Current Occupation"
+                                value={formData.occupation}
+                                onChange={handleInputChange}
+                            />
+                            <div className="field-bottom-space"></div>
+                        </div>
+
+                        {/* Message */}
+                        <div className="form-field-group">
+                            <div className="field-label">
+                                <label htmlFor="message" className="field-label-text">
+                                    Message
+                                </label>
+                            </div>
+                            <textarea
+                                id="message"
+                                name="message"
+                                className="form-field"
+                                placeholder="Your message..."
+                                value={formData.message}
+                                onChange={handleInputChange as any}
+                                rows={2}
                             />
                             <div className="field-bottom-space"></div>
                         </div>

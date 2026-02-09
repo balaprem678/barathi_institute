@@ -13,6 +13,34 @@ const EnquirySchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    alternatePhone: {
+        type: String,
+        required: true,
+    },
+    city: {
+        type: String,
+        required: true,
+    },
+    qualification: {
+        type: String,
+        required: true,
+    },
+    yearOfPassing: {
+        type: String,
+        required: true,
+    },
+    course: {
+        type: String,
+        required: true,
+    },
+    occupation: {
+        type: String,
+        required: false, // Optional
+    },
+    message: {
+        type: String,
+        required: false,
+    },
     createdAt: {
         type: Date,
         default: Date.now,

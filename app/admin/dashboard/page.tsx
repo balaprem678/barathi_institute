@@ -1,4 +1,5 @@
 'use client';
+import { useState, useEffect } from 'react';
 
 import { Users, UserPlus, Calendar, Activity } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
@@ -14,22 +15,54 @@ const data = [
 ];
 
 export default function AdminDashboard() {
+    const [kpi, setKpi] = useState({
+        totalStudents: 0,
+        totalEnquiries: 0,
+        newStudentsMonth: 0,
+        newEnquiriesMonth: 0
+    });
+    const [chartData, setChartData] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchStats = async () => {
+            try {
+                const res = await fetch('/api/dashboard/stats');
+                if (res.ok) {
+                    const data = await res.json();
+                    setKpi(data.kpi);
+                    setChartData(data.chart);
+                }
+            } catch (error) {
+                console.error('Error loading dashboard stats:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchStats();
+    }, []);
+
+    if (loading) {
+        return <div className="p-6 text-center text-gray-500">Loading dashboard...</div>;
+    }
+
     return (
         <div className="space-y-6">
             {/* KPI Cards */}
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                <KpiCard title="Total Students" value="1,234" icon={Users} color="text-blue-600" bg="bg-blue-100" />
-                <KpiCard title="New Registrations" value="56" icon={UserPlus} color="text-green-600" bg="bg-green-100" />
-                <KpiCard title="Pending Approvals" value="12" icon={Activity} color="text-orange-600" bg="bg-orange-100" />
-                <KpiCard title="This Month" value="45" icon={Calendar} color="text-purple-600" bg="bg-purple-100" />
+                <KpiCard title="Total Students" value={kpi.totalStudents.toString()} icon={Users} color="text-blue-600" bg="bg-blue-100" />
+                <KpiCard title="Total Enquiries" value={kpi.totalEnquiries.toString()} icon={Activity} color="text-orange-600" bg="bg-orange-100" />
+                <KpiCard title="New Students (Mo)" value={kpi.newStudentsMonth.toString()} icon={UserPlus} color="text-green-600" bg="bg-green-100" />
+                <KpiCard title="New Enquiries (Mo)" value={kpi.newEnquiriesMonth.toString()} icon={Calendar} color="text-purple-600" bg="bg-purple-100" />
             </div>
 
             {/* Chart Section */}
             <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-                <h3 className="text-lg font-semibold text-gray-800 mb-4">Registration Analytics</h3>
+                <h3 className="text-lg font-semibold text-gray-800 mb-4">Student Registration Trend</h3>
                 <div className="h-80 w-full">
                     <ResponsiveContainer width="100%" height="100%">
-                        <AreaChart data={data}>
+                        <AreaChart data={chartData}>
                             <CartesianGrid strokeDasharray="3 3" vertical={false} />
                             <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fill: '#6b7280' }} />
                             <YAxis axisLine={false} tickLine={false} tick={{ fill: '#6b7280' }} />

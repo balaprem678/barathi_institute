@@ -32,13 +32,22 @@ export async function POST(req: Request) {
                 const mailOptions = {
                     from: `"Bharathi Institute" <${settings.smtpUser}>`,
                     to: settings.recipientEmails,
-                    subject: `New Enquiry: ${body.name}`,
+                    subject: `New Enquiry: ${body.name} - ${body.course}`,
                     html: `
                         <h3>New Enquiry from Website</h3>
-                        <p><strong>Name:</strong> ${body.name}</p>
-                        <p><strong>Email:</strong> ${body.email}</p>
-                        <p><strong>Phone:</strong> ${body.phone}</p>
-                        <p><strong>Submitted At:</strong> ${new Date().toLocaleString()}</p>
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Name:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${body.name}</td></tr>
+                            <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Email:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${body.email}</td></tr>
+                            <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Phone:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${body.phone}</td></tr>
+                            <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Alt. Phone:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${body.alternatePhone}</td></tr>
+                            <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>City:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${body.city}</td></tr>
+                            <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Qualification:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${body.qualification}</td></tr>
+                            <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Year of Passing:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${body.yearOfPassing}</td></tr>
+                            <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Course Interest:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${body.course}</td></tr>
+                            <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Occupation:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${body.occupation || 'N/A'}</td></tr>
+                            <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Message:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${body.message || 'N/A'}</td></tr>
+                            <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Submitted At:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${new Date().toLocaleString()}</td></tr>
+                        </table>
                     `,
                 };
 

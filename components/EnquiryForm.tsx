@@ -1,22 +1,31 @@
 'use client';
 import "./enqueryform.scss";
 import { useState, FormEvent, ChangeEvent } from 'react';
-import { 
-  FaUser, 
-  FaPhone, 
-  FaEnvelope, 
-  FaBook, 
-  FaComment, 
-  FaPaperPlane, 
+import {
+  FaUser,
+  FaPhone,
+  FaEnvelope,
+  FaBook,
+  FaComment,
+  FaPaperPlane,
   FaShieldAlt,
-  FaSpinner 
+  FaSpinner,
+  FaMapMarkerAlt,
+  FaGraduationCap,
+  FaCalendarAlt,
+  FaBriefcase
 } from 'react-icons/fa';
 
 type FormData = {
   name: string;
   phone: string;
+  alternatePhone: string;
   email: string;
+  city: string;
+  qualification: string;
+  yearOfPassing: string;
   course: string;
+  occupation: string;
   message: string;
 };
 
@@ -24,8 +33,13 @@ const EnquiryForm = () => {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     phone: '',
+    alternatePhone: '',
     email: '',
-    course: 'Diploma in Hotel Management',
+    city: '',
+    qualification: '',
+    yearOfPassing: '',
+    course: '',
+    occupation: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
@@ -34,21 +48,43 @@ const EnquiryForm = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
+
+    // Real API call
+    try {
+      const response = await fetch('/api/enquiries', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit enquiry');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert('Something went wrong. Please try again.');
+      setIsSubmitting(false);
+      return;
+    }
+
     setIsSubmitting(false);
     setIsSubmitted(true);
-    
+
     // Reset form after 5 seconds
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({
         name: '',
         phone: '',
+        alternatePhone: '',
         email: '',
-        course: 'Diploma in Hotel Management',
+        city: '',
+        qualification: '',
+        yearOfPassing: '',
+        course: '',
+        occupation: '',
         message: ''
       });
     }, 5000);
@@ -68,13 +104,13 @@ const EnquiryForm = () => {
       <div className="floating-element"></div>
       <div className="floating-element"></div>
       <div className="floating-element"></div>
-      
+
       <div className="container">
         <div className="section-title">
           <h3>Get Course Information</h3>
           <p>Fill out the form below and our team will get back to you within 24 hours with detailed course information.</p>
         </div>
-        
+
         <div className="form-container">
           <div className="enquiry-card">
             {!isSubmitted ? (
@@ -96,7 +132,7 @@ const EnquiryForm = () => {
                       />
                     </div>
                   </div>
-                  
+
                   <div className="form-group">
                     <label htmlFor="phone">Phone Number <span>*</span></label>
                     <div className="input-wrapper">
@@ -114,7 +150,7 @@ const EnquiryForm = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="form-row">
                   <div className="form-group">
                     <label htmlFor="email">Email Address <span>*</span></label>
@@ -132,35 +168,115 @@ const EnquiryForm = () => {
                       />
                     </div>
                   </div>
-                  
+
                   <div className="form-group">
-                    <label htmlFor="course">Select Course <span>*</span></label>
-                    <div className="select-wrapper">
-                      <FaBook className="input-icon" />
-                      <select
-                        id="course"
-                        name="course"
-                        className="select-form"
-                        value={formData.course}
+                    <label htmlFor="alternatePhone">Alternate / WhatsApp Number <span>*</span></label>
+                    <div className="input-wrapper">
+                      <FaPhone className="input-icon" />
+                      <input
+                        type="tel"
+                        id="alternatePhone"
+                        name="alternatePhone"
+                        className="form-input"
+                        placeholder="Enter alternate number"
+                        value={formData.alternatePhone}
                         onChange={handleChange}
                         required
-                      >
-                        <option value="Select">Select</option>
-                        <option value="Diploma in Hotel Management">Diploma in Hotel Management</option>
-                        <option value="Food & Beverage Production">Food & Beverage Production</option>
-                        <option value="Food & Beverage Service">Food & Beverage Service</option>
-                        <option value="Bakery & Confectionary">Bakery & Confectionary</option>
-                        <option value="Special Courses for Girls">Special Courses for Girls</option>
-                        <option value="House Keeping Management">House Keeping Management</option>
-                        <option value="Front Office & Hotel Management">Front Office & Hotel Management</option>
-                        <option value="Diploma Health Assistant">Diploma Health Assistant</option>
-                        <option value="Medical Lab Technology">Medical Lab Technology</option>
-                        <option value="Health Assistant">Health Assistant</option>
-                      </select>
+                      />
                     </div>
                   </div>
                 </div>
-                
+
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="city">Location / City <span>*</span></label>
+                    <div className="input-wrapper">
+                      <FaMapMarkerAlt className="input-icon" />
+                      <input
+                        type="text"
+                        id="city"
+                        name="city"
+                        className="form-input"
+                        placeholder="Your city"
+                        value={formData.city}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="course">Course Interested In <span>*</span></label>
+                    <div className="input-wrapper">
+                      <FaBook className="input-icon" />
+                      <input
+                        type="text"
+                        id="course"
+                        name="course"
+                        className="form-input"
+                        placeholder="Enter course name"
+                        value={formData.course}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="qualification">Qualification <span>*</span></label>
+                    <div className="input-wrapper">
+                      <FaGraduationCap className="input-icon" />
+                      <input
+                        type="text"
+                        id="qualification"
+                        name="qualification"
+                        className="form-input"
+                        placeholder="e.g. 12th Pass, Degree"
+                        value={formData.qualification}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="yearOfPassing">Year of Passing <span>*</span></label>
+                    <div className="input-wrapper">
+                      <FaCalendarAlt className="input-icon" />
+                      <input
+                        type="text"
+                        id="yearOfPassing"
+                        name="yearOfPassing"
+                        className="form-input"
+                        placeholder="e.g. 2024"
+                        value={formData.yearOfPassing}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="occupation">Occupation (Optional)</label>
+                    <div className="input-wrapper">
+                      <FaBriefcase className="input-icon" />
+                      <input
+                        type="text"
+                        id="occupation"
+                        name="occupation"
+                        className="form-input"
+                        placeholder="Current occupation"
+                        value={formData.occupation}
+                        onChange={handleChange}
+                      />
+                    </div>
+                  </div>
+                </div>
+
                 <div className="form-group textarea-group">
                   <label htmlFor="message">Your Message</label>
                   <div className="input-wrapper">
@@ -176,9 +292,9 @@ const EnquiryForm = () => {
                     />
                   </div>
                 </div>
-                
-                <button 
-                  type="submit" 
+
+                <button
+                  type="submit"
                   className={`enquiry-btn ${isSubmitting ? 'loading' : ''}`}
                   disabled={isSubmitting}
                 >
@@ -194,7 +310,7 @@ const EnquiryForm = () => {
                     </>
                   )}
                 </button>
-                
+
                 <div className="form-footer">
                   <p className="privacy-note">
                     <FaShieldAlt className="shield-icon" />
@@ -208,7 +324,7 @@ const EnquiryForm = () => {
                 <div className="success-icon">✅</div>
                 <h4>Enquiry Submitted Successfully!</h4>
                 <p>
-                  Thank you for your interest. Our team will contact you within 24 hours 
+                  Thank you for your interest. Our team will contact you within 24 hours
                   with detailed course information and guidance.
                 </p>
               </div>
