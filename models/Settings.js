@@ -5,6 +5,7 @@ const settingsSchema = new mongoose.Schema({
     smtpPort: { type: String, default: '587' },
     smtpUser: { type: String, default: '' },
     smtpPass: { type: String, default: '' }, // In production, this should be encrypted
+    fromEmail: { type: String, default: '' }, // Verified sender email
     recipientEmails: { type: String, default: '' }, // Comma separated emails
     seo: {
         title: { type: String, default: '' },

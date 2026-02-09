@@ -41,6 +41,7 @@ export async function POST(req: Request) {
             settings.smtpPort = body.smtpPort;
             settings.smtpUser = body.smtpUser;
             settings.smtpPass = body.smtpPass;
+            settings.fromEmail = body.fromEmail;
             settings.recipientEmails = body.recipientEmails;
 
             // Update SEO settings

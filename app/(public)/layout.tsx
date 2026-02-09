@@ -12,6 +12,7 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 import Preloader from '@/components/Preloader';
 import ScriptReinitializer from '@/components/ScriptReinitializer';
 import GlobalLayout from '@/components/GlobalLayout';
+import { NotificationProvider } from '@/context/NotificationContext';
 
 const nextConfig: NextConfig = {
   sassOptions: {
@@ -219,9 +220,12 @@ export default function RootLayout({
         <div className="boxed_wrapper">
           <ScriptReinitializer />
           <Preloader />
-          <GlobalLayout>
-            {children}
-          </GlobalLayout>
+
+          <NotificationProvider>
+            <GlobalLayout>
+              {children}
+            </GlobalLayout>
+          </NotificationProvider>
         </div>
 
 
