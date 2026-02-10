@@ -1,6 +1,4 @@
 'use client';
-
-import PageBreadcrumb from '@/components/PageBreadcrumb';
 import Link from 'next/link';
 import { useState } from 'react';
 import './register.scss';

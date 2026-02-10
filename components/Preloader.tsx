@@ -45,6 +45,7 @@ export default function Preloader() {
                 backgroundImage: "url(/images/icons/loader.jpg)",
                 opacity: opacity,
                 transition: "opacity 0.5s ease-out",
+                
             }}
         ></div>
     );
