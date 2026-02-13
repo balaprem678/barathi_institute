@@ -78,7 +78,7 @@ export default function Register() {
         <>
             <div className="admission_register">
                 <div className="container">
-                    <h3 className='page_title'>Student Testimonials </h3>
+                    <h3 className='page_title'>Online Application</h3>
                 </div>
             </div>
 

@@ -1,37 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:100,300,400,600,700");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i");
 
-// @import url(bootstrap.min.css);
-// @import url(bootstrap-select.min.css);
-// @import url(jquery.bootstrap-touchspin.css);
-
-// @import url(font-awesome.css);
-// @import url(flaticon.css);
-// @import url(icomoon.css);
-
-// @import url(settings.css);
-// @import url(layers.css);
-// @import url(navigation.css);
-
-// @import url(owl.carousel.css);
-// @import url(jquery.bxslider.css);
-// @import url(flexslider.css);
-
-// @import url(jquery-ui.css);
-// @import url(jquery.fancybox.css);
-// @import url(polyglot-language-switcher.css);
-
-// @import url(animate.min.css);
-// @import url(nouislider.css);
-// @import url(nouislider.pips.css);
-// @import url(menu.css);
-// @import url(magnific-popup.css);
-// @import url(imagehover.min.css);
-
-/* ==============================
-   2. Global styles
-   ============================== */
-
 * {
   padding: 0;
   margin: 0;
@@ -42,25 +11,6 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-ul {
-  margin: 0;
-  padding: 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-family: "Montserrat", sans-serif;
-}
 
 .jcc {
   justify-content: center;
@@ -89,7 +39,7 @@ ul {
 
 p {
   font-family: "Open Sans", sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 23px;
   font-weight: 400;
 }
@@ -4339,6 +4289,8 @@ $border-radius: 20px;
     object-fit: cover;
     object-position: top;
   }
+  &.blog_banner,
+  &.contact_banner,
   &.students_testimonial,
   &.our_courses_banner {
     img {

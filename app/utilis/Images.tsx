@@ -158,7 +158,6 @@ import admission_procudure_banner from '../../public/assets/new_images/banner/ad
 import scholarship_banner from '../../public/assets/new_images/banner/scholarship.png';
 import placements_banner from '../../public/assets/new_images/banner/placements.png';
 import testimonials_banner from '../../public/assets/new_images/banner/testimonials.png';
-import facilities_banner from '../../public/assets/new_images/banner/facilities.png';
 import blogs_banner from '../../public/assets/new_images/banner/blogs.png';
 import contacts_banner from '../../public/assets/new_images/banner/contacts.png';
 
@@ -167,7 +166,7 @@ import contacts_banner from '../../public/assets/new_images/banner/contacts.png'
 export const Images = {
     // Banner Page Images Import Here
     about_banner, our_courses_banner, admission_procudure_banner, scholarship_banner, placements_banner,
-    testimonials_banner, facilities_banner, blogs_banner, contacts_banner,
+    testimonials_banner, blogs_banner, contacts_banner,
     // Common Images Import Here
     logo, gmail, instagram, whatsapp, viber, logo_1, logo_2, logo_3, logo_4, logo_5, logo_6,
     logo_7, logo_8, logo_9, logo_10, logo_11, logo_12, logo_13, logo_14,

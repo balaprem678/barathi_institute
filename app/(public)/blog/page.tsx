@@ -52,10 +52,10 @@ export default function Blogs() {
 
   return (
     <>
-      <section className="banner_section">
-                     <img src={Images.testimonials_banner.src} alt="About Us Banner" />
-                     <h1>Student Testimonials</h1>
-                 </section>
+      <section className="banner_section blog_banner">
+        <img src={Images.testimonials_banner.src} alt="About Us Banner" />
+        <h1>Blogs</h1>
+      </section>
 
       <section className="blog-section">
         <div className="container">
@@ -103,7 +103,7 @@ export default function Blogs() {
                   <div className="card-footer">
                     <Link href={`/stories/${post.id}`} className="read-more-btn">
                       Read Full Story
-                  
+
                     </Link>
                     <Link href="/contact" className="contact-btn">
                       Contact Student

@@ -86,9 +86,6 @@ export default function Placements() {
                             </div>
                         ))}
                     </div>
-                    <div className="read_more_bt mt-2" style={{ display: 'flex', justifyContent: 'center', marginTop: '30px' }}>
-                        <Link className="thm-btn" href="#">Download Placement Brochure</Link>
-                    </div>
                 </div>
             </section>
         </>

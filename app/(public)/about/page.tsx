@@ -373,7 +373,7 @@ export default function About() {
             </section>
 
             {/* Shape Your Future - Mobile Grid */}
-            <section className="future-section mb-5">
+            {/* <section className="future-section mb-5">
                 <div className="container">
                     <div className="section-header text-center">
                         <h3>How We Shape Your Future</h3>
@@ -397,7 +397,7 @@ export default function About() {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             <Partners />
 
