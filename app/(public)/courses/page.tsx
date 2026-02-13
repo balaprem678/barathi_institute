@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
-import PageBreadcrumb from '@/components/PageBreadcrumb';
+import { Images } from '@/app/utilis/Images';
+
 
 export default function CoursesPage() {
     return (
@@ -47,16 +48,10 @@ export default function CoursesPage() {
                 }
             `}</style>
 
-            {/* Replaced PageBreadcrumb with manual section to match PHP distinct banner if needed, or keep PageBreadcrumb if it matches. 
-                PHP uses 'images/courses/course_banner.jpg'. PageBreadcrumb uses 'bgImage' prop.
-            */}
-            <PageBreadcrumb
-                bgImage="/images/courses/course_banner.jpg"
-                breadcrumbs={[
-                    { label: 'Home', url: '/' },
-                    { label: 'Courses' }
-                ]}
-            />
+            <section className="banner_section our_courses_banner">
+                <img src={Images.our_courses_banner.src} alt="Our Courses Banner" />
+                <h1>Our Courses</h1>
+            </section>
 
             <section className="courses_sec sec-padd2">
                 <div className="container">

@@ -267,12 +267,10 @@ export default function ContactPage() {
 
     return (
         <div className="contact-page">
-            {/* Hero Banner */}
-            <section className="contact-hero-banner">
-
-
+            <section className="banner_section contact_banner">
+                <img src={Images.contacts_banner.src} alt="About Us Banner" />
+                <h1>Contacts us</h1>
             </section>
-
             {/* Main Content */}
             <section className="contact-main-section">
                 <div className="container">

@@ -2,6 +2,8 @@ import PageBreadcrumb from '@/components/PageBreadcrumb';
 import Link from 'next/link';
 import Image from 'next/image';
 import './blog.scss';
+import { Images } from '@/app/utilis/Images';
+
 
 interface BlogPost {
   id: number;
@@ -50,11 +52,10 @@ export default function Blogs() {
 
   return (
     <>
-      <div className="placementsbanner">
-        <div className="container">
-          <h3 className='page_title'>Students Success Story</h3>
-        </div>
-      </div>
+      <section className="banner_section blog_banner">
+        <img src={Images.testimonials_banner.src} alt="About Us Banner" />
+        <h1>Blogs</h1>
+      </section>
 
       <section className="blog-section">
         <div className="container">
@@ -102,7 +103,7 @@ export default function Blogs() {
                   <div className="card-footer">
                     <Link href={`/stories/${post.id}`} className="read-more-btn">
                       Read Full Story
-                  
+
                     </Link>
                     <Link href="/contact" className="contact-btn">
                       Contact Student

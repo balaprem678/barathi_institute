@@ -23,7 +23,7 @@ export default function Partners() {
 
   const corporatePartners = [
     { logo: Images.logo_11, alt: 'Sodexo logo' },
-    { logo: Images.logo_12, alt: 'The Oberoi Group logo' },
+    // { logo: Images.logo_12, alt: 'The Oberoi Group logo' },
     { logo: Images.logo_13, alt: 'Emirates Flight Catering logo' },
     { logo: Images.logo_14, alt: 'Radisson Blu logo' },
     { logo: Images.logo_15, alt: 'Park Hyatt logo' }

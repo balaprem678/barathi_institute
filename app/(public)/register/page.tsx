@@ -75,10 +75,10 @@ export default function Register() {
     };
 
     return (
-        <>
+        <div className="register_page">
             <div className="admission_register">
                 <div className="container">
-                    <h3 className='page_title'>Student Testimonials </h3>
+                    <h3 className='page_title'>Online Application</h3>
                 </div>
             </div>
 
@@ -219,6 +219,6 @@ export default function Register() {
                     </div>
                 </div>
             </section>
-        </>
+        </div>
     );
 }

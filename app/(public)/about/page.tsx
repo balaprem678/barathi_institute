@@ -127,7 +127,7 @@ export default function About() {
         const checkMobile = () => {
             setIsMobile(window.innerWidth <= 768);
         };
-        
+
         checkMobile();
         window.addEventListener('resize', checkMobile);
         return () => window.removeEventListener('resize', checkMobile);
@@ -192,27 +192,23 @@ export default function About() {
     return (
         <div className="about-page">
             {/* Hero Banner */}
-            <section className="inner-banner about-hero-banner">
-                <div className="container">
-                    <div className="banner-content">
-                        <h1>Bharathi Institute – Tamil Nadu's Premier Hub for Diploma in Hotel Management & Paramedicals</h1>
-                    </div>
-                </div>
+            <section className="banner_section">
+                <img src={Images.about_banner.src} alt="About Us Banner" />
+                <h1>About Us</h1>
             </section>
-
             {/* Mobile Tab Navigation */}
             {isMobile && (
                 <div className="mobile-tab-nav">
                     <div className="container">
                         <div className="tab-buttons">
-                            <button 
+                            <button
                                 className={`tab-btn ${activeTab === 'journey' ? 'active' : ''}`}
                                 onClick={() => setActiveTab('journey')}
                             >
                                 <i className="fas fa-history"></i>
                                 <span>Our Journey</span>
                             </button>
-                            <button 
+                            <button
                                 className={`tab-btn ${activeTab === 'student' ? 'active' : ''}`}
                                 onClick={() => setActiveTab('student')}
                             >
@@ -230,7 +226,7 @@ export default function About() {
                     {isMobile ? (
                         <div className="mobile-accordion-view">
                             <h2 className="section-title"><b>About Bharathi Institute</b></h2>
-                            
+
                             {activeTab === 'journey' && (
                                 <div className="accordion-container">
                                     {mainAccordion.map((item) => (
@@ -377,7 +373,7 @@ export default function About() {
             </section>
 
             {/* Shape Your Future - Mobile Grid */}
-            <section className="future-section mb-5">
+            {/* <section className="future-section mb-5">
                 <div className="container">
                     <div className="section-header text-center">
                         <h3>How We Shape Your Future</h3>
@@ -401,7 +397,7 @@ export default function About() {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             <Partners />
 

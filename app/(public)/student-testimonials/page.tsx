@@ -2,6 +2,8 @@ import PageBreadcrumb from '@/components/PageBreadcrumb';
 import Link from 'next/link';
 import React from 'react';
 import './student_testimonials.scss';
+import { Images } from '@/app/utilis/Images';
+
 
 export default function StudentTestimonials() {
     const testimonials = [
@@ -45,35 +47,13 @@ export default function StudentTestimonials() {
 
     return (
         <>
-            <section className='students_testimonial'>
-                <div className="container">
-                    <h3 className='page_title'>Student Testimonials </h3>
-                </div>
+            <section className="banner_section students_testimonial">
+                <img src={Images.blogs_banner.src} alt="About Us Banner" />
+                <h1>Student Testimonials</h1>
             </section>
 
             <section className="video-testi" style={{ padding: '60px 0' }}>
                 <div className="container">
-                    <div className="section-title text-center" style={{ marginBottom: '50px' }}>
-                        <h1>Student Testimonials – Hear from Those Who Choose Our Institute of Hotel Management & Paramedicals</h1>
-                    </div>
-
-                    <div className="row" style={{ marginBottom: '50px' }}>
-                        <div className='col-lg-12'>
-                            <div className="testimonial-item" style={{ padding: '10px', maxWidth: '800px', margin: '0 auto' }}>
-                                <iframe
-                                    width="100%"
-                                    height="450"
-                                    src="https://www.youtube.com/embed/bTnv22KLZVc?si=ckgTqfNa3s1yLo8m"
-                                    title="YouTube video player"
-                                    frameBorder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    referrerPolicy="strict-origin-when-cross-origin"
-                                    allowFullScreen
-                                ></iframe>
-                            </div>
-                        </div>
-                    </div>
-
                     <div className="row">
                         {testimonials.map((testi, index) => (
                             <div className="col-md-4 col-sm-6" key={index} style={{ marginBottom: '30px' }}>

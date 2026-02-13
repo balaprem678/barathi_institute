@@ -1,3 +1,4 @@
+// Delete File
 'use client';
 
 import { useState } from 'react';
@@ -35,9 +36,7 @@ export default function CoursesPage() {
     return (
         <div className="courses-page">
             {/* Hero Banner - Simplified */}
-            <section className="courses-hero-banner">
-
-            </section>
+          
 
             {/* Main Content Section */}
             <section className="courses-main-content">
