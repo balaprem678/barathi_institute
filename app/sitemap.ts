@@ -1,0 +1,38 @@
+import { MetadataRoute } from 'next'
+import dbConnect from '@/lib/db'
+import LandingPage from '@/models/LandingPage'
+
+const BASE_URL = 'https://bharathiinstitutes.com'
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+    await dbConnect();
+
+    // Static Routes
+    const routes = [
+        '',
+        '/about',
+        '/courses',
+        '/placements',
+        '/gallery',
+        '/contact',
+        '/facilities',
+        '/register',
+    ].map((route) => ({
+        url: `${BASE_URL}${route}`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+    }))
+
+    // Dynamic Landing Pages
+    const landingPages = await LandingPage.find({}, 'slug updatedAt');
+
+    const landingPageRoutes = landingPages.map((page) => ({
+        url: `${BASE_URL}/${page.slug}`,
+        lastModified: page.updatedAt || new Date(),
+        changeFrequency: 'weekly' as const,
+        priority: 0.9,
+    }))
+
+    return [...routes, ...landingPageRoutes]
+}

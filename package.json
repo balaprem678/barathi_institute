@@ -33,7 +33,8 @@
     "swiper": "^12.1.0",
     "swiper-react": "^1.0.0",
     "uuid": "^13.0.0",
-    "yet-another-react-lightbox": "^3.28.0"
+    "yet-another-react-lightbox": "^3.28.0",
+    "sharp": "^0.33.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
