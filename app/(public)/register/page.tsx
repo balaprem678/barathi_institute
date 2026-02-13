@@ -105,73 +105,107 @@ export default function Register() {
                             <div className="default-form-area">
                                 <form id="commentForm" className="default-form" onSubmit={handleSubmit}>
                                     <div className="row clearfix">
+                                        {/* Full Name */}
                                         <div className="col-md-6 col-sm-6 col-xs-12">
                                             <div className="form-group">
                                                 <input type="text" name="name" className="form-control" value={formData.name} onChange={handleChange} placeholder=" Full Name *" required />
                                             </div>
                                         </div>
-                                        <div className="col-md-6 col-sm-6 col-xs-12">
-                                            <div className="form-group">
-                                                <input type="email" name="email" className="form-control required email" value={formData.email} onChange={handleChange} placeholder="Mail address*" required />
-                                            </div>
-                                        </div>
+                                        {/* Mobile Number */}
                                         <div className="col-md-6 col-sm-6 col-xs-12">
                                             <div className="form-group">
                                                 <input type="text" name="phone" className="form-control" value={formData.phone} onChange={handleChange} placeholder="Mobile No*" required />
                                             </div>
                                         </div>
+                                        {/* Email Address */}
                                         <div className="col-md-6 col-sm-6 col-xs-12">
                                             <div className="form-group">
-                                                <input type="text" name="qualification" className="form-control" value={formData.qualification} onChange={handleChange} placeholder="Qualification *" required />
+                                                <input type="email" name="email" className="form-control required email" value={formData.email} onChange={handleChange} placeholder="Mail address" required />
                                             </div>
                                         </div>
+                                        {/* Qualification */}
+                                        <div className="col-md-6 col-sm-6 col-xs-12">
+                                            <div className="form-group">
+                                                <div className="select-box">
+                                                    <select className="form-control" name="subject" value={formData.subject} onChange={handleChange} style={{ width: '100%' }}>
+                                                        <option value="0">Qualification*</option>
+                                                        <option value="12th">12th</option>
+                                                        <option value="10th">10th</option>
+                                                        <option value="ITI">ITI</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {/* Year of Passing */}
                                         <div className="col-md-6 col-sm-6 col-xs-12">
                                             <div className="form-group">
                                                 <input type="text" name="phone" className="form-control" value={formData.phone} onChange={handleChange} placeholder="Year Of Passing*" />
                                             </div>
                                         </div>
-                                        <div className="col-md-6 col-sm-6 col-xs-12">
-                                            <div className="form-group">
-                                                <input type="text" name="name" className="form-control" value={formData.phone} onChange={handleChange} placeholder=" Qualification*" required />
-                                            </div>
-                                        </div>
+                                        {/* Location */}
                                         <div className="col-md-6 col-sm-6 col-xs-12">
                                             <div className="form-group">
                                                 <input type="text" name="name" className="form-control" value={formData.phone} onChange={handleChange} placeholder=" Location*" required />
                                             </div>
                                         </div>
-
+                                        {/* Courses Intrested In */}
                                         <div className="col-md-6 col-sm-6 col-xs-12">
                                             <div className="form-group">
                                                 <div className="select-box">
                                                     <select className="form-control" name="subject" value={formData.subject} onChange={handleChange} style={{ width: '100%' }}>
-                                                        <option value="0">Subject</option>
-                                                        <option value="Diploma in Hotel Management">Diploma in Hotel Management</option>
-                                                        <option value="Food and Beverage Production">Food and Beverage Production</option>
-                                                        <option value="Food and Beverage Service">Food and Beverage Service</option>
-                                                        <option value="House Keeping Management">House Keeping Management</option>
-                                                        <option value="Front Office Management">Front Office Management</option>
-                                                        <option value="Bakery and Confectionery">Bakery and Confectionery</option>
-                                                        <option value="Diploma in Nursing Assistant">Diploma in Nursing Assistant</option>
-                                                        <option value="Medical Lab Technician">Medical Lab Technician</option>
-                                                        <option value="Health Assistant">Health Assistant</option>
+                                                        <option value="0">Courses Intrested In*</option>
+                                                        <option value="Degree">Degree</option>
+                                                        <option value="Diploma">Diploma</option>
+                                                        <option value="Certificate Courses">Certificate Courses</option>
+
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
+                                        {/* Select Courses */}
+                                        <div className="col-md-6 col-sm-6 col-xs-12">
+                                            <div className="form-group">
+                                                <div className="select-box">
+                                                    <select className="form-control" name="subject" value={formData.subject} onChange={handleChange} style={{ width: '100%' }}>
+                                                        <option value="0">Select Courses</option>
+                                                        {/* After 12th */}
+                                                        <option value="B.Sc Hotel Management">B.Sc Hotel Management - 3 Years</option>
+                                                        <option value="B.Voc Hotel Management">B.Voc in Hotel Management - 3 Years</option>
+                                                        <option value="B.Voc Medical Lab Technology">B.Voc in Medical Lab Technology - 3 Years</option>
+                                                        <option value="B.Voc Emergency Care & Trauma Care Technology">B.Voc in Emergency Care & Trauma Care Technology - 3 Years</option>
+                                                        <option value="B.Voc Operation Theatre Technology">B.Voc in Operation Theatre Technology - 3 Years</option>
+                                                        <option value="B.Voc Hospital Administration">B.Voc in Hospital Administration - 3 Years</option>
 
+                                                        {/* 10th Pass / Fail  */}
+                                                        <option value="Diploma in Hotel Management">Diploma in Hotel Management</option>
+                                                        <option value="Diploma in Food and Beverage Production">Diploma in Food and Beverage Production</option>
+                                                        <option value="Diploma in Food and Beverage Service">Diploma in Food and Beverage Service</option>
+                                                        <option value="Diploma in House Keeping Management">Diploma in House Keeping Management</option>
+                                                        <option value="Diploma in Front Office Management">Diploma in Front Office Management</option>
+                                                        <option value="Diploma in Bakery and Confectionery">Diploma in Bakery and Confectionery</option>
+                                                        <option value="Diploma in Nursing Assistant">Diploma in Nursing Assistant</option>
+                                                        <option value="Diploma in Medical Lab Technician">Diploma in Medical Lab Technician</option>
+                                                        <option value="Diploma in Health Assistant">Diploma in Health Assistant</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {/* Upload Marksheet */}
                                         <div className="col-md-12 col-sm-12 col-xs-12">
                                             <div className="form-group">
                                                 <label htmlFor="fileUpload">Upload Marksheet:</label>
                                                 <input type="file" name="file" id="fileUpload" className="form-control" required onChange={handleFileChange} />
                                             </div>
                                         </div>
-
+                                        {/* Message Box */}
                                         <div className="col-md-12 col-sm-12 col-xs-12">
                                             <div className="form-group">
                                                 <textarea name="message" className="form-control textarea required" placeholder="Ask a Question....." value={formData.message} onChange={handleChange}></textarea>
                                             </div>
                                         </div>
+                                        {/* Captcha */}
                                         <div className="col-md-6 col-sm-6 col-xs-6">
                                             <div className="form-group">
                                                 Add Two Values {random1} + {random2} =
