@@ -1,17 +1,15 @@
 import PageBreadcrumb from '@/components/PageBreadcrumb';
 import Link from 'next/link';
+import { Images } from '@/app/utilis/Images';
+
 
 export default function Admission() {
     return (
         <>
-            <PageBreadcrumb
-                title="Admission Procedure"
-                bgImage="/images/admission.jpg"
-                breadcrumbs={[
-                    { label: 'Home', url: '/' },
-                    { label: 'Admission Procedure' }
-                ]}
-            />
+              <section className="banner_section">
+                          <img src={Images.admission_procudure_banner.src} alt="About Us Banner" />
+                          <h1>Admission Procudere</h1>
+                      </section>
 
             <section className="default-section sec-padd">
                 <div className="container">

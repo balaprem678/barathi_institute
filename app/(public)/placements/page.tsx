@@ -3,6 +3,9 @@ import Link from 'next/link';
 import Partners from '@/components/partners';
 import './placements.scss';
 
+import { Images } from '@/app/utilis/Images';
+
+
 export default function Placements() {
     const testimonials = [
         {
@@ -46,11 +49,10 @@ export default function Placements() {
     return (
         <>
            
-            <div className="placementsbanner">
-                <div className="container">
-                    <h3 className='page_title'>Placements</h3>
-                </div>
-            </div>
+            <section className="banner_section">
+                          <img src={Images.placements_banner.src} alt="About Us Banner" />
+                          <h1>Placements</h1>
+                      </section>
             <section className="recuiters-section" style={{ padding: '50px 0' }}>
                 <div className="container">
                     <div className="section-title text-center" style={{ marginBottom: '30px' }}>
