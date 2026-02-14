@@ -58,9 +58,6 @@ export default function CoursesPage() {
                     <div className="row">
                         <div className="col-md-12">
                             <div className="course_head">
-                                <div className="section-title">
-                                    <h3>OUR Courses</h3>
-                                </div>
                                 <p className="courses_p">This course offers comprehensive training in hotel and hospitality operations, combining classroom learning with practical exposure. Students gain hands-on experience in food production, service, front office, and housekeeping, enabling them to meet the demands of the hospitality industry confidently.</p>
                                 <p className="courses_p">The program emphasizes professionalism, communication skills, and industry readiness through practical sessions, internships, and expert guidance.</p>
                             </div>

@@ -154,14 +154,10 @@ export default function GalleryPage() {
   return (
     <div className="gallery-page">
       {/* Hero Banner */}
-      <div className="inner-banner gallery-hero-banner">
-        <div className="container">
-          <div className="banner-content">
-            <h1>Photo Gallery</h1>
-
-          </div>
-        </div>
-      </div>
+      <section className="banner_section">
+                <img src={Images.gallery_banner.src} alt="Gallery Banner" />
+                <h1>Gallerys</h1>
+            </section>
 
       {/* Gallery Content */}
       <section className="gallery-content">

@@ -1,105 +1,177 @@
 'use client';
 import Link from 'next/link';
-import PageBreadcrumb from '@/components/PageBreadcrumb';
 import { Images } from '@/app/utilis/Images';
+import "./degree.scss";
 
 export default function DegreeCoursesPage() {
     return (
-        <>
-            <style jsx>{`
-                .courses_p {
-                    padding: 10px;
-                }
-                .our_course_head {
-                    text-align: center;
-                    font-weight: 600;
-                    margin-bottom: 20px;
-                }
-                .course_overview {
-                    font-size: 18px;
-                    font-weight: 600;
-                    margin: 10px 0;
-                }
-                .d-flex {
-                    display: flex;
-                    align-items: center;
-                }
-                .flex_pas {
-                    color: #000;
-                    font-weight: 600;
-                    font-size: 16px;
-                    padding-left: 5px;
-                }
-                .course_head {
-                    padding: 60px 0;
-                }
-                .table {
-                    width: 50%;
-                }
-                td {
-                    font-size: 16px;
-                    padding: 12px;
-                }
-                @media (min-width: 320px) and (max-width: 480px) {
-                    .table {
-                        width: 100% !important;
-                    }
-                }
-            `}</style>
+        <div className="degree_courses_page">
 
+            {/* Banner */}
             <section className="banner_section our_courses_banner">
-                <img src={Images.our_courses_banner.src} alt="Our Courses Banner" />
-                <h1>Degree Courses</h1>
+                <img src={Images.our_courses_banner.src} alt="Degree Courses Banner" />
+                <h1>Degree Courses (B.Sc / B.Voc)</h1>
             </section>
 
             <section className="courses_sec">
                 <div className="container">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div className="course_head">
-                                <h2 className="our_course_head">DEGREE COURSE OVERVIEW (B.Sc / B.Voc)</h2>
-                                <h5 className="course_overview">Course Overview :</h5>
-                                <p className="courses_p">The degree program is designed to develop skilled professionals through a balanced combination of academic knowledge and practical training. The curriculum is industry-oriented and focuses on building technical expertise, managerial skills, and professional competence required for long-term career growth.</p>
-                                <p className="courses_p">Students receive hands-on training, internship opportunities, and career guidance to prepare them for employment in leading organizations.</p>
-                                <div className="d-flex">
-                                    <h5 className="course_overview">Eligibility : </h5>
-                                    <h4 className="flex_pas"> 12TH Pass</h4>
-                                </div>
 
-                                <h5 className="course_overview">COURSES & DURATION:</h5>
-                                <table className="table table-striped">
-                                    <tbody>
-                                        <tr>
-                                            <td>B.Sc, Hotel Management</td>
-                                            <td>- 3 years</td>
-                                        </tr>
-                                        <tr>
-                                            <td>B.Voc in Hotel Management</td>
-                                            <td>- 3 years</td>
-                                        </tr>
-                                        <tr>
-                                            <td>B.Voc in Medical Lab Technology </td>
-                                            <td>- 3 years</td>
-                                        </tr>
-                                        <tr>
-                                            <td>B.Voc in Emergency Care & Trauma care Technology </td>
-                                            <td>- 3 years</td>
-                                        </tr>
-                                        <tr>
-                                            <td>B.Voc in Operation Theatre Technology </td>
-                                            <td>- 3 years</td>
-                                        </tr>
-                                        <tr>
-                                            <td>B.Voc in Hospital Administration </td>
-                                            <td>- 3 years</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                    {/* Course 1 */}
+                    <div className="course_card row align-items-center">
+                        <div className="col-lg-5 col-md-6 col-12 course_img">
+                            <img src={Images.degree_1.src} alt="Hotel Management" />
+                        </div>
+
+                        <div className="col-lg-7 col-md-6 col-12 course_content">
+                            <h3>B.Sc Hotel Management</h3>
+                            <p>
+                                3-year professional program focused on hospitality operations,
+                                food production, housekeeping, and hotel administration
+                                with industrial training.
+                            </p>
+
+                            <ul>
+                                <li><strong>Duration:</strong> 3 Years</li>
+                                <li><strong>Eligibility:</strong> 12th Pass</li>
+                                <li><strong>Internship:</strong> Included</li>
+                                <li><strong>Career:</strong> Hotel Manager, Chef, Cruise Staff</li>
+                            </ul>
+
+                            <Link href="/register" className="apply_btn">
+                                Apply Now
+                            </Link>
                         </div>
                     </div>
+
+
+                    {/* Course 2 */}
+                    <div className="course_card row align-items-center ">
+                        <div className="col-lg-5 col-md-6 col-12 course_img">
+                            <img src={Images.degree_2.src} alt="Hotel Management" />
+                        </div>
+
+                        <div className="col-lg-7 col-md-6 col-12 course_content">
+                            <h3>B.Voc in Hotel Management</h3>
+                            <p>
+                                Skill-based degree program covering diagnostic testing,
+                                pathology procedures, microbiology, and laboratory
+                                management.
+                            </p>
+
+                            <ul>
+                                <li><strong>Duration:</strong> 3 Years</li>
+                                <li><strong>Eligibility:</strong> 12th Pass (Science)</li>
+                                <li><strong>Training:</strong> Advanced Lab Practice</li>
+                                <li><strong>Career:</strong> Lab Technician, Pathology Assistant</li>
+                            </ul>
+
+                            <Link href="/register" className="apply_btn">
+                                Apply Now
+                            </Link>
+                        </div>
+                    </div>
+
+                    {/* Course 3 */}
+                    <div className="course_card row align-items-center">
+                        <div className="col-lg-5 col-md-6 col-12 course_img">
+                            <img src={Images.degree_3.src} alt="Medical Lab Technology" />
+                        </div>
+
+                        <div className="col-lg-7 col-md-6 col-12 course_content">
+                            <h3>B.Voc in Medical Lab Technology</h3>
+                            <p>
+                                This program trains students in clinical laboratory testing, diagnostic procedures, and pathology analysis. It focuses on medical equipment handling, microbiology, and biochemistry lab practices.
+                            </p>
+
+                            <ul>
+                                <li><strong>Duration:</strong> 3 Years</li>
+                                <li><strong>Eligibility:</strong> 12th Pass</li>
+                                <li><strong>Internship:</strong> Included</li>
+                                <li><strong>Career:</strong> Medical Lab Technician, Pathology Lab Assistant, Diagnostic Center Technician, Research Lab Assistant</li>
+                            </ul>
+
+                            <Link href="/register" className="apply_btn">
+                                Apply Now
+                            </Link>
+                        </div>
+                    </div>
+
+                    {/* Course 4 */}
+                    <div className="course_card row align-items-center">
+                        <div className="col-lg-5 col-md-6 col-12 course_img">
+                            <img src={Images.degree_4.src} alt="Emergency Care & Trauma care Technology" />
+                        </div>
+
+                        <div className="col-lg-7 col-md-6 col-12 course_content">
+                            <h3>B.Voc in Emergency Care & Trauma care Technology</h3>
+                            <p>
+                                This course prepares students to handle emergency medical situations and trauma care services. Students are trained in first aid, emergency response, and critical care assistance.
+                            </p>
+
+                            <ul>
+                                <li><strong>Duration:</strong> 3 Years</li>
+                                <li><strong>Eligibility:</strong> 12th Pass</li>
+                                <li><strong>Internship:</strong> Included</li>
+                                <li><strong>Career:</strong>Emergency Medical Technician (EMT), Trauma Care Assistant, Ambulance Technician, Hospital Emergency Staff</li>
+                            </ul>
+
+                            <Link href="/register" className="apply_btn">
+                                Apply Now
+                            </Link>
+                        </div>
+                    </div>
+                    {/* Course 5 */}
+                    <div className="course_card row align-items-center">
+                        <div className="col-lg-5 col-md-6 col-12 course_img">
+                            <img src={Images.degree_5.src} alt="Operation Theatre Technology" />
+                        </div>
+
+                        <div className="col-lg-7 col-md-6 col-12 course_content">
+                            <h3>B.Voc in Operation Theatre Technology</h3>
+                            <p>
+                                This program focuses on preparing students to assist surgeons and manage operation theatre procedures. It includes training in sterilization, surgical instruments, and patient care during surgery.
+                            </p>
+
+                            <ul>
+                                <li><strong>Duration:</strong> 3 Years</li>
+                                <li><strong>Eligibility:</strong> 12th Pass</li>
+                                <li><strong>Internship:</strong> Included</li>
+                                <li><strong>Career:</strong>Operation Theatre Assistant, Surgical Technician, Hospital Theatre Staff, Surgical Support Assistant</li>
+                            </ul>
+
+                            <Link href="/register" className="apply_btn">
+                                Apply Now
+                            </Link>
+                        </div>
+                    </div>
+                    {/* Course 6 */}
+                    <div className="course_card row align-items-center">
+                        <div className="col-lg-5 col-md-6 col-12 course_img">
+                            <img src={Images.degree_6.src} alt="Hospital Administration" />
+                        </div>
+
+                        <div className="col-lg-7 col-md-6 col-12 course_content">
+                            <h3>B.Voc in Hospital Administration</h3>
+                            <p>
+                                This course develops managerial and administrative skills required in hospitals and healthcare organizations. Students learn hospital operations, patient services, and healthcare management systems.
+                            </p>
+
+                            <ul>
+                                <li><strong>Duration:</strong> 3 Years</li>
+                                <li><strong>Eligibility:</strong> 12th Pass</li>
+                                <li><strong>Internship:</strong> Included</li>
+                                <li><strong>Career:</strong>Hospital Administrator, Healthcare Manager, Medical Office Manager, Hospital HR Executive</li>
+                            </ul>
+
+                            <Link href="/register" className="apply_btn">
+                                Apply Now
+                            </Link>
+                        </div>
+                    </div>
+
                 </div>
             </section>
-        </>
+
+        </div>
     );
 }
