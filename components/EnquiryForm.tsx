@@ -172,26 +172,6 @@ const EnquiryForm = () => {
                       />
                     </div>
                   </div>
-
-                  <div className="form-group">
-                    <label htmlFor="alternatePhone">Alternate / WhatsApp Number <span>*</span></label>
-                    <div className="input-wrapper">
-                      <FaPhone className="input-icon" />
-                      <input
-                        type="tel"
-                        id="alternatePhone"
-                        name="alternatePhone"
-                        className="form-input"
-                        placeholder="Enter alternate number"
-                        value={formData.alternatePhone}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="form-row">
                   <div className="form-group">
                     <label htmlFor="city">Location / City <span>*</span></label>
                     <div className="input-wrapper">
@@ -209,28 +189,19 @@ const EnquiryForm = () => {
                     </div>
                   </div>
 
+                </div>
+
+                <div className="form-row">
                   <div className="form-group">
-                    <label htmlFor="course">Course Interested In <span>*</span></label>
+                    <label htmlFor="qualification">Qualification <span>*</span></label>
                     <div className="select-wrapper">
-                      <FaBook className="input-icon" />
-                      <select
-                        id="course"
-                        name="course"
-                        className="form-input"
-                        value={formData.course}
-                        onChange={handleChange}
-                        required
-                      >
-                        <option value="">Select Course</option>
-                        <option value="Diploma in Hotel Management">Diploma in Hotel Management</option>
-                        <option value="Food and Beverage Production">Food and Beverage Production</option>
-                        <option value="Food and Beverage Service">Food and Beverage Service</option>
-                        <option value="House Keeping Management">House Keeping Management</option>
-                        <option value="Front Office Management">Front Office Management</option>
-                        <option value="Bakery and Confectionery">Bakery and Confectionery</option>
-                        <option value="Diploma in Nursing Assistant">Diploma in Nursing Assistant</option>
-                        <option value="Medical Lab Technician">Medical Lab Technician</option>
-                        <option value="Health Assistant">Health Assistant</option>
+                      <FaGraduationCap className="input-icon" />
+                      <select className="form-input" name="subject" value={formData.qualification} onChange={handleChange} >
+                        <option value="Qualification">Qualification*</option>
+                        <option value="ITI">ITI</option>
+                        <option value="12th">12th</option>
+                        <option value="10th">10th</option>
+
                       </select>
                     </div>
                   </div>
@@ -239,20 +210,19 @@ const EnquiryForm = () => {
                 <div className="form-row">
                   <div className="form-group">
                     <label htmlFor="qualification">Qualification <span>*</span></label>
-                    <div className="input-wrapper">
+                    <div className="select-wrapper">
                       <FaGraduationCap className="input-icon" />
-                      <input
-                        type="text"
-                        id="qualification"
-                        name="qualification"
-                        className="form-input"
-                        placeholder="e.g. 12th Pass, Degree"
-                        value={formData.qualification}
-                        onChange={handleChange}
-                        required
-                      />
+                      <select className="form-input" name="subject" value={formData.qualification} onChange={handleChange} >
+                        <option value="0">Courses Intrested In*</option>
+                        <option value="Degree">Degree</option>
+                        <option value="Diploma">Diploma</option>
+                        <option value="Certificate Courses">Certificate Courses</option>
+
+                      </select>
                     </div>
                   </div>
+
+
 
                   <div className="form-group">
                     <label htmlFor="yearOfPassing">Year of Passing <span>*</span></label>
@@ -273,22 +243,45 @@ const EnquiryForm = () => {
                 </div>
 
                 <div className="form-row">
+
+
                   <div className="form-group">
-                    <label htmlFor="occupation">Occupation (Optional)</label>
-                    <div className="input-wrapper">
-                      <FaBriefcase className="input-icon" />
-                      <input
-                        type="text"
-                        id="occupation"
-                        name="occupation"
+                    <label htmlFor="course">Course Interested In <span>*</span></label>
+                    <div className="select-wrapper">
+                      <FaBook className="input-icon" />
+                      <select
+                        id="course"
+                        name="course"
                         className="form-input"
-                        placeholder="Current occupation"
-                        value={formData.occupation}
+                        value={formData.course}
                         onChange={handleChange}
-                      />
+                        required
+                      >
+                        <option value="">Select Course</option>
+                        {/* After 12th */}
+                        <option value="B.Sc Hotel Management">B.Sc Hotel Management - 3 Years</option>
+                        <option value="B.Voc Hotel Management">B.Voc in Hotel Management - 3 Years</option>
+                        <option value="B.Voc Medical Lab Technology">B.Voc in Medical Lab Technology - 3 Years</option>
+                        <option value="B.Voc Emergency Care & Trauma Care Technology">B.Voc in Emergency Care & Trauma Care Technology - 3 Years</option>
+                        <option value="B.Voc Operation Theatre Technology">B.Voc in Operation Theatre Technology - 3 Years</option>
+                        <option value="B.Voc Hospital Administration">B.Voc in Hospital Administration - 3 Years</option>
+
+                        {/* 10th Pass / Fail  */}
+                        <option value="Diploma in Hotel Management">Diploma in Hotel Management</option>
+                        <option value="Diploma in Food and Beverage Production">Diploma in Food and Beverage Production</option>
+                        <option value="Diploma in Food and Beverage Service">Diploma in Food and Beverage Service</option>
+                        <option value="Diploma in House Keeping Management">Diploma in House Keeping Management</option>
+                        <option value="Diploma in Front Office Management">Diploma in Front Office Management</option>
+                        <option value="Diploma in Bakery and Confectionery">Diploma in Bakery and Confectionery</option>
+                        <option value="Diploma in Nursing Assistant">Diploma in Nursing Assistant</option>
+                        <option value="Diploma in Medical Lab Technician">Diploma in Medical Lab Technician</option>
+                        <option value="Diploma in Health Assistant">Diploma in Health Assistant</option>
+                      </select>
                     </div>
                   </div>
                 </div>
+
+
 
                 <div className="form-group textarea-group">
                   <label htmlFor="message">Your Message</label>

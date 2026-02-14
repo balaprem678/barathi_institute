@@ -154,6 +154,20 @@ export default function Register() {
                                             <div className="form-group">
                                                 <div className="select-box">
                                                     <select className="form-control" name="subject" value={formData.subject} onChange={handleChange} style={{ width: '100%' }}>
+                                                        <option value="Qualification">Qualification*</option>
+                                                        <option value="ITI">ITI</option>
+                                                        <option value="12th">12th</option>
+                                                        <option value="10th">10th</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {/* Courses Intrested In */}
+                                        <div className="col-md-6 col-sm-6 col-xs-12">
+                                            <div className="form-group">
+                                                <div className="select-box">
+                                                    <select className="form-control" name="subject" value={formData.subject} onChange={handleChange} style={{ width: '100%' }}>
                                                         <option value="0">Courses Intrested In*</option>
                                                         <option value="Degree">Degree</option>
                                                         <option value="Diploma">Diploma</option>
