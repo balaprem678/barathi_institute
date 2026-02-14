@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { X, Mail, Phone, User, Send } from 'lucide-react';
+import { X, Mail, Phone, User, Map, Send, Book, MessageSquare, Calendar, BookOpen, GraduationCap, } from 'lucide-react';
 import './popupmodal.scss';
 import { useNotification } from '@/context/NotificationContext';
 
@@ -179,33 +179,12 @@ const PopupModal = () => {
                             <div className="field-bottom-space"></div>
                         </div>
 
-                        {/* Alternate Phone */}
-                        <div className="form-field-group">
-                            <div className="field-label">
-                                <Phone size={18} className="field-icon" />
-                                <label htmlFor="alternatePhone" className="field-label-text">
-                                    Alternate / WhatsApp Number
-                                    <span className="required-star">*</span>
-                                </label>
-                            </div>
-                            <input
-                                type="tel"
-                                id="alternatePhone"
-                                name="alternatePhone"
-                                className="form-field"
-                                placeholder="Alternate Number"
-                                value={formData.alternatePhone}
-                                onChange={handleInputChange}
-                                required
-                            />
-                            <div className="field-bottom-space"></div>
-                        </div>
-
                         {/* City */}
                         <div className="form-field-group">
                             <div className="field-label">
+                                <Map size={18} className="field-icon" />
                                 <label htmlFor="city" className="field-label-text">
-                                    City / Location
+                                    Location
                                     <span className="required-star">*</span>
                                 </label>
                             </div>
@@ -222,11 +201,36 @@ const PopupModal = () => {
                             <div className="field-bottom-space"></div>
                         </div>
 
-                        {/* Course Selection */}
+                        {/* Courses Intrested In */}
                         <div className="form-field-group">
                             <div className="field-label">
+                                <GraduationCap size={18} className="field-icon" />
                                 <label htmlFor="course" className="field-label-text">
-                                    Course Interested In
+                                    Courses Intrested In*
+                                    <span className="required-star">*</span>
+                                </label>
+                            </div>
+                            <select
+                                id="course"
+                                name="course"
+                                className="form-field"
+                                value={formData.course}
+                                onChange={handleInputChange as any}
+                                required
+                            >
+                                <option value="Degree">Degree</option>
+                                <option value="Diploma">Diploma</option>
+                                <option value="Certificate Courses">Certificate Courses</option>
+
+                            </select>
+                            <div className="field-bottom-space"></div>
+                        </div>
+                        {/* Select Courses */}
+                        <div className="form-field-group">
+                            <div className="field-label">
+                                <Book size={18} className="field-icon" />
+                                <label htmlFor="course" className="field-label-text">
+                                    Select Courses
                                     <span className="required-star">*</span>
                                 </label>
                             </div>
@@ -239,15 +243,25 @@ const PopupModal = () => {
                                 required
                             >
                                 <option value="">Select Course</option>
+
+                                {/* After 12th */}
+                                <option value="B.Sc Hotel Management">B.Sc Hotel Management - 3 Years</option>
+                                <option value="B.Voc Hotel Management">B.Voc in Hotel Management - 3 Years</option>
+                                <option value="B.Voc Medical Lab Technology">B.Voc in Medical Lab Technology - 3 Years</option>
+                                <option value="B.Voc Emergency Care & Trauma Care Technology">B.Voc in Emergency Care & Trauma Care Technology - 3 Years</option>
+                                <option value="B.Voc Operation Theatre Technology">B.Voc in Operation Theatre Technology - 3 Years</option>
+                                <option value="B.Voc Hospital Administration">B.Voc in Hospital Administration - 3 Years</option>
+
+                                {/* 10th Pass / Fail  */}
                                 <option value="Diploma in Hotel Management">Diploma in Hotel Management</option>
-                                <option value="Food and Beverage Production">Food and Beverage Production</option>
-                                <option value="Food and Beverage Service">Food and Beverage Service</option>
-                                <option value="House Keeping Management">House Keeping Management</option>
-                                <option value="Front Office Management">Front Office Management</option>
-                                <option value="Bakery and Confectionery">Bakery and Confectionery</option>
+                                <option value="Diploma in Food and Beverage Production">Diploma in Food and Beverage Production</option>
+                                <option value="Diploma in Food and Beverage Service">Diploma in Food and Beverage Service</option>
+                                <option value="Diploma in House Keeping Management">Diploma in House Keeping Management</option>
+                                <option value="Diploma in Front Office Management">Diploma in Front Office Management</option>
+                                <option value="Diploma in Bakery and Confectionery">Diploma in Bakery and Confectionery</option>
                                 <option value="Diploma in Nursing Assistant">Diploma in Nursing Assistant</option>
-                                <option value="Medical Lab Technician">Medical Lab Technician</option>
-                                <option value="Health Assistant">Health Assistant</option>
+                                <option value="Diploma in Medical Lab Technician">Diploma in Medical Lab Technician</option>
+                                <option value="Diploma in Health Assistant">Diploma in Health Assistant</option>
                             </select>
                             <div className="field-bottom-space"></div>
                         </div>
@@ -256,6 +270,7 @@ const PopupModal = () => {
                         <div className="flex gap-2">
                             <div className="form-field-group flex-1">
                                 <div className="field-label">
+                                    <BookOpen size={18} className="field-icon" />
                                     <label htmlFor="qualification" className="field-label-text">
                                         Qualification
                                         <span className="required-star">*</span>
@@ -275,12 +290,13 @@ const PopupModal = () => {
                             </div>
                             <div className="form-field-group flex-1">
                                 <div className="field-label">
+                                    <Calendar size={18} className="field-icon" />
                                     <label htmlFor="yearOfPassing" className="field-label-text">
                                         Year
                                         <span className="required-star">*</span>
                                     </label>
                                 </div>
-                                <input
+                                {/* <input
                                     type="text"
                                     id="yearOfPassing"
                                     name="yearOfPassing"
@@ -289,33 +305,18 @@ const PopupModal = () => {
                                     value={formData.yearOfPassing}
                                     onChange={handleInputChange}
                                     required
-                                />
+                                /> */}
+                                <input type="number" name="year" id="year" min="1" max="3" placeholder="Enter Year" required />
+
                                 <div className="field-bottom-space"></div>
                             </div>
                         </div>
 
-                        {/* Occupation */}
-                        <div className="form-field-group">
-                            <div className="field-label">
-                                <label htmlFor="occupation" className="field-label-text">
-                                    Occupation (Optional)
-                                </label>
-                            </div>
-                            <input
-                                type="text"
-                                id="occupation"
-                                name="occupation"
-                                className="form-field"
-                                placeholder="Current Occupation"
-                                value={formData.occupation}
-                                onChange={handleInputChange}
-                            />
-                            <div className="field-bottom-space"></div>
-                        </div>
 
                         {/* Message */}
                         <div className="form-field-group">
                             <div className="field-label">
+                                <MessageSquare size={18} className="field-icon" />
                                 <label htmlFor="message" className="field-label-text">
                                     Message
                                 </label>
