@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import PageBreadcrumb from '@/components/PageBreadcrumb';
+import { Images } from '@/app/utilis/Images';
 
 export default function DegreeCoursesPage() {
     return (
@@ -46,13 +47,10 @@ export default function DegreeCoursesPage() {
                 }
             `}</style>
 
-            <PageBreadcrumb
-                bgImage="/images/courses/course_banner.jpg"
-                breadcrumbs={[
-                    { label: 'Home', url: '/' },
-                    { label: 'Degree Courses' }
-                ]}
-            />
+            <section className="banner_section our_courses_banner">
+                <img src={Images.our_courses_banner.src} alt="Our Courses Banner" />
+                <h1>Degree Courses</h1>
+            </section>
 
             <section className="courses_sec">
                 <div className="container">

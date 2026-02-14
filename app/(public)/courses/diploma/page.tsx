@@ -1,7 +1,8 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
-import PageBreadcrumb from '@/components/PageBreadcrumb';
+import { Images } from '@/app/utilis/Images';
+
 
 const AccordionItem = ({ title, isOpen, onClick, children }: { title: string, isOpen: boolean, onClick: () => void, children: React.ReactNode }) => {
     return (
@@ -33,63 +34,10 @@ export default function DiplomaCoursesPage() {
 
     return (
         <>
-            <style jsx>{`
-                .courses_p {
-                    padding: 10px;
-                }
-                .our_course_head {
-                    text-align: center;
-                    font-weight: 600;
-                    margin-bottom: 20px;
-                }
-                .course_overview {
-                    font-size: 18px;
-                    font-weight: 600;
-                    margin: 10px 0;
-                }
-                .d-flex {
-                    display: flex;
-                    align-items: center;
-                }
-                .flex_pas {
-                    color: #000;
-                    font-weight: 600;
-                    font-size: 16px;
-                    padding-left: 5px;
-                }
-                .course_head {
-                    padding: 60px 0;
-                }
-                .table {
-                    width: 50%;
-                }
-                .dip_ul {
-                    list-style: disc;
-                    padding: 10px 20px; 
-                }
-                .dip_ul li {
-                    padding: 10px;
-                    font-size: 15px;
-                }
-                td {
-                    font-size: 16px;
-                    padding: 12px;
-                }
-                @media (min-width: 320px) and (max-width: 480px) {
-                    .table {
-                        width: 100% !important;
-                    }
-                }
-            `}</style>
-
-            <PageBreadcrumb
-                bgImage="/images/courses/course_banner.jpg"
-                breadcrumbs={[
-                    { label: 'Home', url: '/' },
-                    { label: 'Diploma Course' }
-                ]}
-            />
-
+            <section className="banner_section our_courses_banner">
+                <img src={Images.our_courses_banner.src} alt="Our Courses Banner" />
+                <h1>Diploma Courses</h1>
+            </section>
             <section className="courses_sec">
                 <div className="container">
                     <div className="row">

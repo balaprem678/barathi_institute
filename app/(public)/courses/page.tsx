@@ -73,7 +73,7 @@ export default function CoursesPage() {
 
                                 <h2 className="course_h2">Degree Courses ( 3 Year )</h2>
 
-                                <Link href="/courses/degree" className="btn btn_courses">View Course</Link>
+                                <Link href="/courses/degree" className="btn btn_courses cta-button">View Course</Link>
                             </div>
                         </div>
                         <div className="col-md-6">
@@ -84,7 +84,7 @@ export default function CoursesPage() {
 
                                 <h2 className="course_h2">Diploma Courses ( 1 & 2 Year )</h2>
 
-                                <Link href="/courses/diploma" className="btn btn_courses">View Course</Link>
+                                <Link href="/courses/diploma" className="btn btn_courses cta-button">View Course</Link>
                             </div>
                         </div>
                     </div>
