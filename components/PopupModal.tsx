@@ -113,92 +113,145 @@ const PopupModal = () => {
                 {/* Form */}
                 <form onSubmit={handleSubmit} className="enquiry-form p-3">
                     <div className="form-body px-2">
-                        {/* Name Field */}
-                        <div className="form-field-group">
-                            <div className="field-label">
-                                <User size={18} className="field-icon" />
-                                <label htmlFor="name" className="field-label-text">
-                                    Full Name
-                                    <span className="required-star">*</span>
-                                </label>
+                        <div className="flex gap-2">
+                            {/* Name Field */}
+                            <div className="form-field-group flex-1">
+                                <div className="field-label">
+                                    <User size={18} className="field-icon" />
+                                    <label htmlFor="name" className="field-label-text">
+                                        Full Name
+                                        <span className="required-star">*</span>
+                                    </label>
+                                </div>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    className="form-field"
+                                    placeholder="John Smith"
+                                    value={formData.name}
+                                    onChange={handleInputChange}
+                                    required
+                                />
+                                <div className="field-bottom-space"></div>
                             </div>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                className="form-field"
-                                placeholder="John Smith"
-                                value={formData.name}
-                                onChange={handleInputChange}
-                                required
-                            />
-                            <div className="field-bottom-space"></div>
+
+                            {/* Email Field */}
+                            <div className="form-field-group flex-1">
+                                <div className="field-label">
+                                    <Mail size={18} className="field-icon" />
+                                    <label htmlFor="email" className="field-label-text">
+                                        Email Address
+                                        <span className="required-star">*</span>
+                                    </label>
+                                </div>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    className="form-field"
+                                    placeholder="john@example.com"
+                                    value={formData.email}
+                                    onChange={handleInputChange}
+                                    required
+                                />
+                                <div className="field-bottom-space"></div>
+                            </div>
+                        </div>
+                        <div className="flex gap-2">
+                            {/* Phone Field */}
+                            <div className="form-field-group flex-1">
+                                <div className="field-label">
+                                    <Phone size={18} className="field-icon" />
+                                    <label htmlFor="phone" className="field-label-text">
+                                        Phone Number
+                                        <span className="required-star">*</span>
+                                    </label>
+                                </div>
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    className="form-field"
+                                    placeholder="+91 98765 43210"
+                                    value={formData.phone}
+                                    onChange={handleInputChange}
+                                    required
+                                />
+                                <div className="field-bottom-space"></div>
+                            </div>
+
+                            {/* City */}
+                            <div className="form-field-group flex-1">
+                                <div className="field-label">
+                                    <Map size={18} className="field-icon" />
+                                    <label htmlFor="city" className="field-label-text">
+                                        Location
+                                        <span className="required-star">*</span>
+                                    </label>
+                                </div>
+                                <input
+                                    type="text"
+                                    id="city"
+                                    name="city"
+                                    className="form-field"
+                                    placeholder="Your City"
+                                    value={formData.city}
+                                    onChange={handleInputChange}
+                                    required
+                                />
+                                <div className="field-bottom-space"></div>
+                            </div>
                         </div>
 
-                        {/* Email Field */}
-                        <div className="form-field-group">
-                            <div className="field-label">
-                                <Mail size={18} className="field-icon" />
-                                <label htmlFor="email" className="field-label-text">
-                                    Email Address
-                                    <span className="required-star">*</span>
-                                </label>
-                            </div>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                className="form-field"
-                                placeholder="john@example.com"
-                                value={formData.email}
-                                onChange={handleInputChange}
-                                required
-                            />
-                            <div className="field-bottom-space"></div>
-                        </div>
+                         {/* Qualification & Year of Passing */}
+                        <div className="flex gap-2">
+                            <div className="form-field-group flex-1">
+                                <div className="field-label">
+                                    <BookOpen size={18} className="field-icon" />
+                                    <label htmlFor="qualification" className="field-label-text">
+                                        Qualification
+                                        <span className="required-star">*</span>
+                                    </label>
+                                </div>
 
-                        {/* Phone Field */}
-                        <div className="form-field-group">
-                            <div className="field-label">
-                                <Phone size={18} className="field-icon" />
-                                <label htmlFor="phone" className="field-label-text">
-                                    Phone Number
-                                    <span className="required-star">*</span>
-                                </label>
-                            </div>
-                            <input
-                                type="tel"
-                                id="phone"
-                                name="phone"
-                                className="form-field"
-                                placeholder="+91 98765 43210"
-                                value={formData.phone}
-                                onChange={handleInputChange}
-                                required
-                            />
-                            <div className="field-bottom-space"></div>
-                        </div>
+                                <select id="course"
+                                    name="course"
+                                    className="form-field"
+                                    value={formData.course}
+                                    onChange={handleInputChange as any}
+                                    required>
+                                    <option value="Qualification">Qualification*</option>
+                                    <option value="ITI">ITI</option>
+                                    <option value="12th">12th</option>
+                                    <option value="10th">10th</option>
 
-                        {/* City */}
-                        <div className="form-field-group">
-                            <div className="field-label">
-                                <Map size={18} className="field-icon" />
-                                <label htmlFor="city" className="field-label-text">
-                                    Location
-                                    <span className="required-star">*</span>
-                                </label>
+                                </select>
+                                <div className="field-bottom-space"></div>
                             </div>
-                            <input
-                                type="text"
-                                id="city"
-                                name="city"
-                                className="form-field"
-                                placeholder="Your City"
-                                value={formData.city}
-                                onChange={handleInputChange}
-                                required
-                            />
-                            <div className="field-bottom-space"></div>
+                            <div className="form-field-group flex-1">
+                                <div className="field-label">
+                                    <Calendar size={18} className="field-icon" />
+                                    <label htmlFor="yearOfPassing" className="field-label-text">
+                                        Year
+                                        <span className="required-star">*</span>
+                                    </label>
+                                </div>
+                                {/* <input
+                                    type="text"
+                                    id="yearOfPassing"
+                                    name="yearOfPassing"
+                                    className="form-field"
+                                    placeholder="Year"
+                                    value={formData.yearOfPassing}
+                                    onChange={handleInputChange}
+                                    required
+                                /> */}
+
+                                <input type="number" className="form-field" name="year" id="year" min="1" max="3" placeholder="Enter Year" required />
+
+                                <div className="field-bottom-space"></div>
+                            </div>
                         </div>
 
                         {/* Courses Intrested In */}
@@ -266,51 +319,7 @@ const PopupModal = () => {
                             <div className="field-bottom-space"></div>
                         </div>
 
-                        {/* Qualification & Year of Passing */}
-                        <div className="flex gap-2">
-                            <div className="form-field-group flex-1">
-                                <div className="field-label">
-                                    <BookOpen size={18} className="field-icon" />
-                                    <label htmlFor="qualification" className="field-label-text">
-                                        Qualification
-                                        <span className="required-star">*</span>
-                                    </label>
-                                </div>
-                                <input
-                                    type="text"
-                                    id="qualification"
-                                    name="qualification"
-                                    className="form-field"
-                                    placeholder="Qualification"
-                                    value={formData.qualification}
-                                    onChange={handleInputChange}
-                                    required
-                                />
-                                <div className="field-bottom-space"></div>
-                            </div>
-                            <div className="form-field-group flex-1">
-                                <div className="field-label">
-                                    <Calendar size={18} className="field-icon" />
-                                    <label htmlFor="yearOfPassing" className="field-label-text">
-                                        Year
-                                        <span className="required-star">*</span>
-                                    </label>
-                                </div>
-                                {/* <input
-                                    type="text"
-                                    id="yearOfPassing"
-                                    name="yearOfPassing"
-                                    className="form-field"
-                                    placeholder="Year"
-                                    value={formData.yearOfPassing}
-                                    onChange={handleInputChange}
-                                    required
-                                /> */}
-                                <input type="number" name="year" id="year" min="1" max="3" placeholder="Enter Year" required />
-
-                                <div className="field-bottom-space"></div>
-                            </div>
-                        </div>
+                       
 
 
                         {/* Message */}

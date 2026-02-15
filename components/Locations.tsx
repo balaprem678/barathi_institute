@@ -175,12 +175,12 @@ const Locations = () => {
         },
         {
             id: 16,
-            name: 'Trichy',
+            name: 'Tiruchirappalli',
             address: [
                 '25, Nandhi Koil St, Theppakulam,',
                 'Tiruchirappalli, Tamil Nadu 620002'
             ],
-            mobile: '+91 - 9787438991'  //Not this location Number
+            mobile: '+91 - 9442100056'  
         },
         {
             id: 17,
@@ -189,7 +189,7 @@ const Locations = () => {
                 'No.59, 3rd floor, Gopuram towers,',
                 'Dhurugam Road, Tamil Nadu 606202'
             ],
-            mobile: '+91 - 9787438991' //Not this location Number
+            mobile: '+91 - 9655363236' 
         },
         {
             id: 18,
@@ -199,7 +199,7 @@ const Locations = () => {
                 'Near Anil semiya head office,',
                 'Tamil Nadu 624001'
             ],
-            mobile: '+91 - 9787438991' //Not this location Number
+            mobile: '+91 - 9655363236' 
         }
     ];
 

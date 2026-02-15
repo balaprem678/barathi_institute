@@ -63,6 +63,24 @@ import aboutusbanner from '../../public/assets/new_images/aboutus/aboutusbanner.
 // Courses Page Images Import Here
 import degree from '../../public/assets/new_images/courses/Degree.webp'
 import diploma from '../../public/assets/new_images/courses/diploma_courses.webp'
+// Degreee
+import degree_1 from '../../public/assets/new_images/courses/degree/degree_1.webp'
+import degree_2 from '../../public/assets/new_images/courses/degree/degree_2.webp'
+import degree_3 from '../../public/assets/new_images/courses/degree/degree_3.webp'
+import degree_4 from '../../public/assets/new_images/courses/degree/degree_4.webp'
+import degree_5 from '../../public/assets/new_images/courses/degree/degree_5.webp'
+import degree_6 from '../../public/assets/new_images/courses/degree/degree_6.webp'
+
+// Diploma
+import diploma_2 from '../../public/assets/new_images/courses/diploma/diploma_2.webp'
+import diploma_3 from '../../public/assets/new_images/courses/diploma/diploma_3.webp'
+import diploma_4 from '../../public/assets/new_images/courses/diploma/diploma_4.webp'
+import diploma_5 from '../../public/assets/new_images/courses/diploma/diploma_5.webp'
+import diploma_6 from '../../public/assets/new_images/courses/diploma/diploma_6.webp'
+import diploma_7 from '../../public/assets/new_images/courses/diploma/diploma_7.webp'
+import diploma_8 from '../../public/assets/new_images/courses/diploma/diploma_8.webp'
+import diploma_9 from '../../public/assets/new_images/courses/diploma/diploma_9.webp'
+
 
 
 // Gallery Page Images Import Here
@@ -160,13 +178,14 @@ import placements_banner from '../../public/assets/new_images/banner/placements.
 import testimonials_banner from '../../public/assets/new_images/banner/testimonials.png';
 import blogs_banner from '../../public/assets/new_images/banner/blogs.png';
 import contacts_banner from '../../public/assets/new_images/banner/contacts.png';
+import gallery_banner from '../../public/assets/new_images/banner/gallery_banner.png';
 
 
 
 export const Images = {
     // Banner Page Images Import Here
     about_banner, our_courses_banner, admission_procudure_banner, scholarship_banner, placements_banner,
-    testimonials_banner, blogs_banner, contacts_banner,
+    testimonials_banner, blogs_banner, contacts_banner,gallery_banner,
     // Common Images Import Here
     logo, gmail, instagram, whatsapp, viber, logo_1, logo_2, logo_3, logo_4, logo_5, logo_6,
     logo_7, logo_8, logo_9, logo_10, logo_11, logo_12, logo_13, logo_14,
@@ -184,7 +203,7 @@ export const Images = {
     aboutFuture4, aboutWhyUsImg, visionIcon, valueIcon, aboutusbanner,
 
     // Courses Page Images Import Here
-    degree, diploma,
+    degree, diploma, degree_1, degree_2, degree_3, degree_4, degree_5, degree_6, diploma_2, diploma_3, diploma_4, diploma_5, diploma_6, diploma_7, diploma_8, diploma_9,
 
     // Gallery Page Images Import Here
     gallery1, gallery2, gallery3, gallery4,

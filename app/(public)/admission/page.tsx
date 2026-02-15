@@ -1,22 +1,23 @@
 import PageBreadcrumb from '@/components/PageBreadcrumb';
 import Link from 'next/link';
 import { Images } from '@/app/utilis/Images';
+import './admission.scss';
 
 
 export default function Admission() {
     return (
         <>
-              <section className="banner_section">
-                          <img src={Images.admission_procudure_banner.src} alt="About Us Banner" />
-                          <h1>Admission Procudere</h1>
-                      </section>
+            <section className="banner_section">
+                <img src={Images.admission_procudure_banner.src} alt="About Us Banner" />
+                <h1>Admission Procudere</h1>
+            </section>
 
             <section className="default-section sec-padd">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-9 col-sm-12">
                             <div className="section-title">
-                                <h1 style={{ color: '#000' }}>Admission Process – Best Institute for Hotel Management and Paramedical Courses</h1> 
+                                <h1 style={{ color: '#000' }}>Admission Process – Best Institute for Hotel Management and Paramedical Courses</h1>
                                 <span className="decor"></span>
                             </div>
                             &nbsp;
@@ -31,7 +32,7 @@ export default function Admission() {
                                 <h3>Bharathi Features</h3>
 
                                 <div className="text" style={{ textAlign: 'justify' }}>
-                                    <ul className="list-style-5">
+                                    <ul className="list-style-5 p-0">
                                         <li>100% Job Guarantee Bond <a href="/images/bond.jpg" target="_blank"> View </a></li>
                                         <li>Rs 8000 Worth Free Uniforms , Books and Practical Kits</li> // Corrected "Kids" to "Kits" if that was a typo in source, but keeping source fidelity or assuming "Practical Kits" is meant. PHP said "Practical Kids", I will correct it to "Kits" as it makes more sense, or "Kids" if it refers to something else? "Practical Kits" is standard.
                                         <li>Get Scholarship for Garments / Widower and Farmers Based Families</li>
@@ -48,7 +49,7 @@ export default function Admission() {
                                         <strong>Note: The following documents must accompany the filled-in application: </strong></p>
                                 </div>
 
-                                <ul className="list-style-5">
+                                <ul className="list-style-5 p-0">
                                     <li>Original and Xerox Copy of X Std and Hr. Secondary Mark Statement.</li>
                                     <li>Original and Xerox Copy of Transfer Certificate.</li>
                                     <li>Copy of Community Certificate. (If applicable).</li>
@@ -65,11 +66,10 @@ export default function Admission() {
                             <div className="default-sidebar">
                                 <div className="section-title">
                                     <h3>Hotel Management</h3>
-                                    <span className="decor"></span>
                                 </div>
                                 &nbsp;
 
-                                <ul className="contact-info d-block">
+                                <ul className="contact-info d-block p-0">
                                     <li><i className="fa fa-certificate"></i><Link href="/courses/diploma"> Diploma in Hotel Management</Link> </li>
                                     <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Food and Beverage Production</Link> </li>
                                     <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Food and Beverage Service</Link> </li>
@@ -83,7 +83,7 @@ export default function Admission() {
                                 </div>
                                 &nbsp;
 
-                                <ul className="contact-info">
+                                <ul className="contact-info d-block p-0">
                                     <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Diploma in Health Assistant</Link></li>
                                     <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Medical Lab Technician</Link></li>
                                 </ul>

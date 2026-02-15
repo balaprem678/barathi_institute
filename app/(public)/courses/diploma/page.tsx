@@ -1,246 +1,234 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
-import PageBreadcrumb from '@/components/PageBreadcrumb';
+import { Images } from '@/app/utilis/Images';
+import "../degree/degree.scss";
 
-const AccordionItem = ({ title, isOpen, onClick, children }: { title: string, isOpen: boolean, onClick: () => void, children: React.ReactNode }) => {
-    return (
-        <div className="panel panel-default" style={{ marginBottom: '20px', border: '1px solid #ddd', borderRadius: '4px' }}>
-            <div className="panel-heading" role="tab" onClick={onClick} style={{ cursor: 'pointer', color: '#000000', backgroundColor: '#bcdbee', borderColor: '#ddd', padding: '18px', fontWeight: 700 }}>
-                <h4 className="panel-title" style={{ margin: 0 }}>
-                    <a role="button" aria-expanded={isOpen}>
-                        {title}
-                    </a>
-                </h4>
-            </div>
-            {isOpen && (
-                <div className="panel-collapse collapse in" role="tabpanel">
-                    <div className="panel-body" style={{ padding: '15px' }}>
-                        {children}
-                    </div>
-                </div>
-            )}
-        </div>
-    );
-};
+
+
 
 export default function DiplomaCoursesPage() {
-    const [openIndex, setOpenIndex] = useState<number | null>(0); // Default first one open
-
-    const toggleAccordion = (index: number) => {
-        setOpenIndex(openIndex === index ? null : index);
-    };
-
     return (
         <>
-            <style jsx>{`
-                .courses_p {
-                    padding: 10px;
-                }
-                .our_course_head {
-                    text-align: center;
-                    font-weight: 600;
-                    margin-bottom: 20px;
-                }
-                .course_overview {
-                    font-size: 18px;
-                    font-weight: 600;
-                    margin: 10px 0;
-                }
-                .d-flex {
-                    display: flex;
-                    align-items: center;
-                }
-                .flex_pas {
-                    color: #000;
-                    font-weight: 600;
-                    font-size: 16px;
-                    padding-left: 5px;
-                }
-                .course_head {
-                    padding: 60px 0;
-                }
-                .table {
-                    width: 50%;
-                }
-                .dip_ul {
-                    list-style: disc;
-                    padding: 10px 20px; 
-                }
-                .dip_ul li {
-                    padding: 10px;
-                    font-size: 15px;
-                }
-                td {
-                    font-size: 16px;
-                    padding: 12px;
-                }
-                @media (min-width: 320px) and (max-width: 480px) {
-                    .table {
-                        width: 100% !important;
-                    }
-                }
-            `}</style>
+            <div className="degree_courses_page">
 
-            <PageBreadcrumb
-                bgImage="/images/courses/course_banner.jpg"
-                breadcrumbs={[
-                    { label: 'Home', url: '/' },
-                    { label: 'Diploma Course' }
-                ]}
-            />
+                {/* Banner */}
+                <section className="banner_section our_courses_banner">
+                    <img src={Images.our_courses_banner.src} alt="Diploma Courses Banner" />
+                    <h1>Diploma Courses</h1>
+                </section>
 
-            <section className="courses_sec">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div className="course_head">
-                                <h2 className="our_course_head">DIPLOMA COURSE OVERVIEW</h2>
+                <section className="courses_sec">
+                    <div className="container">
+
+                        {/* Course 1 */}
+                        <div className="course_card row align-items-center">
+                            <div className="col-lg-5 col-md-6 col-12 course_img">
+                                <img src={Images.degree_1.src} alt="Diploma in Hotel Management" />
                             </div>
 
-                            <div className="panel-group" role="tablist" aria-multiselectable="true">
+                            <div className="col-lg-7 col-md-6 col-12 course_content">
+                                <h3>Diploma in Hotel Management</h3>
+                                <p>
+                                    This diploma program prepares students for careers in the hospitality industry
+                                    by providing practical training in hotel operations, food & beverage service,
+                                    housekeeping, and front office management.
+                                </p>
 
-                                {/* Item 1 */}
-                                <AccordionItem
-                                    title="DIPLOMA IN HOTEL MANAGEMENT COURSE OVERVIEW"
-                                    isOpen={openIndex === 0}
-                                    onClick={() => toggleAccordion(0)}
-                                >
-                                    <div className="course_head" style={{ padding: '0' }}>
-                                        <h2 className="our_course_head">DIPLOMA IN HOTEL MANAGEMENT COURSE OVERVIEW</h2>
-                                        <h5 className="course_overview">Course Overview :</h5>
-                                        <p className="courses_p">This diploma course focuses on practical skill development and job-oriented training. It is ideal for students who want early entry into the workforce with industry-relevant knowledge and hands-on experience.</p>
-                                        <p className="courses_p">The program includes practical sessions, real-time equipment training, and professional skill development to ensure career readiness.</p>
-                                        <div className="d-flex">
-                                            <h5 className="course_overview">Eligibility : </h5>
-                                            <h4 className="flex_pas">  10TH 12TH Pass / Fail, Discontinued</h4>
-                                        </div>
+                                <ul>
+                                    <li><strong>Duration:</strong> 1 – 2 Years</li>
+                                    <li><strong>Eligibility:</strong> 10th / 12th Pass</li>
+                                    <li><strong>Training:</strong> Practical & Industrial Exposure</li>
+                                    <li><strong>Career:</strong> Hotel Supervisor, Front Office Executive, Restaurant Manager</li>
+                                </ul>
 
-                                        <h5 className="course_overview">COURSES & DURATION:</h5>
-                                        <table className="table table-striped">
-                                            <tbody>
-                                                <tr>
-                                                    <td>Diploma In Hotel Management</td>
-                                                    <td>- 2 years</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Food & Beverage Production</td>
-                                                    <td>- 1 years</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Food & Beverage Service </td>
-                                                    <td>- 1 years</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Bakery & Confectionery </td>
-                                                    <td>- 1 years</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Front Office & Housekeeping Management </td>
-                                                    <td>- 1 years</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </AccordionItem>
-
-                                {/* Item 2 */}
-                                <AccordionItem
-                                    title="DIPLOMA IN HEALTHCARE COURSE OVERVIEW"
-                                    isOpen={openIndex === 1}
-                                    onClick={() => toggleAccordion(1)}
-                                >
-                                    <div className="course_head" style={{ padding: '0' }}>
-                                        <h2 className="our_course_head">DIPLOMA IN HEALTHCARE COURSE OVERVIEW</h2>
-                                        <h5 className="course_overview">Course Overview :</h5>
-                                        <p className="courses_p">This healthcare course is designed to train students in essential medical and healthcare support skills through structured theoretical instruction and extensive practical training. The program prepares students to work efficiently in hospitals, laboratories, and healthcare institutions.</p>
-                                        <p className="courses_p">Emphasis is placed on patient care, safety protocols, equipment handling, and professional ethics.</p>
-                                        <div className="d-flex">
-                                            <h5 className="course_overview">Eligibility : </h5>
-                                            <h4 className="flex_pas"> 10TH 12TH Pass / Fail, Discontinued</h4>
-                                        </div>
-
-                                        <h5 className="course_overview">COURSES & DURATION:</h5>
-                                        <table className="table table-striped">
-                                            <tbody>
-                                                <tr>
-                                                    <td>Diploma in Health Assistant </td>
-                                                    <td> - 2 year</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </AccordionItem>
-
-                                {/* Item 3 */}
-                                <AccordionItem
-                                    title="DIPLOMA IN MEDICAL LAB TECHNICIAN OVERVIEW"
-                                    isOpen={openIndex === 2}
-                                    onClick={() => toggleAccordion(2)}
-                                >
-                                    <div className="course_head" style={{ padding: '0' }}>
-                                        <h2 className="our_course_head">DIPLOMA IN MEDICAL LAB TECHNICIAN OVERVIEW</h2>
-                                        <h5 className="course_overview">Course Overview :</h5>
-                                        <p className="courses_p">This course provides specialized training in medical laboratory, Students gain hands-on experience with diagnostic techniques, and clinical practices under expert supervision. The program ensures students are well-prepared to assist healthcare professionals in real-time medical environments.</p>
-                                        <h5 className="course_overview">COURSES & DURATION :</h5>
-                                        <p>Diploma in Medical Lab Technician (DMLT) - 2 year</p>
-
-                                        <div className="d-flex">
-                                            <h5 className="course_overview">Eligibility : </h5>
-                                            <h4 className="flex_pas"> 10TH 12TH Pass / Fail, Discontinued</h4>
-                                        </div>
-
-                                        <small>Students who have completed 18 years of age are eligible to apply.</small>
-
-                                        <h5 className="course_overview">Course Benefits</h5>
-                                        <ul className="dip_ul">
-                                            <li>Students who have completed 18 years of age are eligible to apply.</li>
-                                            <li>100% Theory & Practical Training provided. Exams conducted in Tamil language.</li>
-                                            <li>Part-Time and Full-Time courses available.</li>
-                                            <li>No bond system – students are free after course completion.</li>
-                                            <li>Very low course fee starting from ₹7,000 only.</li>
-                                            <li>Free study materials worth ₹8,000, including books and learning kits.</li>
-                                            <li>20% fee concession for meritorious and eligible students.</li>
-                                            <li>Bank loan and scholarship facilities available.</li>
-                                            <li>Guaranteed job assistance in Hotel Management and Healthcare sectors (as applicable).</li>
-                                            <li>Job opportunities available in Hotels, Hospitals, Laboratories, and leading institutions such as Apollo Hospitals.</li>
-                                            <li>Additional training provided in: Spoken English  / MS Office / Soft Skills</li>
-                                        </ul>
-
-                                        <h5 className="course_overview">Key Advantages</h5>
-                                        <ul className="dip_ul">
-                                            <li>Skill-based learning approach</li>
-                                            <li>Job-oriented training</li>
-                                            <li>Suitable for both freshers and career-focused students</li>
-                                            <li>Opportunities in India and abroad (as per norms)</li>
-                                        </ul>
-
-                                        <h5 className="course_overview">PLACEMENT & CAREER SUPPORT</h5>
-                                        <p>We provide dedicated placement assistance to help students start their professional careers with confidence.</p>
-                                        <ul className="dip_ul">
-                                            <li>Career guidance and counseling</li>
-                                            <li>Resume preparation and interview training</li>
-                                            <li>Internship support in reputed hotels, hospitals, and laboratories</li>
-                                            <li>Industry tie-ups for placement opportunities</li>
-                                            <li>Continuous career support after course completion</li>
-                                        </ul>
-
-                                        <h5 className="course_overview">Career Opportunities</h5>
-                                        <p>After successful completion of the course, students can work in:</p>
-                                        <ul className="dip_ul">
-                                            <li>Hotels, Resorts, and Hospitality Industry</li>
-                                            <li>Hospitals, Diagnostic Centers, and Healthcare Institutions</li>
-                                            <li>Laboratories, Clinics, and Medical Facilities</li>
-                                            <li>Private and Government Sector Organizations</li>
-                                        </ul>
-                                    </div>
-                                </AccordionItem>
-
+                                <Link href="/register" className="apply_btn">
+                                    Apply Now
+                                </Link>
                             </div>
                         </div>
+
+
+
+                        {/* Course 2 */}
+                        <div className="course_card row align-items-center ">
+                            <div className="col-lg-5 col-md-6 col-12 course_img">
+                                <img src={Images.diploma_2.src} alt="Diploma in Food and Beverage Production" />
+                            </div>
+
+                            <div className="col-lg-7 col-md-6 col-12 course_content">
+                                <h3>Diploma in Food & Beverage Production</h3>
+                                <p>
+                                    This course focuses on professional cooking techniques, kitchen operations,
+                                    food safety, and culinary skills development with hands-on training.
+                                </p>
+
+                                <ul>
+                                    <li><strong>Duration:</strong> 1 Year</li>
+                                    <li><strong>Eligibility:</strong> 10th / 12th Pass</li>
+                                    <li><strong>Training:</strong> Kitchen Practical Sessions</li>
+                                    <li><strong>Career:</strong> Chef, Commis Chef, Kitchen Executive</li>
+                                </ul>
+
+                                <Link href="/register" className="apply_btn">
+                                    Apply Now
+                                </Link>
+                            </div>
+                        </div>
+
+
+                        {/* Course 3 */}
+                        <div className="course_card row align-items-center">
+                            <div className="col-lg-5 col-md-6 col-12 course_img">
+                                <img src={Images.diploma_3.src} alt="Diploma in Food and Beverage Service" />
+                            </div>
+                            <div className="col-lg-7 col-md-6 col-12 course_content">
+                                <h3>Diploma in Food and Beverage Service</h3>
+                                <p>
+                                    Focused on restaurant operations, guest handling, beverage management,
+                                    and professional serving techniques.
+                                </p>
+                                <ul>
+                                    <li><strong>Duration:</strong> 1 Year</li>
+                                    <li><strong>Eligibility:</strong> 10th / 12th Pass</li>
+                                    <li><strong>Training:</strong> Restaurant Practical Training</li>
+                                    <li><strong>Career:</strong> Steward, Banquet Executive, Restaurant Supervisor</li>
+                                </ul>
+                                <Link href="/register" className="apply_btn">Apply Now</Link>
+                            </div>
+                        </div>
+
+                        {/* Course 3 */}
+                        <div className="course_card row align-items-center ">
+                            <div className="col-lg-5 col-md-6 col-12 course_img">
+                                <img src={Images.diploma_4.src} alt="Diploma in House Keeping Management" />
+                            </div>
+                            <div className="col-lg-7 col-md-6 col-12 course_content">
+                                <h3>Diploma in House Keeping Management</h3>
+                                <p>
+                                    Provides training in housekeeping operations, hygiene management,
+                                    and facility maintenance in hotels and hospitals.
+                                </p>
+                                <ul>
+                                    <li><strong>Duration:</strong> 1 Year</li>
+                                    <li><strong>Eligibility:</strong> 10th / 12th Pass</li>
+                                    <li><strong>Training:</strong> Practical Exposure</li>
+                                    <li><strong>Career:</strong> Housekeeping Supervisor, Room Attendant</li>
+                                </ul>
+                                <Link href="/register" className="apply_btn">Apply Now</Link>
+                            </div>
+                        </div>
+
+
+                        {/* Course 4 */}
+                        <div className="course_card row align-items-center">
+                            <div className="col-lg-5 col-md-6 col-12 course_img">
+                                <img src={Images.diploma_5.src} alt="Diploma in Front Office Management" />
+                            </div>
+                            <div className="col-lg-7 col-md-6 col-12 course_content">
+                                <h3>Diploma in Front Office Management</h3>
+                                <p>
+                                    Specialized course in reception operations, reservation systems,
+                                    and professional communication skills.
+                                </p>
+                                <ul>
+                                    <li><strong>Duration:</strong> 1 Year</li>
+                                    <li><strong>Eligibility:</strong> 10th / 12th Pass</li>
+                                    <li><strong>Training:</strong> Front Desk Practical Training</li>
+                                    <li><strong>Career:</strong> Receptionist, Front Office Executive</li>
+                                </ul>
+                                <Link href="/register" className="apply_btn">Apply Now</Link>
+                            </div>
+                        </div>
+
+                        {/* Course 5 */}
+                        <div className="course_card row align-items-center ">
+                            <div className="col-lg-5 col-md-6 col-12 course_img">
+                                <img src={Images.diploma_6.src} alt="Diploma in Bakery and Confectionery" />
+                            </div>
+                            <div className="col-lg-7 col-md-6 col-12 course_content">
+                                <h3>Diploma in Bakery and Confectionery</h3>
+                                <p>
+                                    Hands-on program covering baking techniques, cake decoration,
+                                    pastry preparation, and confectionery production.
+                                </p>
+                                <ul>
+                                    <li><strong>Duration:</strong> 1 Year</li>
+                                    <li><strong>Eligibility:</strong> 10th / 12th Pass</li>
+                                    <li><strong>Training:</strong> Bakery Lab Practice</li>
+                                    <li><strong>Career:</strong> Baker, Pastry Chef, Cake Designer</li>
+                                </ul>
+                                <Link href="/register" className="apply_btn">Apply Now</Link>
+                            </div>
+                        </div>
+
+                        {/* Course 6 */}
+                        <div className="course_card row align-items-center">
+                            <div className="col-lg-5 col-md-6 col-12 course_img">
+                                <img src={Images.diploma_7.src} alt="Diploma in Nursing Assistant" />
+                            </div>
+                            <div className="col-lg-7 col-md-6 col-12 course_content">
+                                <h3>Diploma in Nursing Assistant</h3>
+                                <p>
+                                    Trains students in patient care, basic nursing procedures,
+                                    and hospital support services.
+                                </p>
+                                <ul>
+                                    <li><strong>Duration:</strong> 1 – 2 Years</li>
+                                    <li><strong>Eligibility:</strong> 10th / 12th Pass</li>
+                                    <li><strong>Training:</strong> Hospital Internship</li>
+                                    <li><strong>Career:</strong> Nursing Assistant, Ward Assistant</li>
+                                </ul>
+                                <Link href="/register" className="apply_btn">Apply Now</Link>
+                            </div>
+                        </div>
+                        {/* Course 7 */}
+                        <div className="course_card row align-items-center ">
+                            <div className="col-lg-5 col-md-6 col-12 course_img">
+                                <img src={Images.diploma_8.src} alt="Diploma in Medical Lab Technician" />
+                            </div>
+                            <div className="col-lg-7 col-md-6 col-12 course_content">
+                                <h3>Diploma in Medical Lab Technician</h3>
+                                <p>
+                                    Provides knowledge in laboratory diagnostics, pathology testing,
+                                    microbiology, and clinical lab procedures.
+                                </p>
+                                <ul>
+                                    <li><strong>Duration:</strong> 1 – 2 Years</li>
+                                    <li><strong>Eligibility:</strong> 12th Pass (Science Preferred)</li>
+                                    <li><strong>Training:</strong> Lab Practical Training</li>
+                                    <li><strong>Career:</strong> Lab Technician, Pathology Assistant</li>
+                                </ul>
+                                <Link href="/register" className="apply_btn">Apply Now</Link>
+                            </div>
+                        </div>
+                        {/* Course 8 */}
+                        <div className="course_card row align-items-center">
+                            <div className="col-lg-5 col-md-6 col-12 course_img">
+                                <img src={Images.diploma_9.src} alt="Diploma in Health Assistant" />
+                            </div>
+                            <div className="col-lg-7 col-md-6 col-12 course_content">
+                                <h3>Diploma in Health Assistant</h3>
+                                <p>
+                                    Designed to support healthcare professionals by providing training
+                                    in patient care, first aid, and community health services.
+                                </p>
+                                <ul>
+                                    <li><strong>Duration:</strong> 1 Year</li>
+                                    <li><strong>Eligibility:</strong> 10th / 12th Pass</li>
+                                    <li><strong>Training:</strong> Healthcare Practical Exposure</li>
+                                    <li><strong>Career:</strong> Health Assistant, Clinic Staff, Community Worker</li>
+                                </ul>
+                                <Link href="/register" className="apply_btn">Apply Now</Link>
+                            </div>
+                        </div>
+
+
+
                     </div>
-                </div>
-            </section>
+                </section>
+
+            </div>
         </>
     );
 }

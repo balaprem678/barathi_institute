@@ -73,15 +73,17 @@ $shadow-medium: rgba(100, 116, 139, 0.15);
 // Header Styles
 .section-title {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 0px;
 
   h3 {
     @include responsive-font(28, 4vw, 42);
+   color: #1e293b;
+    margin-bottom: 0px;
+    font-size: 28px;
     font-weight: 800;
-    color: $text-dark;
-    margin-bottom: 20px;
-    position: relative;
     display: inline-block;
+    position: relative;
+    text-align: left;
 
   }
 
