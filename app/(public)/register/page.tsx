@@ -146,7 +146,30 @@ export default function Register() {
                                         {/* Location */}
                                         <div className="col-md-6 col-sm-6 col-xs-12">
                                             <div className="form-group">
-                                                <input type="text" name="name" className="form-control" value={formData.phone} onChange={handleChange} placeholder=" Location*" required />
+                                                <div className="select-box">
+                                                    <select className="form-control" name="subject" value={formData.subject} onChange={handleChange} style={{ width: '100%' }}>
+                                                        <option value="Qualification">Insitiute Location</option>
+                                                        <option value="Tambaram ">Tambaram </option>
+                                                        <option value="Ambattur">Ambattur</option>
+                                                        <option value="Broadway ">Broadway </option>
+                                                        <option value="Ranipet  ">Ranipet  </option>
+                                                        <option value="Ambur  ">Ambur  </option>
+                                                        <option value="Villupuram  ">Villupuram  </option>
+                                                        <option value="Madurai  ">Madurai  </option>
+                                                        <option value="Karaikudi  ">Karaikudi  </option>
+                                                        <option value="Cuddalore  ">Cuddalore  </option>
+                                                        <option value="Tirunelveli   ">Tirunelveli   </option>
+                                                        <option value="Ariyalur  ">Ariyalur  </option>
+                                                        <option value="Vellore  ">Vellore  </option>
+                                                        <option value="Tiruvannamalai  ">Tiruvannamalai  </option>
+                                                        <option value="Kanchipuram  ">Kanchipuram  </option>
+                                                        <option value="Kallakurichi  ">Kallakurichi  </option>
+                                                        <option value="Dindigul   ">Dindigul   </option>
+                                                        <option value="Salem   ">Salem   </option>
+                                                        <option value="Tiruchirappalli    ">Tiruchirappalli    </option>
+
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                         {/* Courses Intrested In */}
