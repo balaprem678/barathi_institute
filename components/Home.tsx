@@ -8,7 +8,7 @@ import Locations from './Locations'
 import PopupModal from '@/components/PopupModal';
 import Partners from './partners'
 import EnquiryForm from './EnquiryForm';
-import "./home.scss" ;
+import "./home.scss";
 
 
 interface Slide {
@@ -111,18 +111,6 @@ export default function Home() {
     Images.event_4
   ]
 
-
-
-
-
-  // Stats Data
-  const stats = [
-    { value: 25, label: 'Years Experience' },
-    { value: 9000, label: 'Student Placed' },
-    { value: 350, label: 'Hotel Tie Up' },
-    { value: 18, label: 'Branches' }
-  ]
-
   return (
     <div>
       {/* Schema Markup */}
@@ -148,7 +136,6 @@ export default function Home() {
 
       {/* Hero Slider Section */}
       <HomeBanner />
-
 
       {/* Affiliation Section */}
       <section className="brand-logo sec-padd3 our_placements" style={{ padding: '40px 0' }}>
@@ -206,7 +193,7 @@ export default function Home() {
       {/* About Section */}
       <section className="default-section sec-padd3 about_section_home" style={{ padding: '40px 0' }}>
         <div className="container">
-          <div className="row">
+          <div className="row aic">
             <div className="col-md-7 col-sm-12">
               <div className="section-title">
                 <h3 style={{ color: '#333', fontSize: '32px', fontWeight: '700', marginBottom: '15px' }}>Welcome to Bharathi Institute</h3>
@@ -243,7 +230,7 @@ export default function Home() {
                   ))}
                 </div>
 
-                <div className="read_more_bt mt-2" style={{ marginTop: '20px' }}>
+                {/* <div className="read_more_bt mt-2" style={{ marginTop: '20px' }}>
                   <Link href="/aboutus" style={{
                     display: 'inline-block',
                     background: '#b4d903',
@@ -255,7 +242,7 @@ export default function Home() {
                   }}>
                     Explore Our Story
                   </Link>
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -285,7 +272,7 @@ export default function Home() {
               <div className="col-lg-6" key={index} style={{ marginBottom: '30px' }}>
                 <div className="item" style={{
                   background: 'white',
-                  borderRadius: '10px',
+                  borderRadius: '20px',
                   overflow: 'hidden',
                   boxShadow: '0 5px 15px rgba(0,0,0,0.1)'
                 }}>
@@ -328,14 +315,14 @@ export default function Home() {
       <Partners />
 
       {/* Testimonials Section */}
-      <section className="video-testi" style={{ padding: '60px 0', background: '#f8f9fa' }}>
+      {/* <section className="video-testi" style={{ padding: '60px 0', background: '#f8f9fa' }}>
         <div className="container">
           <div className="section-title text-center" style={{ marginBottom: '40px' }}>
             <h3 style={{ color: '#333', fontSize: '32px', fontWeight: '700' }}>Student Testimonials</h3>
-          </div>
+          </div> */}
 
-          {/* Video Testimonial */}
-          <div className="row">
+      {/* Video Testimonial */}
+      {/* <div className="row">
             <div className="col-lg-12">
               <div className="testimonial-item" style={{ padding: '10px' }}>
                 <div className="youtube-facade">
@@ -351,10 +338,10 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
-          {/* Text Testimonials */}
-          <div className="row mt-5">
+      {/* Text Testimonials */}
+      {/* <div className="row mt-5">
             {testimonials.map((testimonial, index) => (
               <div className="col-lg-4 col-md-6" key={index} style={{ marginBottom: '30px' }}>
                 <div className="box text-center p-3 h-100" style={{
@@ -380,7 +367,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Events Section */}
       <section className="all-cause sec-padd2 home-event-section" style={{
@@ -426,6 +413,7 @@ export default function Home() {
         </div>
       </section>
 
+
       {/* Blog Testimonials */}
       <section className="all-cause sec-padd2 home-blog-section" style={{ padding: '28px 0' }}>
         <div className="container">
@@ -447,7 +435,7 @@ export default function Home() {
                       alt="Student picture"
                       width={400}
                       height={250}
-                      style={{ width: '100%', height: '250px', objectFit: 'cover' }}
+                      style={{ width: '100%', height: '250px' }}
                     />
                   </div>
                   <div className="content" style={{ padding: '20px' }}>
@@ -557,8 +545,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-
 
       {/* FAQ Section */}
       <HomeFAQ />

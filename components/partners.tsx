@@ -15,7 +15,7 @@ export default function Partners() {
 
   const healthcarePartners = [
     { logo: Images.logo_6, alt: 'Apollo Hospitals logo' },
-    { logo: Images.logo_7, alt: 'Fortis Healthcare logo' },
+    { logo: Images.logo_7, alt: 'Fortis Health Care logo' },
     { logo: Images.logo_8, alt: 'MIOT Hospital logo' },
     { logo: Images.logo_9, alt: 'RPS Global Hospital logo' },
     { logo: Images.logo_10, alt: 'Kauvery Hospital logo' }
@@ -40,7 +40,7 @@ export default function Partners() {
     className?: string;
   }) => (
     <div className={`partner-section ${className}`}>
-      <h3 className="section-title">{title}</h3>
+      <h3 className="section-title mb-4">{title}</h3>
       <div className="partners-grid">
         {partners.map((partner, index) => (
           <div className="partner-card" key={index}>
@@ -77,7 +77,7 @@ export default function Partners() {
           />
           
           <PartnerSection 
-            title="Healthcare Industry" 
+            title="Health Care Industry" 
             partners={healthcarePartners}
             className="healthcare-partners"
           />

@@ -33,28 +33,14 @@ const Header = () => {
                 <div className="container-fluid">
                     <div className="top-bar__content">
                         <div className="social-links">
-                            <a
-                                href="https://www.facebook.com/Bharathiinstitute2005/"
-                                target="_blank"
-                                rel="noreferrer"
-                                aria-label="Facebook"
-                            >
-                                <i className="fab fa-facebook-f"></i>
-                            </a>
-                            <a
-                                href="https://api.whatsapp.com/send?phone=919444120052"
-                                target="_blank"
-                                aria-label="WhatsApp"
-                                rel="noreferrer"
-                            >
-                                <i className="fab fa-whatsapp"></i>
-                            </a>
-                            <a
-                                href="mailto:info@bharathiinstitutes.com"
-                                aria-label="Email"
-                            >
-                                <i className="far fa-envelope"></i>
-                            </a>
+                            <div className="wrapper">
+                                <a href="https://www.facebook.com/bharathieducationalinstitutions"><img src={Images.facebook.src} alt="Facebook" /></a>
+                                <a href="#"><img src={Images.twitter.src} alt="Twitter" /></a>
+                                <a href="https://www.instagram.com/bharathi_institute_official/"><img src={Images.instagram.src} alt="Instagram" /></a>
+                                <a href="https://api.whatsapp.com/send?phone=919444120052"><img src={Images.whatsapp.src} alt="WhatsApp" /></a>
+                                <a href="https://www.youtube.com/@BharathiInstitutes"><img src={Images.youtube.src} alt="YouTube" /></a>
+                                <a href="mailto:info@bharathiinstitutes.com"><img src={Images.gmail.src} alt="mail" /></a>
+                            </div>
                         </div>
                         <div className="top-bar__info">
                             <div id="google_translate_element" className="goo_lan"></div>
@@ -147,7 +133,13 @@ const Header = () => {
                                     Courses
                                 </Link>
                             </li>
-                            <li className="dropdown">
+                            <li>
+                                <Link href="/scholarship" onClick={closeMenu}>
+                                    <i className="fas fa-graduation-cap"></i>
+                                    Scholarship
+                                </Link>
+                            </li>
+                            {/* <li className="dropdown">
                                 <button
                                     className="dropdown__toggle"
                                     onClick={() => setDropdownOpen(!dropdownOpen)}
@@ -175,7 +167,7 @@ const Header = () => {
                                         </Link>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> */}
                             <li>
                                 <Link href="/placements" onClick={closeMenu}>
                                     <i className="fas fa-briefcase"></i>

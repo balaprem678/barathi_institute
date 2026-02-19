@@ -109,14 +109,6 @@ const HomeFAQ = () => {
                                     </div>
                                 ))}
                             </div>
-
-                            {/* Contact Section */}
-                            <div className="contact-section">
-                                <p className="contact-text">
-                                    <span className="contact-label">Still have questions?</span>
-                                    Contact us at support@example.com or call +91 1234567890
-                                </p>
-                            </div>
                         </div>
                     </div>
                 </div>

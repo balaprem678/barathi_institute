@@ -166,57 +166,56 @@
   color: #1a237e;
   line-height: 1.4;
 }
-
 .location-card-footer {
-  display: flex;
-  gap: 12px;
-  margin-top: auto;
-  padding-top: 20px;
-  border-top: 1px solid #f1f5f9;
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+
+    .action-btn {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 6px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+
+        svg {
+            transition: transform 0.3s ease;
+        }
+
+        &:hover {
+            transform: translateY(-3px);
+
+            svg {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    .direction-btn {
+        background: linear-gradient(135deg, #2563eb, #1e40af);
+        color: #fff;
+
+        &:hover {
+            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.4);
+        }
+    }
+
+    .call-btn {
+        background: linear-gradient(135deg, #16a34a, #166534);
+        color: #fff;
+
+        &:hover {
+            box-shadow: 0 6px 15px rgba(22, 163, 74, 0.4);
+        }
+    }
 }
 
-.action-btn {
-  flex: 1;
-  height: 44px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  border: none;
-  font-size: 0.875rem;
-  font-weight: 600;
-}
-
-.action-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-}
-
-.direction-btn {
-  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
-  color: #475569;
-  border: 1px solid #e2e8f0;
-}
-
-.direction-btn:hover {
-  background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
-  color: #1a237e;
-  border-color: #cbd5e1;
-}
-
-.call-btn {
-  background: linear-gradient(135deg, #1a237e, #283593);
-  color: white;
-  border: 1px solid transparent;
-}
-
-.call-btn:hover {
-  background: linear-gradient(135deg, #283593, #3949ab);
-  box-shadow: 0 6px 16px rgba(26, 35, 126, 0.2);
-}
 
 /* Slider Controls */
 .slider-controls {
@@ -286,7 +285,6 @@
   justify-content: center;
   align-items: center;
   gap: 32px;
-  max-width: 500px;
   margin: 0 auto;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   border: 1px solid #e2e8f0;

@@ -165,12 +165,11 @@ $hover-color: #f8fafc;
 }
 
 .faq-item {
-  border: 1px solid $border-color;
-  border-radius: 12px;
+  border-bottom: 1px solid $border-color;
   overflow: hidden;
-  background-color: $white;
   @include box-shadow(light);
   @include transition();
+  margin-bottom: 10px;
 
   &:hover {
     @include box-shadow(medium);
@@ -187,7 +186,6 @@ $hover-color: #f8fafc;
   padding: 13px 0;
   @include flex-center();
   justify-content: space-between;
-  background-color: transparent;
   border: none;
   cursor: pointer;
   outline: none;
@@ -307,7 +305,6 @@ $hover-color: #f8fafc;
 .contact-section {
   margin-top: 40px;
   padding: 24px;
-  background-color: $primary-light;
   border-radius: 12px;
   border: 1px solid #e0f2fe;
 
@@ -357,9 +354,6 @@ $hover-color: #f8fafc;
     padding: 40px 0 !important;
   }
 
-  .faq-question {
-    background-color: $white !important;
-  }
 
   .faq-answer .faq-item.active {
     max-height: none !important;

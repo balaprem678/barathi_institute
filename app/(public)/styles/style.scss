@@ -31,6 +31,7 @@ ul {
   border-radius: 5px;
   position: relative;
   top: 10px;
+  margin: 0;
 }
 
 .skiptranslate.goog-te-gadget span {
@@ -318,6 +319,7 @@ textarea {
 .social-icon li {
   display: inline-block;
 }
+
 
 .social-icon li a {
   display: inline-block;
@@ -4104,9 +4106,9 @@ $border-radius: 20px;
     img {
       height: 100%;
       width: 100%;
-      object-fit: cover;
+      // object-fit: cover;
       object-position: top;
-      border-radius: 20px;
+      border-radius: 10px;
     }
   }
 

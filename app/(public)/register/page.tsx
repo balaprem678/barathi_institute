@@ -10,6 +10,7 @@ export default function Register() {
         name: '',
         email: '',
         phone: '',
+        location: '',
         qualification: '',
         subject: '0',
         message: '',
@@ -63,7 +64,7 @@ export default function Register() {
                 showNotification('success', 'Form submitted successfully!');
                 // Reset form or redirect
                 setFormData({
-                    name: '', email: '', phone: '', qualification: '', subject: '0', message: '', captcha: '', file: null
+                    name: '', email: '', phone: '', qualification: '', subject: '0', message: '', location: '', captcha: '', file: null
                 });
             } else {
                 showNotification('error', 'Failed to submit form. Please try again.');
@@ -146,30 +147,7 @@ export default function Register() {
                                         {/* Location */}
                                         <div className="col-md-6 col-sm-6 col-xs-12">
                                             <div className="form-group">
-                                                <div className="select-box">
-                                                    <select className="form-control" name="subject" value={formData.subject} onChange={handleChange} style={{ width: '100%' }}>
-                                                        <option value="Qualification">Insitiute Location</option>
-                                                        <option value="Tambaram ">Tambaram </option>
-                                                        <option value="Ambattur">Ambattur</option>
-                                                        <option value="Broadway ">Broadway </option>
-                                                        <option value="Ranipet  ">Ranipet  </option>
-                                                        <option value="Ambur  ">Ambur  </option>
-                                                        <option value="Villupuram  ">Villupuram  </option>
-                                                        <option value="Madurai  ">Madurai  </option>
-                                                        <option value="Karaikudi  ">Karaikudi  </option>
-                                                        <option value="Cuddalore  ">Cuddalore  </option>
-                                                        <option value="Tirunelveli   ">Tirunelveli   </option>
-                                                        <option value="Ariyalur  ">Ariyalur  </option>
-                                                        <option value="Vellore  ">Vellore  </option>
-                                                        <option value="Tiruvannamalai  ">Tiruvannamalai  </option>
-                                                        <option value="Kanchipuram  ">Kanchipuram  </option>
-                                                        <option value="Kallakurichi  ">Kallakurichi  </option>
-                                                        <option value="Dindigul   ">Dindigul   </option>
-                                                        <option value="Salem   ">Salem   </option>
-                                                        <option value="Tiruchirappalli    ">Tiruchirappalli    </option>
-
-                                                    </select>
-                                                </div>
+                                                <input type="text" name="phone" className="form-control" value={formData.location} onChange={handleChange} placeholder="Year Of Passing*" />
                                             </div>
                                         </div>
                                         {/* Courses Intrested In */}
@@ -181,6 +159,8 @@ export default function Register() {
                                                         <option value="ITI">ITI</option>
                                                         <option value="12th">12th</option>
                                                         <option value="10th">10th</option>
+                                                        <option value="8th">8th</option>
+                                                        <option value="Others">Others</option>
 
                                                     </select>
                                                 </div>
@@ -195,24 +175,23 @@ export default function Register() {
                                                         <option value="Degree">Degree</option>
                                                         <option value="Diploma">Diploma</option>
                                                         <option value="Certificate Courses">Certificate Courses</option>
-
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
                                         {/* Select Courses */}
-                                        <div className="col-md-6 col-sm-6 col-xs-12">
+                                        <div className="col-md-12 col-sm-12 col-xs-12">
                                             <div className="form-group">
                                                 <div className="select-box">
                                                     <select className="form-control" name="subject" value={formData.subject} onChange={handleChange} style={{ width: '100%' }}>
                                                         <option value="0">Select Courses</option>
                                                         {/* After 12th */}
-                                                        <option value="B.Sc Hotel Management">B.Sc Hotel Management - 3 Years</option>
                                                         <option value="B.Voc Hotel Management">B.Voc in Hotel Management - 3 Years</option>
                                                         <option value="B.Voc Medical Lab Technology">B.Voc in Medical Lab Technology - 3 Years</option>
                                                         <option value="B.Voc Emergency Care & Trauma Care Technology">B.Voc in Emergency Care & Trauma Care Technology - 3 Years</option>
                                                         <option value="B.Voc Operation Theatre Technology">B.Voc in Operation Theatre Technology - 3 Years</option>
                                                         <option value="B.Voc Hospital Administration">B.Voc in Hospital Administration - 3 Years</option>
+                                                        <option value="B.Sc Hotel Management">B.Sc Hotel Management - 3 Years</option>
 
                                                         {/* 10th Pass / Fail  */}
                                                         <option value="Diploma in Hotel Management">Diploma in Hotel Management</option>
@@ -260,8 +239,7 @@ export default function Register() {
                             </div>
                             <br /><br />
                         </div>
-                        <div className="col-md-1 col-sm-12"></div>
-                        <div className="col-md-3 col-sm-12">
+                        <div className="col-md-4 col-sm-12">
                             <div className="default-sidebar">
                                 <div className="section-title">
                                     <h3> Hotel Management </h3>

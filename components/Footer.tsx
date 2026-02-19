@@ -10,7 +10,7 @@ const Footer = () => {
                     <div className="row">
                         <div className="col-md-3 col-sm-12">
                             <div className="practice-list">
-                                <img src={Images.logo.src} alt="logo" width="300px"/>
+                                <img src={Images.logo.src} alt="logo" width="300px" />
                                 <p style={{ color: '#FFFFFF' }}> In 2005, Bharathi Educational Institution began operations in Chennai&apos;s Tambaram district; Districts of Vellore, Ranipet, Ambur, and Karaikudi in the Sivagangai district are which are industrial centres.</p>
                             </div>
                         </div>
@@ -20,7 +20,7 @@ const Footer = () => {
                                 <h3 style={{ color: '#FFFFFF' }}>Quick Links </h3><br />
                                 <ul>
                                     <li><Link href="/about"> About</Link></li>
-                                    <li><Link href="/register"> Admission</Link></li>
+                                    <li><Link href="/scholarship">Scholarship</Link></li>
                                     <li><Link href="/courses"> Courses</Link></li>
                                     <li><Link href="/facilities"> Facilities</Link></li>
                                     <li><Link href="/gallery"> Gallery</Link></li>
@@ -34,27 +34,18 @@ const Footer = () => {
                             <div className="practice-list">
                                 <h3 style={{ color: '#FFFFFF' }}>Contact Information</h3><br />
                                 <ul>
-                                    <li><a href="#"> Phone No : +91 94441 20052</a></li>
-                                    <li><a href="#"> Email ID : info@bharathiinstitutes.com</a></li>
+                                    <li><a href="tel:+919444120052">+91 94441 20052</a></li>
+                                    <li><a href="mailto:info@bharathiinstitutes.com">: info@bharathiinstitutes.com</a></li>
                                 </ul>
                                 <h3 style={{ color: '#FFFFFF', marginTop: '20px' }}>Follow on :</h3><br />
                                 <ul style={{ display: 'flex', gap: '10px' }} className='p-0 social_media_link'>
-                                    <li>
-                                        <a href="https://www.facebook.com/bharathieducationalinstitutions">
-                                            <i className="fa fa-facebook-square" style={{ fontSize: '24px', color: '#fff' }}></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/bharathi_institute_official/">
-                                            <i className="fa fa-instagram" style={{ fontSize: '24px', color: '#fff' }}></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.youtube.com/@BharathiInstitutes">
-                                            <i className="fa fa-youtube" style={{ fontSize: '24px', color: '#fff' }}></i>
-                                        </a>
-                                    </li>
-                                    <li><i className="fa fa-linkedin" style={{ fontSize: '24px', color: '#fff' }}></i></li>
+                                    <div className="wrapper">
+                                        <a href="https://www.facebook.com/bharathieducationalinstitutions"><img src={Images.facebook.src} alt="Facebook" /></a>
+                                        <a href="#"><img src={Images.twitter.src} alt="Twitter" /></a>
+                                        <a href="https://www.instagram.com/bharathi_institute_official/"><img src={Images.instagram.src} alt="Instagram" /></a>
+                                        <a href="https://api.whatsapp.com/send?phone=919444120052"><img src={Images.whatsapp.src} alt="WhatsApp" /></a>
+                                        <a href="https://www.youtube.com/@BharathiInstitutes"><img src={Images.youtube.src} alt="YouTube" /></a>
+                                    </div>
                                 </ul>
                             </div>
                         </div>

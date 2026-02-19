@@ -3,6 +3,10 @@ import logo from "../../public/assets/new_images/common/logo.png";
 import gmail from "../../public/assets/new_images/gmail.png";
 import instagram from "../../public/assets/new_images/instagram.png";
 import whatsapp from "../../public/assets/new_images/whatsapp.png";
+import twitter from "../../public/assets/new_images/twitter.png";
+import facebook from "../../public/assets/new_images/facebook.png";
+import linkedin from "../../public/assets/new_images/linkedin.png";
+import youtube from "../../public/assets/new_images/youtube.png";
 import viber from "../../public/assets/new_images/viber.png";
 import logo_1 from "../../public/assets/new_images/common/logo1.svg";
 import logo_2 from "../../public/assets/new_images/common/logo2.png";
@@ -187,7 +191,7 @@ export const Images = {
     about_banner, our_courses_banner, admission_procudure_banner, scholarship_banner, placements_banner,
     testimonials_banner, blogs_banner, contacts_banner,gallery_banner,
     // Common Images Import Here
-    logo, gmail, instagram, whatsapp, viber, logo_1, logo_2, logo_3, logo_4, logo_5, logo_6,
+    logo, gmail, instagram, whatsapp, viber,twitter, facebook, linkedin, youtube, logo_1, logo_2, logo_3, logo_4, logo_5, logo_6,
     logo_7, logo_8, logo_9, logo_10, logo_11, logo_12, logo_13, logo_14,
     logo_15, student_1, student_2, student_3, testi, faq_image,
 
