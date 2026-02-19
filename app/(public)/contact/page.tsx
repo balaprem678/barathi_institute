@@ -248,7 +248,8 @@ export default function ContactPage() {
                         {/* Apply Now CTA */}
                         <div className="apply-cta">
                             <a
-                                href="https://forms.gle/9kCPJRg9aD3HKAmW9"
+                                // href="https://forms.gle/9kCPJRg9aD3HKAmW9"
+                                href="/register"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="apply-btn"
