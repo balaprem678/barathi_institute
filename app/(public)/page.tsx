@@ -12,8 +12,8 @@ import Locationseo from './locationseo/page';
 export default function App() {
     return (
         <>
-            {/* <Home /> */}
-            <Locationseo />
+            <Home />
+            {/* <Locationseo /> */}
             {/* <AboutPage/> */}
             {/* <Placements/> */}
             {/* <GalleryPage /> */}

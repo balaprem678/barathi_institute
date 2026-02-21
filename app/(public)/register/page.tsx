@@ -156,29 +156,26 @@ export default function Register() {
                                                 <div className="select-box">
                                                     <select className="form-control" name="subject" value={formData.subject} onChange={handleChange} style={{ width: '100%' }}>
                                                         <option value="Qualification">Qualification*</option>
-                                                        <option value="ITI">ITI</option>
-                                                        <option value="12th">12th</option>
-                                                        <option value="10th">10th</option>
-                                                        <option value="8th">8th</option>
-                                                        <option value="Others">Others</option>
-
+                                                        <option value="12th - Degree / Diploma / Certificate Courses">12th - Degree / Diploma / Certificate Courses</option>
+                                                        <option value="ITI - Degree / Diploma / Certificate Courses">ITI - Degree / Diploma / Certificate Courses </option>
+                                                        <option value="10th - Diploma / Certificate Courses">10th - Diploma / Certificate Courses</option>
+                                                        <option value="8th - Certificate Courses">8th - Certificate Courses</option>
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
                                         {/* Courses Intrested In */}
-                                        <div className="col-md-6 col-sm-6 col-xs-12">
+                                        {/* <div className="col-md-6 col-sm-6 col-xs-12">
                                             <div className="form-group">
                                                 <div className="select-box">
                                                     <select className="form-control" name="subject" value={formData.subject} onChange={handleChange} style={{ width: '100%' }}>
                                                         <option value="0">Courses Intrested In*</option>
                                                         <option value="Degree">Degree</option>
                                                         <option value="Diploma">Diploma</option>
-                                                        <option value="Certificate Courses">Certificate Courses</option>
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> */}
                                         {/* Select Courses */}
                                         <div className="col-md-12 col-sm-12 col-xs-12">
                                             <div className="form-group">
@@ -193,7 +190,7 @@ export default function Register() {
                                                         <option value="B.Voc Hospital Administration">B.Voc in Hospital Administration - 3 Years</option>
                                                         <option value="B.Sc Hotel Management">B.Sc Hotel Management - 3 Years</option>
 
-                                                        {/* 10th Pass / Fail  */}
+                                                        {/* 10th*/}
                                                         <option value="Diploma in Hotel Management">Diploma in Hotel Management</option>
                                                         <option value="Diploma in Food and Beverage Production">Diploma in Food and Beverage Production</option>
                                                         <option value="Diploma in Food and Beverage Service">Diploma in Food and Beverage Service</option>
@@ -203,6 +200,18 @@ export default function Register() {
                                                         <option value="Diploma in Nursing Assistant">Diploma in Nursing Assistant</option>
                                                         <option value="Diploma in Medical Lab Technician">Diploma in Medical Lab Technician</option>
                                                         <option value="Diploma in Health Assistant">Diploma in Health Assistant</option>
+
+                                                        {/* 8th / Certificate Courses */}
+                                                        <option value="Food Production">Food Production</option>
+                                                        <option value="Food and Beverage Services">Food and Beverage Services</option>
+                                                        <option value="House Keeping Management">House Keeping Management</option>
+                                                        <option value="Front office and Hotel Operational Management">Front office and Hotel Operational Management</option>
+                                                        <option value="Certification in Female patient Care Assistant">Certification in Female patient Care Assistant</option>
+                                                        <option value="Certification in Medical Lab Technician">Certification in Medical Lab Technician</option>
+                                                        <option value="Certificate in Optometry">Certificate in Optometry</option>
+                                                        <option value="Certificate in Hospital Administration">Certificate in Hospital Administration</option>
+                                                        <option value="Certificate in Operation Theatre Assistant">Certificate in Operation Theatre Assistant</option>
+                                                        <option value="Certificate in Health Assistant">Certificate in Health Assistant</option>
 
                                                     </select>
                                                 </div>
