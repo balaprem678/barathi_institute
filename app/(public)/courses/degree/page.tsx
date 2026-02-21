@@ -17,31 +17,7 @@ export default function DegreeCoursesPage() {
                 <div className="container">
 
                     {/* Course 1 */}
-                    <div className="course_card row align-items-center">
-                        <div className="col-lg-5 col-md-6 col-12 course_img">
-                            <img src={Images.degree_1.src} alt="Hotel Management" />
-                        </div>
-
-                        <div className="col-lg-7 col-md-6 col-12 course_content">
-                            <h3>B.Sc Hotel Management</h3>
-                            <p>
-                                3-year professional program focused on hospitality operations,
-                                food production, housekeeping, and hotel administration
-                                with industrial training.
-                            </p>
-
-                            <ul>
-                                <li><strong>Duration:</strong> 3 Years</li>
-                                <li><strong>Eligibility:</strong> 12th Pass</li>
-                                <li><strong>Internship:</strong> Included</li>
-                                <li><strong>Career:</strong> Hotel Manager, Chef, Cruise Staff</li>
-                            </ul>
-
-                            <Link href="/register" className="apply_btn">
-                                Apply Now
-                            </Link>
-                        </div>
-                    </div>
+                
 
 
                     {/* Course 2 */}
@@ -161,6 +137,32 @@ export default function DegreeCoursesPage() {
                                 <li><strong>Eligibility:</strong> 12th Pass</li>
                                 <li><strong>Internship:</strong> Included</li>
                                 <li><strong>Career:</strong>Hospital Administrator, Healthcare Manager, Medical Office Manager, Hospital HR Executive</li>
+                            </ul>
+
+                            <Link href="/register" className="apply_btn">
+                                Apply Now
+                            </Link>
+                        </div>
+                    </div>
+
+                        <div className="course_card row align-items-center">
+                        <div className="col-lg-5 col-md-6 col-12 course_img">
+                            <img src={Images.degree_1.src} alt="Hotel Management" />
+                        </div>
+
+                        <div className="col-lg-7 col-md-6 col-12 course_content">
+                            <h3>B.Sc Hotel Management</h3>
+                            <p>
+                                3-year professional program focused on hospitality operations,
+                                food production, housekeeping, and hotel administration
+                                with industrial training.
+                            </p>
+
+                            <ul>
+                                <li><strong>Duration:</strong> 3 Years</li>
+                                <li><strong>Eligibility:</strong> 12th Pass</li>
+                                <li><strong>Internship:</strong> Included</li>
+                                <li><strong>Career:</strong> Hotel Manager, Chef, Cruise Staff</li>
                             </ul>
 
                             <Link href="/register" className="apply_btn">
