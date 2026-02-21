@@ -30,6 +30,7 @@ type FormData = {
 };
 
 import { useNotification } from '@/context/NotificationContext';
+import { useFormPersistence } from '@/context/useFormPersistence';
 
 const EnquiryForm = () => {
   const { showNotification } = useNotification();
@@ -45,6 +46,10 @@ const EnquiryForm = () => {
     occupation: '',
     message: ''
   });
+
+  // Persist user details
+  useFormPersistence(formData, setFormData, ['name', 'phone', 'email', 'city', 'qualification'], { location: 'city' });
+
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 

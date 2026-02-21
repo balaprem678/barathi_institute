@@ -1,8 +1,10 @@
 'use client';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './register.scss';
 import { useNotification } from '@/context/NotificationContext';
+import { useFormPersistence } from '@/context/useFormPersistence';
+import { useMemo } from 'react';
 
 export default function Register() {
     const { showNotification } = useNotification();
@@ -18,6 +20,11 @@ export default function Register() {
         captcha: '',
         file: null as File | null
     });
+
+    // We map 'city' from storage to 'location' in the registration form
+    // And persist other shared fields
+    const fieldsToPersist = useMemo(() => ['name', 'email', 'phone', 'location', 'qualification', 'yearOfPassing'], []);
+    useFormPersistence(formData, setFormData, fieldsToPersist, { city: 'location' });
 
     const courseCategories = {
         degree: [
@@ -73,8 +80,14 @@ export default function Register() {
         ]
     };
 
-    const [random1] = useState(Math.floor(Math.random() * 15) + 1);
-    const [random2] = useState(Math.floor(Math.random() * 15) + 1);
+    const [random1, setRandom1] = useState(0);
+    const [random2, setRandom2] = useState(0);
+
+    // Initial load and hydration fix
+    useEffect(() => {
+        setRandom1(Math.floor(Math.random() * 15) + 1);
+        setRandom2(Math.floor(Math.random() * 15) + 1);
+    }, []);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;

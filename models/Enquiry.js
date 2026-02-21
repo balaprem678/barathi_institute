@@ -15,23 +15,23 @@ const EnquirySchema = new mongoose.Schema({
     },
     alternatePhone: {
         type: String,
-        required: true,
+        required: false,
     },
     city: {
         type: String,
-        required: true,
+        required: false,
     },
     qualification: {
         type: String,
-        required: true,
+        required: false,
     },
     yearOfPassing: {
         type: String,
-        required: true,
+        required: false,
     },
     course: {
         type: String,
-        required: true,
+        required: false,
     },
     occupation: {
         type: String,

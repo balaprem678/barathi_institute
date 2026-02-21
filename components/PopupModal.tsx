@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { X, Mail, Phone, User, Map, Send, Book, MessageSquare, Calendar, BookOpen, GraduationCap, } from 'lucide-react';
 import './popupmodal.scss';
 import { useNotification } from '@/context/NotificationContext';
+import { useFormPersistence } from '@/context/useFormPersistence';
 
 const PopupModal = () => {
     const { showNotification } = useNotification();
@@ -21,6 +22,10 @@ const PopupModal = () => {
         message: '',
         agree: false
     });
+
+    // Persist shared fields
+    useFormPersistence(formData, setFormData, ['name', 'email', 'phone', 'city', 'qualification'], { location: 'city' });
+
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     useEffect(() => {
