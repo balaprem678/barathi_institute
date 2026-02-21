@@ -7,11 +7,13 @@ import GalleryPage from './gallery/page';
 import ContactPage from './contact/page';
 import FacilitiesPage from './facilities/page';
 import StudentTestimonials from './student-testimonials/page';
+import Locationseo from './locationseo/page';
 
 export default function App() {
     return (
         <>
-            <Home />
+            {/* <Home /> */}
+            <Locationseo />
             {/* <AboutPage/> */}
             {/* <Placements/> */}
             {/* <GalleryPage /> */}
