@@ -6,8 +6,10 @@ const studentSchema = new mongoose.Schema({
     phone: { type: String, required: true },
     course: { type: String, required: true },
     address: { type: String },
+    location: { type: String },
     dob: { type: Date },
     qualification: { type: String },
+    yearOfPassing: { type: String },
     markSheetPath: { type: String }, // Path to uploaded file
     createdAt: { type: Date, default: Date.now }
 });

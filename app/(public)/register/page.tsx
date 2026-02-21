@@ -12,18 +12,78 @@ export default function Register() {
         phone: '',
         location: '',
         qualification: '',
-        subject: '0',
+        yearOfPassing: '',
+        course: '',
         message: '',
         captcha: '',
         file: null as File | null
     });
+
+    const courseCategories = {
+        degree: [
+            { value: "B.Voc Hotel Management", label: "B.Voc in Hotel Management - 3 Years" },
+            { value: "B.Voc Medical Lab Technology", label: "B.Voc in Medical Lab Technology - 3 Years" },
+            { value: "B.Voc Emergency Care & Trauma Care Technology", label: "B.Voc in Emergency Care & Trauma Care Technology - 3 Years" },
+            { value: "B.Voc Operation Theatre Technology", label: "B.Voc in Operation Theatre Technology - 3 Years" },
+            { value: "B.Voc Hospital Administration", label: "B.Voc in Hospital Administration - 3 Years" },
+            { value: "B.Sc Hotel Management", label: "B.Sc Hotel Management - 3 Years" },
+        ],
+        diploma: [
+            { value: "Diploma in Hotel Management", label: "Diploma in Hotel Management" },
+            { value: "Diploma in Food and Beverage Production", label: "Diploma in Food and Beverage Production" },
+            { value: "Diploma in Food and Beverage Service", label: "Diploma in Food and Beverage Service" },
+            { value: "Diploma in House Keeping Management", label: "Diploma in House Keeping Management" },
+            { value: "Diploma in Front Office Management", label: "Diploma in Front Office Management" },
+            { value: "Diploma in Bakery and Confectionery", label: "Diploma in Bakery and Confectionery" },
+            { value: "Diploma in Nursing Assistant", label: "Diploma in Nursing Assistant" },
+            { value: "Diploma in Medical Lab Technician", label: "Diploma in Medical Lab Technician" },
+            { value: "Diploma in Health Assistant", label: "Diploma in Health Assistant" },
+        ],
+        certificate: [
+            { value: "Food Production", label: "Food Production" },
+            { value: "Food and Beverage Services", label: "Food and Beverage Services" },
+            { value: "House Keeping Management", label: "House Keeping Management" },
+            { value: "Front office and Hotel Operational Management", label: "Front office and Hotel Operational Management" },
+            { value: "Certification in Female patient Care Assistant", label: "Certification in Female patient Care Assistant" },
+            { value: "Certification in Medical Lab Technician", label: "Certification in Medical Lab Technician" },
+            { value: "Certificate in Optometry", label: "Certificate in Optometry" },
+            { value: "Certificate in Hospital Administration", label: "Certificate in Hospital Administration" },
+            { value: "Certificate in Operation Theatre Assistant", label: "Certificate in Operation Theatre Assistant" },
+            { value: "Certificate in Health Assistant", label: "Certificate in Health Assistant" },
+        ]
+    };
+
+    const coursesByQualification: { [key: string]: { value: string; label: string }[] } = {
+        "12th - Degree / Diploma / Certificate Courses": [
+            ...courseCategories.degree,
+            ...courseCategories.diploma,
+            ...courseCategories.certificate
+        ],
+        "ITI - Degree / Diploma / Certificate Courses": [
+            ...courseCategories.degree,
+            ...courseCategories.diploma,
+            ...courseCategories.certificate
+        ],
+        "10th - Diploma / Certificate Courses": [
+            ...courseCategories.diploma,
+            ...courseCategories.certificate
+        ],
+        "8th - Certificate Courses": [
+            ...courseCategories.certificate
+        ]
+    };
 
     const [random1] = useState(Math.floor(Math.random() * 15) + 1);
     const [random2] = useState(Math.floor(Math.random() * 15) + 1);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
+        setFormData(prev => ({
+            ...prev,
+            [name]: value,
+            // Reset course if qualification changes
+            ...(name === 'qualification' ? { course: '' } : {})
+        }));
     };
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,13 +100,24 @@ export default function Register() {
             return;
         }
 
+        if (!formData.qualification || formData.qualification === 'Qualification') {
+            showNotification('error', 'Please select your qualification');
+            return;
+        }
+
+        if (!formData.course || formData.course === '0') {
+            showNotification('error', 'Please select a course');
+            return;
+        }
+
         const submitData = new FormData();
         submitData.append('name', formData.name);
         submitData.append('email', formData.email);
         submitData.append('phone', formData.phone);
         submitData.append('qualification', formData.qualification);
-        // Map 'subject' to 'course' as per Schema/API expectation
-        submitData.append('course', formData.subject);
+        submitData.append('yearOfPassing', formData.yearOfPassing);
+        submitData.append('location', formData.location);
+        submitData.append('course', formData.course);
         submitData.append('message', formData.message);
 
         if (formData.file) {
@@ -57,14 +128,12 @@ export default function Register() {
             const res = await fetch('/api/students', {
                 method: 'POST',
                 body: submitData,
-                // Note: Content-Type header is not set manually for FormData, browser does it with boundary
             });
 
             if (res.ok) {
                 showNotification('success', 'Form submitted successfully!');
-                // Reset form or redirect
                 setFormData({
-                    name: '', email: '', phone: '', qualification: '', subject: '0', message: '', location: '', captcha: '', file: null
+                    name: '', email: '', phone: '', qualification: '', yearOfPassing: '', course: '', message: '', location: '', captcha: '', file: null
                 });
             } else {
                 showNotification('error', 'Failed to submit form. Please try again.');
@@ -124,37 +193,23 @@ export default function Register() {
                                                 <input type="email" name="email" className="form-control required email" value={formData.email} onChange={handleChange} placeholder="Mail address" required />
                                             </div>
                                         </div>
-                                        {/* Qualification */}
-                                        <div className="col-md-6 col-sm-6 col-xs-12">
-                                            <div className="form-group">
-                                                <div className="select-box">
-                                                    <select className="form-control" name="subject" value={formData.subject} onChange={handleChange} style={{ width: '100%' }}>
-                                                        <option value="0">Qualification*</option>
-                                                        <option value="12th">12th</option>
-                                                        <option value="10th">10th</option>
-                                                        <option value="ITI">ITI</option>
-
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
                                         {/* Year of Passing */}
                                         <div className="col-md-6 col-sm-6 col-xs-12">
                                             <div className="form-group">
-                                                <input type="text" name="phone" className="form-control" value={formData.phone} onChange={handleChange} placeholder="Year Of Passing*" />
+                                                <input type="text" name="yearOfPassing" className="form-control" value={formData.yearOfPassing} onChange={handleChange} placeholder="Year Of Passing*" required />
                                             </div>
                                         </div>
                                         {/* Location */}
                                         <div className="col-md-6 col-sm-6 col-xs-12">
                                             <div className="form-group">
-                                                <input type="text" name="phone" className="form-control" value={formData.location} onChange={handleChange} placeholder="Year Of Passing*" />
+                                                <input type="text" name="location" className="form-control" value={formData.location} onChange={handleChange} placeholder="Location*" required />
                                             </div>
                                         </div>
-                                        {/* Courses Intrested In */}
+                                        {/* Qualification */}
                                         <div className="col-md-6 col-sm-6 col-xs-12">
                                             <div className="form-group">
                                                 <div className="select-box">
-                                                    <select className="form-control" name="subject" value={formData.subject} onChange={handleChange} style={{ width: '100%' }}>
+                                                    <select className="form-control" name="qualification" value={formData.qualification} onChange={handleChange} style={{ width: '100%' }} required>
                                                         <option value="Qualification">Qualification*</option>
                                                         <option value="12th - Degree / Diploma / Certificate Courses">12th - Degree / Diploma / Certificate Courses</option>
                                                         <option value="ITI - Degree / Diploma / Certificate Courses">ITI - Degree / Diploma / Certificate Courses </option>
@@ -164,55 +219,15 @@ export default function Register() {
                                                 </div>
                                             </div>
                                         </div>
-                                        {/* Courses Intrested In */}
-                                        {/* <div className="col-md-6 col-sm-6 col-xs-12">
-                                            <div className="form-group">
-                                                <div className="select-box">
-                                                    <select className="form-control" name="subject" value={formData.subject} onChange={handleChange} style={{ width: '100%' }}>
-                                                        <option value="0">Courses Intrested In*</option>
-                                                        <option value="Degree">Degree</option>
-                                                        <option value="Diploma">Diploma</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div> */}
-                                        {/* Select Courses */}
+                                        {/* Select Course (Dynamic based on Qualification) */}
                                         <div className="col-md-12 col-sm-12 col-xs-12">
                                             <div className="form-group">
                                                 <div className="select-box">
-                                                    <select className="form-control" name="subject" value={formData.subject} onChange={handleChange} style={{ width: '100%' }}>
-                                                        <option value="0">Select Courses</option>
-                                                        {/* After 12th */}
-                                                        <option value="B.Voc Hotel Management">B.Voc in Hotel Management - 3 Years</option>
-                                                        <option value="B.Voc Medical Lab Technology">B.Voc in Medical Lab Technology - 3 Years</option>
-                                                        <option value="B.Voc Emergency Care & Trauma Care Technology">B.Voc in Emergency Care & Trauma Care Technology - 3 Years</option>
-                                                        <option value="B.Voc Operation Theatre Technology">B.Voc in Operation Theatre Technology - 3 Years</option>
-                                                        <option value="B.Voc Hospital Administration">B.Voc in Hospital Administration - 3 Years</option>
-                                                        <option value="B.Sc Hotel Management">B.Sc Hotel Management - 3 Years</option>
-
-                                                        {/* 10th*/}
-                                                        <option value="Diploma in Hotel Management">Diploma in Hotel Management</option>
-                                                        <option value="Diploma in Food and Beverage Production">Diploma in Food and Beverage Production</option>
-                                                        <option value="Diploma in Food and Beverage Service">Diploma in Food and Beverage Service</option>
-                                                        <option value="Diploma in House Keeping Management">Diploma in House Keeping Management</option>
-                                                        <option value="Diploma in Front Office Management">Diploma in Front Office Management</option>
-                                                        <option value="Diploma in Bakery and Confectionery">Diploma in Bakery and Confectionery</option>
-                                                        <option value="Diploma in Nursing Assistant">Diploma in Nursing Assistant</option>
-                                                        <option value="Diploma in Medical Lab Technician">Diploma in Medical Lab Technician</option>
-                                                        <option value="Diploma in Health Assistant">Diploma in Health Assistant</option>
-
-                                                        {/* 8th / Certificate Courses */}
-                                                        <option value="Food Production">Food Production</option>
-                                                        <option value="Food and Beverage Services">Food and Beverage Services</option>
-                                                        <option value="House Keeping Management">House Keeping Management</option>
-                                                        <option value="Front office and Hotel Operational Management">Front office and Hotel Operational Management</option>
-                                                        <option value="Certification in Female patient Care Assistant">Certification in Female patient Care Assistant</option>
-                                                        <option value="Certification in Medical Lab Technician">Certification in Medical Lab Technician</option>
-                                                        <option value="Certificate in Optometry">Certificate in Optometry</option>
-                                                        <option value="Certificate in Hospital Administration">Certificate in Hospital Administration</option>
-                                                        <option value="Certificate in Operation Theatre Assistant">Certificate in Operation Theatre Assistant</option>
-                                                        <option value="Certificate in Health Assistant">Certificate in Health Assistant</option>
-
+                                                    <select className="form-control" name="course" value={formData.course} onChange={handleChange} style={{ width: '100%' }} required>
+                                                        <option value="">Select Courses*</option>
+                                                        {formData.qualification && coursesByQualification[formData.qualification]?.map((c) => (
+                                                            <option key={c.value} value={c.value}>{c.label}</option>
+                                                        ))}
                                                     </select>
                                                 </div>
                                             </div>

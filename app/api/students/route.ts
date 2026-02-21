@@ -115,6 +115,9 @@ export async function POST(req: Request) {
                         <p><strong>Name:</strong> ${body.name}</p>
                         <p><strong>Email:</strong> ${body.email}</p>
                         <p><strong>Phone:</strong> ${body.phone}</p>
+                        <p><strong>Qualification:</strong> ${body.qualification}</p>
+                        <p><strong>Year of Passing:</strong> ${body.yearOfPassing}</p>
+                        <p><strong>Location:</strong> ${body.location}</p>
                         <p><strong>Course:</strong> ${body.course}</p>
                         <p><strong>Message:</strong> ${body.message || 'No message'}</p>
                     `,
