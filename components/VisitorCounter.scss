@@ -1,12 +1,14 @@
 .visitor-counter {
-    display: flex;
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    border-radius: 12px;
     align-items: center;
     gap: 10px;
-    margin-bottom: 15px;
     padding: 12px 18px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    box-shadow: 0 4px 12px #00000014;
+    justify-content: center;
+    width: max-content;
+    margin: 20px auto 0;
 
     h4 {
         margin: 0;

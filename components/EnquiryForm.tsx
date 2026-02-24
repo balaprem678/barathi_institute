@@ -117,7 +117,7 @@ const EnquiryForm = () => {
       <div className="container">
         <div className="section-title">
           <h3>Get Course Information</h3>
-          <p>Fill out the form below and our team will get back to you within 24 hours with detailed course information.</p>
+          <p>Fill out the form below, and our team will contact you within 24 hours with complete course details.</p>
         </div>
 
         <div className="form-container">

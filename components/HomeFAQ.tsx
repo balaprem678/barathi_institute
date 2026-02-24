@@ -10,28 +10,48 @@ const HomeFAQ = () => {
 
     const faqs = [
         {
-            question: 'What certificates will I receive?',
-            answer: 'Specialized certification offered for hotel management students that they can create their own event management companies for media, advertisement, malls, trade centres, etc.'
+            question: "Who are Bharathi Institutes?",
+            answer: "Bharathi Institutes is a college in Tamil Nadu that offers courses in Hotel Management and Paramedical Sciences, helping students get practical skills and jobs in these fields."
         },
         {
-            question: 'What benefits do I receive from DHM?',
-            answer: 'Only one institute offers students sponsorship on the spot admission for hotel management students for their fees convenience.'
+            question: "Where are your campuses located?",
+            answer: "They have multiple campuses across Tamil Nadu including Chennai (Tambaram, Ambattur, Broadway) and other cities like Vellore, Madurai, Salem, Trichy, Karaikudi, Dindigul and more."
         },
         {
-            question: 'What programs can I participate in at your institution?',
-            answer: 'Students can participate in various occasions like SICA, CARVING, BAR TRENDING in various competitor challenges in our esteemed concerns.'
+            question: "What courses do you offer?",
+            answer: "They offer diploma and certificate courses in: Hotel Management (front office, kitchen, housekeeping, etc.) Paramedical courses (Medical Lab Tech, X-ray & Imaging, OT Technology, etc.)"
         },
         {
-            question: 'Is your institution tied up with any foreign countries?',
-            answer: 'Bharathi Institute is tied up with several multi-speciality hospitals in 32 districts as well as in international countries like Saudi Arabia, Kuwait, Dubai, etc.'
+            question: "Who can apply for the courses?",
+            answer: "Students who have completed 10th or 12th grade from a recognised school/board are eligible to apply."
         },
         {
-            question: 'What facilities do you have in your organization?',
-            answer: 'Our institute has Hi-tech Lab facilities for Lab Technician students with high decor and is tied up with top-rated Labs all over Tamil Nadu.'
+            question: "What is the admission process?",
+            answer: "You must fill out an application form (online or in person), submit academic documents, photos, and other certificates before the deadline."
         },
         {
-            question: 'Do you conduct any extracurricular activities?',
-            answer: 'Extracurricular activities include spoken English, computer knowledge, indoor & outdoor games, personality development classes, etc.'
+            question: "Do you help students get jobs?",
+            answer: "Yes! Bharathi Institutes offers 100% placement assistance and helps connect students with hotels, hospitals, and other companies."
+        },
+        {
+            question: "Will I receive hands-on training?",
+            answer: "Yes. Courses include practical training, internships, lab work, and real-world experience to make students job-ready."
+        },
+        {
+            question: "Are the courses recognised?",
+            answer: "Yes. Their courses are government-approved and recognised certificates that can help in future jobs or further studies."
+        },
+        {
+            question: "Do you offer extra activities and skills training?",
+            answer: "Yes. Students can join spoken English, personality development, computer skills, games, and other activities."
+        },
+        {
+            question: "Can I apply even if I’m waiting for my exam results?",
+            answer: "Yes. Students who are awaiting results of their current board exams can still apply."
+        },
+        {
+            question: "How do I contact Bharathi Institutes?",
+            answer: "You can call +91 94441 20052 or email info@bharathiinstitutes.com for more details or help with admission."
         }
     ];
 
@@ -69,8 +89,8 @@ const HomeFAQ = () => {
 
                             <div className="faq-list">
                                 {faqs.map((faq, index) => (
-                                    <div 
-                                        key={index} 
+                                    <div
+                                        key={index}
                                         className={`faq-item ${activeFaq === index ? 'active' : ''}`}
                                     >
                                         <button
@@ -96,7 +116,7 @@ const HomeFAQ = () => {
                                             </div>
                                         </button>
 
-                                        <div 
+                                        <div
                                             id={`faq-answer-${index}`}
                                             className="faq-answer"
                                             role="region"

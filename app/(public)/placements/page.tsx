@@ -48,19 +48,88 @@ export default function Placements() {
 
     return (
         <>
-           
+
             <section className="banner_section">
-                          <img src={Images.placements_banner.src} alt="About Us Banner" />
-                          <h1>Placements</h1>
-                      </section>
+                <img src={Images.placements_banner.src} alt="About Us Banner" />
+                <h1>Placements</h1>
+            </section>
             <section className="recuiters-section" style={{ padding: '50px 0' }}>
                 <div className="container">
                     <div className="section-title text-center" style={{ marginBottom: '30px' }}>
                         <h1 style={{ color: 'black', lineHeight: '180%', fontSize: '28px', fontWeight: 700 }}>Placements at Bharathi Institute – Trusted Hotel <br /> Management and Paramedical College</h1><br />
-                        <p style={{ fontSize: '16px', lineHeight: '26px' }}>At Bharathi Institutes, we take pride in our 100% placement assistance, ensuring our students secure rewarding careers in top-tier organizations. Our strong industry connections and dedicated placement cell open doors to prestigious hotels, hospitals, and corporate establishments across India.</p>
+                        <p style={{ fontSize: '16px', lineHeight: '26px' }}>At Bharathi Institute, we offer 100% placement assistance. We assist students in getting employment in good hotels, hospitals, and companies.
+                        </p>
+                        <p style={{ fontSize: '16px', lineHeight: '26px' }}>Our strong connections with the industry and placement assistance help students identify the appropriate job opportunities in India.
+                        </p>
                     </div>
 
                     <Partners />
+
+                </div>
+            </section>
+
+            <section className="about-institute">
+                <div className="container">
+
+                    <div className="about-header">
+                        <h2>20 Years of Helping Students Build a Bright Future</h2>
+                        <p>
+                            Bharathi Institute has been helping students build a bright future
+                            for the last 20 years. We have trained <strong>8,500+ students</strong>
+                            and helped them build successful careers.
+                        </p>
+                    </div>
+
+                    <div className="about-content">
+                        <p>
+                            We provide training in practical skills. Our students are trained to
+                            work in real industries, not just for a certificate.
+                        </p>
+
+                        <p>
+                            Our placement team helps students get jobs. Currently, our students
+                            are working in <strong>250+ star hotels</strong> and
+                            <strong> 300+ hospitals</strong> across India including Mumbai,
+                            Goa, Chennai, Hyderabad, and Bengaluru.
+                        </p>
+
+                        <p>
+                            We also provide international job opportunities. More than
+                            <strong> 500 students</strong> are working in hotels abroad and
+                            gaining global experience.
+                        </p>
+                    </div>
+
+                    <div className="stats">
+                        <div className="stat-card">
+                            <h3>15+</h3>
+                            <span>Years Experience</span>
+                        </div>
+
+                        <div className="stat-card">
+                            <h3>8500+</h3>
+                            <span>Students Trained</span>
+                        </div>
+
+                        <div className="stat-card">
+                            <h3>550+</h3>
+                            <span>Hotels & Hospitals</span>
+                        </div>
+
+                        <div className="stat-card">
+                            <h3>500+</h3>
+                            <span>International Placements</span>
+                        </div>
+                    </div>
+
+                    <div className="about-footer">
+                        <h4>Your dream + our 15 years of experience = your success</h4>
+                        <p>
+                            Join Bharathi Institute and begin your career with confidence.
+                            <strong> Your future starts here.</strong>
+                        </p>
+                        <a href="/register" className="join-btn">Join Now</a>
+                    </div>
 
                 </div>
             </section>

@@ -13,32 +13,53 @@ export default function Scholarship() {
             <section className="default-section sec-padd">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-9 col-sm-12">
+                        <div className=" col-12">
                             <div className="section-title">
-                                <h1>Scholarships for Hotel Management & Paramedical Courses </h1>
+                                <h1>Scholarship Support</h1>
                                 <span className="decor"></span>
                             </div><br />
                             <div className="job-details">
                                 <div className="text" style={{ textAlign: 'justify' }}>
-                                    <p> <strong>We are very happy to announce shcolarship scheme for the new admissions for the academic year 2017 - 2018.</strong> </p><br /> // Keeping 2017-2018 to match source, or should I update? Source said 2017-2018. I will keep it for fidelity unless instructed otherwise, but maybe update it to "current academic year" if it looks too old? No, sticking to fidelity for now.
+                                    At Bharathi Institute, we believe that financial support should never stop a student from achieving their dreams. Our students are eligible to receive Government Scholarships based on their course and category.
                                 </div>
 
-                                <h3>Eligibility Criteria </h3>
+                                <h3>Government Scholarship for Hotel Management Students </h3>
+                                <p>Students studying <b>Hotel Management</b> at Bharathi Institute can apply for the following Tamil Nadu Government schemes:
+                                </p>
 
                                 <div className="text" style={{ textAlign: 'justify' }}>
                                     <ul className="list-style-5">
-                                        <li> <i className="fa fa-check-circle"></i>For Girls - 20% scholarship  on tuition fee </li>
-                                        <li><i className="fa fa-check-circle"></i>Get Scholarship for Garments / Widower and Farmers Based Families </li>
+                                        <li> <i className="fa fa-check-circle"></i><b>👨‍🎓 Tamil Puthalvan Scheme (For Boys)</b>
+                                        </li>
+
+                                        <li><i className="fa fa-check-circle"></i>Male students pursuing Hotel Management are eligible to receive scholarship support under the Tamil Puthalvan Scheme provided by the Government of Tamil Nadu. This scheme helps students continue their higher education without financial burden. (As per rule.)</li>
+
+                                        <li><i className="fa fa-check-circle"></i><b>👩‍🎓 Pudhumai Pen Scheme (For Girls)
+                                        </b> </li>
+                                        <li><i className="fa fa-check-circle"></i>Female students studying Hotel Management can receive scholarship benefits under the Pudhumai Pen Scheme. This scheme supports girls’ education and encourages them to build a successful career. (As per rule.)
+                                        </li>
                                     </ul>
                                 </div>
+                                <div>
+                                    <h5>Why Apply for Scholarship?
+                                    </h5>
+                                    <ul>
+                                        <li>Financial support for education</li>
+                                        <li>Reduced burden on parents</li>
+                                        <li>Encouragement to continue higher studies</li>
+                                        <li>Support for career growth</li>
+                                    </ul>
+                                    <p>
 
-                                <br />
+                                        Our team at Bharathi Institute will guide students in applying for eligible Government scholarships and completing the required process.
+                                    </p>
+                                </div>
 
-                                <p style={{ textAlign: 'center' }}>  <Link href="/contact" className="thm-btn">Check Your Eligibility<i className="fa fa-sort-desc"></i></Link></p>
+                                {/* <p style={{ textAlign: 'center' }}>  <Link href="/contact" className="thm-btn">Check Your Eligibility<i className="fa fa-sort-desc"></i></Link></p> */}
 
                             </div>
                         </div>
-                        <div className="col-md-3 col-sm-12 hotel_management">
+                        {/* <div className="col-md-3 col-sm-12 hotel_management">
                             <div className="default-sidebar">
 
                                 <div className="section-title">
@@ -66,7 +87,7 @@ export default function Scholarship() {
 
                             </div>
 
-                        </div>
+                        </div> */}
                     </div>
 
                 </div>

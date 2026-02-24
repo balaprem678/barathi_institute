@@ -30,12 +30,12 @@ export default function Partners() {
   ]
 
   // Reusable Partner Section Component
-  const PartnerSection = ({ 
-    title, 
-    partners, 
-    className = '' 
-  }: { 
-    title: string; 
+  const PartnerSection = ({
+    title,
+    partners,
+    className = ''
+  }: {
+    title: string;
     partners: any[];
     className?: string;
   }) => (
@@ -63,27 +63,27 @@ export default function Partners() {
     <div className="partners-container">
       <div className="container">
         <div className="partners-header">
-          <h2 className="main-title">Our Placement Partners</h2>
+          <h2 className="main-title">Our Recruitment Partners</h2>
           <p className="subtitle">
-            Trusted by industry leaders across various sectors
+            Working with reputed organizations across the hospitality and healthcare sectors.
           </p>
         </div>
 
         <div className="partners-content">
-          <PartnerSection 
-            title="Hotel Industry" 
+          <PartnerSection
+            title="Hotel Industry"
             partners={hotelPartners}
             className="hotel-partners"
           />
-          
-          <PartnerSection 
-            title="Health Care Industry" 
+
+          <PartnerSection
+            title="Health Care Industry"
             partners={healthcarePartners}
             className="healthcare-partners"
           />
-          
-          <PartnerSection 
-            title="Corporate & Other Sectors" 
+
+          <PartnerSection
+            title="Corporate & Other Sectors"
             partners={corporatePartners}
             className="corporate-partners"
           />

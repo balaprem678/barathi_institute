@@ -185,9 +185,9 @@ const Locations = () => {
         <section className="locations-section">
             <div className="container">
                 <div className="section-header">
-                    <h2 className="section-title">Our Locations Across Tamil Nadu</h2>
+                    <h2 className="section-title">Explore Our Branch Network</h2>
                     <p className="section-subtitle">
-                        Visit any of our branches for personalized guidance and support
+                        Our branches across Tamil Nadu are ready to help you with course details and career guidance.
                     </p>
                 </div>
 

@@ -164,8 +164,8 @@ export default function Home() {
       }}>
         <div className="container">
           <div className="section-title text-center" style={{ marginBottom: '30px' }}>
-            <h3 style={{ fontSize: '32px' }}>Your Future Starts Here: Quality Education, Guaranteed Careers!</h3>
-            <p style={{ fontSize: '18px' }}>Looking for the perfect place to kickstart your career? Here's why Bharathi Institute is your best choice!</p>
+            <h3 style={{ fontSize: '32px' }}>Your Future Starts Here: Quality Education, Career Support</h3>
+            <p style={{ fontSize: '18px' }}>Looking for the right place to begin your career? Bharathi Institute is the right choice.</p>
           </div>
           <div className="row">
             <div className="unique-selling-content" style={{
@@ -201,10 +201,7 @@ export default function Home() {
 
               <div className="text">
                 <p style={{ textAlign: 'justify', marginBottom: '30px' }}>
-                  Bharathi Institute is one of South India's leading hotel management and paramedical institute,
-                  offering world-class training in Hotel Management and Paramedical courses in TamilNadu.
-                  With a legacy of over 25 years, we have established ourselves as a trusted name in skill-based education,
-                  ensuring students receive the knowledge and hands-on experience they need to succeed in their chosen careers.
+                  With more than 21 years of excellence, Bharathi Institute has established a remarkable reputation in Hotel Management and Paramedical courses in Tamil Nadu. At Bharathi Institute, we not only educate students in class but also train them practically to equip them for actual careers. Today, we are proud to operate 18 branches in Tamil Nadu.
                 </p>
 
                 <div className="row">
@@ -581,9 +578,9 @@ export default function Home() {
                 <div className="single-item">
                   <div className="inner-box">
                     <div className="image-box"><img alt="Bharathi Institute of Catering &amp; Hotel Management" src={Images.why_prefer_2.src} />
-                      <div className="caption">70% Practicals</div>
+                      <div className="caption">100% Practicals</div>
                       <div className="overlay-box">
-                        <h4>90% Practicals</h4>
+                        <h4>100% Practicals</h4>
                         <div className="text">
                           <p>We plan the service of business<br />
                             right way development</p>

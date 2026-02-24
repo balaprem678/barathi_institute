@@ -9,27 +9,27 @@ const slides = [
   {
     id: 1,
     image: Images.home_banner_1,
-    title: 'Welcome to Bharathi Institutes of Hotel Management & Paramedicals',
-    subtitle: 'Your Gateway of Success',
-    description: 'Best Hotel Management & Paramedical College in TamilNadu',
+    title: 'Create Your Future with Bharathi Institute',
+    subtitle: 'Skill Based Courses with Placement Help',
+    description: 'Leading Hotel Management & Paramedical College in Tamil Nadu',
     buttonText: 'Launch Your Career – Admissions Open!',
     buttonLink: '/new-admission'
   },
   {
     id: 2,
     image: Images.home_banner_2,
-    title: 'Build Your Future with Bharathi Institute',
-    subtitle: 'Industry-Focused Courses & 100% Placement Support',
-    description: 'Best Hotel Management & Paramedical College in TamilNadu',
+    title: 'Join Bharathi Institute',
+    subtitle: 'Learn Practical Skills. Get Job Support.',
+    description: 'Best Hotel Management & Paramedical Courses in Tamil Nadu',
     buttonText: 'Explore Courses – Secure Your Seat',
     buttonLink: '/courses'
   },
   {
     id: 3,
     image: Images.home_banner_3,
-    title: 'Join Bharathi Institute',
-    subtitle: 'South India\'s Leading Institute for Hotel Management & Paramedical Courses!',
-    description: 'Best Hotel Management & Paramedical College in TamilNadu',
+    title: 'Welcome to Bharathi Institutes of Hotel Management & Paramedicals',
+    subtitle: 'Learn Skills. Build a Career.',
+    description: 'Trusted Hotel Management & Paramedical College in Tamil Nadu',
     buttonText: 'Learn more about Bharathi Institute',
     buttonLink: '/aboutus'
   }

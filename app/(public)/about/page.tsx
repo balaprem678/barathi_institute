@@ -20,31 +20,32 @@ export default function About() {
     const [mainAccordion, setMainAccordion] = useState<AccordionItem[]>([
         {
             id: 'faq1',
-            title: 'Our Journey & Legacy',
-            content: 'Bharathi Educational Institution was founded in 2005 with a vision to make quality education in hotel management and paramedical sciences accessible to students across Tamil Nadu. What started as a single institution in Tambaram, Chennai, has now expanded its footprint across Vellore, Ranipet, Ambur, and Karaikudi, becoming one of the best hotel management and paramedical colleges in Tamil Nadu.',
+            title: 'Our Branches in Tamil Nadu',
+            content: 'Karaikudi, Tambaram, Ambattur, Broadway (Chennai), Cuddalore, Kanchipuram, Villupuram, Ariyalur, Ranipet, Ambur, Madurai, Tirunelveli, Trichy, Vellore, Salem, Tiruvannamalai, Dindigul, and Kallakurichi.',
             isOpen: true
         },
         {
             id: 'faq2',
             title: 'Bridging the Urban-Rural Education Gap',
-            content: 'In the early 2000s, hotel management and catering education were primarily accessible only to students from urban metropolitan areas like Mumbai, Bangalore, and Chennai. Many talented students from rural regions lacked opportunities to pursue careers in hospitality and healthcare due to financial constraints and the unavailability of institutions near them. Bharathi Educational Institution was established with a mission to bridge this gap and provide world-class education to students from both urban and rural backgrounds, without compromising on quality.'
+            content: 'In the early 2000s, hotel management and catering courses were available only in big cities like Mumbai, Bangalore, and Chennai. Many meritorious students from villages did not get a chance to pursue these courses because of the distance and high tuition fees of colleges. Bharathi Educational Institution was established to overcome this issue. Our intention was to provide quality education to students from both cities and villages without compromising the standard of education.'
         },
         {
             id: 'faq3',
             title: 'Expanding Our Presence & Impact',
-            content: 'Recognizing the growing demand for skilled professionals in the hospitality and healthcare industries, Bharathi Institute expanded its reach beyond Chennai. Our branches in Vellore, Ambur, Ranipet, and Karaikudi have empowered thousands of students with industry-relevant knowledge, hands-on training, and career opportunities. Over the years, we have become a preferred choice for students seeking affordable yet high-quality professional education.'
+            content: 'Bharathi Institute expanded its presence due to the increasing need for skilled professionals. Our 18 branches provide industry-focused training and career support. We are proud to offer high-quality education at an affordable price.'
         },
         {
             id: 'faq4',
             title: 'A Legacy of Excellence in Education',
             content: (
                 <>
-                    For nearly two decades, Bharathi Institute has been dedicated to producing highly skilled professionals. We take pride in:
+                    For almost two decades, Bharathi Institute has been churning out competent professionals for a successful career. We take pride in:
+
                     <ul className="legacy-list">
-                        <li><i className="fa fa-medkit" aria-hidden="true"></i> 25+ Years of Excellence in Hospitality & Paramedical Education.</li>
-                        <li><i className="fa fa-graduation-cap" aria-hidden="true"></i> 10,000+ Students Placed in leading hotels, hospitals, and corporate sectors.</li>
-                        <li><i className="fa fa-briefcase" aria-hidden="true"></i> 100% Placement Assistance through our strong industry network.</li>
-                        <li><i className="fa fa-globe" aria-hidden="true"></i> State-of-the-Art Training Facilities designed to match global industry standards.</li>
+                        <li><i className="fa fa-medkit" aria-hidden="true"></i> 20+ years of experience in Hotel Management and Paramedical education.</li>
+                        <li><i className="fa fa-graduation-cap" aria-hidden="true"></i>10,000+ students placed in top hotels, hospitals, and companies.</li>
+                        <li><i className="fa fa-briefcase" aria-hidden="true"></i>100% placement assistance with the help of our strong industry connections.</li>
+                        <li><i className="fa fa-globe" aria-hidden="true"></i>Modern training facilities that match industry standards.</li>
                     </ul>
                 </>
             )
@@ -52,7 +53,7 @@ export default function About() {
         {
             id: 'faq5',
             title: 'Pioneering Industry-Focused Education',
-            content: 'At Bharathi Institute, we believe in a practical and hands-on approach to learning. Our courses are carefully designed with industry experts, hotel chains, and medical institutions to ensure that our students are job-ready from day one. With our extensive network of 350+ hotel and hospital tie-ups, we provide unmatched internship and job placement opportunities to help students kickstart their careers. As we continue to grow, our commitment remains the same—to provide top-tier education and career opportunities to students across Tamil Nadu, making Bharathi Institute the best hotel management and paramedical college in the region.'
+            content: 'At Bharathi Institute, we believe in a practical and hands-on approach to learning. Our courses are carefully designed with industry experts, hotel chains, and medical institutions to ensure that our students are job-ready from day one. With our extensive network of 350+ hotel and hospital tie-ups, we provide unmatched internship and job placement opportunities to help students kickstart their careers. As we continue to grow, our commitment remains the same—to provide top-tier education and career opportunities to students across Tamil Nadu, making Bharathi Institute the best hotel management and paramedical college in the region. At Bharathi Institute, we emphasize learning by doing. Our courses are designed in consultation with industry experts, hotel chains, and medical organizations. This ensures that our students are employment-ready from Day One. We have over 350 hotel and hospital tie-ups, which provide our students with excellent internship and placement opportunities. As we expand, our commitment to our mission remains unchanged – to offer quality education and excellent career opportunities to students in Tamil Nadu. This is why we are recognized as one of the top hotel management and paramedical colleges in the area.'
         }
     ]);
 
@@ -68,9 +69,12 @@ export default function About() {
             title: 'World-Class Learning Environment',
             content: (
                 <ul>
-                    <li>Hi-Tech Classrooms & Smart Learning – Interactive teaching methods with modern infrastructure.</li>
-                    <li>Advanced Training Labs – Fully equipped kitchen labs, bakery labs, housekeeping labs, and medical labs for practical training.</li>
-                    <li>Library & Research Center – Extensive resources, books, and digital materials to enhance learning.</li>
+                    <li>Modern Classrooms & Smart Learning – Interactive learning techniques with modernized classrooms.
+                    </li>
+                    <li>Advanced Training Labs – Equipped kitchen labs, bakery labs, housekeeping labs, and medical labs for hands-on training.
+                    </li>
+                    <li>Library & Study Center – A decent collection of books and learning resources for the benefit of students.
+                    </li>
                 </ul>
             )
         },
@@ -79,9 +83,12 @@ export default function About() {
             title: 'Hands-On Practical Training',
             content: (
                 <ul>
-                    <li>Live Cooking Demonstrations & Workshops – Learn from expert chefs and industry professionals.</li>
-                    <li>Housekeeping & Front Office Simulations – Gain real-world experience before entering the workforce.</li>
-                    <li>Medical Equipment Handling – Practical exposure to diagnostic tools, OT instruments, and patient care techniques.</li>
+                    <li>Live Cooking Demonstrations & Workshops – Learn from the experts themselves.
+                    </li>
+                    <li>Housekeeping & Front Office Practice – Gain practical experience before you even start your job.
+                    </li>
+                    <li>Medical Equipment Training – Practical training in the use of diagnostic equipment, operation theater equipment, and patient care techniques.
+                    </li>
                 </ul>
             )
         },
@@ -90,9 +97,9 @@ export default function About() {
             title: 'Engaging Student Activities & Events',
             content: (
                 <ul>
-                    <li>Culinary Competitions & Hotel Expos – Show off your skills and connect with industry leaders.</li>
-                    <li>Healthcare Awareness Camps – Real-time patient care experience through social initiatives.</li>
-                    <li>Cultural Festivals & Sports Events – A vibrant campus life with entertainment and extracurricular activities.</li>
+                    <li>Cooking Competitions & Hotel Expos – Showcase your skills and network with professionals.</li>
+                    <li>Healthcare Awareness Camps – Gain practical exposure to patient handling through community services.</li>
+                    <li>Cultural Programs & Sports Events – Experience a vibrant campus life with fun activities and sports.</li>
                 </ul>
             )
         },
@@ -101,9 +108,9 @@ export default function About() {
             title: 'Internship & Industry Visits',
             content: (
                 <ul>
-                    <li>Hotel & Hospital Internships – Gain on-the-job training in leading organizations.</li>
-                    <li>Guest Lectures & Industry Talks – Learn directly from professionals shaping the industry.</li>
-                    <li>Foreign Internship Opportunities – Get international exposure with global hospitality and healthcare firms.</li>
+                    <li>Hotel & Hospital Internships – Gain practical experience in the best institutions.</li>
+                    <li>Guest Lectures & Industry Talks – Get insights from industry leaders who are changing the face of the industry.</li>
+                    <li>Foreign Internship Opportunities – Get international exposure in the best global hospitality and healthcare institutions.</li>
                 </ul>
             )
         },
@@ -225,7 +232,7 @@ export default function About() {
                 <div className="container">
                     {isMobile ? (
                         <div className="mobile-accordion-view">
-                            <h2 className="section-title"><b>About Bharathi Institute</b></h2>
+                            <h2 className="section-title"><b>About Bharathi Educational Institution</b></h2>
 
                             {activeTab === 'journey' && (
                                 <div className="accordion-container">
@@ -363,14 +370,14 @@ export default function About() {
             </section>
 
             {/* Placement Partnerships */}
-            <section className="placement-section">
+            {/* <section className="placement-section">
                 <div className="container">
                     <div className="section-header text-center">
                         <h2 className="section-title"><b>Our Placement & Industry Partnerships</b></h2>
                         <p className="section-description">At Bharathi Institute, we don't just provide education—we build careers. Our strong industry partnerships and dedicated placement support ensure that students step into the professional world with confidence.</p>
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             {/* Shape Your Future - Mobile Grid */}
             {/* <section className="future-section mb-5">
