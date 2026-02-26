@@ -26,7 +26,7 @@ export async function POST(req: Request) {
         const body = await req.json();
 
         // Basic validation
-        if (!body.slug || !body.city || !body.courseType) {
+        if (!body.slug || !body.city || !body.course) {
             return NextResponse.json({ message: 'Missing required fields' }, { status: 400 });
         }
 

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { X, Save, RefreshCw } from 'lucide-react';
+import '../../app/(public)/locationseo/locationseo.scss';
 
 interface SEO {
-    focusTitle: string;
     focusKeywords: string;
     metaTitle: string;
     metaKeywords: string;
@@ -13,7 +13,8 @@ export interface LandingPageData {
     _id?: string;
     slug: string;
     city: string;
-    courseType: 'hotel-management' | 'paramedical';
+    course: string;
+    htmlContent: string;
     seo: SEO;
     isActive: boolean;
 }
@@ -26,7 +27,6 @@ interface LandingPageModalProps {
 }
 
 const defaultSEO: SEO = {
-    focusTitle: '',
     focusKeywords: '',
     metaTitle: '',
     metaKeywords: '',
@@ -36,7 +36,8 @@ const defaultSEO: SEO = {
 const defaultData: LandingPageData = {
     slug: '',
     city: '',
-    courseType: 'hotel-management',
+    course: '',
+    htmlContent: '',
     seo: defaultSEO,
     isActive: true
 };
@@ -45,27 +46,85 @@ export default function LandingPageModal({ isOpen, onClose, onSave, initialData 
     const [formData, setFormData] = useState<LandingPageData>(defaultData);
     const [loading, setLoading] = useState(false);
     const [autoSlug, setAutoSlug] = useState(true);
+    const [showPreview, setShowPreview] = useState(false);
 
     useEffect(() => {
         if (initialData) {
             setFormData(initialData);
-            setAutoSlug(false); // Don't auto-update slug on edit unless requested
+            setAutoSlug(false);
         } else {
             setFormData(defaultData);
             setAutoSlug(true);
         }
+        setShowPreview(false);
     }, [initialData, isOpen]);
 
-    // Auto-generate slug when City or CourseType changes
+    // Auto-generate slug when City or Course changes
     useEffect(() => {
         if (autoSlug && !initialData) {
-            const courseSlug = formData.courseType === 'hotel-management' ? 'hotel-management-course' : 'paramedical-course';
-            const citySlug = formData.city.toLowerCase().replace(/[^a-z0-9]+/g, '-');
-            if (citySlug) {
-                setFormData(prev => ({ ...prev, slug: `${courseSlug}-in-${citySlug}` }));
+            const coursePart = formData.course.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-');
+            const cityPart = formData.city.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-');
+
+            if (coursePart && cityPart) {
+                setFormData(prev => ({ ...prev, slug: `${coursePart}-in-${cityPart}` }));
+            } else if (coursePart) {
+                setFormData(prev => ({ ...prev, slug: coursePart }));
+            } else if (cityPart) {
+                setFormData(prev => ({ ...prev, slug: `course-in-${cityPart}` }));
             }
         }
-    }, [formData.city, formData.courseType, autoSlug, initialData]);
+    }, [formData.city, formData.course, autoSlug, initialData]);
+
+    const loadDefaultTemplate = () => {
+        const template = `<div>
+    <section class="hero">
+        <h1>
+            Hotel <br />
+            Management <br />
+            Course
+        </h1>
+        <div class="hero-side">
+            <p>Bharathi Institutes</p>
+            <span>Villupuram</span>
+        </div>
+    </section>
+    <section class="editorial">
+        <div class="left">
+            <h2>Learn Hospitality Professionally</h2>
+            <p>
+                Join Bharathi Institutes for hands-on hotel management
+                training with internships, catering practice and
+                industry exposure.
+            </p>
+        </div>
+        <div class="right">
+            <div class="highlight">
+                <h3>Admissions Open</h3>
+                <p>Placement Support Available</p>
+            </div>
+        </div>
+    </section>
+    <section class="zigzag">
+        <div class="item">
+            <h3>Food Production</h3>
+            <p>Professional culinary and kitchen operations training.</p>
+        </div>
+        <div class="item dark">
+            <h3>Front Office</h3>
+            <p>Guest handling and hotel administration skills.</p>
+        </div>
+        <div class="item">
+            <h3>Housekeeping</h3>
+            <p>Hotel maintenance and service management.</p>
+        </div>
+    </section>
+    <section class="cta">
+        <h2>Start Your Hospitality Career</h2>
+        <a href="#">Apply Now</a>
+    </section>
+</div>`;
+        setFormData(prev => ({ ...prev, htmlContent: template }));
+    };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -124,17 +183,60 @@ export default function LandingPageModal({ isOpen, onClose, onSave, initialData 
                             />
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Course Type</label>
-                            <select
-                                name="courseType"
-                                value={formData.courseType}
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Course Name</label>
+                            <input
+                                type="text"
+                                name="course"
+                                required
+                                value={formData.course}
                                 onChange={handleChange}
                                 className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                            >
-                                <option value="hotel-management">Hotel Management</option>
-                                <option value="paramedical">Paramedical</option>
-                            </select>
+                                placeholder="e.g. Hotel Management Course"
+                            />
                         </div>
+                    </div>
+
+                    {/* HTML Content & Preview */}
+                    <div className="space-y-4">
+                        <div className="flex justify-between items-center">
+                            <label className="block text-sm font-medium text-gray-700">HTML Content</label>
+                            <div className="flex space-x-2">
+                                <button
+                                    type="button"
+                                    onClick={loadDefaultTemplate}
+                                    className="text-xs bg-gray-100 hover:bg-gray-200 text-gray-600 px-2 py-1 rounded"
+                                >
+                                    Load Default Template
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => setShowPreview(!showPreview)}
+                                    className={`text-xs px-2 py-1 rounded font-medium ${showPreview ? 'bg-blue-600 text-white' : 'bg-blue-50 text-blue-600'}`}
+                                >
+                                    {showPreview ? 'Edit Mode' : 'Preview Mode'}
+                                </button>
+                            </div>
+                        </div>
+
+                        {showPreview ? (
+                            <div className="w-full h-96 border border-gray-200 rounded-lg overflow-auto bg-white">
+                                <div className="seo-page-content">
+                                    <div
+                                        dangerouslySetInnerHTML={{ __html: formData.htmlContent || '<p class="text-gray-400 italic p-4">No content to preview</p>' }}
+                                    />
+                                </div>
+                            </div>
+                        ) : (
+                            <textarea
+                                name="htmlContent"
+                                value={formData.htmlContent}
+                                onChange={handleChange}
+                                rows={12}
+                                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 font-mono text-sm"
+                                placeholder="Paste your HTML here..."
+                            />
+                        )}
+                        <p className="text-xs text-gray-500">HTML will be rendered exactly as entered. Use the preview to check design.</p>
                     </div>
 
                     {/* Slug */}
@@ -169,14 +271,14 @@ export default function LandingPageModal({ isOpen, onClose, onSave, initialData 
 
                         <div className="grid grid-cols-1 gap-4">
                             <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-1">Focus Title (H1)</label>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">Focus Keywords</label>
                                 <input
                                     type="text"
-                                    name="seo.focusTitle"
-                                    value={formData.seo.focusTitle}
+                                    name="seo.focusKeywords"
+                                    value={formData.seo.focusKeywords}
                                     onChange={handleChange}
                                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                                    placeholder="Optional override for main heading"
+                                    placeholder="Keywords for SEO management"
                                 />
                             </div>
 
@@ -207,13 +309,14 @@ export default function LandingPageModal({ isOpen, onClose, onSave, initialData 
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-1">Focus Keywords (Comma separated)</label>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">Meta Keywords</label>
                                 <input
                                     type="text"
-                                    name="seo.focusKeywords"
-                                    value={formData.seo.focusKeywords}
+                                    name="seo.metaKeywords"
+                                    value={formData.seo.metaKeywords}
                                     onChange={handleChange}
                                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                    placeholder="Comma separated keywords"
                                 />
                             </div>
                         </div>

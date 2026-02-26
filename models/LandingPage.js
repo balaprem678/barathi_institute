@@ -1,17 +1,17 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const landingPageSchema = new mongoose.Schema({
-    slug: { type: String, required: true, unique: true }, // e.g., 'hotel-management-course-in-villupuram'
-    city: { type: String, required: true }, // e.g., 'Villupuram'
-    courseType: { type: String, enum: ['hotel-management', 'paramedical'], required: true },
+    slug: { type: String, required: true, unique: true },
+    city: { type: String, required: true },
+    course: { type: String, required: true },
+    htmlContent: { type: String },
     seo: {
-        focusTitle: String,  // Focus Title
-        focusKeywords: String, // Focus Keywords
-        metaTitle: String,   // Meta Title
-        metaKeywords: String, // Meta Keywords
-        metaDescription: String, // Meta Description
+        focusKeywords: String,
+        metaTitle: String,
+        metaKeywords: String,
+        metaDescription: String,
     },
     isActive: { type: Boolean, default: true }
 }, { timestamps: true });
 
-module.exports = mongoose.models.LandingPage || mongoose.model('LandingPage', landingPageSchema);
+export default mongoose.models.LandingPage || mongoose.model('LandingPage', landingPageSchema);

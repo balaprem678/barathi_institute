@@ -3,8 +3,7 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import dbConnect from '@/lib/db';
 import LandingPage from '@/models/LandingPage';
-import HotelManagementTemplate from '@/components/templates/HotelManagementTemplate';
-import ParamedicalTemplate from '@/components/templates/ParamedicalTemplate';
+import '../locationseo/locationseo.scss';
 
 interface PageProps {
     params: Promise<{ slug: string }>;
@@ -28,14 +27,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
     const { seo } = page;
 
+    const keywords = [seo.focusKeywords, seo.metaKeywords].filter(Boolean).join(', ');
+
     return {
-        title: seo.title || seo.metaTitle || page.courseType, // Fallback to courseType if no title
-        description: seo.description || seo.metaDescription,
-        keywords: seo.keywords || seo.metaKeywords,
+        title: seo.metaTitle || page.course,
+        description: seo.metaDescription,
+        keywords: keywords,
         openGraph: {
-            title: seo.ogTitle || seo.metaTitle || seo.title,
-            description: seo.ogDescription || seo.metaDescription || seo.description,
+            title: seo.metaTitle || page.course,
+            description: seo.metaDescription,
         },
+        other: {
+            'focus-keywords': seo.focusKeywords || '',
+        }
     };
 }
 
@@ -47,15 +51,18 @@ export default async function DynamicLandingPage({ params }: PageProps) {
         notFound();
     }
 
-    // Render the appropriate template based on courseType
-    // We pass the 'city' to the template so it can dynamically update headings
-    switch (page.courseType) {
-        case 'hotel-management':
-            return <HotelManagementTemplate city={page.city} />;
-        case 'paramedical':
-            return <ParamedicalTemplate city={page.city} />;
-        default:
-            // Fallback or specific error if course type is unknown
-            return <div>Unknown Course Type</div>;
+    if (page.htmlContent) {
+        return (
+            <div className="seo-page-content">
+                <div dangerouslySetInnerHTML={{ __html: page.htmlContent }} />
+            </div>
+        );
     }
+
+    return (
+        <div className="p-10 text-center">
+            <h1 className="text-2xl font-bold">{page.course} in {page.city}</h1>
+            <p className="mt-4 text-gray-600">This page is still being customized. Check back soon!</p>
+        </div>
+    );
 }
