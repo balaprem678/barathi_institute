@@ -146,11 +146,8 @@ export default function LandingPages() {
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{page.city}</td>
                                         <td className="px-6 py-4 whitespace-nowrap text-sm">
-                                            <span className={`px-2 py-1 rounded-full text-xs font-medium ${page.courseType === 'hotel-management'
-                                                ? 'bg-purple-100 text-purple-800'
-                                                : 'bg-green-100 text-green-800'
-                                                }`}>
-                                                {page.courseType === 'hotel-management' ? 'Hotel Mgmt' : 'Paramedical'}
+                                            <span className="px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                                {page.course}
                                             </span>
                                         </td>
                                         <td className="px-6 py-4 whitespace-nowrap text-sm">
