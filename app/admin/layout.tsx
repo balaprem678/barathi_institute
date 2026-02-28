@@ -45,6 +45,12 @@ export default function AdminLayout({
     if (!authorized) {
         return (
             <html lang="en">
+                <head>
+                    <link rel="shortcut icon" href="/images/logo/logo12.png" type="image/png" />
+                    <link href="/images/fav-icon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+                    <link href="/images/fav-icon/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+                    <link href="/images/fav-icon/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+                </head>
                 <body className="bg-gray-50 flex items-center justify-center h-screen">
                     {/* Optional: Add a loading spinner here */}
                     <div className="text-gray-500">Loading...</div>
@@ -55,6 +61,13 @@ export default function AdminLayout({
 
     return (
         <html lang="en">
+            <head>
+                <link rel="shortcut icon" href="/images/logo/logo12.png" type="image/png" />
+                <link href="/images/fav-icon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+                <link href="/images/fav-icon/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+                <link href="/images/fav-icon/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+                <title>Admin Panel | Bharathi Institute</title>
+            </head>
             <body className="bg-gray-50 text-gray-900 font-sans antialiased">
                 {isLoginPage ? (
                     <div className="flex bg-gray-100 min-h-screen items-center justify-center">

@@ -39,11 +39,15 @@ export const AuthService = {
     // Helper for authenticated requests
     fetchAuth: async (url: string, options: RequestInit = {}) => {
         const token = AuthService.getToken();
-        const headers = {
+        const headers: any = {
             ...options.headers,
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json'
+            'Authorization': `Bearer ${token}`
         };
+
+        // Only set Content-Type to application/json if not sending FormData
+        if (!(options.body instanceof FormData)) {
+            headers['Content-Type'] = 'application/json';
+        }
 
         const res = await fetch(url, { ...options, headers });
 

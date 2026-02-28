@@ -5,13 +5,14 @@ import { usePathname } from 'next/navigation';
 import {
     LayoutDashboard,
     Users,
-    Settings,
+    Settings as SettingsIcon,
     LogOut,
     ChevronDown,
     ChevronRight,
     X,
     Mail,
-    Globe
+    Globe,
+    FileText
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -106,6 +107,18 @@ export default function AdminSidebar({ isOpen, setIsOpen }: SidebarProps) {
                         Enquiries
                     </Link>
 
+                    <Link
+                        href="/admin/blogs"
+                        onClick={() => setIsOpen(false)}
+                        className={`flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-colors ${isActive('/admin/blogs')
+                            ? 'bg-blue-50 text-blue-600'
+                            : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                            }`}
+                    >
+                        <FileText className="w-5 h-5 mr-3" />
+                        Blogs
+                    </Link>
+
                     {/* Collapsible Settings */}
                     <div>
                         <button
@@ -116,7 +129,7 @@ export default function AdminSidebar({ isOpen, setIsOpen }: SidebarProps) {
                                 }`}
                         >
                             <div className="flex items-center">
-                                <Settings className="w-5 h-5 mr-3" />
+                                <SettingsIcon className="w-5 h-5 mr-3" />
                                 Settings
                             </div>
                             {isSettingsOpen ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
