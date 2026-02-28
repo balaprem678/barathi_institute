@@ -6,8 +6,8 @@ import Blogs from './blog/page';
 export default function App() {
     return (
         <>
-            {/* <Home /> */}
-            <Blogs />
+            <Home />
+            {/* <Blogs /> */}
             {/* <Location /> */}
 
         </>
