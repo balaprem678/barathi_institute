@@ -20,61 +20,25 @@ $transition: all 0.3s ease;
   background: linear-gradient(135deg, $primary-color 0%, lighten($primary-color, 15%) 100%);
 }
 
-.blog-section {
-  padding: 80px 0;
-  background: linear-gradient(180deg, #ffffff 0%, #f8f9ff 100%);
+.blogs {
+  padding-top: 100px;
 
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-}
-
-.placementsbanner {
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url("/assets/new_images/student_testimonial/gallerybanner.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: 120px 0;
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 60px;
-
-  .subtitle {
-    display: inline-block;
-    padding: 8px 24px;
-    background: rgba($secondary-color, 0.1);
-    color: $secondary-color;
-    border-radius: 50px;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-  }
-
-  .title {
-    font-size: 3rem;
-    color: $primary-color;
-    margin-bottom: 20px;
-    line-height: 1.2;
-    font-weight: 700;
-
-    @media (max-width: 768px) {
-      font-size: 2.2rem;
+  .header {
+    h4 {
+      color: #eb5a89;
+      font-weight: 800;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 28px;
     }
   }
 
   .description {
-    font-size: 1.2rem;
-    color: $dark-color;
+    font-size: 1.1rem;
+    color: #64748b;
     max-width: 700px;
-    margin: 0 auto;
-    opacity: 0.9;
+    margin: 0 auto 40px;
+    text-align: center;
   }
 }
 
@@ -209,8 +173,8 @@ $transition: all 0.3s ease;
       line-height: 1.6;
       font-size: 15px;
       display: -webkit-box;
-      -webkit-line-clamp: 4;
-      line-clamp: 4;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }

@@ -1,0 +1,123 @@
+.blogs {
+    .header {
+        h4 {
+            color: #eb5a89;
+            font-weight: 800;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 28px;
+        }
+    }
+
+    .row {
+        margin-top: 20px;
+
+        .blog_detail_content,
+        .blog_content {
+            margin-bottom: 20px;
+
+            h5 {
+                font-weight: 800;
+                font-size: 20px;
+                color: #eb5a89;
+                margin-top: 15px;
+                -webkit-box-orient: vertical;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                overflow: hidden;
+            }
+
+            p {
+                font-size: 13.5px;
+            }
+
+            img {
+                width: 100%;
+                border-radius: 15px;
+                height: 500px;
+                object-fit: cover;
+            }
+        }
+
+        .blog_detail_content {
+            img {
+                border-radius: 12px;
+            }
+        }
+
+        .recent_blog {
+            max-height: 100vh;
+            overflow-y: auto;
+
+            .features_blog {
+                &:not(:last-child) {
+                    border-bottom: 1px solid #cccccc80;
+                    margin-bottom: 25px;
+                }
+
+                img {
+                    width: 100%;
+                    border-radius: 12px;
+                }
+
+                h5 {
+                    font-weight: 800;
+                    font-size: 18px;
+                    margin-top: 5px;
+                    color: #eb5a89;
+                    position: sticky;
+                    top: 0;
+                    background-color: #fff;
+                    padding: 1px 0;
+                }
+
+                p {
+                    font-size: 13.5px;
+                    display: none;
+
+                    &:first-of-type {
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 2;
+                        overflow: hidden;
+                        width: 300px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.img-fluid {
+    height: 250px !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+image {
+    width: 10%;
+    height: auto;
+}
+
+.blog_detail_content {
+    img {
+        height: auto !important;
+    }
+}
