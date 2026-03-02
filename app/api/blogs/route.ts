@@ -52,11 +52,16 @@ export async function POST(req: Request) {
         if (file && file.size > 0) {
             const buffer = Buffer.from(await file.arrayBuffer());
             const fileName = Date.now() + '_' + file.name.replace(/\s+/g, '_');
-            const uploadDir = path.join(process.cwd(), 'public/uploads/blogs');
+            const uploadDir = path.resolve(process.cwd(), 'public/uploads/blogs');
+
+            console.log('--- Upload Check ---');
+            console.log('Saving image to:', uploadDir);
+            console.log('Working directory:', process.cwd());
 
             await mkdir(uploadDir, { recursive: true });
             await writeFile(path.join(uploadDir, fileName), buffer);
             body.imagePath = `/uploads/blogs/${fileName}`;
+            console.log('Image saved successfully as:', body.imagePath);
         }
 
         const blog = new Blog(body);

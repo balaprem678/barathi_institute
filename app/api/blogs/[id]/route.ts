@@ -54,7 +54,7 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
             // Delete old image if it exists
             if (existingBlog.imagePath) {
                 try {
-                    const oldPath = path.join(process.cwd(), 'public', existingBlog.imagePath);
+                    const oldPath = path.resolve(process.cwd(), 'public', existingBlog.imagePath.startsWith('/') ? existingBlog.imagePath.substring(1) : existingBlog.imagePath);
                     await unlink(oldPath);
                 } catch (err) {
                     console.error('Error deleting old image:', err);
@@ -63,7 +63,7 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
 
             const buffer = Buffer.from(await file.arrayBuffer());
             const fileName = Date.now() + '_' + file.name.replace(/\s+/g, '_');
-            const uploadDir = path.join(process.cwd(), 'public/uploads/blogs');
+            const uploadDir = path.resolve(process.cwd(), 'public/uploads/blogs');
 
             await mkdir(uploadDir, { recursive: true });
             await writeFile(path.join(uploadDir, fileName), buffer);
@@ -93,7 +93,7 @@ export async function DELETE(req: Request, { params }: { params: Promise<{ id: s
         // Delete associated image
         if (blog.imagePath) {
             try {
-                const imagePath = path.join(process.cwd(), 'public', blog.imagePath);
+                const imagePath = path.resolve(process.cwd(), 'public', blog.imagePath.startsWith('/') ? blog.imagePath.substring(1) : blog.imagePath);
                 await unlink(imagePath);
             } catch (err) {
                 console.error('Error deleting image:', err);
