@@ -83,12 +83,12 @@ export default function BlogModal({ isOpen, onClose, onSave, initialData }: Blog
         setShowFullPreview(false);
     }, [initialData, isOpen]);
 
-    // Sync content to visual editor when editMode changes to visual
+    // Sync content to visual editor when editMode changes or modal opens
     useEffect(() => {
         if (editMode === 'visual' && editorRef.current) {
             editorRef.current.innerHTML = formData.content;
         }
-    }, [editMode]);
+    }, [editMode, isOpen, initialData]);
 
     // Auto-generate slug when title changes
     useEffect(() => {

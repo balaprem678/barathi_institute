@@ -43,6 +43,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
 }
 
+export const dynamic = 'force-dynamic';
+
 export default async function DynamicLandingPage({ params }: PageProps) {
     const { slug } = await params;
     const page = await getLandingPage(slug);
@@ -54,6 +56,21 @@ export default async function DynamicLandingPage({ params }: PageProps) {
     if (page.htmlContent) {
         return (
             <div className="seo-page-content">
+                {page.imagePath && (
+                    <div className="landing-banner w-full relative h-[400px] md:h-[500px] mb-12">
+                        <img
+                            src={page.imagePath}
+                            alt={page.course}
+                            className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center text-center p-6">
+                            <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">
+                                {page.course} <br />
+                                <span className="text-blue-400">in {page.city}</span>
+                            </h1>
+                        </div>
+                    </div>
+                )}
                 <div dangerouslySetInnerHTML={{ __html: page.htmlContent }} />
             </div>
         );

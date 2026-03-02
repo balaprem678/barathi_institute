@@ -52,14 +52,15 @@ export default function LandingPages() {
         }
     };
 
-    const handleSave = async (data: LandingPageData) => {
+    const handleSave = async (data: FormData) => {
         try {
-            const url = data._id ? `/api/landing-pages/${data._id}` : '/api/landing-pages';
-            const method = data._id ? 'PUT' : 'POST';
+            const id = data.get('_id');
+            const url = id ? `/api/landing-pages/${id}` : '/api/landing-pages';
+            const method = id ? 'PUT' : 'POST';
 
             const res = await AuthService.fetchAuth(url, {
                 method,
-                body: JSON.stringify(data),
+                body: data,
             });
 
             if (!res.ok) {
