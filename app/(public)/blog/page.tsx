@@ -6,6 +6,8 @@ import { Images } from '@/app/utilis/Images';
 import dbConnect from '@/lib/db';
 import Blog from '@/models/Blog';
 
+export const dynamic = 'force-dynamic';
+
 export default async function Blogs() {
   await dbConnect();
   // Fetch active blogs, featured first, then newest
