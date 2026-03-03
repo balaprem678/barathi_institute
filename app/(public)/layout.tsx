@@ -81,7 +81,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
@@ -216,7 +216,7 @@ export default function RootLayout({
           })(window,document,'script','dataLayer','GTM-P7BFZGV9');`}
         </Script>
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <div className="boxed_wrapper">
           <ScriptReinitializer />
           <Preloader />
