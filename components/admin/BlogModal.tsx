@@ -67,28 +67,58 @@ export default function BlogModal({ isOpen, onClose, onSave, initialData }: Blog
     const fileInputRef = useRef<HTMLInputElement>(null);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const editorRef = useRef<HTMLDivElement>(null);
+    const savedSelection = useRef<Range | null>(null);
+
+    const [currentFontSize, setCurrentFontSize] = useState<string>('16');
+    const [currentFontName, setCurrentFontName] = useState<string>('');
+
+    const saveSelection = () => {
+        const selection = window.getSelection();
+        if (selection && selection.rangeCount > 0) {
+            savedSelection.current = selection.getRangeAt(0);
+
+            // Update toolbar states based on cursor position
+            const node = selection.anchorNode;
+            if (node) {
+                const element = node.nodeType === 3 ? node.parentElement : node as HTMLElement;
+                if (element && editorRef.current?.contains(element)) {
+                    const style = window.getComputedStyle(element);
+
+                    if (style.fontSize && style.fontSize.endsWith('px')) {
+                        setCurrentFontSize(style.fontSize.replace('px', ''));
+                    }
+                    if (style.fontFamily) {
+                        const cleanedFont = style.fontFamily.split(',')[0].replace(/['"]/g, '');
+                        setCurrentFontName(cleanedFont);
+                    }
+                }
+            }
+        }
+    };
 
     useEffect(() => {
-        if (initialData) {
-            setFormData(initialData);
-            setAutoSlug(false);
-            setPreviewUrl(initialData.imagePath || '');
-        } else {
-            setFormData(defaultData);
-            setAutoSlug(true);
-            setPreviewUrl('');
-        }
+        const newData = initialData || defaultData;
+        setFormData(newData);
+        setAutoSlug(!initialData);
+        setPreviewUrl(newData.imagePath || '');
         setSelectedImage(null);
         setEditMode('visual');
         setShowFullPreview(false);
+
+        // Sync content to DOM immediately on open/switch
+        if (editorRef.current) {
+            editorRef.current.innerHTML = newData.content || '';
+        }
     }, [initialData, isOpen]);
 
-    // Sync content to visual editor when editMode changes or modal opens
+    // Sync content to visual editor when editMode or full preview changes
     useEffect(() => {
-        if (editMode === 'visual' && editorRef.current) {
-            editorRef.current.innerHTML = formData.content;
+        if (isOpen && editMode === 'visual' && editorRef.current && !showFullPreview) {
+            if (editorRef.current.innerHTML !== formData.content) {
+                editorRef.current.innerHTML = formData.content;
+            }
         }
-    }, [editMode, isOpen, initialData]);
+    }, [editMode, showFullPreview]); // Removed isOpen and initialData to avoid NextJS dependency size sync errors during hot reloads
 
     // Auto-generate slug when title changes
     useEffect(() => {
@@ -153,6 +183,36 @@ export default function BlogModal({ isOpen, onClose, onSave, initialData }: Blog
             const newCursorPos = start + tag.length + selected.length + (closeTag?.length || 0);
             textarea.setSelectionRange(newCursorPos, newCursorPos);
         }, 0);
+    };
+
+    const applyFontSize = (size: string) => {
+        if (editMode === 'visual' && size && editorRef.current) {
+            const selection = window.getSelection();
+
+            // Restore selection if it was lost to the input
+            if (!selection?.rangeCount || !editorRef.current.contains(selection.anchorNode)) {
+                if (savedSelection.current) {
+                    selection?.removeAllRanges();
+                    selection?.addRange(savedSelection.current);
+                }
+            }
+
+            // Temporarily use size 7 to let the browser handle complex HTML splitting
+            document.execCommand('styleWithCSS', false, 'false');
+            document.execCommand('fontSize', false, '7');
+
+            // Swap the generated <font size="7"> tags with spans for custom pixel sizes
+            const fonts = editorRef.current.querySelectorAll('font[size="7"]');
+            fonts.forEach(font => {
+                const span = document.createElement('span');
+                span.style.fontSize = `${size}px`;
+                span.innerHTML = font.innerHTML;
+                font.parentNode?.replaceChild(span, font);
+            });
+
+            handleVisualChange();
+            saveSelection();
+        }
     };
 
     const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -346,7 +406,7 @@ export default function BlogModal({ isOpen, onClose, onSave, initialData }: Blog
                                     </div>
 
                                     {/* Advanced Toolbar Editor */}
-                                    <div className="flex flex-col border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm ring-1 ring-gray-100">
+                                    <div className="flex flex-col border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm ring-1 ring-gray-100 max-h-[600px] h-[600px]">
                                         <div className="bg-gray-50 border-b border-gray-100 p-2 flex flex-wrap items-center gap-1">
                                             {/* Mode Toggle */}
                                             <button
@@ -367,6 +427,57 @@ export default function BlogModal({ isOpen, onClose, onSave, initialData }: Blog
                                                 <button type="button" onClick={() => execCommand('italic')} className="p-2 hover:bg-gray-50 text-gray-600" title="Italic"><Italic className="w-4 h-4" /></button>
                                                 <button type="button" onClick={() => execCommand('underline')} className="p-2 hover:bg-gray-50 text-gray-600" title="Underline"><Underline className="w-4 h-4" /></button>
                                             </div>
+
+                                            <div className="flex items-center bg-white border border-gray-200 rounded-lg shadow-xs px-1">
+                                                <select
+                                                    value={currentFontName}
+                                                    onChange={(e) => {
+                                                        const val = e.target.value;
+                                                        setCurrentFontName(val);
+                                                        execCommand('fontName', val);
+                                                    }}
+                                                    className="p-1 outline-none text-xs text-gray-700 bg-transparent cursor-pointer"
+                                                    title="Font Family"
+                                                >
+                                                    <option value="">Font</option>
+                                                    <option value="Arial">Arial</option>
+                                                    <option value="Times New Roman">Times</option>
+                                                    <option value="Courier New">Courier</option>
+                                                    <option value="Verdana">Verdana</option>
+                                                    <option value="Georgia">Georgia</option>
+                                                </select>
+                                                <div className="w-px h-4 bg-gray-200 mx-1" />
+                                                <div className="flex items-center gap-1" title="Font Size (px)">
+                                                    <input
+                                                        type="number"
+                                                        min="8"
+                                                        max="72"
+                                                        placeholder="Size"
+                                                        value={currentFontSize}
+                                                        onChange={(e) => setCurrentFontSize(e.target.value)}
+                                                        className="w-12 p-1 outline-none text-xs text-gray-700 bg-transparent border border-gray-200 rounded text-center hide-number-spinners"
+                                                        onKeyDown={(e) => {
+                                                            if (e.key === 'Enter') {
+                                                                e.preventDefault();
+                                                                applyFontSize(e.currentTarget.value);
+                                                            }
+                                                        }}
+                                                    />
+                                                    <span className="text-[10px] text-gray-400">px</span>
+                                                </div>
+                                            </div>
+
+                                            <div className="flex items-center bg-white border border-gray-200 rounded-lg shadow-xs px-2 py-1">
+                                                <input type="color" onChange={(e) => execCommand('foreColor', e.target.value)} className="w-5 h-5 cursor-pointer bg-transparent border-none p-0" title="Text Color" />
+                                            </div>
+
+                                            <div className="flex items-center bg-white border border-gray-200 rounded-lg shadow-xs">
+                                                <button type="button" onClick={() => {
+                                                    const url = prompt('Enter link URL:');
+                                                    if (url) execCommand('createLink', url);
+                                                }} className="p-2 hover:bg-gray-50 text-gray-600" title="Add Link"><LinkIcon className="w-4 h-4" /></button>
+                                            </div>
+
 
                                             <div className="flex items-center bg-white border border-gray-200 rounded-lg shadow-xs">
                                                 <button type="button" onClick={() => execCommand('formatBlock', 'h1')} className="p-2 hover:bg-gray-50 text-gray-600" title="Heading 1"><Heading1 className="w-4 h-4" /></button>
@@ -418,8 +529,10 @@ export default function BlogModal({ isOpen, onClose, onSave, initialData }: Blog
                                                 ref={editorRef}
                                                 contentEditable={true}
                                                 onInput={handleVisualChange}
-                                                onBlur={handleVisualChange}
-                                                className="w-full min-h-[400px] p-6 outline-none prose lg:prose-xl max-w-none text-gray-700 font-sans blog-content-body overflow-y-auto"
+                                                onBlur={() => { handleVisualChange(); saveSelection(); }}
+                                                onMouseUp={saveSelection}
+                                                onKeyUp={saveSelection}
+                                                className="w-full flex-1 p-6 outline-none prose lg:prose-xl max-w-none text-gray-700 font-sans blog-content-body overflow-y-auto min-h-0"
                                                 style={{ backgroundColor: '#fff' }}
                                             />
                                         ) : (
@@ -429,8 +542,7 @@ export default function BlogModal({ isOpen, onClose, onSave, initialData }: Blog
                                                 required
                                                 value={formData.content}
                                                 onChange={handleChange}
-                                                rows={16}
-                                                className="w-full min-h-[400px] p-6 text-sm font-mono text-gray-800 bg-gray-50 outline-none resize-none border-none"
+                                                className="w-full flex-1 p-6 text-sm font-mono text-gray-800 bg-gray-50 outline-none resize-none overflow-y-auto border-none min-h-0"
                                                 placeholder="Enter HTML source code here..."
                                                 style={{ backgroundColor: '#fffbe6' }}
                                             />

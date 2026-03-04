@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import dbConnect from '@/lib/db';
 import LandingPage from '@/models/LandingPage';
+import Image from 'next/image';
 import '../locationseo/locationseo.scss';
 
 interface PageProps {
@@ -58,10 +59,12 @@ export default async function DynamicLandingPage({ params }: PageProps) {
             <div className="seo-page-content">
                 {page.imagePath && (
                     <div className="landing-banner w-full relative h-[400px] md:h-[500px] mb-12">
-                        <img
+                        <Image
                             src={page.imagePath}
                             alt={page.course}
-                            className="w-full h-full object-cover"
+                            fill
+                            className="object-cover"
+                            priority
                         />
                         <div className="absolute inset-0 bg-black/40 flex items-center justify-center text-center p-6">
                             <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">
