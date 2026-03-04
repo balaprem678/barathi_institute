@@ -66,12 +66,6 @@ export default async function DynamicLandingPage({ params }: PageProps) {
                             className="object-cover"
                             priority
                         />
-                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center text-center p-6">
-                            <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">
-                                {page.course} <br />
-                                <span className="text-blue-400">in {page.city}</span>
-                            </h1>
-                        </div>
                     </div>
                 )}
                 <div dangerouslySetInnerHTML={{ __html: page.htmlContent }} />
