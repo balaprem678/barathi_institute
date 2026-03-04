@@ -62,7 +62,7 @@ export default async function BlogDetail({ params }: PageProps) {
             </section>
 
             <div className="container py-20">
-                <div className="flex flex-col lg:flex-row gap-16">
+                <div className="flex flex-col lg:flex-row gap-16 my-5">
                     {/* Main Content */}
                     <div className="lg:w-2/3">
                         <article className="blog-post-content">
@@ -72,13 +72,13 @@ export default async function BlogDetail({ params }: PageProps) {
                                         src={blog.imagePath}
                                         alt={blog.title}
                                         fill
-                                        className="object-cover"
+                                        className="object-contain"
                                         priority
                                     />
                                 </div>
                             )}
 
-                            <div className="flex flex-wrap items-center gap-6 mb-8">
+                            <div className="flex flex-wrap items-center gap-6 mb-8 mt-4">
                                 <span className="course-badge-large">
                                     {blog.course || 'Educational'}
                                 </span>

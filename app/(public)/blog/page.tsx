@@ -14,82 +14,85 @@ export default async function Blogs() {
   const blogs = await Blog.find({ isActive: true }).sort({ isFeatured: -1, createdAt: -1 });
 
   return (
-    <div className="blogs header_top">
+    <div className="blogs header_top mb-4">
       <div className="container">
 
-        <div className="header">
+        <div className="headers mb-4">
           <h4>Blogs</h4>
         </div>
 
         {blogs.length === 0 ? (
-          <div className="text-center py-20">
-            <h3 className="text-xl text-gray-500">No blog posts found. Check back soon!</h3>
+          <div className="text-center py-5">
+            <h3 className="text-xl text-muted">
+              No blog posts found. Check back soon!
+            </h3>
           </div>
         ) : (
-          <div className="blog-grid">
+          <div className="row g-4">
             {blogs.map((post) => (
-              <div className="blog-card" key={post._id.toString()}>
-                <div className="card-image">
-                  <div className="image-wrapper">
+              <div
+                className="col-12 col-sm-6 col-md-4"
+                key={post._id.toString()}
+              >
+                <div className="card h-100 shadow-sm">
+
+                  {/* Image Section */}
+                  <div className="position-relative" style={{ height: "220px" }}>
                     {post.imagePath ? (
                       <Image
                         src={post.imagePath}
                         alt={post.title}
                         fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="blog-image"
+                        className="card-img-top object-fit-contain"
                       />
                     ) : (
-                      <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                        <span className="text-gray-400">No Image</span>
+                      <div className="w-100 h-100 bg-light d-flex align-items-center justify-content-center">
+                        <span className="text-muted">No Image</span>
                       </div>
                     )}
-                    <div className="image-overlay">
-                      <span className="course-badge">{post.course || 'Institute'}</span>
-                    </div>
-                  </div>
-                </div>
 
-                <div className="card-content">
-                  <div className="student-info">
-                    <h3 className="student-name">{post.studentName || 'Bharathi Student'}</h3>
-                    <div className="course-info">
-                      <span className="course">{post.course} Student</span>
-                      <span className="duration">{new Date(post.createdAt).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}</span>
-                    </div>
+                    <span className="badge bg-primary position-absolute top-0 start-0 m-2">
+                      {post.course || "Institute"}
+                    </span>
                   </div>
 
-                  <h4 className="blog-title">{post.title}</h4>
+                  {/* Card Body */}
+                  <div className="card-body d-flex flex-column">
 
-                  <div className="content-preview">
-                    <p>{post.content.substring(0, 150).replace(/<[^>]*>?/gm, '')}...</p>
-                  </div>
+                    <h6 className="fw-bold mb-1">
+                      {post.studentName || "Bharathi Student"}
+                    </h6>
 
-                  <div className="card-footer pt-4">
-                    <Link href={`/blog/${post.slug}`} className="read-more-btn w-full justify-center">
+                    <small className="text-muted mb-2">
+                      {post.course} Student •{" "}
+                      {new Date(post.createdAt).toLocaleDateString("en-US", {
+                        month: "short",
+                        year: "numeric",
+                      })}
+                    </small>
+
+                    <h5 className="card-title">{post.title}</h5>
+
+                    <p className="card-text text-muted flex-grow-1">
+                      {post.content
+                        .substring(0, 150)
+                        .replace(/<[^>]*>?/gm, "")}
+                      ...
+                    </p>
+
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className="btn btn-outline-primary mt-auto w-100"
+                    >
                       Read Full Story
                     </Link>
+
                   </div>
                 </div>
               </div>
             ))}
           </div>
         )}
-
-        <div className="cta-section">
-          <div className="cta-content">
-            <h2>Ready to Write Your Success Story?</h2>
-            <p>Join hundreds of successful graduates who started their journey at our institute</p>
-            <div className="cta-buttons">
-              <Link href="/register" className="cta-primary">
-                Apply Now
-              </Link>
-              <Link href="/contact" className="cta-secondary">
-                Book Campus Tour
-              </Link>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );
