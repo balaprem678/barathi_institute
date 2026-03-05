@@ -61,7 +61,7 @@ export default function DegreeCoursesPage() {
 
                             <ul>
                                 <li><strong>Duration:</strong> 3 Years</li>
-                                <li><strong>Eligibility:</strong> 12th Pass</li>
+                                <li><strong>Eligibility:</strong> 12th Pass(Science)</li>
                                 <li><strong>Internship:</strong> Included</li>
                                 <li><strong>Career:</strong> Medical Lab Technician, Pathology Lab Assistant, Diagnostic Center Technician, Research Lab Assistant</li>
                             </ul>
@@ -86,7 +86,7 @@ export default function DegreeCoursesPage() {
 
                             <ul>
                                 <li><strong>Duration:</strong> 3 Years</li>
-                                <li><strong>Eligibility:</strong> 12th Pass</li>
+                                <li><strong>Eligibility:</strong> 12th Pass(Science)</li>
                                 <li><strong>Internship:</strong> Included</li>
                                 <li><strong>Career:</strong>Emergency Medical Technician (EMT), Trauma Care Assistant, Ambulance Technician, Hospital Emergency Staff</li>
                             </ul>
@@ -110,7 +110,7 @@ export default function DegreeCoursesPage() {
 
                             <ul>
                                 <li><strong>Duration:</strong> 3 Years</li>
-                                <li><strong>Eligibility:</strong> 12th Pass</li>
+                                <li><strong>Eligibility:</strong> 12th Pass(Science)</li>
                                 <li><strong>Internship:</strong> Included</li>
                                 <li><strong>Career:</strong>Operation Theatre Assistant, Surgical Technician, Hospital Theatre Staff, Surgical Support Assistant</li>
                             </ul>
