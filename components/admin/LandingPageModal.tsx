@@ -57,6 +57,7 @@ export default function LandingPageModal({ isOpen, onClose, onSave, initialData 
     const [autoSlug, setAutoSlug] = useState(true);
     const [selectedImage, setSelectedImage] = useState<File | null>(null);
     const [previewUrl, setPreviewUrl] = useState<string>('');
+    const [removeImage, setRemoveImage] = useState<boolean>(false);
     const [editMode, setEditMode] = useState<'visual' | 'html'>('visual');
     const [showFullPreview, setShowFullPreview] = useState(false);
 
@@ -96,7 +97,9 @@ export default function LandingPageModal({ isOpen, onClose, onSave, initialData 
         const newData = initialData || defaultData;
         setFormData(newData);
         setAutoSlug(!initialData);
-        setPreviewUrl(newData.imagePath || '');
+        setSelectedImage(null);
+        setPreviewUrl(initialData?.imagePath || '');
+        setRemoveImage(false);
         setEditMode('visual');
         setShowFullPreview(false);
 
@@ -202,11 +205,25 @@ export default function LandingPageModal({ isOpen, onClose, onSave, initialData 
         }
     };
 
+    const handleRemoveImage = () => {
+        setSelectedImage(null);
+        setPreviewUrl('');
+        setFormData(prev => ({ ...prev, imagePath: '' }));
+        setRemoveImage(true);
+        if (fileInputRef.current) {
+            fileInputRef.current.value = '';
+        }
+    };
+
     const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (file) {
             setSelectedImage(file);
             setPreviewUrl(URL.createObjectURL(file));
+            setRemoveImage(false);
+        }
+        if (e.target) {
+            e.target.value = '';
         }
     };
 
@@ -242,6 +259,8 @@ export default function LandingPageModal({ isOpen, onClose, onSave, initialData 
 
             if (selectedImage) {
                 data.append('image', selectedImage);
+            } else if (removeImage) {
+                data.append('removeImage', 'true');
             } else if (formData.imagePath) {
                 data.append('imagePath', formData.imagePath);
             }
@@ -313,7 +332,20 @@ export default function LandingPageModal({ isOpen, onClose, onSave, initialData 
                                             className="relative w-full aspect-video border-2 border-dashed border-gray-300 rounded-xl flex flex-col items-center justify-center cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition-all overflow-hidden bg-gray-50"
                                         >
                                             {previewUrl ? (
-                                                <img src={previewUrl} alt="Preview" className="w-full h-full object-cover" />
+                                                <div className="relative w-full h-full group">
+                                                    <img src={previewUrl} alt="Preview" className="w-full h-full object-cover" />
+                                                    <button
+                                                        type="button"
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            handleRemoveImage();
+                                                        }}
+                                                        className="absolute top-2 right-2 bg-red-500 hover:bg-red-600 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity z-10 shadow-md"
+                                                        title="Remove Image"
+                                                    >
+                                                        <X className="w-4 h-4" />
+                                                    </button>
+                                                </div>
                                             ) : (
                                                 <>
                                                     <ImageIcon className="w-10 h-10 text-gray-400" />

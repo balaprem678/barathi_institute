@@ -3,6 +3,7 @@ import dbConnect from '@/lib/db';
 import LandingPage from '@/models/LandingPage';
 import { writeFile, mkdir, unlink } from 'fs/promises';
 import path from 'path';
+import sharp from 'sharp';
 
 // Get individual landing page by ID or Slug
 export async function GET(
@@ -60,7 +61,7 @@ export async function PUT(
             },
             imagePath: (() => {
                 const img = formData.get('imagePath') as string;
-                if (img && img !== 'undefined' && img !== 'null' && img !== 'undefined' && img !== '') return img;
+                if (img && img !== 'undefined' && img !== 'null' && img !== '') return img;
                 return existingPage.imagePath;
             })()
         };
@@ -79,12 +80,29 @@ export async function PUT(
             }
 
             const buffer = Buffer.from(await file.arrayBuffer());
-            const fileName = Date.now() + '_' + file.name.replace(/\s+/g, '_');
+            const baseName = file.name.replace(/\.[^/.]+$/, "").replace(/\s+/g, '_');
+            const fileName = `${Date.now()}_${baseName}.webp`;
             const uploadDir = path.resolve(process.cwd(), 'public/uploads/landing-pages');
 
             await mkdir(uploadDir, { recursive: true });
-            await writeFile(path.join(uploadDir, fileName), buffer);
+
+            // Compress and convert to webp
+            const optimizedBuffer = await sharp(buffer)
+                .webp({ quality: 80 })
+                .toBuffer();
+
+            await writeFile(path.join(uploadDir, fileName), optimizedBuffer);
             body.imagePath = `/uploads/landing-pages/${fileName}`;
+        } else if (formData.get('removeImage') === 'true') {
+            body.imagePath = '';
+            if (existingPage.imagePath) {
+                try {
+                    const oldPath = path.resolve(process.cwd(), 'public', existingPage.imagePath.startsWith('/') ? existingPage.imagePath.substring(1) : existingPage.imagePath);
+                    await unlink(oldPath);
+                } catch (err) {
+                    console.error('Error deleting old image during removal:', err);
+                }
+            }
         }
 
         console.log('Update Body imagePath:', body.imagePath);

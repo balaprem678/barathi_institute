@@ -3,6 +3,7 @@ import dbConnect from '@/lib/db';
 import LandingPage from '@/models/LandingPage';
 import { writeFile, mkdir } from 'fs/promises';
 import path from 'path';
+import sharp from 'sharp';
 
 export async function GET(req: Request) {
     try {
@@ -70,11 +71,18 @@ export async function POST(req: Request) {
         console.log('Check Image File:', file ? { name: file.name, size: file.size, type: file.type } : 'No file');
         if (file && file.size > 0) {
             const buffer = Buffer.from(await file.arrayBuffer());
-            const fileName = Date.now() + '_' + file.name.replace(/\s+/g, '_');
+            const baseName = file.name.replace(/\.[^/.]+$/, "").replace(/\s+/g, '_');
+            const fileName = `${Date.now()}_${baseName}.webp`;
             const uploadDir = path.resolve(process.cwd(), 'public/uploads/landing-pages');
 
             await mkdir(uploadDir, { recursive: true });
-            await writeFile(path.join(uploadDir, fileName), buffer);
+
+            // Compress and convert to webp
+            const optimizedBuffer = await sharp(buffer)
+                .webp({ quality: 80 })
+                .toBuffer();
+
+            await writeFile(path.join(uploadDir, fileName), optimizedBuffer);
             body.imagePath = `/uploads/landing-pages/${fileName}`;
         }
 

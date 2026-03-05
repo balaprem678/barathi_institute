@@ -3,6 +3,7 @@ import dbConnect from '@/lib/db';
 import Blog from '@/models/Blog';
 import { writeFile, mkdir, unlink } from 'fs/promises';
 import path from 'path';
+import sharp from 'sharp';
 
 // Get individual blog by ID or Slug
 export async function GET(req: Request, { params }: { params: Promise<{ id: string }> }) {
@@ -62,12 +63,24 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
             }
 
             const buffer = Buffer.from(await file.arrayBuffer());
-            const fileName = Date.now() + '_' + file.name.replace(/\s+/g, '_');
+            const baseName = file.name.replace(/\.[^/.]+$/, "").replace(/\s+/g, '_');
+            const fileName = `${Date.now()}_${baseName}.webp`;
             const uploadDir = path.resolve(process.cwd(), 'public/uploads/blogs');
 
             await mkdir(uploadDir, { recursive: true });
-            await writeFile(path.join(uploadDir, fileName), buffer);
+            const optimizedBuffer = await sharp(buffer).webp({ quality: 80 }).toBuffer();
+            await writeFile(path.join(uploadDir, fileName), optimizedBuffer);
             body.imagePath = `/uploads/blogs/${fileName}`;
+        } else if (formData.get('removeImage') === 'true') {
+            body.imagePath = '';
+            if (existingBlog.imagePath) {
+                try {
+                    const oldPath = path.resolve(process.cwd(), 'public', existingBlog.imagePath.startsWith('/') ? existingBlog.imagePath.substring(1) : existingBlog.imagePath);
+                    await unlink(oldPath);
+                } catch (err) {
+                    console.error('Error deleting old image during removal:', err);
+                }
+            }
         }
 
         const updatedBlog = await Blog.findByIdAndUpdate(id, body, { new: true });
