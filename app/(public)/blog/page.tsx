@@ -44,6 +44,7 @@ export default async function Blogs() {
                         alt={post.title}
                         fill
                         className="card-img-top object-fit-contain"
+                        unoptimized
                       />
                     ) : (
                       <div className="w-100 h-100 bg-light d-flex align-items-center justify-content-center">

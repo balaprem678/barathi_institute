@@ -65,6 +65,7 @@ export default async function DynamicLandingPage({ params }: PageProps) {
                             fill
                             className="object-cover"
                             priority
+                            unoptimized
                         />
                     </div>
                 )}
