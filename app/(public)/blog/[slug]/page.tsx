@@ -74,6 +74,7 @@ export default async function BlogDetail({ params }: PageProps) {
                                         fill
                                         className="object-contain"
                                         priority
+                                        unoptimized
                                     />
                                 </div>
                             )}
@@ -130,6 +131,7 @@ export default async function BlogDetail({ params }: PageProps) {
                                                         alt={recent.title}
                                                         fill
                                                         className="object-cover"
+                                                        unoptimized
                                                     />
                                                 ) : (
                                                     <div className="no-image-text">

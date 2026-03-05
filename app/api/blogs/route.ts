@@ -3,6 +3,7 @@ import dbConnect from '@/lib/db';
 import Blog from '@/models/Blog';
 import { writeFile, mkdir } from 'fs/promises';
 import path from 'path';
+import sharp from 'sharp';
 
 // Public GET - fetch all active blogs, sorted by isFeatured then date
 export async function GET(req: Request) {
@@ -51,7 +52,8 @@ export async function POST(req: Request) {
         const file = formData.get('image') as File;
         if (file && file.size > 0) {
             const buffer = Buffer.from(await file.arrayBuffer());
-            const fileName = Date.now() + '_' + file.name.replace(/\s+/g, '_');
+            const baseName = file.name.replace(/\.[^/.]+$/, "").replace(/\s+/g, '_');
+            const fileName = `${Date.now()}_${baseName}.webp`;
             const uploadDir = path.resolve(process.cwd(), 'public/uploads/blogs');
 
             console.log('--- Upload Check ---');
@@ -59,7 +61,8 @@ export async function POST(req: Request) {
             console.log('Working directory:', process.cwd());
 
             await mkdir(uploadDir, { recursive: true });
-            await writeFile(path.join(uploadDir, fileName), buffer);
+            const optimizedBuffer = await sharp(buffer).webp({ quality: 80 }).toBuffer();
+            await writeFile(path.join(uploadDir, fileName), optimizedBuffer);
             body.imagePath = `/uploads/blogs/${fileName}`;
             console.log('Image saved successfully as:', body.imagePath);
         }
