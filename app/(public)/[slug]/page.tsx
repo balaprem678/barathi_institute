@@ -55,7 +55,7 @@ export default async function DynamicLandingPage({ params }: PageProps) {
 
     if (page.htmlContent) {
         return (
-            <div className="seo-page-content">
+            <div className="seo-page-content 1">
                 {page.imagePath && (
                     <div className="landing-banner w-full relative h-[400px] md:h-[500px] mb-12">
                         <img

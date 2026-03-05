@@ -334,7 +334,7 @@ const Locations = () => {
                     </div>
                     <div className="stat-divider"></div>
                     <div className="stat-item">
-                        <div className="stat-number">15+</div>
+                        <div className="stat-number">20+</div>
                         <div className="stat-label">Years Experience</div>
                     </div>
                 </div>

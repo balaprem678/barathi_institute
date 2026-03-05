@@ -195,7 +195,7 @@ export default function DiplomaCoursesPage() {
                                 </p>
                                 <ul>
                                     <li><strong>Duration:</strong> 1 – 2 Years</li>
-                                    <li><strong>Eligibility:</strong> 12th Pass (Science Preferred)</li>
+                                    <li><strong>Eligibility:</strong> 12th Pass</li>
                                     <li><strong>Training:</strong> Lab Practical Training</li>
                                     <li><strong>Career:</strong> Lab Technician, Pathology Assistant</li>
                                 </ul>

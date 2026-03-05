@@ -102,7 +102,7 @@ export default function Placements() {
 
                     <div className="stats">
                         <div className="stat-card">
-                            <h3>15+</h3>
+                            <h3>20+</h3>
                             <span>Years Experience</span>
                         </div>
 

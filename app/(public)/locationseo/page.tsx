@@ -2,7 +2,7 @@ import React from 'react'
 import "./locationseo.scss"
 export default function Locationseo() {
     return (
-        <div className="seo-page-content">
+        <div className="seo-page-content 2">
             <div>
                 <section className="hero">
                     <h1>

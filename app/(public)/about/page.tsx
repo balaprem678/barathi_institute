@@ -290,6 +290,13 @@ export default function About() {
                         </div>
                     ) : (
                         <div className="row desktop-view">
+                            <div className="col-12">
+                                   <h2 className="section-title"><b>About Bharathi Institute</b></h2>
+                                <p>Bharathi Educational Institution was started in 2005 at Karaikudi, Sivagangai District. It was founded to meet the growing need for skilled and qualified professionals. Our goal is to provide quality, skill-based education and create good career opportunities for students, especially those from rural and semi-urban areas.
+                                </p>
+
+                                  <p>After the success of our Karaikudi center, we slowly expanded to other places based on student demand. Today, Bharathi Institute proudly runs 18 branches across Tamil Nadu, helping students build successful careers in Hotel Management and Paramedical courses.</p>
+                            </div>
                             <div className="col-md-6 col-sm-12">
                                 <div className="about-image">
                                     <Image
@@ -302,7 +309,9 @@ export default function About() {
                                 </div>
                             </div>
                             <div className="col-md-6 col-sm-12">
-                                <h2 className="section-title"><b>About Bharathi Institute</b></h2>
+                             
+
+                              
                                 <div className="accordion-container">
                                     {mainAccordion.map((item) => (
                                         <div className="accordion-item" key={item.id}>
