@@ -1,19 +1,17 @@
-import PageBreadcrumb from '@/components/PageBreadcrumb';
 import { AccordionItem } from '@/components/AccordionItem';
 import Link from 'next/link';
 import React from 'react';
+import { Images } from '@/app/utilis/Images';
+
 
 export default function ParamedicalPage() {
     return (
         <>
-            <PageBreadcrumb
-                bgImage="/images/medical.jpg"
-                breadcrumbs={[
-                    { label: 'Home', url: '/' },
-                    { label: 'Courses', url: '/courses' },
-                    { label: 'Paramedical Course' }
-                ]}
-            />
+
+            <section className="banner_section our_courses_banner">
+                <img src={Images.our_courses_banner.src} alt="Degree Courses Banner" />
+                <h1>Paramedical Course</h1>
+            </section>
 
             <section className="default-section faq sec-padd6">
                 <div className="container">

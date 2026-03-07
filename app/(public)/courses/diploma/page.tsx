@@ -37,7 +37,7 @@ export default function DiplomaCoursesPage() {
 
                                 <ul>
                                     <li><strong>Duration:</strong> 1 – 2 Years</li>
-                                    <li><strong>Eligibility:</strong> 10th / 12th Pass</li>
+                                    <li><strong>Eligibility:</strong> 8th Pass, 10th / 12th Pass / Fail / Discontinued</li>
                                     <li><strong>Training:</strong> Practical & Industrial Exposure</li>
                                     <li><strong>Career:</strong> Hotel Supervisor, Front Office Executive, Restaurant Manager</li>
                                 </ul>
@@ -65,7 +65,7 @@ export default function DiplomaCoursesPage() {
 
                                 <ul>
                                     <li><strong>Duration:</strong> 1 Year</li>
-                                    <li><strong>Eligibility:</strong> 10th / 12th Pass</li>
+                                    <li><strong>Eligibility:</strong> 8th Pass, 10th / 12th Pass / Fail / Discontinued</li>
                                     <li><strong>Training:</strong> Kitchen Practical Sessions</li>
                                     <li><strong>Career:</strong> Chef, Commis Chef, Kitchen Executive</li>
                                 </ul>
@@ -90,7 +90,7 @@ export default function DiplomaCoursesPage() {
                                 </p>
                                 <ul>
                                     <li><strong>Duration:</strong> 1 Year</li>
-                                    <li><strong>Eligibility:</strong> 10th / 12th Pass</li>
+                                    <li><strong>Eligibility:</strong>8th Pass, 10th / 12th Pass / Fail / Discontinued</li>
                                     <li><strong>Training:</strong> Restaurant Practical Training</li>
                                     <li><strong>Career:</strong> Steward, Banquet Executive, Restaurant Supervisor</li>
                                 </ul>
@@ -111,7 +111,7 @@ export default function DiplomaCoursesPage() {
                                 </p>
                                 <ul>
                                     <li><strong>Duration:</strong> 1 Year</li>
-                                    <li><strong>Eligibility:</strong> 10th / 12th Pass</li>
+                                    <li><strong>Eligibility:</strong>8th Pass, 10th / 12th Pass / Fail / Discontinued</li>
                                     <li><strong>Training:</strong> Practical Exposure</li>
                                     <li><strong>Career:</strong> Housekeeping Supervisor, Room Attendant</li>
                                 </ul>
@@ -133,7 +133,7 @@ export default function DiplomaCoursesPage() {
                                 </p>
                                 <ul>
                                     <li><strong>Duration:</strong> 1 Year</li>
-                                    <li><strong>Eligibility:</strong> 10th / 12th Pass</li>
+                                    <li><strong>Eligibility:</strong>8th Pass, 10th / 12th Pass / Fail / Discontinued</li>
                                     <li><strong>Training:</strong> Front Desk Practical Training</li>
                                     <li><strong>Career:</strong> Receptionist, Front Office Executive</li>
                                 </ul>
@@ -154,7 +154,7 @@ export default function DiplomaCoursesPage() {
                                 </p>
                                 <ul>
                                     <li><strong>Duration:</strong> 1 Year</li>
-                                    <li><strong>Eligibility:</strong> 10th / 12th Pass</li>
+                                    <li><strong>Eligibility:</strong>8th Pass, 10th / 12th Pass / Fail / Discontinued</li>
                                     <li><strong>Training:</strong> Bakery Lab Practice</li>
                                     <li><strong>Career:</strong> Baker, Pastry Chef, Cake Designer</li>
                                 </ul>
@@ -175,7 +175,7 @@ export default function DiplomaCoursesPage() {
                                 </p>
                                 <ul>
                                     <li><strong>Duration:</strong> 1 – 2 Years</li>
-                                    <li><strong>Eligibility:</strong> 10th / 12th Pass</li>
+                                    <li><strong>Eligibility:</strong>8th Pass, 10th / 12th Pass / Fail / Discontinued</li>
                                     <li><strong>Training:</strong> Hospital Internship</li>
                                     <li><strong>Career:</strong> Nursing Assistant, Ward Assistant</li>
                                 </ul>
@@ -195,7 +195,7 @@ export default function DiplomaCoursesPage() {
                                 </p>
                                 <ul>
                                     <li><strong>Duration:</strong> 1 – 2 Years</li>
-                                    <li><strong>Eligibility:</strong> 12th Pass (Science Preferred)</li>
+                                    <li><strong>Eligibility:</strong>8th Pass, 10th / 12th Pass / Fail / Discontinued</li>
                                     <li><strong>Training:</strong> Lab Practical Training</li>
                                     <li><strong>Career:</strong> Lab Technician, Pathology Assistant</li>
                                 </ul>
@@ -215,7 +215,7 @@ export default function DiplomaCoursesPage() {
                                 </p>
                                 <ul>
                                     <li><strong>Duration:</strong> 1 Year</li>
-                                    <li><strong>Eligibility:</strong> 10th / 12th Pass</li>
+                                    <li><strong>Eligibility:</strong> 8th Pass, 10th / 12th Pass / Fail / Discontinued</li>
                                     <li><strong>Training:</strong> Healthcare Practical Exposure</li>
                                     <li><strong>Career:</strong> Health Assistant, Clinic Staff, Community Worker</li>
                                 </ul>

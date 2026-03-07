@@ -307,7 +307,7 @@ export default function LandingPageModal({ isOpen, onClose, onSave, initialData 
                                 <span className="text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Live Rendering</span>
                             </div>
                             <div className="flex-1 overflow-y-auto p-8">
-                                <div className="seo-page-content">
+                                <div className="seo-page-content 3">
                                     {previewUrl && (
                                         <div className="mb-6 rounded-xl overflow-hidden shadow-sm">
                                             <img src={previewUrl} alt="Banner" className="w-full h-auto object-cover max-h-[400px]" />

@@ -194,16 +194,13 @@ export default function Home() {
       <section className="default-section sec-padd3 about_section_home" style={{ padding: '40px 0' }}>
         <div className="container">
           <div className="row aic">
+            <div className="section-title">
+              <h3 style={{ color: '#333', fontSize: '32px', fontWeight: '700', marginBottom: '15px' }}>Welcome to Bharathi Institute</h3>
+            </div>
+              <p style={{ textAlign:'center', marginBottom: '30px' }}>
+                With more than 21 years of excellence, Bharathi Institute has established a remarkable reputation in Hotel Management and Paramedical courses in Tamil Nadu. At Bharathi Institute, we not only educate students in class but also train them practically to equip them for actual careers. Today, we are proud to operate 18 branches in Tamil Nadu.
+              </p>
             <div className="col-md-7 col-sm-12">
-              <div className="section-title">
-                <h3 style={{ color: '#333', fontSize: '32px', fontWeight: '700', marginBottom: '15px' }}>Welcome to Bharathi Institute</h3>
-              </div>
-
-              <div className="text">
-                <p style={{ textAlign: 'justify', marginBottom: '30px' }}>
-                  With more than 21 years of excellence, Bharathi Institute has established a remarkable reputation in Hotel Management and Paramedical courses in Tamil Nadu. At Bharathi Institute, we not only educate students in class but also train them practically to equip them for actual careers. Today, we are proud to operate 18 branches in Tamil Nadu.
-                </p>
-
                 <div className="row">
                   {features.map((feature, index) => (
                     <div className="col-lg-4 col-md-6" key={index} style={{ marginBottom: '20px' }}>
@@ -226,21 +223,6 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-
-                {/* <div className="read_more_bt mt-2" style={{ marginTop: '20px' }}>
-                  <Link href="/aboutus" style={{
-                    display: 'inline-block',
-                    background: '#b4d903',
-                    color: '#333',
-                    padding: '10px 25px',
-                    borderRadius: '5px',
-                    textDecoration: 'none',
-                    fontWeight: '600'
-                  }}>
-                    Explore Our Story
-                  </Link>
-                </div> */}
-              </div>
             </div>
 
             <div className="col-md-5 col-sm-12">

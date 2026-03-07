@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import PageBreadcrumb from '@/components/PageBreadcrumb';
+import { Images } from '@/app/utilis/Images';
 import './hotal_management.scss';
 
 const courses = [
@@ -41,14 +41,11 @@ const courses = [
 export default function HotelManagementPage() {
   return (
     <>
-      <PageBreadcrumb
-        bgImage="/images/hotelmanagaement.jpg"
-        breadcrumbs={[
-          { label: 'Home', url: '/' },
-          { label: 'Courses', url: '/courses' },
-          { label: 'Hotel Management Course' }
-        ]}
-      />
+
+      <section className="banner_section our_courses_banner">
+        <img src={Images.our_courses_banner.src} alt="Degree Courses Banner" />
+        <h1>Hotal Management Courses</h1>
+      </section>
 
       <section className="hotel-modern">
         <div className="container">
