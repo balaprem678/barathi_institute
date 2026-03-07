@@ -8,7 +8,41 @@ import sharp from 'sharp';
 export async function GET(req: Request) {
     try {
         await dbConnect();
-        // Fetch all landing pages, sorted by creation date
+
+        const { searchParams } = new URL(req.url);
+        const page = parseInt(searchParams.get('page') || '0');
+        const limit = parseInt(searchParams.get('limit') || '0');
+        const search = searchParams.get('search') || '';
+
+        // Determine if we should paginate (Admin) or return all (Public)
+        if (page > 0 && limit > 0) {
+            const query: any = {};
+            if (search) {
+                query.$or = [
+                    { slug: { $regex: search, $options: 'i' } },
+                    { city: { $regex: search, $options: 'i' } },
+                    { course: { $regex: search, $options: 'i' } }
+                ];
+            }
+
+            const total = await LandingPage.countDocuments(query);
+            const totalPages = Math.ceil(total / limit);
+
+            const pages = await LandingPage.find(query)
+                .select('-htmlContent') // Exclude heavy field for admin lists
+                .sort({ createdAt: -1 })
+                .skip((page - 1) * limit)
+                .limit(limit);
+
+            return NextResponse.json({
+                data: pages,
+                totalPages,
+                currentPage: page,
+                totalEntries: total
+            });
+        }
+
+        // Default behavior (no pagination provided)
         const pages = await LandingPage.find({}).sort({ createdAt: -1 });
         return NextResponse.json(pages);
     } catch (error) {

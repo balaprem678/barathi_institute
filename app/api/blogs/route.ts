@@ -5,10 +5,44 @@ import { writeFile, mkdir } from 'fs/promises';
 import path from 'path';
 import sharp from 'sharp';
 
-// Public GET - fetch all active blogs, sorted by isFeatured then date
 export async function GET(req: Request) {
     try {
         await dbConnect();
+
+        const { searchParams } = new URL(req.url);
+        const page = parseInt(searchParams.get('page') || '0');
+        const limit = parseInt(searchParams.get('limit') || '0');
+        const search = searchParams.get('search') || '';
+
+        // Determine if we should paginate (Admin) or return all active (Public)
+        if (page > 0 && limit > 0) {
+            const query: any = {};
+            if (search) {
+                query.$or = [
+                    { title: { $regex: search, $options: 'i' } },
+                    { course: { $regex: search, $options: 'i' } },
+                    { studentName: { $regex: search, $options: 'i' } }
+                ];
+            }
+
+            const total = await Blog.countDocuments(query);
+            const totalPages = Math.ceil(total / limit);
+
+            const blogs = await Blog.find(query)
+                .select('-content') // Exclude heavy field for admin lists
+                .sort({ createdAt: -1 })
+                .skip((page - 1) * limit)
+                .limit(limit);
+
+            return NextResponse.json({
+                data: blogs,
+                totalPages,
+                currentPage: page,
+                totalEntries: total
+            });
+        }
+
+        // Default behavior (Public) - fetch all active blogs
         const blogs = await Blog.find({ isActive: true }).sort({ isFeatured: -1, createdAt: -1 });
         return NextResponse.json(blogs);
     } catch (error) {

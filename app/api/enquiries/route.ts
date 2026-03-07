@@ -86,7 +86,40 @@ export async function GET(req: Request) {
             return NextResponse.json({ message: 'Failed to authenticate token' }, { status: 500 });
         }
 
-        // Fetch enquiries
+        const { searchParams } = new URL(req.url);
+        const page = parseInt(searchParams.get('page') || '0');
+        const limit = parseInt(searchParams.get('limit') || '0');
+        const search = searchParams.get('search') || '';
+
+        // Determine if we should paginate (Admin) or return all
+        if (page > 0 && limit > 0) {
+            const query: any = {};
+            if (search) {
+                query.$or = [
+                    { name: { $regex: search, $options: 'i' } },
+                    { email: { $regex: search, $options: 'i' } },
+                    { phone: { $regex: search, $options: 'i' } },
+                    { course: { $regex: search, $options: 'i' } }
+                ];
+            }
+
+            const total = await Enquiry.countDocuments(query);
+            const totalPages = Math.ceil(total / limit);
+
+            const enquiries = await Enquiry.find(query)
+                .sort({ createdAt: -1 })
+                .skip((page - 1) * limit)
+                .limit(limit);
+
+            return NextResponse.json({
+                data: enquiries,
+                totalPages,
+                currentPage: page,
+                totalEntries: total
+            });
+        }
+
+        // Fetch all enquiries by default
         const enquiries = await Enquiry.find().sort({ createdAt: -1 });
         return NextResponse.json(enquiries);
 
