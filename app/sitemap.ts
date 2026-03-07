@@ -3,6 +3,8 @@ import dbConnect from '@/lib/db'
 import LandingPage from '@/models/LandingPage'
 import Blog from '@/models/Blog'
 
+export const dynamic = 'force-dynamic';
+
 const BASE_URL = 'https://bharathiinstitutes.com'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
