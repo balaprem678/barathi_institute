@@ -25,7 +25,53 @@ export async function GET(req: Request) {
             return NextResponse.json({ message: 'Failed to authenticate token' }, { status: 500 });
         }
 
-        // Fetch students
+        const { searchParams } = new URL(req.url);
+        const page = parseInt(searchParams.get('page') || '0');
+        const limit = parseInt(searchParams.get('limit') || '0');
+        const search = searchParams.get('search') || '';
+        const startDate = searchParams.get('startDate');
+        const endDate = searchParams.get('endDate');
+
+        // Determine if we should paginate (Admin) or return all
+        if (page > 0 && limit > 0) {
+            const query: any = {};
+
+            if (search) {
+                query.$or = [
+                    { name: { $regex: search, $options: 'i' } },
+                    { email: { $regex: search, $options: 'i' } },
+                    { phone: { $regex: search, $options: 'i' } },
+                    { course: { $regex: search, $options: 'i' } }
+                ];
+            }
+
+            if (startDate && endDate) {
+                const start = new Date(startDate);
+                const end = new Date(endDate);
+                end.setHours(23, 59, 59, 999);
+                query.createdAt = {
+                    $gte: start,
+                    $lte: end
+                };
+            }
+
+            const total = await Student.countDocuments(query);
+            const totalPages = Math.ceil(total / limit);
+
+            const students = await Student.find(query)
+                .sort({ createdAt: -1 })
+                .skip((page - 1) * limit)
+                .limit(limit);
+
+            return NextResponse.json({
+                data: students,
+                totalPages,
+                currentPage: page,
+                totalEntries: total
+            });
+        }
+
+        // Fetch all students by default
         const students = await Student.find().sort({ createdAt: -1 });
         return NextResponse.json(students);
 

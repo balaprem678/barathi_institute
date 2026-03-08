@@ -19,62 +19,55 @@ interface Student {
 
 export default function StudentsPage() {
     const [students, setStudents] = useState<Student[]>([]);
-    const [filteredStudents, setFilteredStudents] = useState<Student[]>([]);
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
+    const [totalEntries, setTotalEntries] = useState(0);
 
     // Date Filter State
     const [showDateFilter, setShowDateFilter] = useState(false);
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
 
-    useEffect(() => {
-        const fetchStudents = async () => {
-            try {
-                const res = await AuthService.fetchAuth('/api/students');
-                if (res.ok) {
-                    const data = await res.json();
-                    setStudents(data);
-                    setFilteredStudents(data);
-                }
-            } catch (error) {
-                console.error('Error fetching students:', error);
-            } finally {
-                setLoading(false);
+    const fetchStudents = async (page = 1, search = '', start = '', end = '') => {
+        try {
+            setLoading(true);
+            let queryUrl = `/api/students?page=${page}&limit=10&search=${encodeURIComponent(search)}`;
+            if (start && end) {
+                queryUrl += `&startDate=${encodeURIComponent(start)}&endDate=${encodeURIComponent(end)}`;
             }
-        };
-        fetchStudents();
-    }, []);
+
+            const res = await AuthService.fetchAuth(queryUrl);
+            if (res.ok) {
+                const data = await res.json();
+                if (data.data) {
+                    setStudents(data.data);
+                    setTotalPages(data.totalPages);
+                    setCurrentPage(data.currentPage);
+                    setTotalEntries(data.totalEntries);
+                } else {
+                    setStudents(data);
+                }
+            }
+        } catch (error) {
+            console.error('Error fetching students:', error);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     useEffect(() => {
-        let results = students;
+        const timer = setTimeout(() => {
+            fetchStudents(currentPage, searchTerm, startDate, endDate);
+        }, 500);
+        return () => clearTimeout(timer);
+    }, [currentPage, searchTerm, startDate, endDate]);
 
-        // Apply Search
-        if (searchTerm) {
-            const lowerTerm = searchTerm.toLowerCase();
-            results = results.filter(student =>
-                student.name.toLowerCase().includes(lowerTerm) ||
-                student.email.toLowerCase().includes(lowerTerm) ||
-                student.phone.includes(searchTerm) ||
-                student.course.toLowerCase().includes(lowerTerm)
-            );
-        }
-
-        // Apply Date Filter
-        if (startDate && endDate) {
-            const start = new Date(startDate);
-            const end = new Date(endDate);
-            // Set end date to end of day
-            end.setHours(23, 59, 59, 999);
-
-            results = results.filter(student => {
-                const studentDate = new Date(student.createdAt);
-                return studentDate >= start && studentDate <= end;
-            });
-        }
-
-        setFilteredStudents(results);
-    }, [searchTerm, startDate, endDate, students]);
+    const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchTerm(e.target.value);
+        setCurrentPage(1);
+    };
 
     const clearDateFilter = () => {
         setStartDate('');
@@ -100,9 +93,9 @@ export default function StudentsPage() {
                         <input
                             type="text"
                             className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 sm:text-sm transition duration-150 ease-in-out"
-                            placeholder="Search students..."
+                            placeholder="Search students by name, email, phone or course..."
                             value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
+                            onChange={handleSearchChange}
                         />
                     </div>
                     <div className="flex space-x-2 w-full sm:w-auto">
@@ -189,8 +182,8 @@ export default function StudentsPage() {
                             </tr>
                         </thead>
                         <tbody className="bg-white divide-y divide-gray-200">
-                            {filteredStudents.length > 0 ? (
-                                filteredStudents.map((student) => (
+                            {students.length > 0 ? (
+                                students.map((student) => (
                                     <tr key={student._id} className="hover:bg-gray-50 transition-colors">
                                         <td className="px-6 py-4 whitespace-nowrap">
                                             <div className="text-sm font-medium text-gray-900">{student.name}</div>
@@ -241,6 +234,47 @@ export default function StudentsPage() {
                             )}
                         </tbody>
                     </table>
+
+                    {/* Pagination UI */}
+                    {!loading && totalPages > 1 && (
+                        <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+                            <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                                <div>
+                                    <p className="text-sm text-gray-700">
+                                        Showing page <span className="font-medium">{currentPage}</span> of <span className="font-medium">{totalPages}</span>
+                                        {' '}(<span className="font-medium">{totalEntries}</span> total entries)
+                                    </p>
+                                </div>
+                                <div>
+                                    <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                                        <button
+                                            onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                                            disabled={currentPage === 1}
+                                            className={`relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium ${currentPage === 1 ? 'text-gray-300 cursor-not-allowed' : 'text-gray-500 hover:bg-gray-50'}`}
+                                        >
+                                            Previous
+                                        </button>
+                                        {[...Array(totalPages)].map((_, idx) => (
+                                            <button
+                                                key={idx + 1}
+                                                onClick={() => setCurrentPage(idx + 1)}
+                                                className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium ${currentPage === idx + 1 ? 'z-10 bg-blue-50 border-blue-500 text-blue-600' : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50'}`}
+                                            >
+                                                {idx + 1}
+                                            </button>
+                                        ))}
+                                        <button
+                                            onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                                            disabled={currentPage === totalPages}
+                                            className={`relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium ${currentPage === totalPages ? 'text-gray-300 cursor-not-allowed' : 'text-gray-500 hover:bg-gray-50'}`}
+                                        >
+                                            Next
+                                        </button>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

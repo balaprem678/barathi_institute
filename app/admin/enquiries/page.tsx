@@ -23,34 +23,47 @@ export default function EnquiriesPage() {
     const [enquiries, setEnquiries] = useState<Enquiry[]>([]);
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
+    const [totalEntries, setTotalEntries] = useState(0);
     const [selectedEnquiry, setSelectedEnquiry] = useState<Enquiry | null>(null);
 
-    useEffect(() => {
-        const fetchEnquiries = async () => {
-            try {
-                const res = await AuthService.fetchAuth('/api/enquiries');
-                if (res.ok) {
-                    const data = await res.json();
-                    setEnquiries(data);
+    const fetchEnquiries = async (page = 1, search = '') => {
+        try {
+            setLoading(true);
+            const res = await AuthService.fetchAuth(`/api/enquiries?page=${page}&limit=10&search=${encodeURIComponent(search)}`);
+            if (res.ok) {
+                const data = await res.json();
+                if (data.data) {
+                    setEnquiries(data.data);
+                    setTotalPages(data.totalPages);
+                    setCurrentPage(data.currentPage);
+                    setTotalEntries(data.totalEntries);
                 } else {
-                    const errorData = await res.json().catch(() => ({}));
-                    console.error('Failed to fetch enquiries:', res.status, res.statusText, errorData);
+                    setEnquiries(data);
                 }
-            } catch (error) {
-                console.error('Error fetching enquiries:', error);
-            } finally {
-                setLoading(false);
+            } else {
+                const errorData = await res.json().catch(() => ({}));
+                console.error('Failed to fetch enquiries:', res.status, res.statusText, errorData);
             }
-        };
+        } catch (error) {
+            console.error('Error fetching enquiries:', error);
+        } finally {
+            setLoading(false);
+        }
+    };
 
-        fetchEnquiries();
-    }, []);
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            fetchEnquiries(currentPage, searchTerm);
+        }, 500);
+        return () => clearTimeout(timer);
+    }, [currentPage, searchTerm]);
 
-    const filteredEnquiries = enquiries.filter(enquiry =>
-        enquiry.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        enquiry.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        enquiry.phone.includes(searchTerm)
-    );
+    const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchTerm(e.target.value);
+        setCurrentPage(1);
+    };
 
     if (loading) {
         return <div className="p-8 text-center text-gray-500">Loading enquiries...</div>;
@@ -64,10 +77,10 @@ export default function EnquiriesPage() {
                 <div className="relative w-full sm:w-64">
                     <input
                         type="text"
-                        placeholder="Search enquiries..."
+                        placeholder="Search enquiries by name, email, phone or course..."
                         value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                        className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        onChange={handleSearchChange}
+                        className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
                     />
                     <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
                 </div>
@@ -96,8 +109,8 @@ export default function EnquiriesPage() {
                             </tr>
                         </thead>
                         <tbody className="bg-white divide-y divide-gray-200">
-                            {filteredEnquiries.length > 0 ? (
-                                filteredEnquiries.map((enquiry) => (
+                            {enquiries.length > 0 ? (
+                                enquiries.map((enquiry) => (
                                     <tr key={enquiry._id} className="hover:bg-gray-50 transition-colors">
                                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                             <div className="flex items-center">
@@ -148,6 +161,47 @@ export default function EnquiriesPage() {
                             )}
                         </tbody>
                     </table>
+
+                    {/* Pagination UI */}
+                    {!loading && totalPages > 1 && (
+                        <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+                            <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                                <div>
+                                    <p className="text-sm text-gray-700">
+                                        Showing page <span className="font-medium">{currentPage}</span> of <span className="font-medium">{totalPages}</span>
+                                        {' '}(<span className="font-medium">{totalEntries}</span> total entries)
+                                    </p>
+                                </div>
+                                <div>
+                                    <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                                        <button
+                                            onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                                            disabled={currentPage === 1}
+                                            className={`relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium ${currentPage === 1 ? 'text-gray-300 cursor-not-allowed' : 'text-gray-500 hover:bg-gray-50'}`}
+                                        >
+                                            Previous
+                                        </button>
+                                        {[...Array(totalPages)].map((_, idx) => (
+                                            <button
+                                                key={idx + 1}
+                                                onClick={() => setCurrentPage(idx + 1)}
+                                                className={`relative inline-flex items-center px-4 py-2 border text-sm font-medium ${currentPage === idx + 1 ? 'z-10 bg-blue-50 border-blue-500 text-blue-600' : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50'}`}
+                                            >
+                                                {idx + 1}
+                                            </button>
+                                        ))}
+                                        <button
+                                            onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                                            disabled={currentPage === totalPages}
+                                            className={`relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium ${currentPage === totalPages ? 'text-gray-300 cursor-not-allowed' : 'text-gray-500 hover:bg-gray-50'}`}
+                                        >
+                                            Next
+                                        </button>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
 
