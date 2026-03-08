@@ -58,7 +58,7 @@ export default async function DynamicLandingPage({ params }: PageProps) {
         return (
             <div className="seo-page-content 1">
                 {page.imagePath && (
-                    <div className="landing-banner w-full relative h-[400px] md:h-[500px] mb-12">
+                    <div className="landing-banner w-full relative mb-12">
                         <Image
                             src={page.imagePath}
                             alt={page.course}

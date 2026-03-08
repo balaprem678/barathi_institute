@@ -70,6 +70,15 @@
         }
     }
 
+    .landing-banner {
+        width: unset !important;
+        height: unset !important;
+
+        img {
+            position: unset !important;
+        }
+    }
+
     /* MOBILE */
     @media (max-width: 768px) {
         .hero {
