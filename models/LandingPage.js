@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 
 const landingPageSchema = new mongoose.Schema({
     slug: { type: String, required: true, unique: true },
+    title: { type: String },
     city: { type: String, required: true },
     course: { type: String, required: true },
     imagePath: { type: String },

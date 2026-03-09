@@ -20,6 +20,7 @@ interface SEO {
 export interface LandingPageData {
     _id?: string;
     slug: string;
+    title?: string;
     city: string;
     course: string;
     imagePath?: string;
@@ -44,6 +45,7 @@ const defaultSEO: SEO = {
 
 const defaultData: LandingPageData = {
     slug: '',
+    title: '',
     city: '',
     course: '',
     htmlContent: '',
@@ -247,6 +249,7 @@ export default function LandingPageModal({ isOpen, onClose, onSave, initialData 
             const data = new FormData();
             if (formData._id) data.append('_id', formData._id);
             data.append('slug', formData.slug);
+            data.append('title', formData.title || '');
             data.append('city', formData.city);
             data.append('course', formData.course);
             data.append('htmlContent', formData.htmlContent);
@@ -379,6 +382,17 @@ export default function LandingPageModal({ isOpen, onClose, onSave, initialData 
                                                 onChange={handleChange}
                                                 className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none"
                                                 placeholder="e.g. Hotel Management"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Display Title (Overlay)</label>
+                                            <input
+                                                type="text"
+                                                name="title"
+                                                value={formData.title || ''}
+                                                onChange={handleChange}
+                                                className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                                                placeholder="e.g. Learn Hotel Management in Chennai"
                                             />
                                         </div>
                                         <div className="flex flex-col space-y-3 pt-2">
