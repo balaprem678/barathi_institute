@@ -1,16 +1,36 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { Lock, User, Eye, EyeOff, Loader2 } from 'lucide-react';
 import { AuthService } from '@/services/authService';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, Suspense } from 'react';
+import { useNotification } from '@/context/NotificationContext';
 
 export default function AdminLogin() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <LoginForm />
+        </Suspense>
+    );
+}
+
+function LoginForm() {
     const router = useRouter();
+    const searchParams = useSearchParams();
+    const { showNotification } = useNotification();
+    const isExpired = searchParams.get('expired') === 'true';
+
     const [credentials, setCredentials] = useState({ username: '', password: '' });
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
+
+    useEffect(() => {
+        if (isExpired) {
+            showNotification('error', 'Your session has expired. Please login again.');
+        }
+    }, [isExpired, showNotification]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value });

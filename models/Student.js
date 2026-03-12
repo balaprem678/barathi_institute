@@ -10,6 +10,7 @@ const studentSchema = new mongoose.Schema({
     dob: { type: Date },
     qualification: { type: String },
     yearOfPassing: { type: String },
+    message: { type: String },
     markSheetPath: { type: String }, // Path to uploaded file
     createdAt: { type: Date, default: Date.now }
 });

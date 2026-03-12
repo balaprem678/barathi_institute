@@ -76,14 +76,14 @@ export async function GET(req: Request) {
         // Verification
         const authHeader = req.headers.get('authorization');
         if (!authHeader || !authHeader.startsWith('Bearer ')) {
-            return NextResponse.json({ message: 'No token provided' }, { status: 403 });
+            return NextResponse.json({ message: 'No token provided' }, { status: 401 });
         }
 
         const token = authHeader.split(' ')[1];
         const decoded = verifyToken(token);
 
         if (!decoded) {
-            return NextResponse.json({ message: 'Failed to authenticate token' }, { status: 500 });
+            return NextResponse.json({ message: 'Failed to authenticate token' }, { status: 401 });
         }
 
         const { searchParams } = new URL(req.url);
