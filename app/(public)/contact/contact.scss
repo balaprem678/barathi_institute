@@ -548,7 +548,7 @@
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
       border-radius: 20px;
-        padding: 40px 20px;
+      padding: 40px 20px;
 
 
       .info-grid {
@@ -770,10 +770,53 @@
 
     .map-preview-section {
       .map-container {
+
         iframe,
         .map-placeholder {
           height: 300px !important;
         }
+      }
+    }
+  }
+}
+
+.branch-links {
+  display: flex;
+  gap: 8px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+
+  .branch-btn {
+    color: #fff;
+    cursor: pointer;
+    border-radius: 6px;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    flex: 1;
+    text-decoration: none;
+    transition: all .3s;
+    display: inline-flex;
+
+    &:nth-child(1) {
+      background: linear-gradient(135deg, #ff8c00, #ff5a00);
+
+      &:hover {
+        background: linear-gradient(135deg, #ff5a00, #e04800);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(255, 90, 0, 0.3);
+      }
+    }
+
+    &:nth-child(2) {
+      background: linear-gradient(135deg, #0077b6, #005f8e);
+
+      &:hover {
+        background: linear-gradient(135deg, #005f8e, #004c73);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0, 119, 182, 0.3);
       }
     }
   }

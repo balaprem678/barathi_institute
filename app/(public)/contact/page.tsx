@@ -15,16 +15,22 @@ interface Branch {
     mobile?: string;
     mapSrc?: string;
     name?: string;
-}
+    links: string[]
 
+}
 const branches: Branch[] = [
     {
         id: 1,
         img: "/assets/new_images/contactus/location_1.jpg",
-        address: "No.95, Rajaji Road, Near Vasan Eye Care Hospital, Tambaram, Chennai – 600 0045",
+        address:
+            "No.95, Rajaji Road, Near Vasan Eye Care Hospital, Tambaram, Chennai – 600045",
         mobile: "+91 - 9444120052",
         mapSrc: "https://maps.app.goo.gl/hdMvtqr1je9R1bEa8",
-        name: "Tambaram Branch"
+        name: "Tambaram Branch",
+        links: [
+            "https://bharathiinstitutes.com/paramedical-course-in-chennai",
+            "https://bharathiinstitutes.com/hotel-management-course-in-chennai"
+        ]
     },
     {
         id: 2,
@@ -32,16 +38,24 @@ const branches: Branch[] = [
         address: "No.29, GNG Colony, Varatharajapuram, Ambattur, Chennai – 600 0053",
         mobile: "+91 - 9444120052",
         mapSrc: "https://maps.app.goo.gl/8q8MJyzVonLdmdEf6",
-        name: "Ambattur Branch"
+        name: "Ambattur Branch",
+        links: [
+            "https://bharathiinstitutes.com/paramedical-course-in-chennai",
+            "https://bharathiinstitutes.com/hotel-management-course-in-chennai"
+        ]
     },
-  
+
     {
         id: 3,
         img: "/assets/new_images/contactus/location_3.jpg",
         address: "No.9, M.B.T. Road, Navalpur, Vimal Shopping Complex, Ranipet – 632 402",
         mobile: "+91 - 9444320052",
         mapSrc: "https://maps.app.goo.gl/aC8c8b9DRLbHi8E37",
-        name: "Ranipet Branch"
+        name: "Ranipet Branch",
+        links: [
+            "https://bharathiinstitutes.com/paramedical-course-in-vellore",
+            "https://bharathiinstitutes.com/hotel-management-course-in-vellore"
+        ]
     },
     {
         id: 4,
@@ -49,7 +63,11 @@ const branches: Branch[] = [
         address: "No.104, S.K. Road, Dr.Nagaraj Hospital (2ndFl oor), Krishnapuram, Ambur -635 802",
         mobile: "+91 - 9442100056",
         mapSrc: "https://maps.app.goo.gl/FNhnY3L5HQUrYmZQ9",
-        name: "Ambur Branch"
+        name: "Ambur Branch",
+        links: [
+            "https://bharathiinstitutes.com/paramedical-course-in-vellore",
+            "https://bharathiinstitutes.com/hotel-management-course-in-vellore"
+        ]
     },
     {
         id: 5,
@@ -57,7 +75,11 @@ const branches: Branch[] = [
         address: "No.793, Nerhuji Road, Indian Bank Upstairs, Villupuram-605 602",
         mobile: "+91 - 9444120052",
         mapSrc: "https://maps.app.goo.gl/nE2u8PHRSuiQqV9E8",
-        name: "Villupuram Branch"
+        name: "Villupuram Branch",
+        links: [
+            "https://bharathiinstitutes.com/paramedical-course-in-villupuram",
+            "https://bharathiinstitutes.com/hotel-management-course-in-villupuram"
+        ]
     },
     {
         id: 6,
@@ -65,7 +87,11 @@ const branches: Branch[] = [
         address: "No.5, Good Shed Street, Near Sethupathi School, Madurai – 625 001",
         mobile: "+91 - 94439 17155",
         mapSrc: "https://maps.app.goo.gl/BfkyoBs7s7Ferj779",
-        name: "Madurai Branch"
+        name: "Madurai Branch",
+        links: [
+            "https://bharathiinstitutes.com/paramedical-course-in-madurai",
+            "https://bharathiinstitutes.com/hotel-management-course-in-madurai"
+        ]
     },
     {
         id: 7,
@@ -73,7 +99,11 @@ const branches: Branch[] = [
         address: "No.47, Ramal Residence, Mudiyarasan Salai, Karaikudi – 630 002",
         mobile: "+91 - 94439 17155",
         mapSrc: "https://maps.app.goo.gl/fJFKPvUB8n5bevHn9",
-        name: "Karaikudi Branch"
+        name: "Karaikudi Branch",
+        links: [
+            "https://bharathiinstitutes.com/paramedical-course-in-karaikudi",
+            "https://bharathiinstitutes.com/hotel-management-course-in-karaikudi"
+        ]
     },
     {
         id: 8,
@@ -81,7 +111,11 @@ const branches: Branch[] = [
         address: "No.25, S.N.Chavadi Road, K.V.Tex Near, SRG Tours, Cuddalore.",
         mobile: "+91 - 9787898991",
         mapSrc: "https://maps.app.goo.gl/rSewiS9Cxv19PLWm6",
-        name: "Cuddalore Branch"
+        name: "Cuddalore Branch",
+        links: [
+            "https://bharathiinstitutes.com/paramedical-course-in-cuddalore",
+            "https://bharathiinstitutes.com/hotel-management-course-in-cuddalore"
+        ]
     },
     {
         id: 9,
@@ -89,7 +123,11 @@ const branches: Branch[] = [
         address: "No.171, Hindu Nadar Sangam Complex, S N High Road, Tirunelveli Junction, Tirunelveli - 627 001",
         mobile: "+91 - 9443917155",
         mapSrc: "https://maps.app.goo.gl/AXZEyqA2nSsDcsTN6",
-        name: "Tirunelveli Branch"
+        name: "Tirunelveli Branch",
+        links: [
+            "https://bharathiinstitutes.com/paramedical-course-in-tirunelveli",
+            "https://bharathiinstitutes.com/hotel-management-course-in-tirunelveli"
+        ]
     },
     {
         id: 10,
@@ -97,7 +135,11 @@ const branches: Branch[] = [
         address: "No. 36/12, Vellalar Street, Ragavan Complex, TMB Bank 2nd Floor, Ariyalur - 621704",
         mobile: "+91 - 9787898991",
         mapSrc: "https://maps.app.goo.gl/ykkiQ9U56ExFGQeA7",
-        name: "Ariyalur Branch"
+        name: "Ariyalur Branch",
+        links: [
+            "https://bharathiinstitutes.com/paramedical-course-in-ariyalur",
+            "https://bharathiinstitutes.com/hotel-management-course-in-ariyalur"
+        ]
     },
     {
         id: 11,
@@ -105,7 +147,11 @@ const branches: Branch[] = [
         address: "No. 29-B, IDA SCUDDAR Road, 3rd Floor, Jambubala Complex, Vellore - 632004",
         mobile: "+91 - 9444120052",
         mapSrc: "https://maps.app.goo.gl/9wsZi2vP8eDjjHr48",
-        name: "Vellore Branch"
+        name: "Vellore Branch",
+        links: [
+            "https://bharathiinstitutes.com/paramedical-course-in-vellore",
+            "https://bharathiinstitutes.com/hotel-management-course-in-vellore"
+        ]
     },
     {
         id: 12,
@@ -113,7 +159,11 @@ const branches: Branch[] = [
         address: "No.15/5, Pollur Main Road, Near Axis Bank, Thiruvannamalai – 606 601",
         mobile: "+91 - 9444320052",
         mapSrc: "https://maps.app.goo.gl/FvjBfMHPSNwNvRji9",
-        name: "Tiruvannamalai Branch"
+        name: "Tiruvannamalai Branch",
+        links: [
+            "https://bharathiinstitutes.com/paramedical-course-in-tiruvannamalai",
+            "https://bharathiinstitutes.com/hotel-management-course-in-tiruvannamalai"
+        ]
     },
     {
         id: 13,
@@ -121,7 +171,11 @@ const branches: Branch[] = [
         address: "No.17 A, Ulagalandhar Mada Street, Near Aruna Mahal, Big Kanchipuram, Kanchipuram – 6631 502",
         mobile: "+91 - 9787438991",
         mapSrc: "https://maps.app.goo.gl/2kmgGsjFz7bXCd4c7",
-        name: "Kanchipuram Branch"
+        name: "Kanchipuram Branch",
+        links: [
+            "https://bharathiinstitutes.com/paramedical-course-in-kanchipuram",
+            "https://bharathiinstitutes.com/hotel-management-course-in-kanchipuram"
+        ]
     },
     {
         id: 14,
@@ -129,7 +183,11 @@ const branches: Branch[] = [
         address: "No.59, 3rd floor, Gopuram towers, Dhurugam Road, Kallakurichi - 606202",
         mobile: "+91 - 9655363236",
         mapSrc: "https://maps.app.goo.gl/VjKnau8mmnx8JwdV8",
-        name: "Kallakurichi Branch"
+        name: "Kallakurichi Branch",
+        links: [
+            "https://bharathiinstitutes.com/paramedical-course-in-kallakuruchi",
+            "https://bharathiinstitutes.com/hotel-management-course-in-kallakuruchi"
+        ]
     },
     {
         id: 15,
@@ -137,7 +195,11 @@ const branches: Branch[] = [
         address: "No 10, LGB compound, E.B colony, Near Anil semiya head office, Dindigul 624001",
         mobile: "+91 - 9655363236",
         mapSrc: "https://maps.app.goo.gl/ydMKXp65HDRN6x8J6",
-        name: "Dindigul Branch"
+        name: "Dindigul Branch",
+        links: [
+            "https://bharathiinstitutes.com/paramedical-course-in-dindigul",
+             "https://bharathiinstitutes.com/hotel-management-course-in-dindigul"
+        ]
     },
     {
         id: 16,
@@ -145,15 +207,22 @@ const branches: Branch[] = [
         address: "No.14/1,SMPDA Chambers, LIC Colony,New Bus Stand ,Salem – 636 004",
         mobile: "+91 - 9442100056",
         mapSrc: "https://maps.app.goo.gl/QYuPPLspxHNSHtTS6",
-        name: "Salem Branch"
+        name: "Salem Branch",
+        links: [
+            "https://bharathiinstitutes.com/paramedical-course-in-salem", 
+            "https://bharathiinstitutes.com/hotel-management-course-in-salem"
+        ]
     },
     {
         id: 17,
         img: "/assets/new_images/contactus/location_1.jpg",
         address: "25, Nandhi Koil St, Theppakulam, Tiruchirappalli, Tamil Nadu 620002",
-        mobile: "+91 - 9442100056", 
+        mobile: "+91 - 9442100056",
         mapSrc: "https://maps.app.goo.gl/do6UvCi8M5HxQM3t7",
-        name: "Tiruchirappalli Branch"
+        name: "Tiruchirappalli Branch",
+        links: [
+            "", ""
+        ]
     },
     {
         id: 18,
@@ -161,11 +230,15 @@ const branches: Branch[] = [
         address: "No.108, Thambuchetti Street, Kalikammbal Kovil Opp. Broadway, Chennai - 600 001",
         mobile: "+91 - 9444120052",
         mapSrc: "https://maps.app.goo.gl/H9h6te5PTyphXaARA",
-        name: "Broadway Branch"
+        name: "Broadway Branch",
+        links: [
+            "https://bharathiinstitutes.com/paramedical-course-in-chennai",
+            "https://bharathiinstitutes.com/hotel-management-course-in-chennai"
+        ]
     },
 ];
 
-export default function ContactPage() {
+export default function Contact() {
     const [activeCity, setActiveCity] = useState<string>('all');
     const [searchQuery, setSearchQuery] = useState<string>('');
 
@@ -358,6 +431,24 @@ export default function ContactPage() {
                                             )}
                                         </div>
 
+                                        <div className="branch-links">
+                                            <a
+                                                href={branch.links[0]}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="branch-btn"
+                                            >
+                                                Paramedical Courses
+                                            </a>
+
+                                            <a href={branch.links[1]}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="branch-btn"
+                                            >
+                                                Hotel Management
+                                            </a>
+                                        </div>
                                         <div className="branch-actions">
                                             {branch.mapSrc ? (
                                                 <a
