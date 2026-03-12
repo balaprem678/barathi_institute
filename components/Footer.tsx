@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import "./footer.scss";
+import { FaMapMarkerAlt } from "react-icons/fa";
 import { Images } from '@/app/utilis/Images';
 
 const Footer = () => {
@@ -63,9 +64,10 @@ const Footer = () => {
                                 ></iframe> */}
                                 <img src={Images.overallmap.src} alt="Overall Map" />
                             </div>
+                           
                         </div>
                     </div>
-                </div>
+                </div>        
             </section>
 
             <div className="border"></div>
