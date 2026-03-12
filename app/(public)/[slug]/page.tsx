@@ -57,8 +57,8 @@ export default async function DynamicLandingPage({ params }: PageProps) {
     if (page.htmlContent) {
         return (
             <div className="seo-page-content 1">
-                {page.imagePath && (
-                    <div className="landing-banner w-full relative mb-12">
+                {page.imagePath ? (
+                    <div className="landing-banner w-full relative h-[400px] md:h-[500px] mb-12">
                         <Image
                             src={page.imagePath}
                             alt={page.course}
@@ -67,8 +67,21 @@ export default async function DynamicLandingPage({ params }: PageProps) {
                             priority
                             unoptimized
                         />
+                        {page.title && (
+                            <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 text-center px-4">
+                                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-md max-w-4xl">
+                                    {page.title}
+                                </h1>
+                            </div>
+                        )}
                     </div>
-                )}
+                ) : page.title ? (
+                    <div className="bg-gradient-to-r from-blue-700 to-indigo-900 py-16 px-4 text-center mb-12">
+                        <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow-sm max-w-4xl mx-auto">
+                            {page.title}
+                        </h1>
+                    </div>
+                ) : null}
                 <div dangerouslySetInnerHTML={{ __html: page.htmlContent }} />
             </div>
         );

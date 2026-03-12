@@ -49,6 +49,7 @@ export async function PUT(
 
         const body: any = {
             slug: formData.get('slug') as string,
+            title: formData.get('title') as string,
             city: formData.get('city') as string,
             course: formData.get('course') as string,
             htmlContent: formData.get('htmlContent') as string,
