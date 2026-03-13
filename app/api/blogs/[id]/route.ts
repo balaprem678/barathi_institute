@@ -4,6 +4,7 @@ import Blog from '@/models/Blog';
 import { writeFile, mkdir, unlink } from 'fs/promises';
 import path from 'path';
 import sharp from 'sharp';
+import { verifyToken } from '@/lib/auth';
 
 // Get individual blog by ID or Slug
 export async function GET(req: Request, { params }: { params: Promise<{ id: string }> }) {
@@ -26,6 +27,17 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
 export async function PUT(req: Request, { params }: { params: Promise<{ id: string }> }) {
     try {
         await dbConnect();
+
+        // Auth check
+        const authHeader = req.headers.get('authorization');
+        if (!authHeader || !authHeader.startsWith('Bearer ')) {
+            return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
+        }
+        const token = authHeader.split(' ')[1];
+        if (!verifyToken(token)) {
+            return NextResponse.json({ message: 'Invalid token' }, { status: 401 });
+        }
+
         const { id } = await params;
         const formData = await req.formData();
 
@@ -96,6 +108,17 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
 export async function DELETE(req: Request, { params }: { params: Promise<{ id: string }> }) {
     try {
         await dbConnect();
+
+        // Auth check
+        const authHeader = req.headers.get('authorization');
+        if (!authHeader || !authHeader.startsWith('Bearer ')) {
+            return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
+        }
+        const token = authHeader.split(' ')[1];
+        if (!verifyToken(token)) {
+            return NextResponse.json({ message: 'Invalid token' }, { status: 401 });
+        }
+
         const { id } = await params;
 
         const blog = await Blog.findById(id);

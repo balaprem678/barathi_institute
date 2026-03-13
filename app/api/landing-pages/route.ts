@@ -4,6 +4,7 @@ import LandingPage from '@/models/LandingPage';
 import { writeFile, mkdir } from 'fs/promises';
 import path from 'path';
 import sharp from 'sharp';
+import { verifyToken } from '@/lib/auth';
 
 export async function GET(req: Request) {
     try {
@@ -58,6 +59,10 @@ export async function POST(req: Request) {
         const authHeader = req.headers.get('authorization');
         if (!authHeader || !authHeader.startsWith('Bearer ')) {
             return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
+        }
+        const token = authHeader.split(' ')[1];
+        if (!verifyToken(token)) {
+            return NextResponse.json({ message: 'Invalid token' }, { status: 401 });
         }
 
         const formData = await req.formData();

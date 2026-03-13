@@ -69,13 +69,13 @@ export default function AdminLayout({
                 <title>Admin Panel | Bharathi Institute</title>
             </head>
             <body className="bg-gray-50 text-gray-900 font-sans antialiased" suppressHydrationWarning>
-                {isLoginPage ? (
-                    <div className="flex bg-gray-100 min-h-screen items-center justify-center">
-                        {children}
-                    </div>
-                ) : (
-                    <div className="flex h-screen overflow-hidden">
-                        <NotificationProvider>
+                <NotificationProvider>
+                    {isLoginPage ? (
+                        <div className="flex bg-gray-100 min-h-screen items-center justify-center">
+                            {children}
+                        </div>
+                    ) : (
+                        <div className="flex h-screen overflow-hidden">
                             {/* Sidebar */}
                             <AdminSidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
 
@@ -88,9 +88,9 @@ export default function AdminLayout({
                                     {children}
                                 </main>
                             </div>
-                        </NotificationProvider>
-                    </div>
-                )}
+                        </div>
+                    )}
+                </NotificationProvider>
             </body>
         </html>
     );

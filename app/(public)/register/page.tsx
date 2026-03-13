@@ -4,10 +4,11 @@ import { useState, useEffect } from 'react';
 import './register.scss';
 import { useNotification } from '@/context/NotificationContext';
 import { useFormPersistence } from '@/context/useFormPersistence';
-import { useMemo } from 'react';
+import { useMemo, useRef } from 'react';
 
 export default function Register() {
     const { showNotification } = useNotification();
+    const fileInputRef = useRef<HTMLInputElement>(null);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -148,6 +149,9 @@ export default function Register() {
                 setFormData({
                     name: '', email: '', phone: '', qualification: '', yearOfPassing: '', course: '', message: '', location: '', captcha: '', file: null
                 });
+                if (fileInputRef.current) {
+                    fileInputRef.current.value = '';
+                }
             } else {
                 showNotification('error', 'Failed to submit form. Please try again.');
             }
@@ -249,7 +253,7 @@ export default function Register() {
                                         <div className="col-md-12 col-sm-12 col-xs-12">
                                             <div className="form-group">
                                                 <label htmlFor="fileUpload">Upload Marksheet:</label>
-                                                <input type="file" name="file" id="fileUpload" className="form-control" required onChange={handleFileChange} />
+                                                <input type="file" name="file" id="fileUpload" className="form-control" required onChange={handleFileChange} ref={fileInputRef} />
                                             </div>
                                         </div>
                                         {/* Message Box */}

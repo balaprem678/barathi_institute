@@ -17,10 +17,10 @@ export const AuthService = {
         }
     },
 
-    logout: () => {
+    logout: (isExpired = false) => {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
-        window.location.href = '/admin/login';
+        window.location.href = isExpired ? '/admin/login?expired=true' : '/admin/login';
     },
 
     getToken: () => {
@@ -52,7 +52,7 @@ export const AuthService = {
         const res = await fetch(url, { ...options, headers });
 
         if (res.status === 401 || res.status === 403) {
-            AuthService.logout();
+            AuthService.logout(true);
             throw new Error('Session expired');
         }
 

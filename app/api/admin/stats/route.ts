@@ -15,7 +15,7 @@ export async function GET(req: Request) {
         // Verify token (optional strictly here if middleware handles it, but good practice)
         const token = authHeader.split(' ')[1];
         const decoded = verifyToken(token);
-        if (!decoded) return NextResponse.json({ message: 'Invalid Token' }, { status: 403 });
+        if (!decoded) return NextResponse.json({ message: 'Invalid Token' }, { status: 401 });
 
 
         const now = new Date();

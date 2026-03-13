@@ -15,14 +15,14 @@ export async function GET(req: Request) {
         // Verification
         const authHeader = req.headers.get('authorization');
         if (!authHeader || !authHeader.startsWith('Bearer ')) {
-            return NextResponse.json({ message: 'No token provided' }, { status: 403 });
+            return NextResponse.json({ message: 'No token provided' }, { status: 401 });
         }
 
         const token = authHeader.split(' ')[1];
         const decoded = verifyToken(token);
 
         if (!decoded) {
-            return NextResponse.json({ message: 'Failed to authenticate token' }, { status: 500 });
+            return NextResponse.json({ message: 'Failed to authenticate token' }, { status: 401 });
         }
 
         const { searchParams } = new URL(req.url);
@@ -99,11 +99,22 @@ export async function POST(req: Request) {
                 name: formData.get('name'),
                 email: formData.get('email'),
                 phone: formData.get('phone'),
-                course: formData.get('course'), // Maps to 'subject' in form
+                qualification: formData.get('qualification') || '',
+                yearOfPassing: formData.get('yearOfPassing') || '',
+                location: formData.get('location') || '',
+                course: formData.get('course'),
+                message: formData.get('message') || '',
                 address: formData.get('address') || '',
                 dob: formData.get('dob') || null,
-                qualification: formData.get('qualification') || '',
             };
+
+            // Basic Validation
+            const requiredFields = ['name', 'email', 'phone', 'course', 'qualification', 'yearOfPassing', 'location'];
+            for (const field of requiredFields) {
+                if (!body[field]) {
+                    return NextResponse.json({ message: `Missing required field: ${field}` }, { status: 400 });
+                }
+            }
 
             const file = formData.get('file') as File;
             if (file) {
