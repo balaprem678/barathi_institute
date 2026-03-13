@@ -21,7 +21,7 @@ interface Branch {
 const branches: Branch[] = [
     {
         id: 1,
-        img: "/assets/new_images/contactus/location_1.jpg",
+        img: "/assets/new_images/contactus/",
         address:
             "No.95, Rajaji Road, Near Vasan Eye Care Hospital, Tambaram, Chennai – 600045",
         mobile: "+91 - 9444120052",
@@ -59,7 +59,7 @@ const branches: Branch[] = [
     },
     {
         id: 4,
-        img: "/assets/new_images/contactus/location_4.jpg",
+        img: "/assets/new_images/contactus/location_4.jpeg",
         address: "No.104, S.K. Road, Dr.Nagaraj Hospital (2ndFl oor), Krishnapuram, Ambur -635 802",
         mobile: "+91 - 9442100056",
         mapSrc: "https://maps.app.goo.gl/FNhnY3L5HQUrYmZQ9",
@@ -83,7 +83,7 @@ const branches: Branch[] = [
     },
     {
         id: 6,
-        img: "/assets/new_images/contactus/location_6.jpg",
+        img: "/assets/new_images/contactus/",
         address: "No.5, Good Shed Street, Near Sethupathi School, Madurai – 625 001",
         mobile: "+91 - 94439 17155",
         mapSrc: "https://maps.app.goo.gl/BfkyoBs7s7Ferj779",
@@ -95,7 +95,7 @@ const branches: Branch[] = [
     },
     {
         id: 7,
-        img: "/assets/new_images/contactus/location_7.jpg",
+        img: "/assets/new_images/contactus/",
         address: "No.47, Ramal Residence, Mudiyarasan Salai, Karaikudi – 630 002",
         mobile: "+91 - 94439 17155",
         mapSrc: "https://maps.app.goo.gl/fJFKPvUB8n5bevHn9",
@@ -107,7 +107,7 @@ const branches: Branch[] = [
     },
     {
         id: 8,
-        img: "/assets/new_images/contactus/location_9.jpg",
+        img: "/assets/new_images/contactus/",
         address: "No.25, S.N.Chavadi Road, K.V.Tex Near, SRG Tours, Cuddalore.",
         mobile: "+91 - 9787898991",
         mapSrc: "https://maps.app.goo.gl/rSewiS9Cxv19PLWm6",
@@ -119,7 +119,7 @@ const branches: Branch[] = [
     },
     {
         id: 9,
-        img: "/assets/new_images/contactus/location_10.jpg",
+        img: "/assets/new_images/contactus/",
         address: "No.171, Hindu Nadar Sangam Complex, S N High Road, Tirunelveli Junction, Tirunelveli - 627 001",
         mobile: "+91 - 9443917155",
         mapSrc: "https://maps.app.goo.gl/AXZEyqA2nSsDcsTN6",
@@ -131,7 +131,7 @@ const branches: Branch[] = [
     },
     {
         id: 10,
-        img: "/assets/new_images/contactus/location_11.jpg",
+        img: "/assets/new_images/contactus/location_10.jpg",
         address: "No. 36/12, Vellalar Street, Ragavan Complex, TMB Bank 2nd Floor, Ariyalur - 621704",
         mobile: "+91 - 9787898991",
         mapSrc: "https://maps.app.goo.gl/ykkiQ9U56ExFGQeA7",
@@ -143,7 +143,7 @@ const branches: Branch[] = [
     },
     {
         id: 11,
-        img: "/assets/new_images/contactus/location_13.jpg",
+        img: "/assets/new_images/contactus/location_11.jpeg",
         address: "No. 29-B, IDA SCUDDAR Road, 3rd Floor, Jambubala Complex, Vellore - 632004",
         mobile: "+91 - 9444120052",
         mapSrc: "https://maps.app.goo.gl/9wsZi2vP8eDjjHr48",
@@ -155,7 +155,7 @@ const branches: Branch[] = [
     },
     {
         id: 12,
-        img: "/assets/new_images/contactus/location_6.jpg",
+        img: "/assets/new_images/contactus/location_12.jpg",
         address: "No.15/5, Pollur Main Road, Near Axis Bank, Thiruvannamalai – 606 601",
         mobile: "+91 - 9444320052",
         mapSrc: "https://maps.app.goo.gl/FvjBfMHPSNwNvRji9",
@@ -167,7 +167,7 @@ const branches: Branch[] = [
     },
     {
         id: 13,
-        img: "/assets/new_images/contactus/location_7.jpg",
+        img: "/assets/new_images/contactus/",
         address: "No.17 A, Ulagalandhar Mada Street, Near Aruna Mahal, Big Kanchipuram, Kanchipuram – 6631 502",
         mobile: "+91 - 9787438991",
         mapSrc: "https://maps.app.goo.gl/2kmgGsjFz7bXCd4c7",
@@ -179,7 +179,7 @@ const branches: Branch[] = [
     },
     {
         id: 14,
-        img: "/assets/new_images/contactus/location_1.jpg",
+        img: "/assets/new_images/contactus/location_14.jpg",
         address: "No.59, 3rd floor, Gopuram towers, Dhurugam Road, Kallakurichi - 606202",
         mobile: "+91 - 9655363236",
         mapSrc: "https://maps.app.goo.gl/VjKnau8mmnx8JwdV8",
@@ -191,7 +191,7 @@ const branches: Branch[] = [
     },
     {
         id: 15,
-        img: "/assets/new_images/contactus/location_1.jpg",
+        img: "/assets/new_images/contactus/location_15.jpg",
         address: "No 10, LGB compound, E.B colony, Near Anil semiya head office, Dindigul 624001",
         mobile: "+91 - 9655363236",
         mapSrc: "https://maps.app.goo.gl/ydMKXp65HDRN6x8J6",
@@ -203,7 +203,7 @@ const branches: Branch[] = [
     },
     {
         id: 16,
-        img: "/assets/new_images/contactus/location_1.jpg",
+        img: "/assets/new_images/contactus/location_16.jpg",
         address: "No.14/1,SMPDA Chambers, LIC Colony,New Bus Stand ,Salem – 636 004",
         mobile: "+91 - 9442100056",
         mapSrc: "https://maps.app.goo.gl/QYuPPLspxHNSHtTS6",
@@ -215,7 +215,7 @@ const branches: Branch[] = [
     },
     {
         id: 17,
-        img: "/assets/new_images/contactus/location_1.jpg",
+        img: "/assets/new_images/contactus/location_17.jpg",
         address: "25, Nandhi Koil St, Theppakulam, Tiruchirappalli, Tamil Nadu 620002",
         mobile: "+91 - 9442100056",
         mapSrc: "https://maps.app.goo.gl/do6UvCi8M5HxQM3t7",
@@ -226,7 +226,7 @@ const branches: Branch[] = [
     },
     {
         id: 18,
-        img: "/assets/new_images/contactus/location_2.jpg",
+        img: "/assets/new_images/contactus/location_18.jpg",
         address: "No.108, Thambuchetti Street, Kalikammbal Kovil Opp. Broadway, Chennai - 600 001",
         mobile: "+91 - 9444120052",
         mapSrc: "https://maps.app.goo.gl/H9h6te5PTyphXaARA",
