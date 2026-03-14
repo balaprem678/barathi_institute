@@ -151,26 +151,6 @@ import gallery60 from '../../public/assets/new_images/gallery/gallery_60.png'
 
 
 // Contactus Page Images Import Here
-
-import location_1 from '../../public/assets/new_images/contactus/location_1.png';
-import location_2 from '../../public/assets/new_images/contactus/location_2.jpg';
-import location_3 from '../../public/assets/new_images/contactus/location_3.jpg';
-import location_4 from '../../public/assets/new_images/contactus/location_4.jpeg';
-import location_5 from '../../public/assets/new_images/contactus/location_5.jpg';
-import location_6 from '../../public/assets/new_images/contactus/location_6.jpg';
-import location_7 from '../../public/assets/new_images/contactus/location_7.jpeg';
-import location_8 from '../../public/assets/new_images/contactus/location_8.jpeg';
-import location_9 from '../../public/assets/new_images/contactus/location_9.jpg';
-import location_10 from '../../public/assets/new_images/contactus/location_10.jpg';
-import location_11 from '../../public/assets/new_images/contactus/location_11.jpeg';
-import location_12 from '../../public/assets/new_images/contactus/location_12.jpg';
-import location_13 from '../../public/assets/new_images/contactus/location_13.jpg';
-import location_14 from '../../public/assets/new_images/contactus/location_14.jpg';
-import location_15 from '../../public/assets/new_images/contactus/location_15.jpg';
-import location_16 from '../../public/assets/new_images/contactus/location_16.jpg';
-import location_17 from '../../public/assets/new_images/contactus/location_17.jpg';
-import location_18 from '../../public/assets/new_images/contactus/location_18.jpg';
-import location_19 from '../../public/assets/new_images/contactus/location_19.jpg';
 import overallmap from '../../public/assets/new_images/contactus/tamilnadu-map-bharathi.png';
 
 // Banner Page Images Import Here
@@ -227,11 +207,8 @@ export const Images = {
     gallery57, gallery58, gallery59, gallery60,
 
     // Contactus Page Images Import Here
-    location_1, location_2, location_3, location_4,
-    location_5, location_6, location_7, location_8,
-    location_9, location_10, location_11, location_12,
-    location_13, location_14, location_15, location_16,
-    location_17, location_18, location_19, overallmap,
+
+    overallmap,
 
 
 };
