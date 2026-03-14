@@ -67,15 +67,16 @@ export default async function BlogDetail({ params }: PageProps) {
                     <div className="lg:w-2/3">
                         <article className="blog-post-content">
                             {blog.imagePath && (
-                                <div className="relative w-full h-[450px] rounded-3xl overflow-hidden mb-10 shadow-2xl">
+                                <div className="relative w-full rounded-3xl overflow-hidden mb-10 shadow-2xl ">
                                     <Image
                                         src={blog.imagePath}
                                         alt={blog.title}
                                         fill
-                                        className="object-contain"
+                                        className="object-contain blog-img-details"
                                         priority
                                         unoptimized
-                                    />
+                                          
+                                    />    
                                 </div>
                             )}
 

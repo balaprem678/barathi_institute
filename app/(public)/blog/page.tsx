@@ -37,7 +37,7 @@ export default async function Blogs() {
                 <div className="card h-100 shadow-sm">
 
                   {/* Image Section */}
-                  <div className="position-relative" style={{ height: "220px" }}>
+                  <div className="position-relative blog_img">
                     {post.imagePath ? (
                       <Image
                         src={post.imagePath}

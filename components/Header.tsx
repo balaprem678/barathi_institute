@@ -35,6 +35,7 @@ const Header = () => {
                         <div className="social-links">
                             <div className="wrapper">
                                 <a href="https://www.facebook.com/bharathieducationalinstitutions"><img src={Images.facebook.src} alt="Facebook" /></a>
+                                <a href="https://www.linkedin.com/company/bharathi-institute-of-hotel-management-health-science/about/"><img src={Images.linkedin.src} alt="Facebook" /></a>
                                 <a href="#"><img src={Images.twitter.src} alt="Twitter" /></a>
                                 <a href="https://www.instagram.com/bharathi_institute_official/"><img src={Images.instagram.src} alt="Instagram" /></a>
                                 <a href="https://api.whatsapp.com/send?phone=919444120052"><img src={Images.whatsapp.src} alt="WhatsApp" /></a>
