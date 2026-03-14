@@ -640,6 +640,10 @@ $transition: all 0.3s ease;
 }
 
 
+.blog_img .object-contain,
 .blog_img img{
+  position: unset !important;
+}
+img.object-contain.blog-img-details{
   position: unset !important;
 }

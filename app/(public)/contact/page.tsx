@@ -53,7 +53,7 @@ const branches: Branch[] = [
         mapSrc: "https://maps.app.goo.gl/aC8c8b9DRLbHi8E37",
         name: "Ranipet Branch",
         links: [
-            "https://bharathiinstitutes.com/paramedical-course-in-vellore",
+            "https://bharathiinstitutes.com/hotel-management-course-in-ranipet",
             "https://bharathiinstitutes.com/hotel-management-course-in-vellore"
         ]
     },
