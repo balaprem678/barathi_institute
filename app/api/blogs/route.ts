@@ -75,6 +75,7 @@ export async function POST(req: Request) {
         const studentName = formData.get('studentName') as string;
         const isFeatured = formData.get('isFeatured') === 'true';
         const isActive = formData.get('isActive') === 'true';
+        const schemaScript = formData.get('schemaScript') as string;
 
         // SEO details
         const seo = {
@@ -92,7 +93,8 @@ export async function POST(req: Request) {
             studentName,
             isFeatured,
             isActive,
-            seo
+            seo,
+            schemaScript
         };
 
         const file = formData.get('image') as File;

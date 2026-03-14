@@ -13,6 +13,7 @@ const landingPageSchema = new mongoose.Schema({
         metaKeywords: String,
         metaDescription: String,
     },
+    schemaScript: { type: String },
     isActive: { type: Boolean, default: true }
 }, { timestamps: true });
 
