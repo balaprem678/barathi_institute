@@ -158,7 +158,7 @@ import location_3 from '../../public/assets/new_images/contactus/location_3.jpg'
 import location_4 from '../../public/assets/new_images/contactus/location_4.jpeg';
 import location_5 from '../../public/assets/new_images/contactus/location_5.jpg';
 import location_6 from '../../public/assets/new_images/contactus/location_6.jpg';
-import location_7 from '../../public/assets/new_images/contactus/location_7.jpg';
+import location_7 from '../../public/assets/new_images/contactus/location_7.jpeg';
 import location_8 from '../../public/assets/new_images/contactus/location_8.jpeg';
 import location_9 from '../../public/assets/new_images/contactus/location_9.jpg';
 import location_10 from '../../public/assets/new_images/contactus/location_10.jpg';
