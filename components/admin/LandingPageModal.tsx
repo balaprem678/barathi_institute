@@ -26,6 +26,7 @@ export interface LandingPageData {
     imagePath?: string;
     htmlContent: string;
     seo: SEO;
+    schemaScript?: string;
     isActive: boolean;
 }
 
@@ -50,6 +51,7 @@ const defaultData: LandingPageData = {
     course: '',
     htmlContent: '',
     seo: defaultSEO,
+    schemaScript: '',
     isActive: true
 };
 
@@ -253,6 +255,7 @@ export default function LandingPageModal({ isOpen, onClose, onSave, initialData 
             data.append('city', formData.city);
             data.append('course', formData.course);
             data.append('htmlContent', formData.htmlContent);
+            data.append('schemaScript', formData.schemaScript || '');
             data.append('isActive', String(formData.isActive));
 
             data.append('seo.metaTitle', formData.seo.metaTitle);
@@ -617,6 +620,21 @@ export default function LandingPageModal({ isOpen, onClose, onSave, initialData 
                                                 maxLength={160}
                                             />
                                         </div>
+                                    </div>
+                                    <div className="pt-4 border-t border-gray-100">
+                                        <label className="block text-sm font-bold text-gray-700 mb-1 flex items-center">
+                                            <Code className="w-4 h-4 mr-2 text-orange-500" />
+                                            Schema Script (JSON-LD)
+                                        </label>
+                                        <p className="text-[10px] text-gray-400 mb-2 italic">Add custom schema for this specific page. Wrap with &lt;script type="application/ld+json"&gt; tags.</p>
+                                        <textarea
+                                            name="schemaScript"
+                                            value={formData.schemaScript || ''}
+                                            onChange={handleChange}
+                                            rows={8}
+                                            className="w-full px-3 py-2 border border-gray-200 rounded-lg text-xs font-mono bg-gray-50 focus:ring-2 focus:ring-orange-500 h-48"
+                                            placeholder='<script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "LocalBusiness",\n  "name": "..." \n}\n</script>'
+                                        />
                                     </div>
                                 </div>
                             </div>

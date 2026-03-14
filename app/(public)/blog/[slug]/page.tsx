@@ -103,6 +103,11 @@ export default async function BlogDetail({ params }: PageProps) {
                                 {blog.title}
                             </h1>
 
+                            {/* Dynamic Schema Script */}
+                            {blog.schemaScript && (
+                                <div dangerouslySetInnerHTML={{ __html: blog.schemaScript }} />
+                            )}
+
                             <div
                                 className="blog-content-body prose max-w-none"
                                 dangerouslySetInnerHTML={{ __html: blog.content }}

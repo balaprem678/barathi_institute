@@ -58,6 +58,7 @@ export async function PUT(
             city: formData.get('city') as string,
             course: formData.get('course') as string,
             htmlContent: formData.get('htmlContent') as string,
+            schemaScript: formData.get('schemaScript') as string,
             isActive: formData.get('isActive') === 'true',
             seo: {
                 metaTitle: formData.get('seo.metaTitle') as string,

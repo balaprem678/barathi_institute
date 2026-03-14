@@ -28,6 +28,7 @@ export interface BlogData {
     isFeatured: boolean;
     isActive: boolean;
     seo: SEO;
+    schemaScript?: string;
 }
 
 interface BlogModalProps {
@@ -52,7 +53,8 @@ const defaultData: BlogData = {
     studentName: '',
     isFeatured: false,
     isActive: true,
-    seo: defaultSEO
+    seo: defaultSEO,
+    schemaScript: ''
 };
 
 export default function BlogModal({ isOpen, onClose, onSave, initialData }: BlogModalProps) {
@@ -251,6 +253,7 @@ export default function BlogModal({ isOpen, onClose, onSave, initialData }: Blog
             data.append('studentName', formData.studentName);
             data.append('isFeatured', String(formData.isFeatured));
             data.append('isActive', String(formData.isActive));
+            data.append('schemaScript', formData.schemaScript || '');
 
             data.append('seo.metaTitle', formData.seo.metaTitle);
             data.append('seo.metaDescription', formData.seo.metaDescription);
@@ -693,6 +696,21 @@ export default function BlogModal({ isOpen, onClose, onSave, initialData }: Blog
                                                 <div className="text-[10px] text-gray-500 line-clamp-2">{formData.seo.metaDescription || 'Add a meta description to see how it looks in Google results...'}</div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div className="pt-4 border-t border-gray-100">
+                                        <label className="block text-sm font-bold text-gray-700 mb-1 flex items-center">
+                                            <Code className="w-4 h-4 mr-2 text-orange-500" />
+                                            Schema Script (JSON-LD)
+                                        </label>
+                                        <p className="text-[10px] text-gray-400 mb-2 italic">Add custom schema for this specific blog post. Wrap with &lt;script type="application/ld+json"&gt; tags.</p>
+                                        <textarea
+                                            name="schemaScript"
+                                            value={formData.schemaScript || ''}
+                                            onChange={handleChange}
+                                            rows={8}
+                                            className="w-full px-3 py-2 border border-gray-200 rounded-lg text-xs font-mono bg-gray-50 focus:ring-2 focus:ring-orange-500 h-48"
+                                            placeholder='<script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "BlogPosting",\n  "headline": "..." \n}\n</script>'
+                                        />
                                     </div>
                                 </div>
                             </div>

@@ -38,6 +38,9 @@ const BlogSchema = new mongoose.Schema({
         metaKeywords: String,
         focusKeywords: String
     },
+    schemaScript: {
+        type: String
+    },
     isActive: {
         type: Boolean,
         default: true

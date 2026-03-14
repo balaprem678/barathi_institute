@@ -82,6 +82,12 @@ export default async function DynamicLandingPage({ params }: PageProps) {
                         </h1>
                     </div>
                 ) : null}
+
+                {/* Dynamic Schema Script */}
+                {page.schemaScript && (
+                    <div dangerouslySetInnerHTML={{ __html: page.schemaScript }} />
+                )}
+
                 <div dangerouslySetInnerHTML={{ __html: page.htmlContent }} />
             </div>
         );

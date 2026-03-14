@@ -54,6 +54,7 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
             studentName: formData.get('studentName'),
             isFeatured: formData.get('isFeatured') === 'true',
             isActive: formData.get('isActive') === 'true',
+            schemaScript: formData.get('schemaScript'),
             seo: {
                 metaTitle: formData.get('seo.metaTitle'),
                 metaDescription: formData.get('seo.metaDescription'),
