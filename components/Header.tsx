@@ -34,13 +34,13 @@ const Header = () => {
                     <div className="top-bar__content">
                         <div className="social-links">
                             <div className="wrapper">
-                                <a href="https://www.facebook.com/bharathieducationalinstitutions"><img src={Images.facebook.src} alt="Facebook" /></a>
-                                <a href="https://www.linkedin.com/company/bharathi-institute-of-hotel-management-health-science/about/"><img src={Images.linkedin.src} alt="Facebook" /></a>
-                                <a href="#"><img src={Images.twitter.src} alt="Twitter" /></a>
-                                <a href="https://www.instagram.com/bharathi_institute_official/"><img src={Images.instagram.src} alt="Instagram" /></a>
-                                <a href="https://api.whatsapp.com/send?phone=919444120052"><img src={Images.whatsapp.src} alt="WhatsApp" /></a>
-                                <a href="https://www.youtube.com/@BharathiInstitutes"><img src={Images.youtube.src} alt="YouTube" /></a>
-                                <a href="mailto:info@bharathiinstitutes.com"><img src={Images.gmail.src} alt="mail" /></a>
+                                <a className="sm-none" href="https://www.facebook.com/bharathieducationalinstitutions"><img src={Images.facebook.src} alt="Facebook" /></a>
+                                <a className="" href="https://www.linkedin.com/company/bharathi-institute-of-hotel-management-health-science/about/"><img src={Images.linkedin.src} alt="Facebook" /></a>
+                                <a className="sm-none" href="#"><img src={Images.twitter.src} alt="Twitter" /></a>
+                                <a className="" href="https://www.instagram.com/bharathi_institute_official/"><img src={Images.instagram.src} alt="Instagram" /></a>
+                                <a className="" href="https://api.whatsapp.com/send?phone=919444120052"><img src={Images.whatsapp.src} alt="WhatsApp" /></a>
+                                <a className="sm-none" href="https://www.youtube.com/@BharathiInstitutes"><img src={Images.youtube.src} alt="YouTube" /></a>
+                                <a className="" href="mailto:info@bharathiinstitutes.com"><img src={Images.gmail.src} alt="mail" /></a>
                             </div>
                         </div>
                         <div className="top-bar__info">
@@ -194,9 +194,9 @@ const Header = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/blog" onClick={closeMenu}>
-                                    <i className="fas fa-blog"></i>
-                                    Blogs
+                                <Link href="/contact" onClick={closeMenu}>
+                                    <i className="fas fa-building"></i>
+                                    Branchs
                                 </Link>
                             </li>
                             <li>

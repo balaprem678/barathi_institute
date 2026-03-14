@@ -21,7 +21,7 @@ interface Branch {
 const branches: Branch[] = [
     {
         id: 1,
-        img: "/assets/new_images/contactus/",
+        img: "/assets/new_images/contactus/location_1.png",
         address:
             "No.95, Rajaji Road, Near Vasan Eye Care Hospital, Tambaram, Chennai – 600045",
         mobile: "+91 - 9444120052",
@@ -53,8 +53,8 @@ const branches: Branch[] = [
         mapSrc: "https://maps.app.goo.gl/aC8c8b9DRLbHi8E37",
         name: "Ranipet Branch",
         links: [
-            "https://bharathiinstitutes.com/hotel-management-course-in-ranipet",
-            "https://bharathiinstitutes.com/hotel-management-course-in-vellore"
+            "https://bharathiinstitutes.com/paramedical-course-in-ranipet",
+            "https://bharathiinstitutes.com/hotel-management-course-in-ranipet"
         ]
     },
     {
@@ -65,8 +65,8 @@ const branches: Branch[] = [
         mapSrc: "https://maps.app.goo.gl/FNhnY3L5HQUrYmZQ9",
         name: "Ambur Branch",
         links: [
-            "https://bharathiinstitutes.com/paramedical-course-in-vellore",
-            "https://bharathiinstitutes.com/hotel-management-course-in-vellore"
+            "https://bharathiinstitutes.com/paramedical-course-in-ambur",
+            "https://bharathiinstitutes.com/hotel-management-course-in-ambur"
         ]
     },
     {
@@ -83,7 +83,7 @@ const branches: Branch[] = [
     },
     {
         id: 6,
-        img: "/assets/new_images/contactus/",
+        img: "/assets/new_images/contactus/location_6.jpg",
         address: "No.5, Good Shed Street, Near Sethupathi School, Madurai – 625 001",
         mobile: "+91 - 94439 17155",
         mapSrc: "https://maps.app.goo.gl/BfkyoBs7s7Ferj779",
@@ -95,7 +95,7 @@ const branches: Branch[] = [
     },
     {
         id: 7,
-        img: "/assets/new_images/contactus/",
+        img: "/assets/new_images/contactus/location_7.jpeg",
         address: "No.47, Ramal Residence, Mudiyarasan Salai, Karaikudi – 630 002",
         mobile: "+91 - 94439 17155",
         mapSrc: "https://maps.app.goo.gl/fJFKPvUB8n5bevHn9",
@@ -107,7 +107,7 @@ const branches: Branch[] = [
     },
     {
         id: 8,
-        img: "/assets/new_images/contactus/",
+        img: "/assets/new_images/contactus/location_8.jpeg",
         address: "No.25, S.N.Chavadi Road, K.V.Tex Near, SRG Tours, Cuddalore.",
         mobile: "+91 - 9787898991",
         mapSrc: "https://maps.app.goo.gl/rSewiS9Cxv19PLWm6",
@@ -119,7 +119,7 @@ const branches: Branch[] = [
     },
     {
         id: 9,
-        img: "/assets/new_images/contactus/",
+        img: "/assets/new_images/contactus/location_9.jpg",
         address: "No.171, Hindu Nadar Sangam Complex, S N High Road, Tirunelveli Junction, Tirunelveli - 627 001",
         mobile: "+91 - 9443917155",
         mapSrc: "https://maps.app.goo.gl/AXZEyqA2nSsDcsTN6",
@@ -167,7 +167,7 @@ const branches: Branch[] = [
     },
     {
         id: 13,
-        img: "/assets/new_images/contactus/",
+        img: "/assets/new_images/contactus/location_13.jpg",
         address: "No.17 A, Ulagalandhar Mada Street, Near Aruna Mahal, Big Kanchipuram, Kanchipuram – 6631 502",
         mobile: "+91 - 9787438991",
         mapSrc: "https://maps.app.goo.gl/2kmgGsjFz7bXCd4c7",
@@ -221,7 +221,8 @@ const branches: Branch[] = [
         mapSrc: "https://maps.app.goo.gl/do6UvCi8M5HxQM3t7",
         name: "Tiruchirappalli Branch",
         links: [
-            "", ""
+            "https://bharathiinstitutes.com/paramedical-course-in-trichy", 
+            "https://bharathiinstitutes.com/hotel-management-course-in-trichy"
         ]
     },
     {

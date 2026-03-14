@@ -497,7 +497,7 @@ export default function About() {
                             <p>Don't wait! Your dream career starts here.</p>
                         </div>
                         <div className="cta-button">
-                            <a href="https://forms.gle/9kCPJRg9aD3HKAmW9" className="cta-btn" target="_blank" rel="noopener noreferrer">
+                            <a href="/register" className="cta-btn" target="_blank" rel="noopener noreferrer">
                                 Apply Online Today
                             </a>
                         </div>
@@ -506,11 +506,11 @@ export default function About() {
             </section>
 
             {/* WhatsApp Button - Mobile Optimized */}
-            <div className="whatsapp-float">
+            {/* <div className="whatsapp-float">
                 <a href="https://api.whatsapp.com/send?phone=+919444120052" className="whatsapp-link" target="_blank" rel="noopener noreferrer">
                     <i className="fab fa-whatsapp"></i>
                 </a>
-            </div>
+            </div> */}
         </div>
     );
 }
