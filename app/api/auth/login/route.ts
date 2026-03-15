@@ -31,7 +31,7 @@ export async function POST(req: Request) {
 
         // Create token
         const token = jwt.sign(
-            { id: admin._id, username: admin.username },
+            { id: admin._id, username: admin.username, role: 'admin' },
             JWT_SECRET,
             { expiresIn: '1d' }
         );

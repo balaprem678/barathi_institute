@@ -1,15 +1,21 @@
 import React from 'react';
 import Home from '@/components/Home';
 import Blogs from './blog/page';
-// import Location from './locationseo/page';
+import { getStaticPageMetadata, getStaticPageSchema } from '@/lib/seo';
+import { Metadata } from 'next';
 
-export default function App() {
+export async function generateMetadata(): Promise<Metadata> {
+    return await getStaticPageMetadata('/');
+}
+
+
+export default async function App() {
+    const schemaScript = await getStaticPageSchema('/');
+
     return (
         <>
-            <Home />
+            <Home schemaScript={schemaScript} />
             {/* <Blogs /> */}
-            {/* <Location /> */}
-
         </>
     );
 }
