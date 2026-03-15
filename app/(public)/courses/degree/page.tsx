@@ -17,7 +17,7 @@ export default function DegreeCoursesPage() {
                 <div className="container">
 
                     {/* Course 1 */}
-                
+
 
 
                     {/* Course 2 */}
@@ -29,16 +29,16 @@ export default function DegreeCoursesPage() {
                         <div className="col-lg-7 col-md-6 col-12 course_content">
                             <h3>B.Voc in Hotel Management</h3>
                             <p>
-                                Skill-based degree program covering diagnostic testing,
-                                pathology procedures, microbiology, and laboratory
-                                management.
+                                Skill-based degree program focusing on hospitality management,
+                                food & beverage service, front office operations, housekeeping,
+                                and hotel administration.
                             </p>
 
                             <ul>
                                 <li><strong>Duration:</strong> 3 Years</li>
                                 <li><strong>Eligibility:</strong> 12th Pass</li>
-                                <li><strong>Training:</strong> Advanced Lab Practice</li>
-                                <li><strong>Career:</strong> Lab Technician, Pathology Assistant</li>
+                                <li><strong>Training:</strong> Practical Training in Hotels & Hospitality Industry</li>
+                                <li><strong>Career:</strong> Hotel Manager, Front Office Executive, Chef, Hospitality Executive</li>
                             </ul>
 
                             <Link href="/register" className="apply_btn">
@@ -145,7 +145,7 @@ export default function DegreeCoursesPage() {
                         </div>
                     </div>
 
-                        <div className="course_card row align-items-center">
+                    <div className="course_card row align-items-center">
                         <div className="col-lg-5 col-md-6 col-12 course_img">
                             <img src={Images.degree_1.src} alt="Hotel Management" />
                         </div>

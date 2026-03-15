@@ -269,7 +269,7 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
+            background: #b4aba8;
             opacity: 0;
             visibility: hidden;
             @include transition;
@@ -300,7 +300,7 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             gap: 0;
         }
 
-        > li {
+        >li {
             position: relative;
             list-style: none;
 
@@ -670,23 +670,33 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
 .wrapper {
     display: flex;
     gap: 10px;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+
     a {
         text-decoration: none;
+
         img {
             width: 24px;
             height: 24px;
         }
     }
+
     .site {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-    }   
+    }
+}
+
+@media screen and (max-width:400px){
+    .sm-none{
+        display: none;
+    }
 }

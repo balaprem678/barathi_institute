@@ -13,7 +13,7 @@ const slides = [
     subtitle: 'Skill Based Courses with Placement Help',
     description: 'Leading Hotel Management & Paramedical College in Tamil Nadu',
     buttonText: 'Launch Your Career – Admissions Open!',
-    buttonLink: '/new-admission'
+    buttonLink: '/register'
   },
   {
     id: 2,
@@ -31,7 +31,7 @@ const slides = [
     subtitle: 'Learn Skills. Build a Career.',
     description: 'Trusted Hotel Management & Paramedical College in Tamil Nadu',
     buttonText: 'Learn more about Bharathi Institute',
-    buttonLink: '/aboutus'
+    buttonLink: '/about'
   }
 ];
 

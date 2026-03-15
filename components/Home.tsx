@@ -510,7 +510,7 @@ export default function Home({ schemaScript }: { schemaScript?: string }) {
               <strong>Want to be Join With Our Institution</strong>
             </h2>
             <Link
-              href="https://forms.gle/9kCPJRg9aD3HKAmW9"
+              href="/register"
               target="_blank"
               style={{
                 display: 'inline-block',
