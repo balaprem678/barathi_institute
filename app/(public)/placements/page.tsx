@@ -13,6 +13,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
 
 
+
+
 export default async function Placements() {
     const schemaScript = await getStaticPageSchema('/placements');
 
