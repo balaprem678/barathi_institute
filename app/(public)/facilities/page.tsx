@@ -3,6 +3,13 @@ import Link from 'next/link';
 import PageBreadcrumb from '@/components/PageBreadcrumb';
 import './facilities.scss';
 import Image from 'next/image';
+import { getStaticPageMetadata, getStaticPageSchema } from '@/lib/seo';
+import { Metadata } from 'next';
+
+export async function generateMetadata(): Promise<Metadata> {
+    return await getStaticPageMetadata('/facilities');
+}
+
 
 interface Facility {
   title: string;
@@ -80,9 +87,14 @@ const ZigzagCard: React.FC<{ facility: Facility; index: number }> = ({ facility,
   );
 };
 
-const FacilitiesPage: React.FC = () => {
+const FacilitiesPage: React.FC = async () => {
+  const schemaScript = await getStaticPageSchema('/facilities');
+
   return (
     <>
+      {schemaScript && (
+        <div dangerouslySetInnerHTML={{ __html: schemaScript }} />
+      )}
 
 
       <section className="facilities-hero">

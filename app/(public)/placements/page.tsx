@@ -4,9 +4,20 @@ import Partners from '@/components/partners';
 import './placements.scss';
 
 import { Images } from '@/app/utilis/Images';
+import { getStaticPageMetadata, getStaticPageSchema } from '@/lib/seo';
+import { Metadata } from 'next';
+
+export async function generateMetadata(): Promise<Metadata> {
+    return await getStaticPageMetadata('/placements');
+}
 
 
-export default function Placements() {
+
+
+
+export default async function Placements() {
+    const schemaScript = await getStaticPageSchema('/placements');
+
     const testimonials = [
         {
             name: "Priya S.",
@@ -48,6 +59,9 @@ export default function Placements() {
 
     return (
         <>
+            {schemaScript && (
+                <div dangerouslySetInnerHTML={{ __html: schemaScript }} />
+            )}
 
             <section className="banner_section">
                 <img src={Images.placements_banner.src} alt="About Us Banner" />

@@ -25,7 +25,7 @@ interface HeroSliderProps {
   slides: Slide[]
 }
 
-export default function Home() {
+export default function Home({ schemaScript }: { schemaScript?: string }) {
   // const [currentSlide, setCurrentSlide] = useState(0)
   // const [activeFaq, setActiveFaq] = useState(0)
 
@@ -113,26 +113,30 @@ export default function Home() {
 
   return (
     <div>
-      {/* Schema Markup */}
-      <Script
-        id="schema-json"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "CollegeOrUniversity",
-            "name": "Bharathi Institute Of Hotel Management & Paramedical",
-            "url": "https://bharathiinstitutes.com/",
-            "logo": "https://bharathiinstitutes.com/images/logo/logo-large.png",
-            "description": "Discover excellence in Hotel Management and Paramedical Science at Bharathi Institute, Chennai. Build a rewarding career in hospitality and healthcare.",
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "telephone": "+91-94441 20052",
-              "contactType": "Customer Service"
-            }
-          })
-        }}
-      />
+      {/* Dynamic Schema Markup */}
+      {schemaScript ? (
+        <div dangerouslySetInnerHTML={{ __html: schemaScript }} />
+      ) : (
+        <Script
+          id="schema-json"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "CollegeOrUniversity",
+              "name": "Bharathi Institute Of Hotel Management & Paramedical",
+              "url": "https://bharathiinstitutes.com/",
+              "logo": "https://bharathiinstitutes.com/images/logo/logo-large.png",
+              "description": "Discover excellence in Hotel Management and Paramedical Science at Bharathi Institute, Chennai. Build a rewarding career in hospitality and healthcare.",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+91-94441 20052",
+                "contactType": "Customer Service"
+              }
+            })
+          }}
+        />
+      )}
 
       {/* Hero Slider Section */}
       <HomeBanner />

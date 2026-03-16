@@ -99,6 +99,7 @@ export default function HomeBanner() {
                 priority={index === 0}
                 sizes="100vw"
                 style={{ objectFit: 'cover' }}
+                {...(index === 0 ? { fetchPriority: "high" } : {})}
               />
             </div>
 
@@ -157,8 +158,9 @@ export default function HomeBanner() {
         <div
           className="progress-bar-fill"
           style={{
-            width: `${((currentSlide + 1) / slides.length) * 100}%`,
-            animation: isAutoPlaying ? 'progress 5s linear' : 'none'
+            transform: `scaleX(${(currentSlide + 1) / slides.length})`,
+            transformOrigin: 'left',
+            animation: isAutoPlaying ? 'progress 5s linear infinite' : 'none'
           }}
         />
       </div>

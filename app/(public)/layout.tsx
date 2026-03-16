@@ -6,6 +6,7 @@ import "./styles/style.scss";
 import "./styles/responsive.scss";
 import "../../public/css/new_style.scss";
 
+import { Inter } from "next/font/google";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
@@ -13,6 +14,13 @@ import Preloader from '@/components/Preloader';
 import ScriptReinitializer from '@/components/ScriptReinitializer';
 import GlobalLayout from '@/components/GlobalLayout';
 import { NotificationProvider } from '@/context/NotificationContext';
+import DeferredCSS from '@/components/DeferredCSS';
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 const nextConfig: NextConfig = {
   sassOptions: {
@@ -81,15 +89,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={inter.variable}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-        <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
         <link rel="shortcut icon" href="/images/logo/logo12.png" type="image/png" />
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/v4-shims.min.css" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossOrigin="anonymous"></link>
+        <DeferredCSS href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+        <DeferredCSS href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
         {/* <link href="/css/style.css" rel="stylesheet" /> */}
         {/* <link href="/css/responsive.css" rel="stylesheet" /> */}
         <link href="/css/owl.carousel.css" rel="stylesheet" />
@@ -100,7 +107,12 @@ export default function RootLayout({
         <link href="/images/fav-icon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
         <link href="/images/fav-icon/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
         <link href="/images/fav-icon/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossOrigin="anonymous"></script>
+        <Script 
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
+          integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" 
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
