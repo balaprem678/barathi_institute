@@ -20,7 +20,7 @@ interface Branch {
 const branches: Branch[] = [
     {
         id: 1,
-        img: "/assets/new_images/contactus/",
+        img: "/assets/new_images/contactus/location_1.png",
         address:
             "No.95, Rajaji Road, Near Vasan Eye Care Hospital, Tambaram, Chennai – 600045",
         mobile: "+91 - 9444120052",
@@ -34,7 +34,7 @@ const branches: Branch[] = [
     {
         id: 2,
         img: "/assets/new_images/contactus/location_2.jpg",
-        address: "No.29, GNG Colony, Varatharajapuram, Ambattur, Chennai – 600053", // Fixed address typo
+        address: "No.29, GNG Colony, Varatharajapuram, Ambattur, Chennai – 600 0053",
         mobile: "+91 - 9444120052",
         mapSrc: "https://maps.app.goo.gl/8q8MJyzVonLdmdEf6",
         name: "Ambattur Branch",
@@ -47,31 +47,31 @@ const branches: Branch[] = [
     {
         id: 3,
         img: "/assets/new_images/contactus/location_3.jpg",
-        address: "No.9, M.B.T. Road, Navalpur, Vimal Shopping Complex, Ranipet – 632402",
+        address: "No.9, M.B.T. Road, Navalpur, Vimal Shopping Complex, Ranipet – 632 402",
         mobile: "+91 - 9444320052",
         mapSrc: "https://maps.app.goo.gl/aC8c8b9DRLbHi8E37",
         name: "Ranipet Branch",
         links: [
-            "https://bharathiinstitutes.com/hotel-management-course-in-ranipet",
-            "https://bharathiinstitutes.com/hotel-management-course-in-vellore"
+            "https://bharathiinstitutes.com/paramedical-course-in-ranipet",
+            "https://bharathiinstitutes.com/hotel-management-course-in-ranipet"
         ]
     },
     {
         id: 4,
         img: "/assets/new_images/contactus/location_4.jpeg",
-        address: "No.104, S.K. Road, Dr.Nagaraj Hospital (2nd Floor), Krishnapuram, Ambur - 635802", // Fixed spacing
+        address: "No.104, S.K. Road, Dr.Nagaraj Hospital (2ndFl oor), Krishnapuram, Ambur -635 802",
         mobile: "+91 - 9442100056",
         mapSrc: "https://maps.app.goo.gl/FNhnY3L5HQUrYmZQ9",
         name: "Ambur Branch",
         links: [
-            "https://bharathiinstitutes.com/paramedical-course-in-vellore",
-            "https://bharathiinstitutes.com/hotel-management-course-in-vellore"
+            "https://bharathiinstitutes.com/paramedical-course-in-ambur",
+            "https://bharathiinstitutes.com/hotel-management-course-in-ambur"
         ]
     },
     {
         id: 5,
         img: "/assets/new_images/contactus/location_5.jpg",
-        address: "No.793, Nerhuji Road, Indian Bank Upstairs, Villupuram - 605602",
+        address: "No.793, Nerhuji Road, Indian Bank Upstairs, Villupuram-605 602",
         mobile: "+91 - 9444120052",
         mapSrc: "https://maps.app.goo.gl/nE2u8PHRSuiQqV9E8",
         name: "Villupuram Branch",
@@ -82,9 +82,9 @@ const branches: Branch[] = [
     },
     {
         id: 6,
-        img: "/assets/new_images/contactus/",
-        address: "No.5, Good Shed Street, Near Sethupathi School, Madurai – 625001",
-        mobile: "+91 - 9443917155",
+        img: "/assets/new_images/contactus/location_6.jpg",
+        address: "No.5, Good Shed Street, Near Sethupathi School, Madurai – 625 001",
+        mobile: "+91 - 94439 17155",
         mapSrc: "https://maps.app.goo.gl/BfkyoBs7s7Ferj779",
         name: "Madurai Branch",
         links: [
@@ -94,9 +94,9 @@ const branches: Branch[] = [
     },
     {
         id: 7,
-        img: "/assets/new_images/contactus/",
-        address: "No.47, Ramal Residence, Mudiyarasan Salai, Karaikudi – 630002",
-        mobile: "+91 - 9443917155",
+        img: "/assets/new_images/contactus/location_7.jpeg",
+        address: "No.47, Ramal Residence, Mudiyarasan Salai, Karaikudi – 630 002",
+        mobile: "+91 - 94439 17155",
         mapSrc: "https://maps.app.goo.gl/fJFKPvUB8n5bevHn9",
         name: "Karaikudi Branch",
         links: [
@@ -106,7 +106,7 @@ const branches: Branch[] = [
     },
     {
         id: 8,
-        img: "/assets/new_images/contactus/",
+        img: "/assets/new_images/contactus/location_8.jpeg",
         address: "No.25, S.N.Chavadi Road, K.V.Tex Near, SRG Tours, Cuddalore.",
         mobile: "+91 - 9787898991",
         mapSrc: "https://maps.app.goo.gl/rSewiS9Cxv19PLWm6",
@@ -118,8 +118,8 @@ const branches: Branch[] = [
     },
     {
         id: 9,
-        img: "/assets/new_images/contactus/",
-        address: "No.171, Hindu Nadar Sangam Complex, S N High Road, Tirunelveli Junction, Tirunelveli - 627001",
+        img: "/assets/new_images/contactus/location_9.jpg",
+        address: "No.171, Hindu Nadar Sangam Complex, S N High Road, Tirunelveli Junction, Tirunelveli - 627 001",
         mobile: "+91 - 9443917155",
         mapSrc: "https://maps.app.goo.gl/AXZEyqA2nSsDcsTN6",
         name: "Tirunelveli Branch",
@@ -155,7 +155,7 @@ const branches: Branch[] = [
     {
         id: 12,
         img: "/assets/new_images/contactus/location_12.jpg",
-        address: "No.15/5, Pollur Main Road, Near Axis Bank, Thiruvannamalai – 606601",
+        address: "No.15/5, Pollur Main Road, Near Axis Bank, Thiruvannamalai – 606 601",
         mobile: "+91 - 9444320052",
         mapSrc: "https://maps.app.goo.gl/FvjBfMHPSNwNvRji9",
         name: "Tiruvannamalai Branch",
@@ -166,8 +166,8 @@ const branches: Branch[] = [
     },
     {
         id: 13,
-        img: "/assets/new_images/contactus/",
-        address: "No.17 A, Ulagalandhar Mada Street, Near Aruna Mahal, Big Kanchipuram, Kanchipuram – 6631502",
+        img: "/assets/new_images/contactus/location_13.jpg",
+        address: "No.17 A, Ulagalandhar Mada Street, Near Aruna Mahal, Big Kanchipuram, Kanchipuram – 6631 502",
         mobile: "+91 - 9787438991",
         mapSrc: "https://maps.app.goo.gl/2kmgGsjFz7bXCd4c7",
         name: "Kanchipuram Branch",
@@ -203,7 +203,7 @@ const branches: Branch[] = [
     {
         id: 16,
         img: "/assets/new_images/contactus/location_16.jpg",
-        address: "No.14/1, SMPDA Chambers, LIC Colony, New Bus Stand, Salem – 636004",
+        address: "No.14/1,SMPDA Chambers, LIC Colony,New Bus Stand ,Salem – 636 004",
         mobile: "+91 - 9442100056",
         mapSrc: "https://maps.app.goo.gl/QYuPPLspxHNSHtTS6",
         name: "Salem Branch",
@@ -220,13 +220,14 @@ const branches: Branch[] = [
         mapSrc: "https://maps.app.goo.gl/do6UvCi8M5HxQM3t7",
         name: "Tiruchirappalli Branch",
         links: [
-            "", ""
+            "https://bharathiinstitutes.com/paramedical-course-in-trichy", 
+            "https://bharathiinstitutes.com/hotel-management-course-in-trichy"
         ]
     },
     {
         id: 18,
         img: "/assets/new_images/contactus/location_18.jpg",
-        address: "No.108, Thambuchetti Street, Kalikammbal Kovil Opp. Broadway, Chennai - 600001",
+        address: "No.108, Thambuchetti Street, Kalikammbal Kovil Opp. Broadway, Chennai - 600 001",
         mobile: "+91 - 9444120052",
         mapSrc: "https://maps.app.goo.gl/H9h6te5PTyphXaARA",
         name: "Broadway Branch",
@@ -236,6 +237,7 @@ const branches: Branch[] = [
         ]
     },
 ];
+
 
 export default function ContactContent({ schemaScript }: { schemaScript?: string }) {
     const [activeCity, setActiveCity] = useState<string>('all');
