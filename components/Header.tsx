@@ -34,13 +34,27 @@ const Header = () => {
                     <div className="top-bar__content">
                         <div className="social-links">
                             <div className="wrapper">
-                                <a className="sm-none" href="https://www.facebook.com/bharathieducationalinstitutions"><img src={Images.facebook.src} alt="Facebook" /></a>
-                                <a className="" href="https://www.linkedin.com/company/bharathi-institute-of-hotel-management-health-science/about/"><img src={Images.linkedin.src} alt="Facebook" /></a>
-                                <a className="sm-none" href="#"><img src={Images.twitter.src} alt="Twitter" /></a>
-                                <a className="" href="https://www.instagram.com/bharathi_institute_official/"><img src={Images.instagram.src} alt="Instagram" /></a>
-                                <a className="" href="https://api.whatsapp.com/send?phone=919444120052"><img src={Images.whatsapp.src} alt="WhatsApp" /></a>
-                                <a className="sm-none" href="https://www.youtube.com/@BharathiInstitutes"><img src={Images.youtube.src} alt="YouTube" /></a>
-                                <a className="" href="mailto:info@bharathiinstitutes.com"><img src={Images.gmail.src} alt="mail" /></a>
+                                <a className="sm-none" href="https://www.facebook.com/bharathieducationalinstitutions">
+                                    <NextImage src={Images.facebook} alt="Facebook" width={24} height={24} />
+                                </a>
+                                <a className="" href="https://www.linkedin.com/company/bharathi-institute-of-hotel-management-health-science/about/">
+                                    <NextImage src={Images.linkedin} alt="LinkedIn" width={24} height={24} />
+                                </a>
+                                <a className="sm-none" href="#">
+                                    <NextImage src={Images.twitter} alt="Twitter" width={24} height={24} />
+                                </a>
+                                <a className="" href="https://www.instagram.com/bharathi_institute_official/">
+                                    <NextImage src={Images.instagram} alt="Instagram" width={24} height={24} />
+                                </a>
+                                <a className="" href="https://api.whatsapp.com/send?phone=919444120052">
+                                    <NextImage src={Images.whatsapp} alt="WhatsApp" width={24} height={24} />
+                                </a>
+                                <a className="sm-none" href="https://www.youtube.com/@BharathiInstitutes">
+                                    <NextImage src={Images.youtube} alt="YouTube" width={24} height={24} />
+                                </a>
+                                <a className="" href="mailto:info@bharathiinstitutes.com">
+                                    <NextImage src={Images.gmail} alt="Mail" width={24} height={24} />
+                                </a>
                             </div>
                         </div>
                         <div className="top-bar__info">

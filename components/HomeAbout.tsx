@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 const HomeAbout = () => {
     return (
@@ -15,37 +16,37 @@ const HomeAbout = () => {
                             <div className="row">
                                 <div className="col-lg-4">
                                     <div className="box">
-                                        <img alt="lab" src="/images/resource/home-about-1.png" />
+                                        <Image alt="lab" src="/images/resource/home-about-1.png" width={60} height={60} />
                                         <h4 style={{ color: 'black' }}>State-of-the-Art Labs & Modern Facilities</h4>
                                     </div>
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="box">
-                                        <img alt="experienced faculty" src="/images/resource/home-about-2.png" />
+                                        <Image alt="experienced faculty" src="/images/resource/home-about-2.png" width={60} height={60} />
                                         <h4 style={{ color: 'black' }}>Experienced Faculty with Real-World Expertise</h4>
                                     </div>
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="box">
-                                        <img alt="certificate" src="/images/resource/home-about-3.png" />
+                                        <Image alt="certificate" src="/images/resource/home-about-3.png" width={60} height={60} />
                                         <h4 style={{ color: 'black' }}>Government-Approved Courses & Certifications</h4>
                                     </div>
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="box">
-                                        <img alt="Career Guidance" src="/images/resource/home-about-4.png" />
+                                        <Image alt="Career Guidance" src="/images/resource/home-about-4.png" width={60} height={60} />
                                         <h4 style={{ color: 'black' }}>Personalized Training & Career Guidance</h4>
                                     </div>
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="box">
-                                        <img alt="Practical training" src="/images/resource/home-about-5.png" />
+                                        <Image alt="Practical training" src="/images/resource/home-about-5.png" width={60} height={60} />
                                         <h4 style={{ color: 'black' }}>Hands-on Practical Training with Industry Experts</h4>
                                     </div>
                                 </div>
                                 <div className="col-lg-4">
                                     <div className="box">
-                                        <img alt="network" src="/images/resource/home-about-6.png" />
+                                        <Image alt="network" src="/images/resource/home-about-6.png" width={60} height={60} />
                                         <h4 style={{ color: 'black' }}>Strong Alumni Network for Career Support</h4>
                                     </div>
                                 </div>
@@ -56,7 +57,16 @@ const HomeAbout = () => {
 
                     <div className="col-md-5 col-sm-12">
                         <div className="about_img">
-                            <img alt="institute of hotel management and paramedical in chennai" src="/images/aboutus.jpg" />
+                            <Image 
+                                alt="institute of hotel management and paramedical in chennai" 
+                                src="/images/aboutus.jpg" 
+                                width={500} 
+                                height={600}
+                                style={{
+                                    width: '100%',
+                                    height: 'auto',
+                                }}
+                            />
                         </div>
                     </div>
                 </div>
