@@ -14,10 +14,15 @@ export function useFormPersistence(
     formData: any,
     setFormData: (data: any) => void,
     fieldsToPersist: string[],
-    mapping: Record<string, string> = {}
+    options: {
+        mapping?: Record<string, string>,
+        remoteSyncUrl?: string
+    } = {}
 ) {
+    const { mapping = {}, remoteSyncUrl } = options;
     const [hasLoaded, setHasLoaded] = useState(false);
     const lastSavedData = useRef<string>('');
+    const lastRemoteSyncData = useRef<string>('');
 
     // Initial load from storage
     useEffect(() => {
@@ -25,14 +30,12 @@ export function useFormPersistence(
         if (storedData) {
             const transformedData: Record<string, any> = {};
 
-            // Handle direct fields
             fieldsToPersist.forEach(field => {
                 if (storedData[field] !== undefined && storedData[field] !== '') {
                     transformedData[field] = storedData[field];
                 }
             });
 
-            // Handle mapped fields (e.g., if storage has 'city', put it in 'location')
             Object.entries(mapping).forEach(([storedKey, formKey]) => {
                 if (storedData[storedKey] !== undefined && storedData[storedKey] !== '') {
                     transformedData[formKey] = storedData[storedKey];
@@ -40,7 +43,6 @@ export function useFormPersistence(
             });
 
             if (Object.keys(transformedData).length > 0) {
-                console.log('[Autofill] Loading stored data:', transformedData);
                 setFormData((prev: any) => ({
                     ...prev,
                     ...transformedData
@@ -50,21 +52,19 @@ export function useFormPersistence(
         setHasLoaded(true);
     }, []);
 
-    // Save to storage on change (with debounce)
+    // Save to storage and Remote Sync on change (with debounce)
     useEffect(() => {
         if (!hasLoaded) return;
 
-        const timer = setTimeout(() => {
+        const timer = setTimeout(async () => {
             const dataToSave: Record<string, any> = {};
 
             fieldsToPersist.forEach(field => {
-                // Only save if it has a value, to avoid overwriting valid data in other forms with empty strings
                 if (formData[field] !== undefined && formData[field] !== '') {
                     dataToSave[field] = formData[field];
                 }
             });
 
-            // Also save mapped fields back to their original storage keys for other forms
             Object.entries(mapping).forEach(([storedKey, formKey]) => {
                 if (formData[formKey] !== undefined && formData[formKey] !== '') {
                     dataToSave[storedKey] = formData[formKey];
@@ -72,18 +72,39 @@ export function useFormPersistence(
             });
 
             const stringified = JSON.stringify(dataToSave);
-            if (stringified === lastSavedData.current) return;
-
-            if (Object.keys(dataToSave).length > 0) {
-                console.log('[Autofill] Saving data:', dataToSave);
-                lastSavedData.current = stringified;
-                const existing = getFormData() || {};
-
-                // Deep merge or just shallow merge? PersistentData only has 'data' so shallow is fine
-                saveFormData({ ...existing, ...dataToSave });
+            
+            // 1. Local Persistence
+            if (stringified !== lastSavedData.current) {
+                if (Object.keys(dataToSave).length > 0) {
+                    lastSavedData.current = stringified;
+                    const existing = getFormData() || {};
+                    saveFormData({ ...existing, ...dataToSave });
+                }
             }
-        }, 500); // 500ms debounce
+
+            // 2. Remote Auto-save (Remote Sync)
+            if (remoteSyncUrl && stringified !== lastRemoteSyncData.current) {
+                // Minimum requirements for remote sync to avoid creating a lot of empty records
+                // At least one of: name, email, or phone should be present
+                const hasIdentity = dataToSave.name || dataToSave.email || dataToSave.phone || 
+                                    formData.name || formData.email || formData.phone;
+
+                if (hasIdentity) {
+                    lastRemoteSyncData.current = stringified;
+                    try {
+                        console.log(`[Auto-save] Syncing to ${remoteSyncUrl}...`);
+                        await fetch(remoteSyncUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ ...formData, isSubmit: false }),
+                        });
+                    } catch (error) {
+                        console.error('[Auto-save] Remote sync failed:', error);
+                    }
+                }
+            }
+        }, 1000); // 1s debounce for remote sync to be less aggressive
 
         return () => clearTimeout(timer);
-    }, [formData, fieldsToPersist, mapping, hasLoaded]);
+    }, [formData, fieldsToPersist, mapping, hasLoaded, remoteSyncUrl]);
 }

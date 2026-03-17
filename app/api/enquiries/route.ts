@@ -9,57 +9,79 @@ export async function POST(req: Request) {
     try {
         await dbConnect();
         const body = await req.json();
+        const { name, email, phone, isSubmit } = body;
 
-        // Save Enquiry
-        const enquiry = await Enquiry.create(body);
+        // Validation for explicit submission
+        if (isSubmit) {
+            if (!name || !email || !phone) {
+                return NextResponse.json({ message: 'Name, Email, and Phone are required for submission' }, { status: 400 });
+            }
+        }
+
+        // Upsert Enquiry (Deduplication based on Email or Phone)
+        let enquiry;
+        const query = [];
+        if (email) query.push({ email });
+        if (phone) query.push({ phone });
+
+        if (query.length > 0) {
+            enquiry = await Enquiry.findOneAndUpdate(
+                { $or: query },
+                { $set: body },
+                { new: true, upsert: true, setDefaultsOnInsert: true }
+            );
+        } else if (name) {
+            enquiry = await Enquiry.create(body);
+        } else {
+            return NextResponse.json({ message: 'Insufficient data for auto-save' }, { status: 400 });
+        }
 
         // --- EMAIL NOTIFICATION LOGIC ---
-        try {
-            let settings = await Settings.findOne();
-            if (!settings) settings = {};
+        if (isSubmit) {
+            try {
+                let settings = await Settings.findOne();
+                if (!settings) settings = {};
 
-            if (settings.smtpHost && settings.recipientEmails) {
-                const transporter = nodemailer.createTransport({
-                    host: settings.smtpHost,
-                    port: Number(settings.smtpPort) || 587,
-                    secure: Number(settings.smtpPort) === 465,
-                    auth: {
-                        user: settings.smtpUser,
-                        pass: settings.smtpPass,
-                    },
-                });
+                if (settings.smtpHost && settings.recipientEmails) {
+                    const transporter = nodemailer.createTransport({
+                        host: settings.smtpHost,
+                        port: Number(settings.smtpPort) || 587,
+                        secure: Number(settings.smtpPort) === 465,
+                        auth: {
+                            user: settings.smtpUser,
+                            pass: settings.smtpPass,
+                        },
+                    });
 
+                    const sender = settings.fromEmail || settings.smtpUser;
+                    const mailOptions = {
+                        from: `"Bharathi Institute" <${sender}>`,
+                        to: settings.recipientEmails,
+                        subject: `New Enquiry: ${body.name} - ${body.course}`,
+                        html: `
+                            <h3>New Enquiry from Website</h3>
+                            <table style="width: 100%; border-collapse: collapse;">
+                                <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Name:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${body.name}</td></tr>
+                                <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Email:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${body.email}</td></tr>
+                                <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Phone:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${body.phone}</td></tr>
+                                <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Alt. Phone:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${body.alternatePhone || 'N/A'}</td></tr>
+                                <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>City:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${body.city || 'N/A'}</td></tr>
+                                <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Qualification:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${body.qualification || 'N/A'}</td></tr>
+                                <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Year of Passing:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${body.yearOfPassing || 'N/A'}</td></tr>
+                                <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Course Interest:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${body.course || 'N/A'}</td></tr>
+                                <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Occupation:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${body.occupation || 'N/A'}</td></tr>
+                                <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Message:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${body.message || 'N/A'}</td></tr>
+                                <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Submitted At:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${new Date().toLocaleString()}</td></tr>
+                            </table>
+                        `,
+                    };
 
-
-                const sender = settings.fromEmail || settings.smtpUser;
-                const mailOptions = {
-                    from: `"Bharathi Institute" <${sender}>`,
-                    to: settings.recipientEmails,
-                    subject: `New Enquiry: ${body.name} - ${body.course}`,
-                    html: `
-                        <h3>New Enquiry from Website</h3>
-                        <table style="width: 100%; border-collapse: collapse;">
-                            <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Name:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${body.name}</td></tr>
-                            <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Email:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${body.email}</td></tr>
-                            <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Phone:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${body.phone}</td></tr>
-                            <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Alt. Phone:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${body.alternatePhone || 'N/A'}</td></tr>
-                            <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>City:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${body.city || 'N/A'}</td></tr>
-                            <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Qualification:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${body.qualification || 'N/A'}</td></tr>
-                            <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Year of Passing:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${body.yearOfPassing || 'N/A'}</td></tr>
-                            <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Course Interest:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${body.course || 'N/A'}</td></tr>
-                            <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Occupation:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${body.occupation || 'N/A'}</td></tr>
-                            <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Message:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${body.message || 'N/A'}</td></tr>
-                            <tr><td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Submitted At:</strong></td><td style="padding: 8px; border-bottom: 1px solid #ddd;">${new Date().toLocaleString()}</td></tr>
-                        </table>
-                    `,
-                };
-
-                await transporter.sendMail(mailOptions);
-                console.log('Enquiry notification email sent');
+                    await transporter.sendMail(mailOptions);
+                    console.log('Enquiry notification email sent');
+                }
+            } catch (emailError) {
+                console.error('Email sending failed:', emailError);
             }
-        } catch (emailError) {
-            console.error('Email sending failed:', emailError);
-            // Don't fail the request if email fails
         }
 
         return NextResponse.json({ message: 'Enquiry submitted successfully', enquiry }, { status: 201 });

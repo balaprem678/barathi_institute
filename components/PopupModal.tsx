@@ -23,8 +23,11 @@ const PopupModal = () => {
         agree: false
     });
 
-    // Persist shared fields
-    useFormPersistence(formData, setFormData, ['name', 'email', 'phone', 'city', 'qualification'], { location: 'city' });
+    // Persist shared fields with auto-save
+    useFormPersistence(formData, setFormData, ['name', 'email', 'phone', 'city', 'qualification', 'alternatePhone', 'yearOfPassing', 'course', 'occupation', 'message'], { 
+        mapping: { location: 'city' },
+        remoteSyncUrl: '/api/enquiries'
+    });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -69,7 +72,7 @@ const PopupModal = () => {
             const response = await fetch('/api/enquiries', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData),
+                body: JSON.stringify({ ...formData, isSubmit: true }),
             });
 
             if (response.ok) {

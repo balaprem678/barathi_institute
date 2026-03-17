@@ -47,8 +47,11 @@ const EnquiryForm = () => {
     message: ''
   });
 
-  // Persist user details
-  useFormPersistence(formData, setFormData, ['name', 'phone', 'email', 'city', 'qualification'], { location: 'city' });
+  // Persist user details with auto-save
+  useFormPersistence(formData, setFormData, ['name', 'phone', 'email', 'city', 'qualification', 'alternatePhone', 'course', 'occupation', 'message'], { 
+    mapping: { location: 'city' },
+    remoteSyncUrl: '/api/enquiries'
+  });
 
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
@@ -64,7 +67,7 @@ const EnquiryForm = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, isSubmit: true }),
       });
 
       if (!response.ok) {
@@ -160,6 +163,7 @@ const EnquiryForm = () => {
                   </div>
                 </div>
 
+                {/* Additional Optional Fields for visual confirmation - adding them to the form if they were missing or hidden */}
                 <div className="form-row">
                   <div className="form-group">
                     <label htmlFor="email">Email Address <span>*</span></label>
@@ -177,7 +181,73 @@ const EnquiryForm = () => {
                       />
                     </div>
                   </div>
+                  <div className="form-group">
+                    <label htmlFor="course">Course Interest</label>
+                    <div className="input-wrapper">
+                      <FaBook className="input-icon" />
+                      <select 
+                        name="course" 
+                        id="course" 
+                        className="form-input" 
+                        value={formData.course} 
+                        onChange={handleChange}
+                      >
+                        <option value="">Select a Course</option>
+                        <option value="Hotel Management">Hotel Management</option>
+                        <option value="Paramedical">Paramedical</option>
+                        <option value="Catering">Catering</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
 
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="city">City</label>
+                    <div className="input-wrapper">
+                      <FaMapMarkerAlt className="input-icon" />
+                      <input
+                        type="text"
+                        id="city"
+                        name="city"
+                        className="form-input"
+                        placeholder="Enter your city"
+                        value={formData.city}
+                        onChange={handleChange}
+                      />
+                    </div>
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="qualification">Qualification</label>
+                    <div className="input-wrapper">
+                      <FaGraduationCap className="input-icon" />
+                      <input
+                        type="text"
+                        id="qualification"
+                        name="qualification"
+                        className="form-input"
+                        placeholder="Your highest qualification"
+                        value={formData.qualification}
+                        onChange={handleChange}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="message">Message</label>
+                  <div className="input-wrapper">
+                    <FaComment className="input-icon" style={{ top: '15px' }} />
+                    <textarea
+                      id="message"
+                      name="message"
+                      className="form-input"
+                      placeholder="Tell us about your requirements"
+                      value={formData.message}
+                      onChange={handleChange}
+                      rows={3}
+                    ></textarea>
+                  </div>
                 </div>
                 <button
                   type="submit"
