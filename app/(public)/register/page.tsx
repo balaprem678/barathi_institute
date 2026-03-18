@@ -24,8 +24,11 @@ export default function Register() {
 
     // We map 'city' from storage to 'location' in the registration form
     // And persist other shared fields
-    const fieldsToPersist = useMemo(() => ['name', 'email', 'phone', 'location', 'qualification', 'yearOfPassing'], []);
-    useFormPersistence(formData, setFormData, fieldsToPersist, { city: 'location' });
+    const fieldsToPersist = useMemo(() => ['name', 'email', 'phone', 'location', 'qualification', 'yearOfPassing', 'course', 'message'], []);
+    useFormPersistence(formData, setFormData, fieldsToPersist, { 
+        mapping: { city: 'location' },
+        remoteSyncUrl: '/api/students'
+    });
 
     const courseCategories = {
         degree: [
@@ -143,6 +146,8 @@ export default function Register() {
                 method: 'POST',
                 body: submitData,
             });
+            // Also append isSubmit to submitData
+            submitData.append('isSubmit', 'true');
 
             if (res.ok) {
                 showNotification('success', 'Form submitted successfully!');
@@ -213,21 +218,21 @@ export default function Register() {
                                         {/* Year of Passing */}
                                         <div className="col-md-6 col-sm-6 col-xs-12">
                                             <div className="form-group">
-                                                <input type="text" name="yearOfPassing" className="form-control" value={formData.yearOfPassing} onChange={handleChange} placeholder="Year Of Passing*" required />
+                                                <input type="text" name="yearOfPassing" className="form-control" value={formData.yearOfPassing} onChange={handleChange} placeholder="Year Of Passing" />
                                             </div>
                                         </div>
                                         {/* Location */}
                                         <div className="col-md-6 col-sm-6 col-xs-12">
                                             <div className="form-group">
-                                                <input type="text" name="location" className="form-control" value={formData.location} onChange={handleChange} placeholder="Location*" required />
+                                                <input type="text" name="location" className="form-control" value={formData.location} onChange={handleChange} placeholder="Location" />
                                             </div>
                                         </div>
                                         {/* Qualification */}
                                         <div className="col-md-6 col-sm-6 col-xs-12">
                                             <div className="form-group">
                                                 <div className="select-box">
-                                                    <select className="form-control" name="qualification" value={formData.qualification} onChange={handleChange} style={{ width: '100%' }} required>
-                                                        <option value="Qualification">Qualification*</option>
+                                                    <select className="form-control" name="qualification" value={formData.qualification} onChange={handleChange} style={{ width: '100%' }}>
+                                                        <option value="Qualification">Qualification</option>
                                                         <option value="12th - Degree / Diploma / Certificate Courses">12th - Degree / Diploma / Certificate Courses</option>
                                                         <option value="ITI - Degree / Diploma / Certificate Courses">ITI - Degree / Diploma / Certificate Courses </option>
                                                         <option value="10th - Diploma / Certificate Courses">10th - Diploma / Certificate Courses</option>
@@ -240,8 +245,8 @@ export default function Register() {
                                         <div className="col-md-12 col-sm-12 col-xs-12">
                                             <div className="form-group">
                                                 <div className="select-box">
-                                                    <select className="form-control" name="course" value={formData.course} onChange={handleChange} style={{ width: '100%' }} required>
-                                                        <option value="">Select Courses*</option>
+                                                    <select className="form-control" name="course" value={formData.course} onChange={handleChange} style={{ width: '100%' }}>
+                                                        <option value="">Select Courses</option>
                                                         {formData.qualification && coursesByQualification[formData.qualification]?.map((c) => (
                                                             <option key={c.value} value={c.value}>{c.label}</option>
                                                         ))}
@@ -252,8 +257,8 @@ export default function Register() {
                                         {/* Upload Marksheet */}
                                         <div className="col-md-12 col-sm-12 col-xs-12">
                                             <div className="form-group">
-                                                <label htmlFor="fileUpload">Upload Marksheet:</label>
-                                                <input type="file" name="file" id="fileUpload" className="form-control" required onChange={handleFileChange} ref={fileInputRef} />
+                                                <label htmlFor="fileUpload">Upload Marksheet (Optional):</label>
+                                                <input type="file" name="file" id="fileUpload" className="form-control" onChange={handleFileChange} ref={fileInputRef} />
                                             </div>
                                         </div>
                                         {/* Message Box */}

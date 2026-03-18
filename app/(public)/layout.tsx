@@ -77,6 +77,17 @@ export async function generateMetadata() {
       description: ogDescription,
       images: ["https://bharathiinstitutes.com/images/fav-icon/apple-touch-icon.png"],
     },
+    icons: {
+      icon: [
+        { url: "/images/fav-icon/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+        { url: "/images/fav-icon/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+        { url: "/images/logo/logo12.png", sizes: "192x192", type: "image/png" },
+      ],
+      shortcut: "/images/logo/logo12.png",
+      apple: [
+        { url: "/images/fav-icon/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+      ],
+    },
     other: {
       "google-site-verification": "bP2auhYiMuDJqzDVAyONCxyYZ1uGjC-tBuXOr1hoV1A"
     }
@@ -94,19 +105,17 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
-        <link rel="shortcut icon" href="/images/logo/logo12.png" type="image/png" />
+        
+        {/* Next.js Metadata handles icons, but keeping manual links for specific legacy support if needed, 
+            ensuring one of them is 48/96/144/192 for Google */}
+        <link rel="icon" href="/images/logo/logo12.png" sizes="192x192" />
+        
         <DeferredCSS href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
         <DeferredCSS href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
-        {/* <link href="/css/style.css" rel="stylesheet" /> */}
-        {/* <link href="/css/responsive.css" rel="stylesheet" /> */}
         <link href="/css/owl.carousel.css" rel="stylesheet" />
         <link href="/css/settings.css" rel="stylesheet" />
         <link href="/css/layers.css" rel="stylesheet" />
         <link href="/css/navigation.css" rel="stylesheet" />
-
-        <link href="/images/fav-icon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
-        <link href="/images/fav-icon/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
-        <link href="/images/fav-icon/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
         <Script 
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
           integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" 

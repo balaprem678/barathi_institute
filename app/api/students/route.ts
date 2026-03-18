@@ -106,25 +106,26 @@ export async function POST(req: Request) {
                 message: formData.get('message') || '',
                 address: formData.get('address') || '',
                 dob: formData.get('dob') || null,
+                isSubmit: formData.get('isSubmit') === 'true',
             };
 
-            // Basic Validation
-            const requiredFields = ['name', 'email', 'phone', 'course', 'qualification', 'yearOfPassing', 'location'];
-            for (const field of requiredFields) {
-                if (!body[field]) {
-                    return NextResponse.json({ message: `Missing required field: ${field}` }, { status: 400 });
+            // Validation for explicit submission
+            if (body.isSubmit) {
+                const requiredFields = ['name', 'email', 'phone'];
+                for (const field of requiredFields) {
+                    if (!body[field]) {
+                        return NextResponse.json({ message: `Missing required field: ${field}` }, { status: 400 });
+                    }
                 }
             }
 
             const file = formData.get('file') as File;
-            if (file) {
+            if (file && file.size > 0) {
                 const buffer = Buffer.from(await file.arrayBuffer());
                 fileName = Date.now() + '_' + file.name.replace(/\s+/g, '_');
                 fileType = file.type;
                 fileBuffer = buffer;
 
-                // Save file locally (optional, but good for persistence if not using S3)
-                // Note: Vercel specific limitations apply here as noted before
                 try {
                     const uploadDir = path.join(process.cwd(), 'public/uploads');
                     await mkdir(uploadDir, { recursive: true });
@@ -132,74 +133,90 @@ export async function POST(req: Request) {
                     body.markSheetPath = `/uploads/${fileName}`;
                 } catch (fsError) {
                     console.error('File save error (local):', fsError);
-                    // Proceed without local save if strictly on Vercel without persistent storage
                 }
             }
         } else {
             body = await req.json();
         }
 
-        // Save Student to DB
-        const student = new Student(body);
-        await student.save();
+        const { email, phone, isSubmit } = body;
+
+        // Upsert Student (Deduplication based on Email or Phone)
+        let student;
+        const query = [];
+        if (email) query.push({ email });
+        if (phone) query.push({ phone });
+
+        if (query.length > 0) {
+            student = await Student.findOneAndUpdate(
+                { $or: query },
+                { $set: body },
+                { new: true, upsert: true, setDefaultsOnInsert: true }
+            );
+        } else if (body.name) {
+            student = await Student.create(body);
+        } else {
+            return NextResponse.json({ message: 'Insufficient data for auto-save' }, { status: 400 });
+        }
 
         // --- EMAIL NOTIFICATION LOGIC ---
-        try {
-            let settings = await Settings.findOne();
-            if (!settings) settings = {}; // fallback if empty
+        if (isSubmit) {
+            try {
+                let settings = await Settings.findOne();
+                if (!settings) settings = {}; // fallback if empty
 
-            if (settings.smtpHost && settings.recipientEmails) {
-                const transporter = nodemailer.createTransport({
-                    host: settings.smtpHost,
-                    port: Number(settings.smtpPort) || 587,
-                    secure: Number(settings.smtpPort) === 465, // true for 465, false for other ports
-                    auth: {
-                        user: settings.smtpUser,
-                        pass: settings.smtpPass,
-                    },
-                });
+                if (settings.smtpHost && settings.recipientEmails) {
+                    const transporter = nodemailer.createTransport({
+                        host: settings.smtpHost,
+                        port: Number(settings.smtpPort) || 587,
+                        secure: Number(settings.smtpPort) === 465, // true for 465, false for other ports
+                        auth: {
+                            user: settings.smtpUser,
+                            pass: settings.smtpPass,
+                        },
+                    });
 
+                    const sender = settings.fromEmail || settings.smtpUser;
 
+                    const mailOptions: any = {
+                        from: `"Bharathi Institute" <${sender}>`,
+                        to: settings.recipientEmails,
+                        subject: `New Admission Enquiry: ${body.name}`,
+                        html: `
+                            <h3>New Admission Form from Website</h3>
+                            <p>This is a confirmed registration from the website.</p>
+                            <p><strong>Name:</strong> ${body.name}</p>
+                            <p><strong>Email:</strong> ${body.email}</p>
+                            <p><strong>Phone:</strong> ${body.phone}</p>
+                            <p><strong>Qualification:</strong> ${body.qualification || 'N/A'}</p>
+                            <p><strong>Year of Passing:</strong> ${body.yearOfPassing || 'N/A'}</p>
+                            <p><strong>Location:</strong> ${body.location || 'N/A'}</p>
+                            <p><strong>Course:</strong> ${body.course || 'N/A'}</p>
+                            <p><strong>Message:</strong> ${body.message || 'No message'}</p>
+                            <p><strong>Submitted At:</strong> ${new Date().toLocaleString()}</p>
+                        `,
+                    };
 
-                const sender = settings.fromEmail || settings.smtpUser;
+                    // Add attachment if file exists
+                    if (fileBuffer) {
+                        mailOptions.attachments = [
+                            {
+                                filename: fileName.split('_').slice(1).join('_'),
+                                content: fileBuffer,
+                                contentType: fileType
+                            }
+                        ];
+                    }
 
-                const mailOptions: any = {
-                    from: `"Bharathi Institute" <${sender}>`,
-                    to: settings.recipientEmails, // "admin1@mail.com, admin2@mail.com"
-                    subject: `New Admission Enquiry: ${body.name}`,
-                    html: `
-                        <h3>New Enquiry from Website</h3>
-                        <p><strong>Name:</strong> ${body.name}</p>
-                        <p><strong>Email:</strong> ${body.email}</p>
-                        <p><strong>Phone:</strong> ${body.phone}</p>
-                        <p><strong>Qualification:</strong> ${body.qualification}</p>
-                        <p><strong>Year of Passing:</strong> ${body.yearOfPassing}</p>
-                        <p><strong>Location:</strong> ${body.location}</p>
-                        <p><strong>Course:</strong> ${body.course}</p>
-                        <p><strong>Message:</strong> ${body.message || 'No message'}</p>
-                    `,
-                };
-
-                // Add attachment if file exists
-                if (fileBuffer) {
-                    mailOptions.attachments = [
-                        {
-                            filename: fileName.split('_').slice(1).join('_'), // Original name slightly cleaned
-                            content: fileBuffer,
-                            contentType: fileType
-                        }
-                    ];
+                    await transporter.sendMail(mailOptions);
+                    console.log('Notification email sent successfully');
+                } else {
+                    console.log('SMTP settings missing, skipping email notification');
                 }
 
-                await transporter.sendMail(mailOptions);
-                console.log('Notification email sent successfully');
-            } else {
-                console.log('SMTP settings missing, skipping email notification');
+            } catch (emailError) {
+                console.error('Email sending failed:', emailError);
             }
-
-        } catch (emailError) {
-            console.error('Email sending failed:', emailError);
-            // Don't fail the request if email fails, just log it
         }
         // --------------------------------
 
