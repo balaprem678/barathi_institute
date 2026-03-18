@@ -20,11 +20,11 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
 // Header Styles
 .header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
     background: $white;
     box-shadow: $shadow;
+    position: sticky;
+    top: -115px;
+    z-index: 12;
 }
 
 // Top Bar
@@ -82,7 +82,6 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
 // Main Navigation
 .main-nav {
-    position: relative;
     background: $white;
     padding: 0.5rem 0;
 
@@ -695,8 +694,8 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 }
 
-@media screen and (max-width:400px){
-    .sm-none{
+@media screen and (max-width:400px) {
+    .sm-none {
         display: none;
     }
 }
