@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 
 const WhyChooseUs = () => {
     return (
@@ -16,7 +17,14 @@ const WhyChooseUs = () => {
                             <div className="single-item">
                                 <div className="inner-box">
                                     <div className="image-box">
-                                        <img alt="Bharathi Institute of Catering &amp; Hotel Management" src="/images/resource/1.jpg" />
+                                        <Image 
+                                            alt="100% Placement" 
+                                            src="/images/resource/1.jpg" 
+                                            width={300} 
+                                            height={200}
+                                            style={{ width: '100%', height: 'auto' }}
+                                            sizes="(max-width: 768px) 100vw, 33vw"
+                                        />
                                         <div className="caption">100% Placement</div>
                                         <div className="overlay-box">
                                             <h4>100% Placement</h4>
@@ -30,7 +38,15 @@ const WhyChooseUs = () => {
                             </div>
                             <div className="single-item">
                                 <div className="inner-box">
-                                    <div className="image-box"><img alt="Bharathi Institute of Catering &amp; Hotel Management" src="/images/resource/2.jpg" />
+                                    <div className="image-box">
+                                        <Image 
+                                            alt="70% Practicals" 
+                                            src="/images/resource/2.jpg" 
+                                            width={300} 
+                                            height={200}
+                                            style={{ width: '100%', height: 'auto' }}
+                                            sizes="(max-width: 768px) 100vw, 33vw"
+                                        />
                                         <div className="caption">70% Practicals</div>
                                         <div className="overlay-box">
                                             <h4>90% Practicals</h4>
@@ -45,7 +61,14 @@ const WhyChooseUs = () => {
                             <div className="single-item">
                                 <div className="inner-box">
                                     <div className="image-box">
-                                        <img alt="Bharathi Institute of Catering &amp; Hotel Management" src="/images/resource/3.jpg" />
+                                        <Image 
+                                            alt="Spoken English" 
+                                            src="/images/resource/3.jpg" 
+                                            width={300} 
+                                            height={200}
+                                            style={{ width: '100%', height: 'auto' }}
+                                            sizes="(max-width: 768px) 100vw, 33vw"
+                                        />
                                         <div className="caption">Spoken English</div>
                                         <div className="overlay-box">
                                             <h4>Spoken English</h4>
@@ -59,7 +82,15 @@ const WhyChooseUs = () => {
                             </div>
                             <div className="single-item">
                                 <div className="inner-box">
-                                    <div className="image-box"><img alt="Bharathi Institute of Catering &amp; Hotel Management" src="/images/resource/ventilation-fan.jpg" />
+                                    <div className="image-box">
+                                        <Image 
+                                            alt="Ventilation Classrooms" 
+                                            src="/images/resource/ventilation-fan.jpg" 
+                                            width={300} 
+                                            height={200}
+                                            style={{ width: '100%', height: 'auto' }}
+                                            sizes="(max-width: 768px) 100vw, 33vw"
+                                        />
                                         <div className="caption">Ventilation Classrooms</div>
                                         <div className="overlay-box">
                                             <h4>Ventilation Classrooms</h4>
@@ -73,7 +104,15 @@ const WhyChooseUs = () => {
                             </div>
                             <div className="single-item">
                                 <div className="inner-box">
-                                    <div className="image-box"><img alt="Bharathi Institute of Catering &amp; Hotel Management" src="/images/resource/infra.jpg" />
+                                    <div className="image-box">
+                                        <Image 
+                                            alt="Excellent Infra" 
+                                            src="/images/resource/infra.jpg" 
+                                            width={300} 
+                                            height={200}
+                                            style={{ width: '100%', height: 'auto' }}
+                                            sizes="(max-width: 768px) 100vw, 33vw"
+                                        />
                                         <div className="caption">Excellent Infra</div>
                                         <div className="overlay-box">
                                             <h4>Excellent Infra</h4>
@@ -87,7 +126,15 @@ const WhyChooseUs = () => {
                             </div>
                             <div className="single-item">
                                 <div className="inner-box">
-                                    <div className="image-box"><img alt="Bharathi Institute of Catering &amp; Hotel Management" src="/images/resource/6.jpg" />
+                                    <div className="image-box">
+                                        <Image 
+                                            alt="Industrial Visits" 
+                                            src="/images/resource/6.jpg" 
+                                            width={300} 
+                                            height={200}
+                                            style={{ width: '100%', height: 'auto' }}
+                                            sizes="(max-width: 768px) 100vw, 33vw"
+                                        />
                                         <div className="caption">Industrial Visits</div>
                                         <div className="overlay-box">
                                             <h4>Industrial Visits</h4>

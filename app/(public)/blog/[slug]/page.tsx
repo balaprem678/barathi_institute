@@ -57,8 +57,15 @@ export default async function BlogDetail({ params }: PageProps) {
         <div className="blog-detail-wrapper">
             {/* Banner */}
             <section className="blog_banner">
-                <img src={Images.testimonials_banner.src} alt="Blog Banner" />
-                <h1>Blog Details</h1>
+                <Image 
+                    src={Images.testimonials_banner} 
+                    alt="Blog Detail Banner" 
+                    priority 
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    sizes="100vw"
+                />
+                <h1 style={{ position: 'relative', zIndex: 1 }}>Blog Details</h1>
             </section>
 
             <div className="container py-20">

@@ -310,8 +310,15 @@ export default function ContactContent({ schemaScript }: { schemaScript?: string
                 <div dangerouslySetInnerHTML={{ __html: schemaScript }} />
             )}
             <section className="banner_section contact_banner">
-                <img src={Images.contacts_banner.src} alt="About Us Banner" />
-                <h1>Contact Us</h1>
+                <Image 
+                    src={Images.contacts_banner} 
+                    alt="Contact Us Banner" 
+                    priority 
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    sizes="100vw"
+                />
+                <h1 style={{ position: 'relative', zIndex: 1 }}>Contact Us</h1>
             </section>
             {/* Main Content */}
             <section className="contact-main-section">

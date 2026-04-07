@@ -181,8 +181,15 @@ export default function AboutContent({ schemaScript }: { schemaScript?: string }
 
             {/* Hero Banner */}
             <section className="banner_section">
-                <img src={Images.about_banner.src} alt="About Us Banner" />
-                <h1>About Us</h1>
+                <Image 
+                    src={Images.about_banner} 
+                    alt="About Us Banner" 
+                    priority 
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    sizes="100vw"
+                />
+                <h1 style={{ position: 'relative', zIndex: 1 }}>About Us</h1>
             </section>
             {/* Mobile Tab Navigation */}
             {isMobile && (

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 const LatestEvents = () => {
     return (
@@ -10,21 +11,42 @@ const LatestEvents = () => {
                 <div className="row">
                     <div className="col-lg-4">
                         <div className="image">
-                            <img alt="Capping day celebration picture" src="/images/resource/event1.jpg" />
+                            <Image 
+                                alt="Capping day celebration picture" 
+                                src="/images/resource/event1.jpg" 
+                                width={400} 
+                                height={300}
+                                style={{ width: '100%', height: 'auto' }}
+                                sizes="(max-width: 768px) 100vw, 33vw"
+                            />
                         </div>
                         <br />
                         <h4 style={{ color: 'white', fontWeight: 600, fontSize: '23px', textAlign: 'center' }}>Capping day celebration</h4>
                     </div>
                     <div className="col-lg-4">
                         <div className="image">
-                            <img alt="Capping day celebration picture" src="/images/resource/event2.jpg" />
+                            <Image 
+                                alt="Capping day celebration picture" 
+                                src="/images/resource/event2.jpg" 
+                                width={400} 
+                                height={300}
+                                style={{ width: '100%', height: 'auto' }}
+                                sizes="(max-width: 768px) 100vw, 33vw"
+                            />
                         </div>
                         <br />
                         <h4 style={{ color: 'white', fontWeight: 600, fontSize: '23px', textAlign: 'center' }}>Capping day celebration</h4>
                     </div>
                     <div className="col-lg-4">
                         <div className="image">
-                            <img alt="Capping day celebration picture" src="/images/resource/event3.jpg" />
+                            <Image 
+                                alt="Capping day celebration picture" 
+                                src="/images/resource/event3.jpg" 
+                                width={400} 
+                                height={300}
+                                style={{ width: '100%', height: 'auto' }}
+                                sizes="(max-width: 768px) 100vw, 33vw"
+                            />
                         </div>
                         <br />
                         <h4 style={{ color: 'white', fontWeight: 600, fontSize: '23px', textAlign: 'center' }}>Capping day celebration</h4>

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import PageBreadcrumb from '@/components/PageBreadcrumb';
 import Link from 'next/link';
 import { Images } from '@/app/utilis/Images';
@@ -8,8 +9,15 @@ export default function Admission() {
     return (
         <>
             <section className="banner_section">
-                <img src={Images.admission_procudure_banner.src} alt="About Us Banner" />
-                <h1>Admission Procudere</h1>
+                <Image 
+                    src={Images.admission_procudure_banner} 
+                    alt="Admission Procedure Banner" 
+                    priority 
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    sizes="100vw"
+                />
+                <h1 style={{ position: 'relative', zIndex: 1 }}>Admission Procedure</h1>
             </section>
 
             <section className="default-section sec-padd">

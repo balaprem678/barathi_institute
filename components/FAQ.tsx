@@ -1,4 +1,5 @@
 import { Images } from "@/app/utilis/Images";
+import NextImage from 'next/image';
 
 const FAQ = () => {
     return (
@@ -6,7 +7,14 @@ const FAQ = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-lg-5 col-sm-12">
-                        <img alt="" src={Images.faq_image.src} />
+                        <NextImage 
+                            src={Images.faq_image} 
+                            alt="Frequently Asked Questions Illustration" 
+                            width={500} 
+                            height={400}
+                            style={{ width: '100%', height: 'auto' }}
+                            sizes="(max-width: 768px) 100vw, 40vw"
+                        />
                     </div>
                     <div className="col-lg-7 col-sm-12">
                         <div className="faq-box">

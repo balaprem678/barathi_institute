@@ -218,8 +218,8 @@ export default function RootLayout({
         </Script>
 
         {/* Google Analytics */}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-W9TE3VPFG7" strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-W9TE3VPFG7" strategy="lazyOnload" />
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -253,8 +253,8 @@ export default function RootLayout({
         {/* External Libs */}
         <Script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js" strategy="lazyOnload" />
 
-        {/* Scripts - Loaded lazily to avoid blocking */}
-        <Script src="/js/jquery.js" strategy="beforeInteractive" />
+        {/* Scripts - Loaded after interactivity to avoid blocking */}
+        <Script src="/js/jquery.js" strategy="afterInteractive" />
         {/* <Script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" strategy="afterInteractive" /> */}
         <Script src="/js/menu.js" strategy="afterInteractive" />
         <Script src="/js/owl.carousel.min.js" strategy="afterInteractive" />

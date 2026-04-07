@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import PageBreadcrumb from '@/components/PageBreadcrumb';
 import Link from 'next/link';
 import Partners from '@/components/partners';
@@ -10,9 +11,6 @@ import { Metadata } from 'next';
 export async function generateMetadata(): Promise<Metadata> {
     return await getStaticPageMetadata('/placements');
 }
-
-
-
 
 
 export default async function Placements() {
@@ -64,8 +62,15 @@ export default async function Placements() {
             )}
 
             <section className="banner_section">
-                <img src={Images.placements_banner.src} alt="About Us Banner" />
-                <h1>Placements</h1>
+                <Image 
+                    src={Images.placements_banner} 
+                    alt="Placements Banner" 
+                    priority 
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    sizes="100vw"
+                />
+                <h1 style={{ position: 'relative', zIndex: 1 }}>Placements</h1>
             </section>
             <section className="recuiters-section" style={{ padding: '50px 0' }}>
                 <div className="container">
@@ -158,8 +163,14 @@ export default async function Placements() {
                             <div className="col-md-4 col-sm-6" key={index} style={{ marginBottom: '30px' }}>
                                 <div className="testimonial-item" style={{ padding: '20px', background: '#fff', boxShadow: '0 0 10px rgba(0,0,0,0.1)', borderRadius: '5px', height: '100%' }}>
                                     <div className="box text-center">
-                                        <div style={{ width: '80px', height: '80px', margin: '0 auto 20px', borderRadius: '50%', overflow: 'hidden' }}>
-                                            <img alt="" src={testi.image} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                        <div style={{ width: '80px', height: '80px', margin: '0 auto 20px', borderRadius: '50%', overflow: 'hidden', position: 'relative' }}>
+                                            <Image 
+                                                alt={testi.name} 
+                                                src={testi.image} 
+                                                fill
+                                                style={{ objectFit: 'cover' }}
+                                                sizes="80px"
+                                            />
                                         </div>
                                         <h3 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '10px' }}>{testi.name}</h3>
                                         <p style={{ fontStyle: 'italic', marginBottom: '15px', color: '#666' }}>"{testi.content}"</p>
