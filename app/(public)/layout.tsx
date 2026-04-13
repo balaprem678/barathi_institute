@@ -51,6 +51,7 @@ export async function generateMetadata() {
   const ogDescription = seo.ogDescription || description;
 
   return {
+    metadataBase: new URL('https://bharathiinstitutes.com'),
     title: {
       default: title,
       template: `%s | ${siteName}`,
