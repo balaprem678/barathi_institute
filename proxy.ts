@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
     const url = request.nextUrl.pathname.toLowerCase();
 
     // 1. Handle 410 Gone for specific deleted files
@@ -26,7 +26,9 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
 }
 
-// See "Matching Paths" below to learn more
+// In Next.js 16, the export function can be named 'middleware' even inside 'proxy.ts'
+// as it is automatically picked up by the proxy runner.
+
 export const config = {
     matcher: [
         /*
