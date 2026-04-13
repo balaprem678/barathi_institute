@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import type { NextConfig } from 'next'
-import "../globals.scss";
+import "../globals.css";
 import "./styles/style.scss";
 import "./styles/responsive.scss";
 import "../../public/css/new_style.scss";
