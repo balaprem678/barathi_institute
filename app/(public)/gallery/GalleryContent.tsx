@@ -159,8 +159,15 @@ export default function GalleryContent({ schemaScript }: { schemaScript?: string
 
       {/* Hero Banner */}
       <section className="banner_section">
-        <img src={Images.gallery_banner.src} alt="Gallery Banner" />
-        <h1>Gallery</h1>
+        <Image 
+          src={Images.gallery_banner} 
+          alt="Gallery Banner" 
+          priority 
+          fill
+          style={{ objectFit: 'cover' }}
+          sizes="100vw"
+        />
+        <h1 style={{ position: 'relative', zIndex: 1 }}>Gallery</h1>
       </section>
 
       {/* Gallery Content */}

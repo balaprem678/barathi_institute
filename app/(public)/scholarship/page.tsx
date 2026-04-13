@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Image from 'next/image';
 import { Images } from '@/app/utilis/Images';
 
 
@@ -6,8 +6,15 @@ export default function Scholarship() {
     return (
         <>
             <section className="banner_section">
-                <img src={Images.scholarship_banner.src} alt="About Us Banner" />
-                <h1>Scholarship</h1>
+                <Image 
+                    src={Images.scholarship_banner} 
+                    alt="Scholarship Banner" 
+                    priority 
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    sizes="100vw"
+                />
+                <h1 style={{ position: 'relative', zIndex: 1 }}>Scholarship</h1>
             </section>
 
             <section className="default-section sec-padd">

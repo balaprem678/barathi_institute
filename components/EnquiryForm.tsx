@@ -1,4 +1,5 @@
 'use client';
+import { validateEmail, validateIndianPhone } from '@/lib/validation';
 import "./enqueryform.scss";
 import { useState, FormEvent, ChangeEvent } from 'react';
 import {
@@ -58,6 +59,32 @@ const EnquiryForm = () => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // Frontend Validation
+    const trimmedEmail = formData.email.trim();
+    const trimmedPhone = formData.phone.trim();
+
+    if (!formData.name.trim()) {
+      showNotification('error', 'Please enter your full name');
+      return;
+    }
+    if (!trimmedEmail) {
+      showNotification('error', 'Please enter your email address');
+      return;
+    }
+    if (!validateEmail(trimmedEmail)) {
+      showNotification('error', 'Please provide a valid email address');
+      return;
+    }
+    if (!trimmedPhone) {
+      showNotification('error', 'Please enter your phone number');
+      return;
+    }
+    if (!validateIndianPhone(trimmedPhone)) {
+      showNotification('error', 'Please provide a valid 10-digit Indian phone number');
+      return;
+    }
+
     setIsSubmitting(true);
 
     // Real API call
@@ -71,11 +98,12 @@ const EnquiryForm = () => {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to submit enquiry');
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to submit enquiry');
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Submission error:', error);
-      showNotification('error', 'Something went wrong. Please try again.');
+      showNotification('error', error.message || 'Something went wrong. Please try again.');
       setIsSubmitting(false);
       return;
     }

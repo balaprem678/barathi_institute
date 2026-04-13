@@ -2,6 +2,7 @@ import Link from 'next/link';
 import "./footer.scss";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { Images } from '@/app/utilis/Images';
+import NextImage from 'next/image';
 
 const Footer = () => {
     return (
@@ -11,7 +12,13 @@ const Footer = () => {
                     <div className="row">
                         <div className="col-md-3 col-sm-12">
                             <div className="practice-list">
-                                <img src={Images.logo.src} alt="logo" width="300px" />
+                                <NextImage 
+                                    src={Images.logo} 
+                                    alt="Bharathi Institute Logo" 
+                                    width={300} 
+                                    height={80}
+                                    style={{ width: '300px', height: 'auto' }}
+                                />
                                 <p style={{ color: '#FFFFFF' }}> In 2005, Bharathi Educational Institution began operations in Chennai&apos;s Tambaram district; Districts of Vellore, Ranipet, Ambur, and Karaikudi in the Sivagangai district are which are industrial centres.</p>
                             </div>
                         </div>
@@ -42,12 +49,24 @@ const Footer = () => {
                                 <h3 style={{ color: '#FFFFFF', marginTop: '20px' }}>Follow on :</h3><br />
                                 <ul style={{ display: 'flex', gap: '10px' }} className='p-0 social_media_link'>
                                     <div className="wrapper">
-                                        <a href="https://www.facebook.com/bharathieducationalinstitutions"><img src={Images.facebook.src} alt="Facebook" /></a>
-                                        <a href="#"><img src={Images.twitter.src} alt="Twitter" /></a>
-                                          <a href="https://www.linkedin.com/company/bharathi-institute-of-hotel-management-health-science/about/"><img src={Images.linkedin.src} alt="Facebook" /></a>
-                                        <a href="https://www.instagram.com/bharathi_institute_official/"><img src={Images.instagram.src} alt="Instagram" /></a>
-                                        <a href="https://api.whatsapp.com/send?phone=919444120052"><img src={Images.whatsapp.src} alt="WhatsApp" /></a>
-                                        <a href="https://www.youtube.com/@BharathiInstitutes"><img src={Images.youtube.src} alt="YouTube" /></a>
+                                        <a href="https://www.facebook.com/bharathieducationalinstitutions">
+                                            <NextImage src={Images.facebook} alt="Facebook" width={24} height={24} />
+                                        </a>
+                                        <a href="#">
+                                            <NextImage src={Images.twitter} alt="Twitter" width={24} height={24} />
+                                        </a>
+                                        <a href="https://www.linkedin.com/company/bharathi-institute-of-hotel-management-health-science/about/">
+                                            <NextImage src={Images.linkedin} alt="LinkedIn" width={24} height={24} />
+                                        </a>
+                                        <a href="https://www.instagram.com/bharathi_institute_official/">
+                                            <NextImage src={Images.instagram} alt="Instagram" width={24} height={24} />
+                                        </a>
+                                        <a href="https://api.whatsapp.com/send?phone=919444120052">
+                                            <NextImage src={Images.whatsapp} alt="WhatsApp" width={24} height={24} />
+                                        </a>
+                                        <a href="https://www.youtube.com/@BharathiInstitutes">
+                                            <NextImage src={Images.youtube} alt="YouTube" width={24} height={24} />
+                                        </a>
                                     </div>
                                 </ul>
                             </div>
@@ -64,7 +83,14 @@ const Footer = () => {
                                     style={{ border: 0 }}
                                     allowFullScreen={true}
                                 ></iframe> */}
-                                <img src={Images.overallmap.src} alt="Overall Map" />
+                                <NextImage 
+                                    src={Images.overallmap} 
+                                    alt="Bharathi Institutes Tamil Nadu Locations Map" 
+                                    width={400}
+                                    height={300}
+                                    sizes="(max-width: 768px) 100vw, 33vw"
+                                    style={{ width: '100%', height: 'auto' }}
+                                />
                             </div>
                            
                         </div>

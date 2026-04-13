@@ -35,14 +35,26 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     if (!blog) return {};
 
     const { seo } = blog;
+    const title = seo?.metaTitle || blog.title;
+    const description = seo?.metaDescription;
+    const imageUrl = blog.imagePath || 'https://bharathiinstitutes.com/images/fav-icon/apple-touch-icon.png';
+
     return {
-        title: seo?.metaTitle || blog.title,
-        description: seo?.metaDescription,
+        title,
+        description,
         keywords: [seo?.focusKeywords, seo?.metaKeywords].filter(Boolean).join(', '),
         openGraph: {
-            title: seo?.metaTitle || blog.title,
-            description: seo?.metaDescription,
-            images: blog.imagePath ? [{ url: blog.imagePath }] : [],
+            title,
+            description,
+            type: 'article',
+            publishedTime: blog.createdAt.toISOString(),
+            images: blog.imagePath ? [{ url: blog.imagePath, width: 1200, height: 630, alt: title }] : [],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title,
+            description,
+            images: [imageUrl],
         }
     };
 }
@@ -57,8 +69,15 @@ export default async function BlogDetail({ params }: PageProps) {
         <div className="blog-detail-wrapper">
             {/* Banner */}
             <section className="blog_banner">
-                <img src={Images.testimonials_banner.src} alt="Blog Banner" />
-                <h1>Blog Details</h1>
+                <Image 
+                    src={Images.testimonials_banner} 
+                    alt="Blog Detail Banner" 
+                    priority 
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    sizes="100vw"
+                />
+                <h1 style={{ position: 'relative', zIndex: 1 }}>Blog Details</h1>
             </section>
 
             <div className="container py-20">
@@ -108,6 +127,34 @@ export default async function BlogDetail({ params }: PageProps) {
                             {blog.schemaScript && (
                                 <div dangerouslySetInnerHTML={{ __html: blog.schemaScript }} />
                             )}
+
+                            {/* Automated BlogPosting Schema for Google Image Indexing */}
+                            <script
+                                type="application/ld+json"
+                                dangerouslySetInnerHTML={{
+                                    __html: JSON.stringify({
+                                        "@context": "https://schema.org",
+                                        "@type": "BlogPosting",
+                                        "headline": blog.title,
+                                        "image": blog.imagePath ? [`https://bharathiinstitutes.com${blog.imagePath}`] : [],
+                                        "datePublished": blog.createdAt.toISOString(),
+                                        "dateModified": blog.updatedAt ? blog.updatedAt.toISOString() : blog.createdAt.toISOString(),
+                                        "author": {
+                                            "@type": "Person",
+                                            "name": blog.studentName || "Bharathi Institute Team"
+                                        },
+                                        "publisher": {
+                                            "@type": "Organization",
+                                            "name": "Bharathi Institute",
+                                            "logo": {
+                                                "@type": "ImageObject",
+                                                "url": "https://bharathiinstitutes.com/images/logo/logo-large.png"
+                                            }
+                                        },
+                                        "description": blog.seo?.metaDescription || blog.title
+                                    })
+                                }}
+                            />
 
                             <div
                                 className="blog-content-body prose max-w-none"

@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Images } from '@/app/utilis/Images';
 
 export default function CoursesContent({ schemaScript }: { schemaScript?: string }) {
@@ -23,11 +24,7 @@ export default function CoursesContent({ schemaScript }: { schemaScript?: string
                     overflow: hidden;
                     border-radius: 10px;
                     margin: auto;
-                }
-                .courses_img img {
-                    height: 100%;
-                    width: 100%;
-                    object-fit: cover;
+                    position: relative;
                 }
                 .course_h2 {
                     font-size: 20px;
@@ -51,8 +48,15 @@ export default function CoursesContent({ schemaScript }: { schemaScript?: string
             `}</style>
 
             <section className="banner_section our_courses_banner">
-                <img src={Images.our_courses_banner.src} alt="Our Courses Banner" />
-                <h1>Our Courses</h1>
+                <Image 
+                    src={Images.our_courses_banner} 
+                    alt="Our Courses Banner" 
+                    priority 
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    sizes="100vw"
+                />
+                <h1 style={{ position: 'relative', zIndex: 1 }}>Our Courses</h1>
             </section>
 
             <section className="courses_sec sec-padd2">
@@ -68,7 +72,13 @@ export default function CoursesContent({ schemaScript }: { schemaScript?: string
                         <div className="col-md-6">
                             <div className="courses_details">
                                 <div className="courses_img">
-                                    <img src="/images/courses/Degree.webp" alt="Degree Courses" />
+                                    <Image 
+                                        src="/images/courses/Degree.webp" 
+                                        alt="Degree Courses" 
+                                        fill
+                                        style={{ objectFit: 'cover' }}
+                                        sizes="(max-width: 768px) 100vw, 40vw"
+                                    />
                                 </div>
 
                                 <h2 className="course_h2">Degree Courses ( 3 Year )</h2>
@@ -79,7 +89,13 @@ export default function CoursesContent({ schemaScript }: { schemaScript?: string
                         <div className="col-md-6">
                             <div className="courses_details">
                                 <div className="courses_img">
-                                    <img src="/images/courses/Diploma Courses.webp" alt="Diploma Courses" />
+                                    <Image 
+                                        src="/images/courses/Diploma Courses.webp" 
+                                        alt="Diploma Courses" 
+                                        fill
+                                        style={{ objectFit: 'cover' }}
+                                        sizes="(max-width: 768px) 100vw, 40vw"
+                                    />
                                 </div>
 
                                 <h2 className="course_h2">Diploma Courses ( 1 & 2 Year )</h2>

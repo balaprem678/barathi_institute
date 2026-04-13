@@ -1,3 +1,4 @@
+@use "sass:color";
 // Variables
 $primary-color: #1a365d;
 $secondary-color: #2d3748;
@@ -18,7 +19,7 @@ $shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
 
 // Hero Section
 .facilities-hero {
-  background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 10%) 100%);
+  background: linear-gradient(135deg, $primary-color 0%, color.adjust($primary-color, $lightness: -10%) 100%);
   color: white;
   padding: 5rem 0;
   position: relative;
@@ -309,7 +310,7 @@ $shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
 
 // CTA Section
 .facilities-cta {
-  background: linear-gradient(135deg, $light-color 0%, darken($light-color, 5%) 100%);
+  background: linear-gradient(135deg, $light-color 0%, color.adjust($light-color, $lightness: -5%) 100%);
   border-radius: $border-radius;
   padding: 4rem;
   margin: 6rem 0;
@@ -372,7 +373,7 @@ $shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
   }
 
   &:hover {
-    background: darken($highlight-color, 10%);
+    background: color.adjust($highlight-color, $lightness: -10%);
     transform: translateY(-2px);
     box-shadow: 0 6px 25px rgba($highlight-color, 0.4);
 

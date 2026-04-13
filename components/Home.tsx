@@ -547,7 +547,14 @@ export default function Home({ schemaScript }: { schemaScript?: string }) {
                 <div className="single-item">
                   <div className="inner-box">
                     <div className="image-box">
-                      <img alt="Bharathi Institute of Catering &amp; Hotel Management" src={Images.why_prefer_1.src} />
+                      <Image 
+                        alt="100% Placement" 
+                        src={Images.why_prefer_1} 
+                        width={400} 
+                        height={300}
+                        style={{ width: '100%', height: 'auto' }}
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
                       <div className="caption">100% Placement</div>
 
                       <div className="overlay-box">
@@ -563,7 +570,15 @@ export default function Home({ schemaScript }: { schemaScript?: string }) {
                 </div>
                 <div className="single-item">
                   <div className="inner-box">
-                    <div className="image-box"><img alt="Bharathi Institute of Catering &amp; Hotel Management" src={Images.why_prefer_2.src} />
+                    <div className="image-box">
+                      <Image 
+                        alt="100% Practicals" 
+                        src={Images.why_prefer_2} 
+                        width={400} 
+                        height={300}
+                        style={{ width: '100%', height: 'auto' }}
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
                       <div className="caption">100% Practicals</div>
                       <div className="overlay-box">
                         <h4>100% Practicals</h4>

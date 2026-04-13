@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import type { NextConfig } from 'next'
-import "../globals.scss";
+import "../globals.css";
 import "./styles/style.scss";
 import "./styles/responsive.scss";
 import "../../public/css/new_style.scss";
@@ -51,6 +51,7 @@ export async function generateMetadata() {
   const ogDescription = seo.ogDescription || description;
 
   return {
+    metadataBase: new URL('https://bharathiinstitutes.com'),
     title: {
       default: title,
       template: `%s | ${siteName}`,
@@ -79,13 +80,14 @@ export async function generateMetadata() {
     },
     icons: {
       icon: [
-        { url: "/images/fav-icon/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-        { url: "/images/fav-icon/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-        { url: "/images/logo/logo12.png", sizes: "192x192", type: "image/png" },
+        { url: "/images/favicons/16x16.png", sizes: "16x16", type: "image/png" },
+        { url: "/images/favicons/32x32.png", sizes: "32x32", type: "image/png" },
+        { url: "/images/favicons/48x48.png", sizes: "48x48", type: "image/png" },
+        { url: "/images/favicons/192x192.png", sizes: "192x192", type: "image/png" },
       ],
-      shortcut: "/images/logo/logo12.png",
+      shortcut: "/images/favicons/48x48.png",
       apple: [
-        { url: "/images/fav-icon/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+        { url: "/images/favicons/192x192.png", sizes: "192x192", type: "image/png" },
       ],
     },
     other: {
@@ -105,20 +107,20 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
-        
+
         {/* Next.js Metadata handles icons, but keeping manual links for specific legacy support if needed, 
             ensuring one of them is 48/96/144/192 for Google */}
-        <link rel="icon" href="/images/logo/logo12.png" sizes="192x192" />
-        
+        {/* <link rel="icon" href="/images/logo/logo12.png" sizes="192x192" /> */}
+
         <DeferredCSS href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
         <DeferredCSS href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" />
         <link href="/css/owl.carousel.css" rel="stylesheet" />
         <link href="/css/settings.css" rel="stylesheet" />
         <link href="/css/layers.css" rel="stylesheet" />
         <link href="/css/navigation.css" rel="stylesheet" />
-        <Script 
-          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
-          integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" 
+        <Script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
@@ -218,8 +220,8 @@ export default function RootLayout({
         </Script>
 
         {/* Google Analytics */}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-W9TE3VPFG7" strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-W9TE3VPFG7" strategy="lazyOnload" />
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -253,8 +255,8 @@ export default function RootLayout({
         {/* External Libs */}
         <Script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js" strategy="lazyOnload" />
 
-        {/* Scripts - Loaded lazily to avoid blocking */}
-        <Script src="/js/jquery.js" strategy="beforeInteractive" />
+        {/* Scripts - Loaded after interactivity to avoid blocking */}
+        <Script src="/js/jquery.js" strategy="afterInteractive" />
         {/* <Script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" strategy="afterInteractive" /> */}
         <Script src="/js/menu.js" strategy="afterInteractive" />
         <Script src="/js/owl.carousel.min.js" strategy="afterInteractive" />

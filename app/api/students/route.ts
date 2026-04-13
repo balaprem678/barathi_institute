@@ -7,6 +7,7 @@ import nodemailer from 'nodemailer';
 import { writeFile, mkdir } from 'fs/promises';
 import path from 'path';
 import { Buffer } from 'buffer';
+import { validateEmail, validateIndianPhone, normalizePhone } from '@/lib/validation';
 
 export async function GET(req: Request) {
     try {
@@ -139,7 +140,32 @@ export async function POST(req: Request) {
             body = await req.json();
         }
 
-        const { email, phone, isSubmit } = body;
+        let { name, email, phone, isSubmit } = body;
+
+        // Normalization
+        if (email) email = email.trim().toLowerCase();
+        if (phone) phone = normalizePhone(phone);
+        
+        // Update body with normalized values for upsert
+        body = { ...body, email, phone };
+
+        // Validation for explicit submission
+        if (isSubmit) {
+            // 1. Check for missing required fields (existence check)
+            if (!body.name || !body.email || !body.phone) {
+                return NextResponse.json({ message: 'Name, Email, and Phone are required for submission' }, { status: 400 });
+            }
+
+            // 2. Validate email format
+            if (!validateEmail(email)) {
+                return NextResponse.json({ message: 'Please provide a valid email address' }, { status: 400 });
+            }
+
+            // 3. Validate phone format
+            if (!validateIndianPhone(body.phone)) {
+                return NextResponse.json({ message: 'Please provide a valid 10-digit Indian phone number' }, { status: 400 });
+            }
+        }
 
         // Upsert Student (Deduplication based on Email or Phone)
         let student;

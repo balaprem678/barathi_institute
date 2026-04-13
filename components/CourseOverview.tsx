@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 const CourseOverview = () => {
     return (
@@ -11,7 +12,14 @@ const CourseOverview = () => {
                     <div className="col-lg-6">
                         <div className="item">
                             <div className="image">
-                                <img alt="hotel management course" src="/images/resource/hotem-managerment-ser.jpg" />
+                                <Image 
+                                    alt="hotel management course" 
+                                    src="/images/resource/hotem-managerment-ser.jpg" 
+                                    width={600}
+                                    height={400}
+                                    style={{ width: '100%', height: 'auto' }}
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                />
                             </div>
                             <div className="content">
                                 <h4 style={{ color: 'black', fontWeight: 600, fontSize: '23px' }}>Hotel Management Courses <br />(Diploma, Certification)</h4>
@@ -22,7 +30,14 @@ const CourseOverview = () => {
                     <div className="col-lg-6">
                         <div className="item">
                             <div className="image">
-                                <img alt="Paramedical course" src="/images/resource/para-ser.webp" />
+                                <Image 
+                                    alt="Paramedical course" 
+                                    src="/images/resource/para-ser.webp" 
+                                    width={600}
+                                    height={400}
+                                    style={{ width: '100%', height: 'auto' }}
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                />
                             </div>
                             <div className="content">
                                 <h4 style={{ color: 'black', fontWeight: 600, fontSize: '23px' }}>Paramedical Courses <br />(Diploma, Certification)</h4>

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 const PlacementsLogos = () => {
     return (
@@ -12,10 +13,50 @@ const PlacementsLogos = () => {
                             </div>
 
                             <ul className="brand-carousel">
-                                <li><a href="#"><img alt="Bharathi Institute of Catering &amp; Hotel Management" src="/images/hotel/h1.jpg" /></a></li>
-                                <li><a href="#"><img alt="Bharathi Institute of Catering &amp; Hotel Management" src="/images/hotel/h2.jpg" /></a></li>
-                                <li><a href="#"><img alt="Bharathi Institute of Catering &amp; Hotel Management" src="/images/hotel/h3.jpg" /></a></li>
-                                <li><a href="#"><img alt="Bharathi Institute of Catering &amp; Hotel Management" src="/images/hotel/h4.jpg" /></a></li>
+                                <li>
+                                    <a href="#">
+                                        <Image 
+                                            alt="Bharathi Institute placement partner" 
+                                            src="/images/hotel/h1.jpg" 
+                                            width={150} 
+                                            height={100} 
+                                            style={{ height: 'auto' }}
+                                        />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <Image 
+                                            alt="Bharathi Institute placement partner" 
+                                            src="/images/hotel/h2.jpg" 
+                                            width={150} 
+                                            height={100} 
+                                            style={{ height: 'auto' }}
+                                        />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <Image 
+                                            alt="Bharathi Institute placement partner" 
+                                            src="/images/hotel/h3.jpg" 
+                                            width={150} 
+                                            height={100} 
+                                            style={{ height: 'auto' }}
+                                        />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <Image 
+                                            alt="Bharathi Institute placement partner" 
+                                            src="/images/hotel/h4.jpg" 
+                                            width={150} 
+                                            height={100} 
+                                            style={{ height: 'auto' }}
+                                        />
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>

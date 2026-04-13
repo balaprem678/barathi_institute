@@ -1,4 +1,5 @@
 'use client';
+import { validateEmail, validateIndianPhone } from '@/lib/validation';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import './register.scss';
@@ -127,6 +128,31 @@ export default function Register() {
             return;
         }
 
+        // Email and Phone Validation
+        const trimmedEmail = formData.email.trim();
+        const trimmedPhone = formData.phone.trim();
+
+        if (!formData.name.trim()) {
+            showNotification('error', 'Please enter your full name');
+            return;
+        }
+        if (!trimmedEmail) {
+            showNotification('error', 'Please enter your email address');
+            return;
+        }
+        if (!validateEmail(trimmedEmail)) {
+            showNotification('error', 'Please provide a valid email address');
+            return;
+        }
+        if (!trimmedPhone) {
+            showNotification('error', 'Please enter your phone number');
+            return;
+        }
+        if (!validateIndianPhone(trimmedPhone)) {
+            showNotification('error', 'Please provide a valid 10-digit Indian phone number');
+            return;
+        }
+
         const submitData = new FormData();
         submitData.append('name', formData.name);
         submitData.append('email', formData.email);
@@ -158,11 +184,12 @@ export default function Register() {
                     fileInputRef.current.value = '';
                 }
             } else {
-                showNotification('error', 'Failed to submit form. Please try again.');
+                const errorData = await res.json();
+                showNotification('error', errorData.message || 'Failed to submit form. Please try again.');
             }
-        } catch (error) {
+        } catch (error: any) {
             console.error('Submission error:', error);
-            showNotification('error', 'An error occurred. Please try again.');
+            showNotification('error', error.message || 'An error occurred. Please try again.');
         }
     };
 
