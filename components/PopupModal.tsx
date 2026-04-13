@@ -1,4 +1,5 @@
 "use client";
+import { validateEmail, validateIndianPhone } from '@/lib/validation';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { X, Mail, Phone, User, Map, Send, Book, MessageSquare, Calendar, BookOpen, GraduationCap, } from 'lucide-react';
@@ -67,6 +68,31 @@ const PopupModal = () => {
             return;
         }
 
+        // Frontend Validation
+        const trimmedEmail = formData.email.trim();
+        const trimmedPhone = formData.phone.trim();
+
+        if (!formData.name.trim()) {
+            showNotification('error', 'Please enter your full name');
+            return;
+        }
+        if (!trimmedEmail) {
+            showNotification('error', 'Please enter your email address');
+            return;
+        }
+        if (!validateEmail(trimmedEmail)) {
+            showNotification('error', 'Please provide a valid email address');
+            return;
+        }
+        if (!trimmedPhone) {
+            showNotification('error', 'Please enter your phone number');
+            return;
+        }
+        if (!validateIndianPhone(trimmedPhone)) {
+            showNotification('error', 'Please provide a valid 10-digit Indian phone number');
+            return;
+        }
+
         setIsSubmitting(true);
         try {
             const response = await fetch('/api/enquiries', {
@@ -92,8 +118,8 @@ const PopupModal = () => {
                 });
                 handleClose();
             }
-        } catch (error) {
-            showNotification('error', 'An error occurred. Please try again.');
+        } catch (error: any) {
+            showNotification('error', error.message || 'An error occurred. Please try again.');
         } finally {
             setIsSubmitting(false);
         }

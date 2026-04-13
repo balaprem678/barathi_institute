@@ -4,17 +4,37 @@ import Enquiry from '@/models/Enquiry';
 import Settings from '@/models/Settings';
 import { verifyToken } from '@/lib/auth';
 import nodemailer from 'nodemailer';
+import { validateEmail, validateIndianPhone, normalizePhone } from '@/lib/validation';
 
 export async function POST(req: Request) {
     try {
         await dbConnect();
         const body = await req.json();
-        const { name, email, phone, isSubmit } = body;
+        let { name, email, phone, isSubmit } = body;
+
+        // Normalization
+        if (email) email = email.trim().toLowerCase();
+        if (phone) phone = normalizePhone(phone);
+        
+        // Update body with normalized values for upsert
+        const normalizedBody = { ...body, email, phone };
 
         // Validation for explicit submission
         if (isSubmit) {
-            if (!name || !email || !phone) {
+            // 1. Check for missing required fields (existence check)
+            if (!body.name || !body.email || !body.phone) {
                 return NextResponse.json({ message: 'Name, Email, and Phone are required for submission' }, { status: 400 });
+            }
+
+            // 2. Validate email format (normalized email is already lowercase and trimmed)
+            if (!validateEmail(email)) {
+                return NextResponse.json({ message: 'Please provide a valid email address' }, { status: 400 });
+            }
+
+            // 3. Validate phone format (check original raw phone to see if it even looks like a number)
+            // This prevents "asdasd" from appearing as "Required" after being stripped by normalizePhone
+            if (!validateIndianPhone(body.phone)) {
+                return NextResponse.json({ message: 'Please provide a valid 10-digit Indian phone number' }, { status: 400 });
             }
         }
 
@@ -27,11 +47,11 @@ export async function POST(req: Request) {
         if (query.length > 0) {
             enquiry = await Enquiry.findOneAndUpdate(
                 { $or: query },
-                { $set: body },
+                { $set: normalizedBody },
                 { new: true, upsert: true, setDefaultsOnInsert: true }
             );
         } else if (name) {
-            enquiry = await Enquiry.create(body);
+            enquiry = await Enquiry.create(normalizedBody);
         } else {
             return NextResponse.json({ message: 'Insufficient data for auto-save' }, { status: 400 });
         }

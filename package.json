@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "seed": "node seed.js"
+    "seed": "node seed.js",
+    "warm-images": "node scripts/warm-images.js"
   },
   "dependencies": {
     "-": "^0.0.1",
