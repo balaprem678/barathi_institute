@@ -38,9 +38,6 @@ const nextConfig: NextConfig = {
       { source: '/:path*.html', destination: '/', permanent: true },
     ]
   },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
 };
 
 export default nextConfig;
