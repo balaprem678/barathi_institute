@@ -148,7 +148,7 @@ export default async function BlogDetail({ params }: PageProps) {
                                             "name": "Bharathi Institute",
                                             "logo": {
                                                 "@type": "ImageObject",
-                                                "url": "https://bharathiinstitutes.com/images/logo/logo-large.png"
+                                                "url": "https://bharathiinstitutes.com/images/favicons/192x192.png"
                                             }
                                         },
                                         "description": blog.seo?.metaDescription || blog.title
