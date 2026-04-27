@@ -77,7 +77,7 @@ export default async function BlogDetail({ params }: PageProps) {
                     style={{ objectFit: 'cover' }}
                     sizes="100vw"
                 />
-                <h1 style={{ position: 'relative', zIndex: 1 }}>Blog Details</h1>
+                <h1 style={{ zIndex: 1 }}>Blog Details</h1>
             </section>
 
             <div className="container py-20">

@@ -167,7 +167,7 @@ export default function GalleryContent({ schemaScript }: { schemaScript?: string
           style={{ objectFit: 'cover' }}
           sizes="100vw"
         />
-        <h1 style={{ position: 'relative', zIndex: 1 }}>Gallery</h1>
+        <h1 style={{ zIndex: 1 }}>Gallery</h1>
       </section>
 
       {/* Gallery Content */}

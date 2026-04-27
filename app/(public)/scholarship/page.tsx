@@ -6,15 +6,15 @@ export default function Scholarship() {
     return (
         <>
             <section className="banner_section">
-                <Image 
-                    src={Images.scholarship_banner} 
-                    alt="Scholarship Banner" 
-                    priority 
+                <Image
+                    src={Images.scholarship_banner}
+                    alt="Scholarship Banner"
+                    priority
                     fill
                     style={{ objectFit: 'cover' }}
                     sizes="100vw"
                 />
-                <h1 style={{ position: 'relative', zIndex: 1 }}>Scholarship</h1>
+                <h1 style={{ zIndex: 1 }}>Scholarship</h1>
             </section>
 
             <section className="default-section sec-padd">
@@ -61,42 +61,9 @@ export default function Scholarship() {
                                         Our team at Bharathi Institute will guide students in applying for eligible Government scholarships and completing the required process.
                                     </p>
                                 </div>
-
-                                {/* <p style={{ textAlign: 'center' }}>  <Link href="/contact" className="thm-btn">Check Your Eligibility<i className="fa fa-sort-desc"></i></Link></p> */}
-
                             </div>
                         </div>
-                        {/* <div className="col-md-3 col-sm-12 hotel_management">
-                            <div className="default-sidebar">
-
-                                <div className="section-title">
-                                    <h3> Hotel Management  </h3>
-                                    <span className="decor"></span>
-                                </div><br />
-                                <ul className="contact-info p-0 d-block">
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/diploma"> Diploma in Hotel Management</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Food and Beverage Production</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Food and Beverage Service</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">House Keeping Management</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Front Office Management</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Bakery and Confectionery</Link> </li>
-                                </ul>
-
-                                <div className="section-title">
-                                    <h3> Paramedical Course</h3>
-                                    <span className="decor"></span>
-                                </div><br />
-                                <ul className="contact-info p-0 d-block">
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Diploma in Nursing Assistant</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Medical Lab Technician</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Health Assistant</Link> </li>
-                                </ul>
-
-                            </div>
-
-                        </div> */}
                     </div>
-
                 </div>
             </section>
         </>

@@ -191,6 +191,16 @@ $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 }
 
+.btn_courses {
+  width: 60% !important;
+  text-align: center;
+  justify-content: center;
+  margin: auto;
+
+  @media screen and (max-width: 768px) {
+    width: 100% !important;
+  }
+}
 // Mobile Menu Button
 .mobile-menu-btn {
     display: none;

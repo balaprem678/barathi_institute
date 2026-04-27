@@ -56,7 +56,7 @@ export default function CoursesContent({ schemaScript }: { schemaScript?: string
                     style={{ objectFit: 'cover' }}
                     sizes="100vw"
                 />
-                <h1 style={{ position: 'relative', zIndex: 1 }}>Our Courses</h1>
+                <h1 style={{ zIndex: 1 }}>Our Courses</h1>
             </section>
 
             <section className="courses_sec sec-padd2">
@@ -83,7 +83,7 @@ export default function CoursesContent({ schemaScript }: { schemaScript?: string
 
                                 <h2 className="course_h2">Degree Courses ( 3 Year )</h2>
 
-                                <Link href="/courses/degree" className="btn btn_courses cta-button">View Course</Link>
+                                <Link href="/courses/degree" className="btn_courses cta-button">View Course</Link>
                             </div>
                         </div>
                         <div className="col-md-6">
@@ -100,7 +100,7 @@ export default function CoursesContent({ schemaScript }: { schemaScript?: string
 
                                 <h2 className="course_h2">Diploma Courses ( 1 & 2 Year )</h2>
 
-                                <Link href="/courses/diploma" className="btn btn_courses cta-button">View Course</Link>
+                                <Link href="/courses/diploma" className="btn_courses cta-button">View Course</Link>
                             </div>
                         </div>
                     </div>

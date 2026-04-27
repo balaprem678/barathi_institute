@@ -47,9 +47,8 @@ export default function Register() {
             { value: "Diploma in House Keeping Management", label: "Diploma in House Keeping Management" },
             { value: "Diploma in Front Office Management", label: "Diploma in Front Office Management" },
             { value: "Diploma in Bakery and Confectionery", label: "Diploma in Bakery and Confectionery" },
-            { value: "Diploma in Nursing Assistant", label: "Diploma in Nursing Assistant" },
+            { value: "Health Care Assistant", label: "Health Care Assistant" },
             { value: "Diploma in Medical Lab Technician", label: "Diploma in Medical Lab Technician" },
-            { value: "Diploma in Health Assistant", label: "Diploma in Health Assistant" },
         ],
         certificate: [
             { value: "Food Production", label: "Food Production" },
@@ -332,15 +331,14 @@ export default function Register() {
                                     <span className="decor"></span>
                                 </div><br />
                                 <ul className="contact-info reg">
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Diploma in Nursing Assistant</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Medical Lab Technician</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Health Assistant</Link> </li>
+                                    <li><i className="fa fa-certificate"></i><Link href="/courses/paramedical">Health Care Assistant</Link> </li>
+                                    <li><i className="fa fa-certificate"></i><Link href="/courses/paramedical">Medical Lab Technician</Link> </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </section>          
         </div>
     );
 }

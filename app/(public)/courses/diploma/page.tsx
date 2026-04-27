@@ -165,10 +165,10 @@ export default function DiplomaCoursesPage() {
                         {/* Course 6 */}
                         <div className="course_card row align-items-center">
                             <div className="col-lg-5 col-md-6 col-12 course_img">
-                                <img src={Images.diploma_7.src} alt="Diploma in Nursing Assistant" />
+                                <img src={Images.diploma_7.src} alt="Health Care Assistant" />
                             </div>
                             <div className="col-lg-7 col-md-6 col-12 course_content">
-                                <h3>Diploma in Nursing Assistant</h3>
+                                <h3>Health Care Assistant</h3>
                                 <p>
                                     Trains students in patient care, basic nursing procedures,
                                     and hospital support services.
@@ -203,7 +203,7 @@ export default function DiplomaCoursesPage() {
                             </div>
                         </div>
                         {/* Course 8 */}
-                        <div className="course_card row align-items-center">
+                        {/* <div className="course_card row align-items-center">
                             <div className="col-lg-5 col-md-6 col-12 course_img">
                                 <img src={Images.diploma_9.src} alt="Diploma in Health Assistant" />
                             </div>
@@ -221,7 +221,7 @@ export default function DiplomaCoursesPage() {
                                 </ul>
                                 <Link href="/register" className="apply_btn">Apply Now</Link>
                             </div>
-                        </div>
+                        </div> */}
 
 
 

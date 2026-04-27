@@ -17,7 +17,7 @@ export default function Admission() {
                     style={{ objectFit: 'cover' }}
                     sizes="100vw"
                 />
-                <h1 style={{ position: 'relative', zIndex: 1 }}>Admission Procedure</h1>
+                <h1 style={{ zIndex: 1 }}>Admission Procedure</h1>
             </section>
 
             <section className="default-section sec-padd">

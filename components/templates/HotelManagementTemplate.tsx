@@ -102,9 +102,8 @@ export default function HotelManagementTemplate({ city }: TemplateProps) {
                                     <span className="decor"></span>
                                 </div><br />
                                 <ul className="contact-info">
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/paramedical">Diploma in Nursing Assistant</Link> </li>
+                                    <li><i className="fa fa-certificate"></i><Link href="/courses/paramedical">Health Care Assistant</Link> </li>
                                     <li><i className="fa fa-certificate"></i><Link href="/courses/paramedical">Medical Lab Technician</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/paramedical">Health Assistant</Link> </li>
                                 </ul>
 
                                 <div className="section-title">
