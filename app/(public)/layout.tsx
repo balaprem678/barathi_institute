@@ -107,6 +107,9 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
+        <link rel="manifest" href="/manifest.webmanifest" />
+        <link rel="icon" href="/images/favicons/48x48.png" sizes="48x48" />
+        <link rel="apple-touch-icon" href="/images/favicons/192x192.png" />
 
         {/* Next.js Metadata handles icons, but keeping manual links for specific legacy support if needed, 
             ensuring one of them is 48/96/144/192 for Google */}
@@ -133,11 +136,16 @@ export default function RootLayout({
               "@type": "CollegeOrUniversity",
               "name": "Bharathi Institute Of Hotel Management & Paramedical",
               "url": "https://bharathiinstitutes.com/",
-              "logo": "https://bharathiinstitutes.com/images/logo/logo-large.png",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://bharathiinstitutes.com/images/favicons/192x192.png",
+                "width": 192,
+                "height": 192
+              },
               "description": "Discover excellence in Hotel Management and Paramedical Science at Bharathi Institute, Chennai. Build a rewarding career in hospitality and healthcare.",
               "contactPoint": {
                 "@type": "ContactPoint",
-                "telephone": "+91-94441 20052",
+                "telephone": "+91 93452 40003",
                 "contactType": "Customer Service"
               }
             })
