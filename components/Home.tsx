@@ -11,7 +11,6 @@ import EnquiryForm from './EnquiryForm';
 import "./home.scss";
 import Blogs from '@/app/(public)/blog/page';
 
-
 interface Slide {
   id: number
   image: string
