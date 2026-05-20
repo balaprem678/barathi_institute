@@ -154,35 +154,7 @@ const Header = () => {
                                     Scholarship
                                 </Link>
                             </li>
-                            {/* <li className="dropdown">
-                                <button
-                                    className="dropdown__toggle"
-                                    onClick={() => setDropdownOpen(!dropdownOpen)}
-                                    aria-expanded={dropdownOpen}
-                                >
-                                    <i className="fas fa-user-plus"></i>
-                                    Admission
-                                    <i className={`dropdown__arrow ${dropdownOpen ? "rotate" : ""}`}>
-                                        <svg width="16" height="16" viewBox="0 0 16 16">
-                                            <path d="M4 6l4 4 4-4" stroke="currentColor" fill="none" />
-                                        </svg>
-                                    </i>
-                                </button>
-                                <ul className={`dropdown__menu ${dropdownOpen ? "show" : ""}`}>
-                                    <li>
-                                        <Link href="/admission" onClick={closeMenu}>
-                                            <i className="fas fa-file-alt"></i>
-                                            Admission Procedure
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/scholarship" onClick={closeMenu}>
-                                            <i className="fas fa-award"></i>
-                                            Scholarship
-                                        </Link>
-                                    </li>
-                                </ul>
-                            </li> */}
+                            
                             <li>
                                 <Link href="/placements" onClick={closeMenu}>
                                     <i className="fas fa-briefcase"></i>
