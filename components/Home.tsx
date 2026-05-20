@@ -298,61 +298,6 @@ export default function Home({ schemaScript }: { schemaScript?: string }) {
       {/* Placements Section */}
       <Partners />
 
-      {/* Testimonials Section */}
-      {/* <section className="video-testi" style={{ padding: '60px 0', background: '#f8f9fa' }}>
-        <div className="container">
-          <div className="section-title text-center" style={{ marginBottom: '40px' }}>
-            <h3 style={{ color: '#333', fontSize: '32px', fontWeight: '700' }}>Student Testimonials</h3>
-          </div> */}
-
-      {/* Video Testimonial */}
-      {/* <div className="row">
-            <div className="col-lg-12">
-              <div className="testimonial-item" style={{ padding: '10px' }}>
-                <div className="youtube-facade">
-                  <iframe
-                    width="100%"
-                    height="100%"
-                    src="https://www.youtube.com/embed/bTnv22KLZVc?si=ckgTqfNa3s1yLo8m"
-                    title="YouTube video player"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-              </div>
-            </div>
-          </div> */}
-
-      {/* Text Testimonials */}
-      {/* <div className="row mt-5">
-            {testimonials.map((testimonial, index) => (
-              <div className="col-lg-4 col-md-6" key={index} style={{ marginBottom: '30px' }}>
-                <div className="box text-center p-3 h-100" style={{
-                  background: 'white',
-                  borderRadius: '10px',
-                  padding: '20px',
-                  height: '100%',
-                  boxShadow: '0 5px 15px rgba(0,0,0,0.1)'
-                }}>
-                  <Image
-                    src={Images.testi.src}
-                    alt="Testimonial"
-                    width={80}
-                    height={80}
-                    style={{ marginBottom: '15px' }}
-                  />
-
-                  <h3 style={{ fontSize: '20px', fontWeight: '600', marginBottom: '10px' }}>{testimonial.name}</h3>
-                  <p style={{ color: '#666', marginBottom: '15px' }}>{testimonial.text}</p>
-                  <h5 style={{ color: '#6c757d' }}>- {testimonial.role}</h5>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
       {/* Events Section */}
       <section className="all-cause sec-padd2 home-event-section" style={{
         padding: '60px 0',
@@ -487,8 +432,6 @@ export default function Home({ schemaScript }: { schemaScript?: string }) {
         </div>
       </section>
 
-
-
       {/* Enquiry Form */}
 
       <EnquiryForm />
@@ -537,8 +480,6 @@ export default function Home({ schemaScript }: { schemaScript?: string }) {
 
       {/* Blog */}
       <Blogs />
-
-
 
       <section className="why-chooseus sec-padd3">
         <div className="container">
