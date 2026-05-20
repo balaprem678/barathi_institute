@@ -34,25 +34,25 @@ const Header = () => {
                     <div className="top-bar__content">
                         <div className="social-links">
                             <div className="wrapper">
-                                <a className="sm-none" href="https://www.facebook.com/bharathieducationalinstitutions">
+                                <a className="sm-none" target="_blank" href="http://facebook.com/BharathiInstituteofficial/">
                                     <NextImage src={Images.facebook} alt="Facebook" width={24} height={24} />
                                 </a>
-                                <a className="" href="https://www.linkedin.com/company/bharathi-institute-of-hotel-management-health-science/about/">
+                                <a className="" target="_blank" href="https://www.linkedin.com/company/bharathi-institute-of-hotel-management-health-science/about/">
                                     <NextImage src={Images.linkedin} alt="LinkedIn" width={24} height={24} />
                                 </a>
-                                <a className="sm-none" href="#">
+                                {/* <a className="sm-none" href="#" target="_blank">
                                     <NextImage src={Images.twitter} alt="Twitter" width={24} height={24} />
-                                </a>
-                                <a className="" href="https://www.instagram.com/bharathi_institute_official/">
+                                </a> */}
+                                <a className="" target="_blank" href="https://www.instagram.com/bharathi_institute_official/">
                                     <NextImage src={Images.instagram} alt="Instagram" width={24} height={24} />
                                 </a>
-                                <a className="" href="https://api.whatsapp.com/send?phone=919444120052">
+                                <a className="" target="_blank"  href="https://api.whatsapp.com/send?phone=919444120052">
                                     <NextImage src={Images.whatsapp} alt="WhatsApp" width={24} height={24} />
                                 </a>
-                                <a className="sm-none" href="https://www.youtube.com/@BharathiInstitutes">
+                                <a className="sm-none" target="_blank" href="https://www.youtube.com/@BharathiInstitutes">
                                     <NextImage src={Images.youtube} alt="YouTube" width={24} height={24} />
                                 </a>
-                                <a className="" href="mailto:info@bharathiinstitutes.com">
+                                <a className="" target="_blank" href="mailto:info@bharathiinstitutes.com">
                                     <NextImage src={Images.gmail} alt="Mail" width={24} height={24} />
                                 </a>
                             </div>

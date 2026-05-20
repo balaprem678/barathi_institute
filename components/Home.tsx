@@ -9,6 +9,7 @@ import PopupModal from '@/components/PopupModal';
 import Partners from './partners'
 import EnquiryForm from './EnquiryForm';
 import "./home.scss";
+import Blogs from '@/app/(public)/blog/page';
 
 
 interface Slide {
@@ -201,32 +202,32 @@ export default function Home({ schemaScript }: { schemaScript?: string }) {
             <div className="section-title">
               <h3 style={{ color: '#333', fontSize: '32px', fontWeight: '700', marginBottom: '15px' }}>Welcome to Bharathi Institute</h3>
             </div>
-              <p style={{ textAlign:'center', marginBottom: '30px' }}>
-                With more than 21 years of excellence, Bharathi Institute has established a remarkable reputation in Hotel Management and Paramedical courses in Tamil Nadu. At Bharathi Institute, we not only educate students in class but also train them practically to equip them for actual careers. Today, we are proud to operate 18 branches in Tamil Nadu.
-              </p>
+            <p style={{ textAlign: 'center', marginBottom: '30px' }}>
+              With more than 21 years of excellence, Bharathi Institute has established a remarkable reputation in Hotel Management and Paramedical courses in Tamil Nadu. At Bharathi Institute, we not only educate students in class but also train them practically to equip them for actual careers. Today, we are proud to operate 18 branches in Tamil Nadu.
+            </p>
             <div className="col-md-7 col-sm-12">
-                <div className="row">
-                  {features.map((feature, index) => (
-                    <div className="col-lg-4 col-md-6" key={index} style={{ marginBottom: '20px' }}>
-                      <div className="box" style={{
-                        textAlign: 'center',
-                        padding: '20px',
-                        background: '#f8f9fa',
-                        borderRadius: '10px',
-                        height: '100%'
-                      }}>
-                        <Image
-                          src={feature.image}
-                          alt={feature.title}
-                          width={80}
-                          height={80}
-                          style={{ marginBottom: '15px' }}
-                        />
-                        <h4 style={{ color: 'black', fontSize: '16px', fontWeight: '600' }}>{feature.title}</h4>
-                      </div>
+              <div className="row">
+                {features.map((feature, index) => (
+                  <div className="col-lg-4 col-md-6" key={index} style={{ marginBottom: '20px' }}>
+                    <div className="box" style={{
+                      textAlign: 'center',
+                      padding: '20px',
+                      background: '#f8f9fa',
+                      borderRadius: '10px',
+                      height: '100%'
+                    }}>
+                      <Image
+                        src={feature.image}
+                        alt={feature.title}
+                        width={80}
+                        height={80}
+                        style={{ marginBottom: '15px' }}
+                      />
+                      <h4 style={{ color: 'black', fontSize: '16px', fontWeight: '600' }}>{feature.title}</h4>
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div className="col-md-5 col-sm-12">
@@ -397,7 +398,7 @@ export default function Home({ schemaScript }: { schemaScript?: string }) {
       </section>
 
 
-      {/* Blog Testimonials */}
+      {/* Success Story */}
       <section className="all-cause sec-padd2 home-blog-section" style={{ padding: '28px 0' }}>
         <div className="container">
           <div className="section-title text-center" style={{ marginBottom: '40px' }}>
@@ -486,6 +487,8 @@ export default function Home({ schemaScript }: { schemaScript?: string }) {
         </div>
       </section>
 
+
+
       {/* Enquiry Form */}
 
       <EnquiryForm />
@@ -532,6 +535,10 @@ export default function Home({ schemaScript }: { schemaScript?: string }) {
       {/* FAQ Section */}
       <HomeFAQ />
 
+      {/* Blog */}
+      <Blogs />
+
+
 
       <section className="why-chooseus sec-padd3">
         <div className="container">
@@ -547,10 +554,10 @@ export default function Home({ schemaScript }: { schemaScript?: string }) {
                 <div className="single-item">
                   <div className="inner-box">
                     <div className="image-box">
-                      <Image 
-                        alt="100% Placement" 
-                        src={Images.why_prefer_1} 
-                        width={400} 
+                      <Image
+                        alt="100% Placement"
+                        src={Images.why_prefer_1}
+                        width={400}
                         height={300}
                         style={{ width: '100%', height: 'auto' }}
                         sizes="(max-width: 768px) 100vw, 33vw"
@@ -571,10 +578,10 @@ export default function Home({ schemaScript }: { schemaScript?: string }) {
                 <div className="single-item">
                   <div className="inner-box">
                     <div className="image-box">
-                      <Image 
-                        alt="100% Practicals" 
-                        src={Images.why_prefer_2} 
-                        width={400} 
+                      <Image
+                        alt="100% Practicals"
+                        src={Images.why_prefer_2}
+                        width={400}
                         height={300}
                         style={{ width: '100%', height: 'auto' }}
                         sizes="(max-width: 768px) 100vw, 33vw"
