@@ -87,16 +87,14 @@ export default function HotelManagementPage() {
                 <h3>Paramedical Courses</h3>
 
                 <Link href="/courses/paramedical">
-                  Diploma in Nursing Assistant
+                Health Care Assistant
                 </Link>
 
                 <Link href="/courses/paramedical">
                   Medical Lab Technician
                 </Link>
 
-                <Link href="/courses/paramedical">
-                  Health Assistant
-                </Link>
+               
               </div>
 
               <div className="side-box">

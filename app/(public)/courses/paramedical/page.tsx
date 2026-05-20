@@ -24,7 +24,7 @@ export default function ParamedicalPage() {
                             <br /><br />
                             <div className="accordion-box style-one">
                                 <AccordionItem
-                                    title="Diploma in Nursing Assistant"
+                                    title="Health Care Assistant"
                                     isOpen={true}
                                     content={
                                         <>

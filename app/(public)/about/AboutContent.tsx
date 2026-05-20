@@ -189,7 +189,7 @@ export default function AboutContent({ schemaScript }: { schemaScript?: string }
                     style={{ objectFit: 'cover' }}
                     sizes="100vw"
                 />
-                <h1 style={{ position: 'relative', zIndex: 1 }}>About Us</h1>
+                <h1 style={{ zIndex: 1 }}>About Us</h1>
             </section>
             {/* Mobile Tab Navigation */}
             {isMobile && (

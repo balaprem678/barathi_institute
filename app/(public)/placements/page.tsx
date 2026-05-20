@@ -70,7 +70,7 @@ export default async function Placements() {
                     style={{ objectFit: 'cover' }}
                     sizes="100vw"
                 />
-                <h1 style={{ position: 'relative', zIndex: 1 }}>Placements</h1>
+                <h1 style={{ zIndex: 1 }}>Placements</h1>
             </section>
             <section className="recuiters-section" style={{ padding: '50px 0' }}>
                 <div className="container">

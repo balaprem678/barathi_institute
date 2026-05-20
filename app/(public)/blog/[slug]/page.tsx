@@ -77,7 +77,7 @@ export default async function BlogDetail({ params }: PageProps) {
                     style={{ objectFit: 'cover' }}
                     sizes="100vw"
                 />
-                <h1 style={{ position: 'relative', zIndex: 1 }}>Blog Details</h1>
+                <h1 style={{ zIndex: 1 }}>Blog Details</h1>
             </section>
 
             <div className="container py-20">
@@ -148,7 +148,7 @@ export default async function BlogDetail({ params }: PageProps) {
                                             "name": "Bharathi Institute",
                                             "logo": {
                                                 "@type": "ImageObject",
-                                                "url": "https://bharathiinstitutes.com/images/logo/logo-large.png"
+                                                "url": "https://bharathiinstitutes.com/images/favicons/192x192.png"
                                             }
                                         },
                                         "description": blog.seo?.metaDescription || blog.title

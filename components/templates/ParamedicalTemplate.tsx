@@ -32,7 +32,7 @@ export default function ParamedicalTemplate({ city }: TemplateProps) {
                             <br /><br />
                             <div className="accordion-box style-one">
                                 <AccordionItem
-                                    title="Diploma in Nursing Assistant"
+                                    title="Health Care Assistant"
                                     isOpen={true}
                                     content={
                                         <>
@@ -52,16 +52,7 @@ export default function ParamedicalTemplate({ city }: TemplateProps) {
                                         </>
                                     }
                                 />
-                                <AccordionItem
-                                    title="Health Assistant"
-                                    content={
-                                        <>
-                                            <strong>Duration:</strong> 1  Year<br /><br />
-                                            <strong>Qualification:</strong> 10th Pass/Fail<br /><br />
-                                            <strong>Mode of Selection:</strong> Direct Admission by the BI<br /><br />
-                                        </>
-                                    }
-                                />
+                              
                             </div>
                         </div>
 

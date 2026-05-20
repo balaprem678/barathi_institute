@@ -127,11 +127,16 @@ export default function Home({ schemaScript }: { schemaScript?: string }) {
               "@type": "CollegeOrUniversity",
               "name": "Bharathi Institute Of Hotel Management & Paramedical",
               "url": "https://bharathiinstitutes.com/",
-              "logo": "https://bharathiinstitutes.com/images/logo/logo-large.png",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://bharathiinstitutes.com/images/favicons/192x192.png",
+                "width": 192,
+                "height": 192
+              },
               "description": "Discover excellence in Hotel Management and Paramedical Science at Bharathi Institute, Chennai. Build a rewarding career in hospitality and healthcare.",
               "contactPoint": {
                 "@type": "ContactPoint",
-                "telephone": "+91-94441 20052",
+                "telephone": "+91 93452 40003",
                 "contactType": "Customer Service"
               }
             })

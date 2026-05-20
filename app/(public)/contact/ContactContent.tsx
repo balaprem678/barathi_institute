@@ -318,7 +318,7 @@ export default function ContactContent({ schemaScript }: { schemaScript?: string
                     style={{ objectFit: 'cover' }}
                     sizes="100vw"
                 />
-                <h1 style={{ position: 'relative', zIndex: 1 }}>Contact Us</h1>
+                <h1 style={{ zIndex: 1 }}>Contact Us</h1>
             </section>
             {/* Main Content */}
             <section className="contact-main-section">
