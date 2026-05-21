@@ -151,7 +151,7 @@ const EnquiryForm = () => {
           <p>Fill out the form below, and our team will contact you within 24 hours with complete course details.</p>
         </div>
 
-        <div className="form-container">
+        <div className="form-container mt-4">
           <div className="enquiry-card">
             {!isSubmitted ? (
               <form className="form" onSubmit={handleSubmit}>

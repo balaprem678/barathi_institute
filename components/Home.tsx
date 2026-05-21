@@ -483,7 +483,29 @@ export default function Home({ schemaScript }: { schemaScript?: string }) {
       <HomeFAQ />
 
       {/* Blog */}
-      <Blogs />
+      <section className="home-blog-section">
+        <Blogs />
+
+        <div className="read_more_bt mt-2 text-center" style={{ marginBottom: '40px' }}>
+          <Link
+            href="/blog"
+            target="_blank"
+            style={{
+              display: 'inline-block',
+              background: '#0495f5',
+              color: 'white',
+              padding: '15px 40px',
+              borderRadius: '5px',
+              textDecoration: 'none',
+              fontWeight: '600',
+              fontSize: '18px'
+            }}
+          >
+            View More
+          </Link>
+        </div>
+      </section>
+
 
       <section className="why-chooseus sec-padd3">
         <div className="container">
