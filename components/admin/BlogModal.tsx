@@ -68,6 +68,7 @@ export default function BlogModal({ isOpen, onClose, onSave, initialData }: Blog
     const [showFullPreview, setShowFullPreview] = useState(false);
 
     const fileInputRef = useRef<HTMLInputElement>(null);
+    const editorImageInputRef = useRef<HTMLInputElement>(null);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const editorRef = useRef<HTMLDivElement>(null);
     const savedSelection = useRef<Range | null>(null);
@@ -238,6 +239,73 @@ export default function BlogModal({ isOpen, onClose, onSave, initialData }: Blog
         }
         if (e.target) {
             e.target.value = '';
+        }
+    };
+
+    const insertImageHTML = (src: string) => {
+        if (editMode === 'visual' && editorRef.current) {
+            if (savedSelection.current) {
+                const selection = window.getSelection();
+                selection?.removeAllRanges();
+                selection?.addRange(savedSelection.current);
+            }
+            document.execCommand('insertImage', false, src);
+            handleVisualChange();
+            return;
+        }
+
+        const textarea = textareaRef.current;
+        if (!textarea) return;
+
+        const start = textarea.selectionStart;
+        const end = textarea.selectionEnd;
+        const text = textarea.value;
+        const newContent = `${text.substring(0, start)}<img src="${src}" alt="Blog Image" />${text.substring(end)}`;
+        setFormData(prev => ({ ...prev, content: newContent }));
+        setTimeout(() => {
+            textarea.focus();
+            textarea.setSelectionRange(start + src.length + 16, start + src.length + 16);
+        }, 0);
+    };
+
+    const handleEditorImageFile = (file: File) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+            if (reader.result && typeof reader.result === 'string') {
+                insertImageHTML(reader.result);
+            }
+        };
+        reader.readAsDataURL(file);
+    };
+
+    const handleEditorImageSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (file) {
+            handleEditorImageFile(file);
+        }
+        if (e.target) {
+            e.target.value = '';
+        }
+    };
+
+    const handleEditorPaste = (e: React.ClipboardEvent<HTMLDivElement>) => {
+        const items = e.clipboardData.items;
+        for (let i = 0; i < items.length; i++) {
+            const item = items[i];
+            if (item.type.indexOf('image') !== -1) {
+                e.preventDefault();
+                const file = item.getAsFile();
+                if (file) handleEditorImageFile(file);
+                return;
+            }
+        }
+    };
+
+    const handleEditorDrop = (e: React.DragEvent<HTMLDivElement>) => {
+        e.preventDefault();
+        const file = e.dataTransfer.files?.[0];
+        if (file && file.type.startsWith('image/')) {
+            handleEditorImageFile(file);
         }
     };
 
@@ -514,6 +582,16 @@ export default function BlogModal({ isOpen, onClose, onSave, initialData }: Blog
                                                 }} className="p-2 hover:bg-gray-50 text-gray-600" title="Add Link"><LinkIcon className="w-4 h-4" /></button>
                                             </div>
 
+                                            <div className="flex items-center bg-white border border-gray-200 rounded-lg shadow-xs">
+                                                <button type="button" onClick={() => editorImageInputRef.current?.click()} className="p-2 hover:bg-gray-50 text-gray-600" title="Insert Image"><ImageIcon className="w-4 h-4" /></button>
+                                                <input
+                                                    type="file"
+                                                    accept="image/*"
+                                                    ref={editorImageInputRef}
+                                                    onChange={handleEditorImageSelect}
+                                                    className="hidden"
+                                                />
+                                            </div>
 
                                             <div className="flex items-center bg-white border border-gray-200 rounded-lg shadow-xs">
                                                 <button type="button" onClick={() => execCommand('formatBlock', 'h1')} className="p-2 hover:bg-gray-50 text-gray-600" title="Heading 1"><Heading1 className="w-4 h-4" /></button>
@@ -564,6 +642,9 @@ export default function BlogModal({ isOpen, onClose, onSave, initialData }: Blog
                                             <div
                                                 ref={editorRef}
                                                 contentEditable={true}
+                                                onPaste={handleEditorPaste}
+                                                onDrop={handleEditorDrop}
+                                                onDragOver={(e) => e.preventDefault()}
                                                 onInput={handleVisualChange}
                                                 onBlur={() => { handleVisualChange(); saveSelection(); }}
                                                 onMouseUp={saveSelection}
