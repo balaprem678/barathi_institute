@@ -165,6 +165,8 @@ import contacts_banner from '../../public/assets/new_images/banner/contacts.png'
 import gallery_banner from '../../public/assets/new_images/banner/gallery_banner.png';
 
 
+// Admin
+import login_bg from '../../public/assets/new_images/admin/admin_bg.png';
 
 export const Images = {
     
@@ -211,6 +213,9 @@ export const Images = {
     // Contactus Page Images Import Here
 
     overallmap,
+
+    // Admin
+    login_bg,
 
 
 };

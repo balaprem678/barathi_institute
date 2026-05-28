@@ -538,14 +538,14 @@ export default function BlogModal({ isOpen, onClose, onSave, initialData }: Blog
                                                 type="button"
                                                 onClick={() => {
                                                     const template = `<div class="blog-preview-placeholder">
-  <h2 class="text-2xl font-bold text-blue-800 mb-4">Starting My Journey...</h2>
-  <p class="leading-relaxed mb-4">Bharathi Institute has been a transformative experience for me. The hands-on training and industry exposure are unmatched.</p>
-  <ul class="list-disc pl-5 mb-4">
-    <li>Expert Faculty</li>
-    <li>Practical Labs</li>
-    <li>Placement Support</li>
-  </ul>
-</div>`;
+                                                            <h2 class="text-2xl font-bold text-blue-800 mb-4">Starting My Journey...</h2>
+                                                            <p class="leading-relaxed mb-4">Bharathi Institute has been a transformative experience for me. The hands-on training and industry exposure are unmatched.</p>
+                                                            <ul class="list-disc pl-5 mb-4">
+                                                                <li>Expert Faculty</li>
+                                                                <li>Practical Labs</li>
+                                                                <li>Placement Support</li>
+                                                            </ul>
+                                                            </div>`;
                                                     if (editMode === 'visual' && editorRef.current) {
                                                         editorRef.current.innerHTML = template;
                                                         handleVisualChange();
