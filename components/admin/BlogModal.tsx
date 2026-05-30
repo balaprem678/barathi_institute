@@ -1,13 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import {
-    X, Save, RefreshCw, Upload, Image as ImageIcon,
-    Eye, FileCode, Bold, Italic, List, ListOrdered,
+    X, Save, RefreshCw, Upload, FileCode,
+    Eye, Bold, Italic, List, ListOrdered,
     Heading1, Heading2, Layout, Underline,
-    AlignLeft, AlignCenter, AlignRight, AlignJustify,
-    Eraser, Link as LinkIcon, Minus, Type,
-    ChevronDown, ChevronUp, Code, Globe
+    AlignLeft, AlignCenter,
+    Eraser, Link as LinkIcon,
+    ChevronDown, Code, Globe
 } from 'lucide-react';
-import Image from 'next/image';
 import '@/app/(public)/blog/blog.scss';
 
 interface SEO {
@@ -242,14 +241,23 @@ export default function BlogModal({ isOpen, onClose, onSave, initialData }: Blog
         }
     };
 
-    const insertImageHTML = (src: string) => {
+    const insertImageHTML = (src: string, linkUrl?: string) => {
+        const imageHtml = linkUrl
+            ? `<a href="${linkUrl}" target="_blank" rel="noopener noreferrer"><img src="${src}" alt="Blog Image" /></a>`
+            : `<img src="${src}" alt="Blog Image" />`;
+
         if (editMode === 'visual' && editorRef.current) {
             if (savedSelection.current) {
                 const selection = window.getSelection();
                 selection?.removeAllRanges();
                 selection?.addRange(savedSelection.current);
             }
-            document.execCommand('insertImage', false, src);
+
+            if (linkUrl) {
+                document.execCommand('insertHTML', false, imageHtml);
+            } else {
+                document.execCommand('insertImage', false, src);
+            }
             handleVisualChange();
             return;
         }
@@ -260,12 +268,20 @@ export default function BlogModal({ isOpen, onClose, onSave, initialData }: Blog
         const start = textarea.selectionStart;
         const end = textarea.selectionEnd;
         const text = textarea.value;
-        const newContent = `${text.substring(0, start)}<img src="${src}" alt="Blog Image" />${text.substring(end)}`;
+        const newContent = `${text.substring(0, start)}${imageHtml}${text.substring(end)}`;
         setFormData(prev => ({ ...prev, content: newContent }));
         setTimeout(() => {
             textarea.focus();
-            textarea.setSelectionRange(start + src.length + 16, start + src.length + 16);
+            textarea.setSelectionRange(start + imageHtml.length, start + imageHtml.length);
         }, 0);
+    };
+
+    const handleInsertImageUrl = () => {
+        const src = prompt('Enter image URL:');
+        if (!src) return;
+
+        const linkUrl = prompt('Optional link URL to wrap the image in (leave blank for none):');
+        insertImageHTML(src.trim(), linkUrl ? linkUrl.trim() : undefined);
     };
 
     const handleEditorImageFile = (file: File) => {
@@ -437,7 +453,7 @@ export default function BlogModal({ isOpen, onClose, onSave, initialData }: Blog
                                                 </div>
                                             ) : (
                                                 <>
-                                                    <ImageIcon className="w-10 h-10 text-gray-400" />
+                                                    <Upload className="w-10 h-10 text-gray-400" />
                                                     <span className="mt-2 text-xs text-gray-500 font-medium font-sans">Upload course cover/student photo</span>
                                                 </>
                                             )}
@@ -583,7 +599,8 @@ export default function BlogModal({ isOpen, onClose, onSave, initialData }: Blog
                                             </div>
 
                                             <div className="flex items-center bg-white border border-gray-200 rounded-lg shadow-xs">
-                                                <button type="button" onClick={() => editorImageInputRef.current?.click()} className="p-2 hover:bg-gray-50 text-gray-600" title="Insert Image"><ImageIcon className="w-4 h-4" /></button>
+                                                <button type="button" onClick={handleInsertImageUrl} className="p-2 hover:bg-gray-50 text-gray-600" title="Insert Image from URL"><FileCode className="w-4 h-4" /></button>
+                                                <button type="button" onClick={() => editorImageInputRef.current?.click()} className="p-2 hover:bg-gray-50 text-gray-600" title="Upload Image"><Upload className="w-4 h-4" /></button>
                                                 <input
                                                     type="file"
                                                     accept="image/*"

@@ -204,7 +204,7 @@ export default function AdminBlogs() {
                                                 {blog.isActive ? 'Published' : 'Draft'}
                                             </span>
                                         </td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium 1 flex items-center justify-end">
                                             <Link href={`/blog/${blog.slug}`} target="_blank" className="text-gray-400 hover:text-gray-600 mr-4">
                                                 <ExternalLink className="w-4 h-4" />
                                             </Link>
