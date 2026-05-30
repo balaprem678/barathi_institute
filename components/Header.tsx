@@ -186,6 +186,12 @@ const Header = () => {
                                 </Link>
                             </li>
                             <li>
+                                <Link href="/Blog" onClick={closeMenu}>
+                                    <i className="fa-solid fa-blog"></i>
+                                    Blogs
+                                </Link>
+                            </li>
+                            <li>
                                 <Link href="/contact" onClick={closeMenu}>
                                     <i className="fas fa-phone-alt"></i>
                                     Contact Us
