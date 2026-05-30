@@ -129,7 +129,7 @@ const Header = () => {
 
                     {/* Navigation Menu */}
                     <nav className={`nav-menu ${menuOpen ? "open" : ""}`}>
-                        <ul className="nav-menu__list">
+                        <ul className="nav-menu__list p-0">
                             <li>
                                 <Link href="/" onClick={closeMenu}>
                                     <i className="fas fa-home"></i>
