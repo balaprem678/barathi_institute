@@ -63,7 +63,7 @@ export default function ParamedicalPage() {
                                     <h3> Hotel Management </h3>
                                     <span className="decor"></span>
                                 </div><br />
-                                <ul className="contact-info">
+                                <ul className="contact-info d-block">
                                     <li><i className="fa fa-certificate"></i><Link href="/courses/hotel-management"> Diploma in Hotel Management</Link> </li>
                                     <li><i className="fa fa-certificate"></i><Link href="/courses/hotel-management">Food and Beverage Production</Link> </li>
                                     <li><i className="fa fa-certificate"></i><Link href="/courses/hotel-management">Food and Beverage Service</Link> </li>
