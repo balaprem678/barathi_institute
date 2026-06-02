@@ -7,6 +7,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from "react";
 import { AuthService } from "@/services/authService";
 import { NotificationProvider } from '@/context/NotificationContext';
+import PreLoader from "@/app/PreLoader";
 
 export default function AdminLayout({
     children,
@@ -53,7 +54,9 @@ export default function AdminLayout({
                 </head>
                 <body className="bg-gray-50 flex items-center justify-center h-screen" suppressHydrationWarning>
                     {/* Optional: Add a loading spinner here */}
-                    <div className="text-gray-500">Loading...</div>
+                    <div className="text-gray-500">
+                        <PreLoader/>
+                    </div>
                 </body>
             </html>
         );

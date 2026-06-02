@@ -5,6 +5,7 @@ import { AuthService } from '@/services/authService';
 import LandingPageModal, { LandingPageData } from '@/components/admin/LandingPageModal';
 import Link from 'next/link';
 import { useNotification } from '@/context/NotificationContext';
+import PreLoader from '@/app/PreLoader';
 
 export default function LandingPages() {
     const { showNotification } = useNotification();
@@ -167,7 +168,7 @@ export default function LandingPages() {
                         <tbody className="bg-white divide-y divide-gray-200">
                             {loading ? (
                                 <tr>
-                                    <td colSpan={5} className="px-6 py-12 text-center text-gray-500">Loading...</td>
+                                    <td colSpan={5} className="px-6 py-12 text-center text-gray-500"> <PreLoader/></td>
                                 </tr>
                             ) : filteredPages.length === 0 ? (
                                 <tr>

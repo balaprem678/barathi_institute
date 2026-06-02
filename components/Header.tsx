@@ -186,7 +186,7 @@ const Header = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/Blog" onClick={closeMenu}>
+                                <Link href="/blog" onClick={closeMenu}>
                                     <i className="fa-solid fa-blog"></i>
                                     Blogs
                                 </Link>

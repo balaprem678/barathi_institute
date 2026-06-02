@@ -167,15 +167,17 @@ import gallery_banner from '../../public/assets/new_images/banner/gallery_banner
 
 // Admin
 import login_bg from '../../public/assets/new_images/admin/admin_bg.png';
+// gif
+import no_data_available from '../../public/assets/new_images/gif/no_data_available.gif';
 
 export const Images = {
-    
+
     // Banner Page Images Import Here
     about_banner, our_courses_banner, admission_procudure_banner, scholarship_banner, placements_banner,
-    testimonials_banner, blogs_banner, contacts_banner,gallery_banner,
+    testimonials_banner, blogs_banner, contacts_banner, gallery_banner,
 
     // Common Images Import Here
-    logo, gmail, instagram, whatsapp, viber,twitter, facebook, linkedin, youtube, logo_1, logo_2, logo_3, logo_4, logo_5, logo_6,
+    logo, gmail, instagram, whatsapp, viber, twitter, facebook, linkedin, youtube, logo_1, logo_2, logo_3, logo_4, logo_5, logo_6,
     logo_7, logo_8, logo_9, logo_10, logo_11, logo_12, logo_13, logo_14,
     logo_15, student_1, student_2, student_3, testi, faq_image,
 
@@ -216,6 +218,9 @@ export const Images = {
 
     // Admin
     login_bg,
+
+    // gif
+    no_data_available,
 
 
 };

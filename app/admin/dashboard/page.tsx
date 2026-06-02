@@ -1,9 +1,8 @@
 'use client';
 import { useState, useEffect } from 'react';
-
 import { Users, UserPlus, Calendar, Activity } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-
+import SecLoader  from '@/app/SecLoader';
 const data = [
     { name: 'Jan', students: 40 },
     { name: 'Feb', students: 30 },
@@ -44,7 +43,7 @@ export default function AdminDashboard() {
     }, []);
 
     if (loading) {
-        return <div className="p-6 text-center text-gray-500">Loading dashboard...</div>;
+        return <div className="p-6 text-center text-gray-500"><SecLoader /></div>;
     }
 
     return (

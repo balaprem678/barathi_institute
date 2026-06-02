@@ -6,6 +6,8 @@ import BlogModal, { BlogData } from '@/components/admin/BlogModal';
 import Link from 'next/link';
 import { useNotification } from '@/context/NotificationContext';
 import Image from 'next/image';
+import PreLoader from '@/app/PreLoader';
+import { Images } from '@/app/utilis/Images';
 
 export default function AdminBlogs() {
     const { showNotification } = useNotification();
@@ -166,11 +168,13 @@ export default function AdminBlogs() {
                         <tbody className="bg-white divide-y divide-gray-200">
                             {loading ? (
                                 <tr>
-                                    <td colSpan={5} className="px-6 py-12 text-center text-gray-500">Loading...</td>
+                                    <td colSpan={5} className="px-6 py-12 text-center text-gray-500"> <PreLoader /></td>
                                 </tr>
                             ) : filteredBlogs.length === 0 ? (
                                 <tr>
-                                    <td colSpan={5} className="px-6 py-12 text-center text-gray-500">No blogs found.</td>
+                                    <td colSpan={5} className="px-6 py-12 text-center text-gray-500">
+                                        <img src={Images.no_data_available.src} alt="No data" className="mx-auto mb-4 w-80 h-80" />
+                                    </td>
                                 </tr>
                             ) : (
                                 filteredBlogs.map((blog) => (

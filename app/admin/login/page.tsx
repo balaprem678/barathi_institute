@@ -13,10 +13,11 @@ import { AuthService } from '@/services/authService';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useNotification } from '@/context/NotificationContext';
 import { Images } from '@/app/utilis/Images';
+import PreLoader from '@/app/PreLoader';
 
 export default function AdminLogin() {
     return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div> <PreLoader/></div>}>
             <LoginForm />
         </Suspense>
     );
