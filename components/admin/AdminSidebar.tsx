@@ -121,6 +121,18 @@ export default function AdminSidebar({ isOpen, setIsOpen }: SidebarProps) {
                     </Link>
 
                     <Link
+                        href="/admin/chatbot-leads"
+                        onClick={() => setIsOpen(false)}
+                        className={`flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-colors ${isActive('/admin/chatbot-leads')
+                            ? 'bg-blue-50 text-blue-600'
+                            : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                            }`}
+                    >
+                        <Users className="w-5 h-5 mr-3" />
+                        Chatbot Leads
+                    </Link>
+
+                    <Link
                         href="/admin/blogs"
                         onClick={() => setIsOpen(false)}
                         className={`flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-colors ${isActive('/admin/blogs')

@@ -66,6 +66,21 @@ export default function BlogModal({ isOpen, onClose, onSave, initialData }: Blog
     const [editMode, setEditMode] = useState<'visual' | 'html'>('visual');
     const [showFullPreview, setShowFullPreview] = useState(false);
 
+    const [insertImageModal, setInsertImageModal] = useState<{
+        isOpen: boolean;
+        type: 'url' | 'upload';
+        src: string;
+        linkUrl: string;
+    }>({ isOpen: false, type: 'url', src: '', linkUrl: '' });
+
+    const [selectedImgInfo, setSelectedImgInfo] = useState<{
+        img: HTMLImageElement;
+        top: number;
+        left: number;
+        width: number;
+        height: number;
+    } | null>(null);
+
     const fileInputRef = useRef<HTMLInputElement>(null);
     const editorImageInputRef = useRef<HTMLInputElement>(null);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -277,18 +292,19 @@ export default function BlogModal({ isOpen, onClose, onSave, initialData }: Blog
     };
 
     const handleInsertImageUrl = () => {
-        const src = prompt('Enter image URL:');
-        if (!src) return;
-
-        const linkUrl = prompt('Optional link URL to wrap the image in (leave blank for none):');
-        insertImageHTML(src.trim(), linkUrl ? linkUrl.trim() : undefined);
+        setInsertImageModal({ isOpen: true, type: 'url', src: '', linkUrl: '' });
     };
 
     const handleEditorImageFile = (file: File) => {
         const reader = new FileReader();
         reader.onload = () => {
             if (reader.result && typeof reader.result === 'string') {
-                insertImageHTML(reader.result);
+                setInsertImageModal({
+                    isOpen: true,
+                    type: 'upload',
+                    src: reader.result,
+                    linkUrl: ''
+                });
             }
         };
         reader.readAsDataURL(file);
@@ -322,6 +338,30 @@ export default function BlogModal({ isOpen, onClose, onSave, initialData }: Blog
         const file = e.dataTransfer.files?.[0];
         if (file && file.type.startsWith('image/')) {
             handleEditorImageFile(file);
+        }
+    };
+
+    const updateImageSelection = (img: HTMLImageElement) => {
+        if (!editorRef.current) return;
+        const wrapper = editorRef.current.parentElement;
+        if (!wrapper) return;
+        const wrapperRect = wrapper.getBoundingClientRect();
+        const imgRect = img.getBoundingClientRect();
+        setSelectedImgInfo({
+            img,
+            top: imgRect.top - wrapperRect.top + wrapper.scrollTop,
+            left: imgRect.left - wrapperRect.left + wrapper.scrollLeft,
+            width: imgRect.width,
+            height: imgRect.height
+        });
+    };
+
+    const handleEditorClick = (e: React.MouseEvent<HTMLDivElement>) => {
+        const target = e.target as HTMLElement;
+        if (target.tagName.toLowerCase() === 'img') {
+            updateImageSelection(target as HTMLImageElement);
+        } else {
+            setSelectedImgInfo(null);
         }
     };
 
@@ -656,19 +696,89 @@ export default function BlogModal({ isOpen, onClose, onSave, initialData }: Blog
                                         </div>
 
                                         {editMode === 'visual' ? (
-                                            <div
-                                                ref={editorRef}
-                                                contentEditable={true}
-                                                onPaste={handleEditorPaste}
-                                                onDrop={handleEditorDrop}
-                                                onDragOver={(e) => e.preventDefault()}
-                                                onInput={handleVisualChange}
-                                                onBlur={() => { handleVisualChange(); saveSelection(); }}
-                                                onMouseUp={saveSelection}
-                                                onKeyUp={saveSelection}
-                                                className="w-full flex-1 p-6 outline-none prose lg:prose-xl max-w-none text-gray-700 font-sans blog-content-body overflow-y-auto min-h-0"
-                                                style={{ backgroundColor: '#fff' }}
-                                            />
+                                            <div 
+                                                className="relative flex-1 overflow-y-auto min-h-0 bg-white" 
+                                                onScroll={() => {
+                                                    if (selectedImgInfo) updateImageSelection(selectedImgInfo.img);
+                                                }}
+                                            >
+                                                <div
+                                                    ref={editorRef}
+                                                    contentEditable={true}
+                                                    onPaste={handleEditorPaste}
+                                                    onDrop={handleEditorDrop}
+                                                    onDragOver={(e) => e.preventDefault()}
+                                                    onInput={() => {
+                                                        handleVisualChange();
+                                                        if (selectedImgInfo && !document.body.contains(selectedImgInfo.img)) {
+                                                            setSelectedImgInfo(null);
+                                                        } else if (selectedImgInfo) {
+                                                            updateImageSelection(selectedImgInfo.img);
+                                                        }
+                                                    }}
+                                                    onClick={handleEditorClick}
+                                                    onBlur={() => { handleVisualChange(); saveSelection(); }}
+                                                    onMouseUp={saveSelection}
+                                                    onKeyUp={saveSelection}
+                                                    className="w-full min-h-full p-6 outline-none prose lg:prose-xl max-w-none text-gray-700 font-sans blog-content-body"
+                                                />
+                                                {selectedImgInfo && (
+                                                    <div 
+                                                        style={{
+                                                            position: 'absolute',
+                                                            top: selectedImgInfo.top,
+                                                            left: selectedImgInfo.left,
+                                                            width: selectedImgInfo.width,
+                                                            height: selectedImgInfo.height,
+                                                            border: '2px solid #3b82f6',
+                                                            pointerEvents: 'none',
+                                                            zIndex: 10
+                                                        }}
+                                                    >
+                                                        {['se', 'sw', 'ne', 'nw'].map((pos) => (
+                                                            <div
+                                                                key={pos}
+                                                                style={{
+                                                                    position: 'absolute',
+                                                                    width: '12px',
+                                                                    height: '12px',
+                                                                    backgroundColor: '#fff',
+                                                                    border: '2px solid #3b82f6',
+                                                                    pointerEvents: 'auto',
+                                                                    cursor: `${pos}-resize`,
+                                                                    ...(pos.includes('n') ? { top: '-6px' } : { bottom: '-6px' }),
+                                                                    ...(pos.includes('w') ? { left: '-6px' } : { right: '-6px' })
+                                                                }}
+                                                                onMouseDown={(e) => {
+                                                                    e.preventDefault();
+                                                                    e.stopPropagation();
+                                                                    const startX = e.clientX;
+                                                                    const startWidth = selectedImgInfo.width;
+
+                                                                    const onMouseMove = (moveEvent: MouseEvent) => {
+                                                                        let newWidth = startWidth;
+                                                                        if (pos.includes('e')) newWidth = startWidth + (moveEvent.clientX - startX);
+                                                                        if (pos.includes('w')) newWidth = startWidth - (moveEvent.clientX - startX);
+                                                                        
+                                                                        if (newWidth > 20) {
+                                                                            selectedImgInfo.img.style.width = `${newWidth}px`;
+                                                                            selectedImgInfo.img.style.height = 'auto';
+                                                                            updateImageSelection(selectedImgInfo.img);
+                                                                        }
+                                                                    };
+                                                                    const onMouseUp = () => {
+                                                                        document.removeEventListener('mousemove', onMouseMove);
+                                                                        document.removeEventListener('mouseup', onMouseUp);
+                                                                        handleVisualChange();
+                                                                    };
+                                                                    document.addEventListener('mousemove', onMouseMove);
+                                                                    document.addEventListener('mouseup', onMouseUp);
+                                                                }}
+                                                            />
+                                                        ))}
+                                                    </div>
+                                                )}
+                                            </div>
                                         ) : (
                                             <textarea
                                                 name="content"
@@ -838,6 +948,70 @@ export default function BlogModal({ isOpen, onClose, onSave, initialData }: Blog
                     </div>
                 </div>
             </div>
+
+            {/* Insert Image Modal */}
+            {insertImageModal.isOpen && (
+                <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black bg-opacity-50">
+                    <div className="bg-white rounded-xl p-6 w-full max-w-md shadow-2xl">
+                        <h3 className="text-xl font-bold text-gray-800 mb-5">Insert Image</h3>
+                        
+                        {insertImageModal.type === 'url' ? (
+                            <div className="mb-5">
+                                <label className="block text-sm font-bold text-gray-700 mb-2">Image URL</label>
+                                <input 
+                                    type="text" 
+                                    className="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" 
+                                    value={insertImageModal.src} 
+                                    onChange={e => setInsertImageModal(prev => ({...prev, src: e.target.value}))} 
+                                    placeholder="https://..." 
+                                />
+                            </div>
+                        ) : (
+                            <div className="mb-5 flex flex-col items-center border-2 border-dashed border-gray-200 rounded-lg p-4 bg-gray-50">
+                                 {insertImageModal.src ? (
+                                     <img src={insertImageModal.src} className="max-h-40 object-contain rounded shadow-sm" alt="Preview"/>
+                                 ) : (
+                                     <span className="text-gray-400 text-sm">Image Selected</span>
+                                 )}
+                            </div>
+                        )}
+                        
+                        <div className="mb-6">
+                            <label className="block text-sm font-bold text-gray-700 mb-2">Hyperlink URL (Optional)</label>
+                            <input 
+                                type="text" 
+                                className="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" 
+                                value={insertImageModal.linkUrl} 
+                                onChange={e => setInsertImageModal(prev => ({...prev, linkUrl: e.target.value}))} 
+                                placeholder="Make the image clickable (https://...)" 
+                            />
+                        </div>
+                        
+                        <div className="flex justify-end gap-3">
+                            <button 
+                                type="button" 
+                                onClick={() => setInsertImageModal({ isOpen: false, type: 'url', src: '', linkUrl: '' })} 
+                                className="px-4 py-2 font-semibold text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
+                            >
+                                Cancel
+                            </button>
+                            <button 
+                                type="button" 
+                                onClick={() => {
+                                    if (insertImageModal.src) {
+                                        insertImageHTML(insertImageModal.src, insertImageModal.linkUrl || undefined);
+                                        setInsertImageModal({ isOpen: false, type: 'url', src: '', linkUrl: '' });
+                                    }
+                                }} 
+                                disabled={!insertImageModal.src}
+                                className="px-5 py-2 font-semibold bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50"
+                            >
+                                Insert Image
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             <style jsx>{`
                 .animate-spin-slow {

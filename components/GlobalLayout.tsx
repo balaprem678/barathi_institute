@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import Chatbot from '@/components/frontend/Chatbot';
 
 export default function GlobalLayout({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
@@ -19,6 +20,7 @@ export default function GlobalLayout({ children }: { children: React.ReactNode }
             {children}
             <Footer />
             <WhatsAppButton />
+            <Chatbot />
         </>
     );
 }
