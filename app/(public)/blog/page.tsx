@@ -19,6 +19,10 @@ export default async function Blogs() {
 
         <div className="headers mb-4">
           <h4>Blogs</h4>
+          <p className="text-muted text-center font-medium">
+            Our Latest Blogs and Student Success Stories: Get Inspired by Real Experiences and Achievements at Bharathi Institute.
+          </p>
+
         </div>
 
         {blogs.length === 0 ? (
