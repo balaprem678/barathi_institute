@@ -200,52 +200,88 @@ export default function Home({ schemaScript }: { schemaScript?: string }) {
       </section>
 
       {/* About Section */}
-      <section className="default-section sec-padd3 about_section_home" style={{ padding: '40px 0' }}>
+
+      <section className="about-modern">
         <div className="container">
-          <div className="row aic">
-            <div className="section-title">
-              <h3 style={{ color: '#333', fontSize: '32px', fontWeight: '700', marginBottom: '15px' }}>Welcome to Bharathi Institute</h3>
-            </div>
-            <p style={{ textAlign: 'center', marginBottom: '30px' }}>
-              With more than 21 years of excellence, Bharathi Institute has established a remarkable reputation in Hotel Management and Paramedical courses in Tamil Nadu. At Bharathi Institute, we not only educate students in class but also train them practically to equip them for actual careers. Today, we are proud to operate 18 branches in Tamil Nadu.
-            </p>
-            <div className="col-md-7 col-sm-12">
-              <div className="row">
-                {features.map((feature, index) => (
-                  <div className="col-lg-4 col-md-6" key={index} style={{ marginBottom: '20px' }}>
-                    <div className="box" style={{
-                      textAlign: 'center',
-                      padding: '20px',
-                      background: '#f8f9fa',
-                      borderRadius: '10px',
-                      height: '100%'
-                    }}>
-                      <Image
-                        src={feature.image}
-                        alt={feature.title}
-                        width={80}
-                        height={80}
-                        style={{ marginBottom: '15px' }}
-                      />
-                      <h4 style={{ color: 'black', fontSize: '16px', fontWeight: '600' }}>{feature.title}</h4>
-                    </div>
-                  </div>
-                ))}
+
+          <div className="about-wrapper">
+
+            <div className="about-image-side">
+              <Image
+                src="/images/aboutus.jpg"
+                alt="Bharathi Institute"
+                width={700}
+                height={800}
+                className="main-image"
+              />
+
+              <div className="floating-card">
+                <h2>18+</h2>
+                <p>Branches Across Tamil Nadu</p>
               </div>
             </div>
 
-            <div className="col-md-5 col-sm-12">
-              <div className="about_img">
-                <Image
-                  src="/images/aboutus.jpg"
-                  alt="institute of hotel management and paramedical in chennai"
-                  width={500}
-                  height={600}
-                  style={{ width: '100%', height: 'auto', borderRadius: '10px' }}
-                />
+            <div className="about-content-side">
+
+              <span className="mini-title">
+                ★ Trusted Educational Institution
+              </span>
+
+              <h2>
+                Transforming Students Into
+                <span> Future Professionals</span>
+              </h2>
+
+              <p>
+                Bharathi Institute has been delivering excellence in
+                Hotel Management and Paramedical education for over
+                21 years through practical learning and career-focused
+                training programs.
+              </p>
+
+              <div className="about-points">
+
+                <div className="point">
+                  ✓ Industry-Oriented Training
+                </div>
+
+                <div className="point">
+                  ✓ Practical Learning Methodology
+                </div>
+
+                <div className="point">
+                  ✓ Placement Assistance
+                </div>
+
+                <div className="point">
+                  ✓ Experienced Faculty Team
+                </div>
               </div>
+              <Link href="/about"
+                className="about-btn">
+                Discover More
+              </Link>
+
             </div>
+
           </div>
+
+          <div className="features-grid">
+
+            {features.map((item, index) => (
+              <div className="feature-box" key={index}>
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  width={60}
+                  height={60}
+                />
+                <h4>{item.title}</h4>
+              </div>
+            ))}
+
+          </div>
+
         </div>
       </section>
 
