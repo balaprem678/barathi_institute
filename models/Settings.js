@@ -16,6 +16,7 @@ const settingsSchema = new mongoose.Schema({
     },
     general: {
         siteName: { type: String, default: 'Bharathi Institute' },
+        whatsappNumber: { type: String, default: '' },
     }
 }, { timestamps: true });
 

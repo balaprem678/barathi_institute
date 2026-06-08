@@ -12,6 +12,7 @@ export default function SettingsPage() {
     const [formData, setFormData] = useState({
         general: {
             siteName: '',
+            whatsappNumber: '',
         },
         smtpHost: '',
         smtpPort: '',
@@ -140,7 +141,8 @@ export default function SettingsPage() {
                             <p className="mt-1 text-sm text-gray-500">Basic configuration for the website.</p>
                         </div>
                         <div className="grid grid-cols-1 gap-6">
-                            <InputGroup label="Site Name" name="siteName" value={formData.general.siteName} onChange={(e) => handleChange(e, 'general')} />
+                            <InputGroup label="Site Name" name="siteName" value={formData.general.siteName || ''} onChange={(e) => handleChange(e, 'general')} />
+                            <InputGroup label="WhatsApp Number (For Chatbot Leads)" name="whatsappNumber" value={formData.general.whatsappNumber || ''} onChange={(e) => handleChange(e, 'general')} placeholder="e.g. 919876543210 (Include country code)" />
                         </div>
                     </div>
                 )}
