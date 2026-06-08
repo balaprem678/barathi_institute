@@ -479,9 +479,6 @@ export default function Home({ schemaScript }: { schemaScript?: string }) {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <HomeFAQ />
-
       {/* Blog */}
       <section className="home-blog-section">
         <Blogs />
@@ -505,6 +502,9 @@ export default function Home({ schemaScript }: { schemaScript?: string }) {
           </Link>
         </div>
       </section>
+      {/* FAQ Section */}
+      <HomeFAQ />
+
 
 
       <section className="why-chooseus sec-padd3">
