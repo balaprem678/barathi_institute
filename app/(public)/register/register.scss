@@ -306,27 +306,7 @@
         }
     }
 
-    .default-sidebar {
-        background: #ffffff;
-        padding: 35px 30px;
-        border-radius: 20px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-
-        .section-title {
-            margin-bottom: 20px;
-
-            h3 {
-                font-size: 20px;
-                color: #2d3748;
-                margin-bottom: 10px;
-
-                &::after {
-                    width: 50px;
-                }
-            }
-        }
-    }
-
+ 
     .contact-info.reg {
         list-style: none;
         padding: 0;
@@ -395,9 +375,7 @@
             padding: 30px;
         }
 
-        .default-sidebar {
-            margin-top: 40px;
-        }
+       
     }
 }
 

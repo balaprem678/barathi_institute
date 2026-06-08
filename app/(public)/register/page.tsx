@@ -6,6 +6,7 @@ import './register.scss';
 import { useNotification } from '@/context/NotificationContext';
 import { useFormPersistence } from '@/context/useFormPersistence';
 import { useMemo, useRef } from 'react';
+import CourseSidebar from '../courses/CourseSidebar';
 
 export default function Register() {
     const { showNotification } = useNotification();
@@ -312,29 +313,7 @@ export default function Register() {
                             <br /><br />
                         </div>
                         <div className="col-md-4 col-sm-12">
-                            <div className="default-sidebar">
-                                <div className="section-title">
-                                    <h3> Hotel Management </h3>
-                                    <span className="decor"></span>
-                                </div><br />
-                                <ul className="contact-info reg">
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/diploma"> Diploma in Hotel Management</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Food and Beverage Production</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Food and Beverage Service</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">House Keeping Management</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Front Office Management</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Bakery and Confectionery</Link> </li>
-                                </ul>
-
-                                <div className="section-title">
-                                    <h3> Paramedical Course</h3>
-                                    <span className="decor"></span>
-                                </div><br />
-                                <ul className="contact-info reg">
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/paramedical">Health Care Assistant</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/paramedical">Medical Lab Technician</Link> </li>
-                                </ul>
-                            </div>
+                            <CourseSidebar/>    
                         </div>
                     </div>
                 </div>

@@ -4,9 +4,6 @@ import Link from 'next/link';
 import { Images } from '@/app/utilis/Images';
 import "../degree/degree.scss";
 
-
-
-
 export default function DiplomaCoursesPage() {
     return (
         <>

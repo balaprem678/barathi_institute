@@ -3,6 +3,7 @@ import PageBreadcrumb from '@/components/PageBreadcrumb';
 import Link from 'next/link';
 import { Images } from '@/app/utilis/Images';
 import './admission.scss';
+import CourseSidebar from '../courses/CourseSidebar';
 
 
 export default function Admission() {
@@ -42,7 +43,7 @@ export default function Admission() {
                                 <div className="text" style={{ textAlign: 'justify' }}>
                                     <ul className="list-style-5 p-0">
                                         <li>100% Job Guarantee Bond <a href="/images/bond.jpg" target="_blank"> View </a></li>
-                                        <li>Rs 8000 Worth Free Uniforms , Books and Practical Kits</li> // Corrected "Kids" to "Kits" if that was a typo in source, but keeping source fidelity or assuming "Practical Kits" is meant. PHP said "Practical Kids", I will correct it to "Kits" as it makes more sense, or "Kids" if it refers to something else? "Practical Kits" is standard.
+                                        <li>Rs 8000 Worth Free Uniforms , Books and Practical Kits</li> 
                                         <li>Get Scholarship for Garments / Widower and Farmers Based Families</li>
                                         <li>Bank Loan Arrangement</li>
                                         <li>Low Installment based Study Fees</li>
@@ -71,31 +72,7 @@ export default function Admission() {
                         </div>
 
                         <div className="col-md-3 col-sm-12 hotel_management">
-                            <div className="default-sidebar">
-                                <div className="section-title">
-                                    <h3>Hotel Management</h3>
-                                </div>
-                                &nbsp;
-
-                                <ul className="contact-info d-block p-0">
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/diploma"> Diploma in Hotel Management</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Food and Beverage Production</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Food and Beverage Service</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">House Keeping Management</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Front Office Management</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Bakery and Confectionery</Link> </li>
-                                </ul>
-
-                                <div className="section-title">
-                                    <h3>Paramedical Course</h3>
-                                </div>
-                                &nbsp;
-
-                                <ul className="contact-info d-block p-0">
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Diploma in Health Assistant</Link></li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/diploma">Medical Lab Technician</Link></li>
-                                </ul>
-                            </div>
+                            <CourseSidebar/>
                         </div>
                     </div>
                 </div>

@@ -8,6 +8,7 @@ import dbConnect from '@/lib/db';
 import Blog from '@/models/Blog';
 import '../blog.scss';
 import { Images } from '@/app/utilis/Images';
+import PopupModal from '@/components/PopupModal';
 
 interface PageProps {
     params: Promise<{ slug: string }>;
@@ -229,6 +230,8 @@ export default async function BlogDetail({ params }: PageProps) {
                     </aside>
                 </div>
             </div>
+
+              <PopupModal />
         </div>
     );
 }

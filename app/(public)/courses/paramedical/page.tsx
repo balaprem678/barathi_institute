@@ -1,102 +1,82 @@
-import { AccordionItem } from '@/components/AccordionItem';
+'use client';
+import { useState } from 'react';
 import Link from 'next/link';
-import React from 'react';
 import { Images } from '@/app/utilis/Images';
+import "../degree/degree.scss";
 
-
-export default function ParamedicalPage() {
+export default function DiplomaCoursesPage() {
     return (
         <>
+            <div className="degree_courses_page">
 
-            <section className="banner_section our_courses_banner">
-                <img src={Images.our_courses_banner.src} alt="Degree Courses Banner" />
-                <h1>Paramedical Course</h1>
-            </section>
+                {/* Banner */}
+                <section className="banner_section our_courses_banner">
+                    <img src={Images.our_courses_banner.src} alt="Para Medical Courses Banner" />
+                    <h1>Paramedical Courses</h1>
+                </section>
 
-            <section className="default-section faq sec-padd6">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-8 col-sm-12">
-                            <div className="section-title">
-                                <h3> Paramedical Course </h3>
-                                <span className="decor"></span>
+                <section className="courses_sec">
+                    <div className="container">
+
+                        {/* Course 1 */}
+                        <div className="course_card row align-items-center">
+                            <div className="col-lg-5 col-md-6 col-12 course_img">
+                                <img src={Images.degree_1.src} alt="Diploma in Hotel Management" />
                             </div>
-                            <br /><br />
-                            <div className="accordion-box style-one">
-                                <AccordionItem
-                                    title="Health Care Assistant"
-                                    isOpen={true}
-                                    content={
-                                        <>
-                                            <strong>Duration:</strong> 1 & 2 Years<br /><br />
-                                            <strong>Qualification:</strong> 10th & +2 Pass/Fail <br /><br />
-                                            <strong>Mode of Selection:</strong> Direct Admission by the BI<br /><br />
-                                        </>
-                                    }
-                                />
-                                <AccordionItem
-                                    title="Medical Lab Technician"
-                                    content={
-                                        <>
-                                            <strong>Duration:</strong> 1 & 2 Years<br /><br />
-                                            <strong>Qualification:</strong> 10th & +2 Pass/Fail<br /><br />
-                                            <strong>Mode of Selection:</strong> Direct Admission by the BI<br /><br />
-                                        </>
-                                    }
-                                />
-                                <AccordionItem
-                                    title="Health Assistant"
-                                    content={
-                                        <>
-                                            <strong>Duration:</strong> 1  Year<br /><br />
-                                            <strong>Qualification:</strong> 10th Pass/Fail<br /><br />
-                                            <strong>Mode of Selection:</strong> Direct Admission by the BI<br /><br />
-                                        </>
-                                    }
-                                />
-                            </div>
-                        </div>
 
-                        <div className="col-md-3 col-md-offset-1 col-sm-12">
-                            <div className="default-sidebar">
-                                <div className="section-title">
-                                    <h3> Hotel Management </h3>
-                                    <span className="decor"></span>
-                                </div><br />
-                                <ul className="contact-info d-block">
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/hotel-management"> Diploma in Hotel Management</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/hotel-management">Food and Beverage Production</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/hotel-management">Food and Beverage Service</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/hotel-management">House Keeping Management</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/hotel-management">Front Office Management</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/hotel-management">Bakery and Confectionery</Link> </li>
+                            <div className="col-lg-7 col-md-6 col-12 course_content">
+                                <h3>Health Care Assistant</h3>
+                                <p>
+                                    This program prepares students for careers in the healthcare industry
+                                    by providing practical training in patient care, medical procedures,
+                                    and administrative tasks.
+                                </p>
+
+                                <ul>
+                                    <li><strong>Duration:</strong> 1 – 2 Years</li>
+                                    <li><strong>Eligibility:</strong> 10th 12th Pass / Fail / Discontinued</li>
+                                    <li><strong>Training:</strong> Practical & Medical Exposure</li>
+                                    <li><strong>Career:</strong> Health Care Assistant, Medical Assistant, Nursing Assistant</li>
                                 </ul>
 
-                                <div className="section-title">
-                                    <h3>Our Locations</h3>
-                                    <span className="decor"></span>
-                                </div>
-                                <div className="testimonial-style2">
-                                    {/* Simplified locations for sidebar */}
-                                    <div className="testimonial-item">
-                                        <div className="content">
-                                            <p><strong>Tirunelveli</strong><br />No.171, Hindu Nadar Sangam Complex, S N High Road, Tirunelveli Junction<br />Mobile : +91 - 9443917155</p>
-                                        </div>
-                                    </div>
-                                    <div className="testimonial-item">
-                                        <div className="content">
-                                            <p><strong>Tambaram</strong><br />No.95, Rajaji Road, Near Vasan Eye Care Hospital<br />Mobile : +91 - 9444120052</p>
-                                        </div>
-                                    </div>
-                                    <div className="download-link">
-                                        <Link href="/contact" className="thm-btn">View All Locations</Link>
-                                    </div>
-                                </div>
+                                <Link href="/register" className="apply_btn">
+                                    Apply Now
+                                </Link>
                             </div>
                         </div>
+
+
+
+                        {/* Course 2 */}
+                        <div className="course_card row align-items-center ">
+                            <div className="col-lg-5 col-md-6 col-12 course_img">
+                                <img src={Images.diploma_2.src} alt="Diploma in Food and Beverage Production" />
+                            </div>
+
+                            <div className="col-lg-7 col-md-6 col-12 course_content">
+                                <h3>Medical Lab Technician</h3>
+                                <p>
+                                    This course focuses on professional cooking techniques, kitchen operations,
+                                    food safety, and culinary skills development with hands-on training.
+                                </p>
+
+                                <ul>
+                                    <li><strong>Duration:</strong> 1 – 2 Years</li>
+                                    <li><strong>Eligibility:</strong> 10th 12th Pass / Fail / Discontinued</li>
+                                    <li><strong>Training:</strong> Practical & Medical Exposure</li>
+                                    <li><strong>Career:</strong>Public Health Laboratories, Healthcare Organizations</li>
+                                </ul>
+
+                                <Link href="/register" className="apply_btn">
+                                    Apply Now
+                                </Link>
+                            </div>
+                        </div>
+
                     </div>
-                </div>
-            </section>
+                </section>
+
+            </div>
         </>
     );
 }

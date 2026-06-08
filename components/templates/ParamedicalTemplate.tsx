@@ -2,6 +2,7 @@ import PageBreadcrumb from '@/components/PageBreadcrumb';
 import { AccordionItem } from '@/components/AccordionItem';
 import Link from 'next/link';
 import React from 'react';
+import CourseSidebar from '@/app/(public)/courses/CourseSidebar';
 
 interface TemplateProps {
     city?: string;
@@ -57,41 +58,7 @@ export default function ParamedicalTemplate({ city }: TemplateProps) {
                         </div>
 
                         <div className="col-md-3 col-md-offset-1 col-sm-12">
-                            <div className="default-sidebar">
-                                <div className="section-title">
-                                    <h3> Hotel Management </h3>
-                                    <span className="decor"></span>
-                                </div><br />
-                                <ul className="contact-info d-block">
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/hotel-management"> Diploma in Hotel Management</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/hotel-management">Food and Beverage Production</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/hotel-management">Food and Beverage Service</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/hotel-management">House Keeping Management</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/hotel-management">Front Office Management</Link> </li>
-                                    <li><i className="fa fa-certificate"></i><Link href="/courses/hotel-management">Bakery and Confectionery</Link> </li>
-                                </ul>
-
-                                <div className="section-title">
-                                    <h3>Our Locations</h3>
-                                    <span className="decor"></span>
-                                </div>
-                                <div className="testimonial-style2">
-                                    {/* Simplified locations for sidebar */}
-                                    <div className="testimonial-item">
-                                        <div className="content">
-                                            <p><strong>Tirunelveli</strong><br />No.171, Hindu Nadar Sangam Complex, S N High Road, Tirunelveli Junction<br />Mobile : +91 - 9443917155</p>
-                                        </div>
-                                    </div>
-                                    <div className="testimonial-item">
-                                        <div className="content">
-                                            <p><strong>Tambaram</strong><br />No.95, Rajaji Road, Near Vasan Eye Care Hospital<br />Mobile : +91 - 9444120052</p>
-                                        </div>
-                                    </div>
-                                    <div className="download-link">
-                                        <Link href="/contact" className="thm-btn">View All Locations</Link>
-                                    </div>
-                                </div>
-                            </div>
+                           <CourseSidebar/>
                         </div>
                     </div>
                 </div>
